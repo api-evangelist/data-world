@@ -1,0 +1,2276 @@
+{
+  "title": "data.world API Vocabulary",
+  "description": "Terms, schemas, operations, and tags from the data.world Public API",
+  "terms": [
+    {
+      "term": "catalog relationships",
+      "type": "tag",
+      "description": "Manage relationships between catalog resources"
+    },
+    {
+      "term": "catalog resources",
+      "type": "tag",
+      "description": ""
+    },
+    {
+      "term": "connections",
+      "type": "tag",
+      "description": ""
+    },
+    {
+      "term": "data quality",
+      "type": "tag",
+      "description": "Manage data quality of metadata resources"
+    },
+    {
+      "term": "datasets",
+      "type": "tag",
+      "description": ""
+    },
+    {
+      "term": "DOIs",
+      "type": "tag",
+      "description": ""
+    },
+    {
+      "term": "experimental",
+      "type": "tag",
+      "description": "This API is in active development. Its definition may change frequently and without notice."
+    },
+    {
+      "term": "download",
+      "type": "tag",
+      "description": ""
+    },
+    {
+      "term": "files",
+      "type": "tag",
+      "description": ""
+    },
+    {
+      "term": "insights",
+      "type": "tag",
+      "description": ""
+    },
+    {
+      "term": "legacy catalog - analysis",
+      "type": "tag",
+      "description": ""
+    },
+    {
+      "term": "legacy catalog - collections",
+      "type": "tag",
+      "description": ""
+    },
+    {
+      "term": "legacy catalog - data",
+      "type": "tag",
+      "description": ""
+    },
+    {
+      "term": "legacy catalog - glossary",
+      "type": "tag",
+      "description": ""
+    },
+    {
+      "term": "legacy catalog - properties",
+      "type": "tag",
+      "description": ""
+    },
+    {
+      "term": "legacy catalog - relationships",
+      "type": "tag",
+      "description": ""
+    },
+    {
+      "term": "organizations",
+      "type": "tag",
+      "description": ""
+    },
+    {
+      "term": "projects",
+      "type": "tag",
+      "description": ""
+    },
+    {
+      "term": "queries",
+      "type": "tag",
+      "description": ""
+    },
+    {
+      "term": "requests - authorization",
+      "type": "tag",
+      "description": "Manage authorization requests"
+    },
+    {
+      "term": "requests - resource",
+      "type": "tag",
+      "description": "Manage resource requests"
+    },
+    {
+      "term": "search",
+      "type": "tag",
+      "description": ""
+    },
+    {
+      "term": "serviceaccount",
+      "type": "tag",
+      "description": ""
+    },
+    {
+      "term": "streams",
+      "type": "tag",
+      "description": ""
+    },
+    {
+      "term": "tables",
+      "type": "tag",
+      "description": ""
+    },
+    {
+      "term": "user",
+      "type": "tag",
+      "description": ""
+    },
+    {
+      "term": "users",
+      "type": "tag",
+      "description": ""
+    },
+    {
+      "term": "webhooks",
+      "type": "tag",
+      "description": ""
+    },
+    {
+      "term": "instance admin",
+      "type": "tag",
+      "description": ""
+    },
+    {
+      "term": "telemetry",
+      "type": "tag",
+      "description": ""
+    },
+    {
+      "term": "topics and comments - resource",
+      "type": "tag",
+      "description": ""
+    },
+    {
+      "term": "AcceptRequestDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "AddCustomIriPropertyContribution",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "AddCustomLiteralPropertyContribution",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "AddTagContribution",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "AddToCatalogContribution",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "AddUsesDataFromContribution",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "AddUsesDatasetContribution",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "AgentHydrationDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "AnalysisImage",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "AssetStatus",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "AuthRequestCreateDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "AuthRequestDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "AuthRequestRespondDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "AutomationTaskDetailsDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "BadgeDto",
+      "type": "schema",
+      "description": "Check definition"
+    },
+    {
+      "term": "BadgesDto",
+      "type": "schema",
+      "description": "Pairs of metadata resources and their data quality Badge"
+    },
+    {
+      "term": "BasicResource",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "BulkDeletePropertyRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "CatalogAnalysisHydrationDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "CatalogBusinessTermHydrationDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "CatalogColumnHydrationDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "CatalogColumnRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "CatalogConceptHydrationDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "CatalogDatabaseHydrationDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "CatalogHydrationDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "CatalogId",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "CatalogPropertyDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "CatalogRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "CatalogResourceBulkCreateRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "CatalogResourceBulkRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "CatalogResourceBulkResponse",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "CatalogResourceCreateRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "CatalogResourceGetResponse",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "CatalogResourceRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "CatalogResourceResponse",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "CatalogTableHydrationDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "CatalogTableRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "CatalogTableSuggestRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "CheckDto",
+      "type": "schema",
+      "description": "Check definition"
+    },
+    {
+      "term": "CheckRunDto",
+      "type": "schema",
+      "description": "Execution of a check against a metadata resource"
+    },
+    {
+      "term": "CheckRunsDto",
+      "type": "schema",
+      "description": "Executions of a check against a metadata resource"
+    },
+    {
+      "term": "ClearResourcePropertiesRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "ClearResourcesRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "CollectionHydrationDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "ConnectionDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "ContributionActivity",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "ContributionDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "ContributionHydratable",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "CreateAnalysisContribution",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "CreateBusinessTermContribution",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "CreateCatalogContribution",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "CreateCatalogResourceContribution",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "CreateDatasetContribution",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "CreateDatasetResponse",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "CreateExternalResourceContribution",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "CreateInsightResponse",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "CreateMissingDatasetAndLinkAnalysisContribution",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "CreateMissingDatasetAndLinkTableContribution",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "CreateOrUpdateUserRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "CreateProjectResponse",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "CreateQueryRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "CreateResponse",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "DataQualityAuditRecord",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "DataQualityAuditsDto",
+      "type": "schema",
+      "description": "Audits of the Data Quality"
+    },
+    {
+      "term": "Database",
+      "type": "schema",
+      "description": "A database"
+    },
+    {
+      "term": "DatabaseColumn",
+      "type": "schema",
+      "description": "A column in a database table"
+    },
+    {
+      "term": "DatabaseCredentials",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "DatabaseDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "DatabaseMetadataSpecDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "DatabaseResource",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "DatabaseSourceReference",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "DatabaseTable",
+      "type": "schema",
+      "description": "A table in a database"
+    },
+    {
+      "term": "DatasetCreateRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "DatasetHydrationDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "DatasetIdentifier",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "DatasetIdentifierRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "DatasetPatchRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "DatasetPutRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "DatasetStatistics",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "DatasetSummaryResponse",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "DeleteCheckDto",
+      "type": "schema",
+      "description": "A data quality check to delete"
+    },
+    {
+      "term": "DeleteChecksDto",
+      "type": "schema",
+      "description": "A list of data quality checks to delete"
+    },
+    {
+      "term": "Doi",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "DwccSpecDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "EmojiIcon",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "EntryType",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "ErrorMessage",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "FileBatchUpdateRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "FileCreateOrUpdateRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "FileCreateRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "FileMetadataResponse",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "FileMetadataUpdateRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "FileSourceCreateOrUpdateRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "FileSourceCreateRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "FileSourceSummaryResponse",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "FileSummaryResponse",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "GroupHydrationDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "HostedImage",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "IRIResource",
+      "type": "schema",
+      "description": "A metadata resource represented by an IRI"
+    },
+    {
+      "term": "Icon",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "Image",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "ImageIcon",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "InsightBody",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "InsightCreateRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "InsightHydrationDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "InsightPatchRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "InsightPutRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "InsightSummaryResponse",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "JsonNode",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "LinkedDatasetCreateOrUpdateRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "LinkedDatasetSummaryResponse",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "MetadataRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "MetadataResourceDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "MetadataResourceDtoV2",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "MetadataSuggestRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "OauthTokenReference",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "OrgDetailsResponse",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "OrgScopedSearchRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "OrgScopedSearchedResourceDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "OrganizationDataResponse",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "PaginatedConnectionResults",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "PaginatedDatabaseResults",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "PaginatedDatasetResults",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "PaginatedGenericResultsMetadataResourceDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "PaginatedGenericResultsMetadataResourceDtoV2",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "PaginatedGenericResultsOrgScopedSearchedResourceDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "PaginatedGenericResultsPublicCommentDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "PaginatedGenericResultsPublicResourceRequestDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "PaginatedGenericResultsPublicTopicDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "PaginatedGenericResultsSearchedResourceDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "PaginatedInsightResults",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "PaginatedOrganizationResults",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "PaginatedProjectResults",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "PaginatedQueryResults",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "PaginatedResultsDtoAuthRequestDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "PaginatedSearchResultsDtoMetadataResourceDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "PaginatedServiceAccountDetails",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "PaginatedSubscriptionResults",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "PingStatusDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "ProjectCreateRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "ProjectPatchRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "ProjectPutRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "ProjectSummaryResponse",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "PropertyHydrationDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "ProvidedImage",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "PubSearchHydrations",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "PublicAnalysisResource",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "PublicCollectionResource",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "PublicColumnResource",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "PublicCommentDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "PublicDatabaseResource",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "PublicDatasetInsightResource",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "PublicDatasetResource",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "PublicGlossaryResource",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "PublicGroupParty",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "PublicMetadataResource",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "PublicParty",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "PublicResource",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "PublicResourceRequestDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "PublicTableResource",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "PublicTopicDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "PublicUserParty",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "QueryExecutionDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "QueryParameter",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "QueryPutRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "QuerySummaryResponse",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "Range",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "RdfTerm",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "ReferenceBusinessTermContribution",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "RejectRequestDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "RelationshipCreateOrDeleteRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "RelationshipCreateOrDeleteRequestByIri",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "RelationshipGetRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "RelationshipGetRequestById",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "RelationshipGetRequestByIri",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "RelationshipHydrationDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "RemoveCustomIriPropertyContribution",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "RemoveCustomLiteralPropertyContribution",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "RemoveFromCatalogContribution",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "RemoveTagContribution",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "RemoveUsesDataFromContribution",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "RemoveUsesDatasetContribution",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "ResourceDetails",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "ResourceHierarchyDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "ResourceRelationshipDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "SavedQueryExecutionRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "SearchFacetResult",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "SearchHydrations",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "SearchRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "SearchedResourceDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "ServiceAccountCreateRequestDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "ServiceAccountCreateResponseDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "ServiceAccountDetailsDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "ServiceAccountRefreshTokenRequestDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "ServiceAccountUpdateDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "SetAssetStatusContribution",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "SetCustomIriPropertyContribution",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "SetCustomLiteralPropertyContribution",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "SetCustomStringPropertyContribution",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "SetDescriptionContribution",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "SetLicenseContribution",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "SetNameContribution",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "SetSummaryContribution",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "SimpleDataset",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "SimpleResource",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "SimpleSearchRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "SingleTableMetadataSpecDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "SourceId",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "SparqlQueryRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "SqlQueryRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "SshTunnel",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "StreamSchema",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "StreamSchemaPatchRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "StringOrArray",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "Subscription",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "SubscriptionApiLinks",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "SubscriptionCreateRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "SubscriptionLinks",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "SubscriptionResponse",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "SuccessMessage",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "SuccessMessageDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "SvgIcon",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "TableBatchUpdateRequest",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "TableId",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "TableMetadataSpecDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "TaskFetchDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "TransferAssetDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "TypeDetails",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "UnknownCatalogEntryHydrationDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "UnreferenceBusinessTermContribution",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "UserAssignment",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "UserDataResponse",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "UserIdentifier",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "ViewRequestDto",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "WebAuthorization",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "WebCredentials",
+      "type": "schema",
+      "description": ""
+    },
+    {
+      "term": "cancel",
+      "type": "operation",
+      "description": "Cancel a query"
+    },
+    {
+      "term": "testConnection",
+      "type": "operation",
+      "description": "Test a connection"
+    },
+    {
+      "term": "getConnectionsByOwner",
+      "type": "operation",
+      "description": "Get connections by owner"
+    },
+    {
+      "term": "createConnection",
+      "type": "operation",
+      "description": "Create a new connection"
+    },
+    {
+      "term": "deleteConnection",
+      "type": "operation",
+      "description": "Delete a Connection"
+    },
+    {
+      "term": "getConnection",
+      "type": "operation",
+      "description": "Get an individual connection"
+    },
+    {
+      "term": "getAudits",
+      "type": "operation",
+      "description": "Show data quality audits"
+    },
+    {
+      "term": "addBadges",
+      "type": "operation",
+      "description": "Add Badges"
+    },
+    {
+      "term": "addCheckRuns",
+      "type": "operation",
+      "description": "Add Check Runs"
+    },
+    {
+      "term": "deleteChecks",
+      "type": "operation",
+      "description": "Delete data quality checks"
+    },
+    {
+      "term": "getDatasetsByOwner",
+      "type": "operation",
+      "description": "List datasets for a specified owner"
+    },
+    {
+      "term": "createDataset",
+      "type": "operation",
+      "description": "Create a dataset"
+    },
+    {
+      "term": "deleteDataset",
+      "type": "operation",
+      "description": "Delete a dataset"
+    },
+    {
+      "term": "getDataset",
+      "type": "operation",
+      "description": "Retrieve a dataset"
+    },
+    {
+      "term": "patchDataset",
+      "type": "operation",
+      "description": "Update a dataset"
+    },
+    {
+      "term": "replaceDataset",
+      "type": "operation",
+      "description": "Create / Replace a dataset"
+    },
+    {
+      "term": "deleteDoi",
+      "type": "operation",
+      "description": "Delete dataset DOI"
+    },
+    {
+      "term": "addDoi",
+      "type": "operation",
+      "description": "Create dataset DOI"
+    },
+    {
+      "term": "deleteFilesAndSyncSources",
+      "type": "operation",
+      "description": "Delete files"
+    },
+    {
+      "term": "addFilesBySource",
+      "type": "operation",
+      "description": "Add files from URLs"
+    },
+    {
+      "term": "deleteFileAndSyncSource",
+      "type": "operation",
+      "description": "Delete a file"
+    },
+    {
+      "term": "getFileMetadata",
+      "type": "operation",
+      "description": "Get file description and labels"
+    },
+    {
+      "term": "patchFileMetadata",
+      "type": "operation",
+      "description": "Update file description and labels"
+    },
+    {
+      "term": "putFileMetadata",
+      "type": "operation",
+      "description": "Replace file description and labels"
+    },
+    {
+      "term": "getPublishedDatasetQueries",
+      "type": "operation",
+      "description": "List published queries"
+    },
+    {
+      "term": "createSavedQuery",
+      "type": "operation",
+      "description": "Create a saved query in a specified dataset"
+    },
+    {
+      "term": "deleteSavedQuery",
+      "type": "operation",
+      "description": "Delete a saved query in a specified dataset"
+    },
+    {
+      "term": "updateSavedQuery",
+      "type": "operation",
+      "description": "Update a saved query in a specified dataset"
+    },
+    {
+      "term": "syncViaGet",
+      "type": "operation",
+      "description": "Sync files (via GET)"
+    },
+    {
+      "term": "sync",
+      "type": "operation",
+      "description": "Sync files"
+    },
+    {
+      "term": "syncFileViaGet",
+      "type": "operation",
+      "description": "Fetch latest file from source and update dataset \u2014 via GET, for convenience."
+    },
+    {
+      "term": "syncFile",
+      "type": "operation",
+      "description": "Fetch latest file from source and update dataset."
+    },
+    {
+      "term": "addTables",
+      "type": "operation",
+      "description": "Add live tables from a virtual connection"
+    },
+    {
+      "term": "getUserSavedDatasetQueries",
+      "type": "operation",
+      "description": "List user saved queries"
+    },
+    {
+      "term": "getDatasetByVersion",
+      "type": "operation",
+      "description": "Retrieve a dataset version"
+    },
+    {
+      "term": "deleteVersionDoi",
+      "type": "operation",
+      "description": "Delete dataset version DOI"
+    },
+    {
+      "term": "addVersionDoi",
+      "type": "operation",
+      "description": "Create dataset version DOI"
+    },
+    {
+      "term": "downloadDataset",
+      "type": "operation",
+      "description": "Download a dataset"
+    },
+    {
+      "term": "downloadFile",
+      "type": "operation",
+      "description": "Download a file"
+    },
+    {
+      "term": "getInsightsForProject",
+      "type": "operation",
+      "description": "List insights"
+    },
+    {
+      "term": "createInsight",
+      "type": "operation",
+      "description": "Create an insight"
+    },
+    {
+      "term": "deleteInsight",
+      "type": "operation",
+      "description": "Delete an insight"
+    },
+    {
+      "term": "getInsight",
+      "type": "operation",
+      "description": "Retrieve an insight"
+    },
+    {
+      "term": "updateInsight",
+      "type": "operation",
+      "description": "Update an insight"
+    },
+    {
+      "term": "replaceInsight",
+      "type": "operation",
+      "description": "Replace an insight"
+    },
+    {
+      "term": "getInsightByVersion",
+      "type": "operation",
+      "description": "Retrieve an insight version"
+    },
+    {
+      "term": "createOrUpdateAgent",
+      "type": "operation",
+      "description": "Create a new user or update existing one"
+    },
+    {
+      "term": "deactivateAgent",
+      "type": "operation",
+      "description": "Deactivate specified agent"
+    },
+    {
+      "term": "activateAgent",
+      "type": "operation",
+      "description": "Reactivate specified agent"
+    },
+    {
+      "term": "suggestCatalogAnalysis",
+      "type": "operation",
+      "description": "suggest for an existing analysis"
+    },
+    {
+      "term": "getCatalogAnalysesByOwner",
+      "type": "operation",
+      "description": "Gets metadata analysis by owner."
+    },
+    {
+      "term": "createCatalogAnalysis",
+      "type": "operation",
+      "description": "Create a new analysis metadata."
+    },
+    {
+      "term": "deleteCatalogAnalysis",
+      "type": "operation",
+      "description": "Delete an Analysis."
+    },
+    {
+      "term": "getCatalogAnalysis",
+      "type": "operation",
+      "description": "Get an individual metadata analysis"
+    },
+    {
+      "term": "patchCatalogAnalysis",
+      "type": "operation",
+      "description": "Update an existing analysis."
+    },
+    {
+      "term": "replaceCatalogAnalysis",
+      "type": "operation",
+      "description": "Replace an existing analysis"
+    },
+    {
+      "term": "getCatalogs",
+      "type": "operation",
+      "description": "Gets collections owned by specified owner"
+    },
+    {
+      "term": "createCatalog",
+      "type": "operation",
+      "description": "Creates a new collection"
+    },
+    {
+      "term": "deleteCatalog",
+      "type": "operation",
+      "description": "Deletes a collection"
+    },
+    {
+      "term": "getCatalog",
+      "type": "operation",
+      "description": "Gets a collection by ID"
+    },
+    {
+      "term": "updateCatalog",
+      "type": "operation",
+      "description": "Updates a collection"
+    },
+    {
+      "term": "replaceCatalog",
+      "type": "operation",
+      "description": "Replaces a collection"
+    },
+    {
+      "term": "suggestCatalogTable",
+      "type": "operation",
+      "description": "suggest for an existing table."
+    },
+    {
+      "term": "getDatabases",
+      "type": "operation",
+      "description": "Gets datasources by owner."
+    },
+    {
+      "term": "getDatabase",
+      "type": "operation",
+      "description": "Get an individual datasource metadata"
+    },
+    {
+      "term": "getTables",
+      "type": "operation",
+      "description": "Get tables for a data source"
+    },
+    {
+      "term": "createCatalogTable",
+      "type": "operation",
+      "description": "Create a new table metadata."
+    },
+    {
+      "term": "patchCatalogTableByIri",
+      "type": "operation",
+      "description": "Update an existing table identified by IRI."
+    },
+    {
+      "term": "deleteCatalogTable",
+      "type": "operation",
+      "description": "Delete a table."
+    },
+    {
+      "term": "getTable",
+      "type": "operation",
+      "description": "Get an individual table metadata"
+    },
+    {
+      "term": "patchCatalogTable",
+      "type": "operation",
+      "description": "Update an existing table."
+    },
+    {
+      "term": "replaceCatalogTable",
+      "type": "operation",
+      "description": "Replace an existing table"
+    },
+    {
+      "term": "getTableColumns",
+      "type": "operation",
+      "description": "Get columns for a given table"
+    },
+    {
+      "term": "createCatalogColumn",
+      "type": "operation",
+      "description": "Create a Column."
+    },
+    {
+      "term": "deleteCatalogColumn",
+      "type": "operation",
+      "description": "Delete a Column."
+    },
+    {
+      "term": "getTableColumn",
+      "type": "operation",
+      "description": "Get an individual column metadata"
+    },
+    {
+      "term": "patchCatalogColumn",
+      "type": "operation",
+      "description": "Update an existing Column."
+    },
+    {
+      "term": "replaceCatalogColumn",
+      "type": "operation",
+      "description": "Replace an existing column"
+    },
+    {
+      "term": "suggestCatalogGlossary",
+      "type": "operation",
+      "description": "suggest for an existing glossary."
+    },
+    {
+      "term": "getCatalogGlossariesByOwner",
+      "type": "operation",
+      "description": "Gets metadata glossary by owner."
+    },
+    {
+      "term": "createCatalogGlossary",
+      "type": "operation",
+      "description": "Create a new glossary metadata."
+    },
+    {
+      "term": "deleteCatalogGlossary",
+      "type": "operation",
+      "description": "Delete a Glossary."
+    },
+    {
+      "term": "getCatalogGlossary",
+      "type": "operation",
+      "description": "Get an individual metadata glossary"
+    },
+    {
+      "term": "patchCatalogGlossary",
+      "type": "operation",
+      "description": "Update an existing glossary."
+    },
+    {
+      "term": "replaceCatalogGlossary",
+      "type": "operation",
+      "description": "Replace an existing glossary"
+    },
+    {
+      "term": "createRelationship",
+      "type": "operation",
+      "description": "Legacy - Creates a relationship between two catalog resources"
+    },
+    {
+      "term": "deleteRelationship",
+      "type": "operation",
+      "description": "Legacy - Deletes a relationship between two catalog resources"
+    },
+    {
+      "term": "getRelationshipsByIri",
+      "type": "operation",
+      "description": "Get resources that are related to a resource identified by IRI"
+    },
+    {
+      "term": "createRelationshipByIri",
+      "type": "operation",
+      "description": "Creates a relationship between two catalog resources identified by IRI"
+    },
+    {
+      "term": "deleteRelationshipByIri",
+      "type": "operation",
+      "description": "Deletes a relationship between two catalog resources identified by IRI"
+    },
+    {
+      "term": "getRelationships",
+      "type": "operation",
+      "description": "Legacy - Get resources that are related to a resource"
+    },
+    {
+      "term": "getTableRelationships",
+      "type": "operation",
+      "description": "Legacy - Get resources that are related to a table"
+    },
+    {
+      "term": "bulkDeleteProperty",
+      "type": "operation",
+      "description": "Bulk: delete properties from resources"
+    },
+    {
+      "term": "bulkUpdate",
+      "type": "operation",
+      "description": "Bulk: update multiple resources at once"
+    },
+    {
+      "term": "bulkCreate",
+      "type": "operation",
+      "description": "Bulk: create multiple resources at once"
+    },
+    {
+      "term": "deleteProperty",
+      "type": "operation",
+      "description": "Delete properties from a resource"
+    },
+    {
+      "term": "searchResources",
+      "type": "operation",
+      "description": "Search for resources"
+    },
+    {
+      "term": "delete",
+      "type": "operation",
+      "description": "Delete a resource"
+    },
+    {
+      "term": "getResourceByIRI",
+      "type": "operation",
+      "description": "Get a resource"
+    },
+    {
+      "term": "update",
+      "type": "operation",
+      "description": "Update a resource"
+    },
+    {
+      "term": "create",
+      "type": "operation",
+      "description": "Create a new resource"
+    },
+    {
+      "term": "clearMetadataResource",
+      "type": "operation",
+      "description": "Clear all user edits from a resource"
+    },
+    {
+      "term": "clearMetadataResourceProperties",
+      "type": "operation",
+      "description": "Clear all user edits on specified properties from a resource"
+    },
+    {
+      "term": "authorizeOrgAccess",
+      "type": "operation",
+      "description": "Authorize a Team to access an organization"
+    },
+    {
+      "term": "getOrganizationDetails",
+      "type": "operation",
+      "description": "Get organization details"
+    },
+    {
+      "term": "getProjectsByOwner",
+      "type": "operation",
+      "description": "List projects for a specified owner"
+    },
+    {
+      "term": "createProject",
+      "type": "operation",
+      "description": "Create a data project"
+    },
+    {
+      "term": "deleteProject",
+      "type": "operation",
+      "description": "Delete a data project"
+    },
+    {
+      "term": "getProject",
+      "type": "operation",
+      "description": "Retrieve a data project"
+    },
+    {
+      "term": "patchProject",
+      "type": "operation",
+      "description": "Update a data project"
+    },
+    {
+      "term": "replaceProject",
+      "type": "operation",
+      "description": "Create / Replace a data project"
+    },
+    {
+      "term": "removeLinkedDataset",
+      "type": "operation",
+      "description": "Unlink dataset"
+    },
+    {
+      "term": "addLinkedDataset",
+      "type": "operation",
+      "description": "Link dataset"
+    },
+    {
+      "term": "getProjectQueries",
+      "type": "operation",
+      "description": "List published queries"
+    },
+    {
+      "term": "createSavedQuery_1",
+      "type": "operation",
+      "description": "Create a saved query"
+    },
+    {
+      "term": "deleteSavedQuery_1",
+      "type": "operation",
+      "description": "Delete a saved query"
+    },
+    {
+      "term": "updateSavedQuery_1",
+      "type": "operation",
+      "description": "Update a saved query"
+    },
+    {
+      "term": "getUserSavedProjectQueries",
+      "type": "operation",
+      "description": "List saved queries"
+    },
+    {
+      "term": "getProjectByVersion",
+      "type": "operation",
+      "description": "Retrieve a data project version"
+    },
+    {
+      "term": "getPropertiesByOwner",
+      "type": "operation",
+      "description": "Get supported metadata properties by owner"
+    },
+    {
+      "term": "getQuery",
+      "type": "operation",
+      "description": "Retrieve a saved query"
+    },
+    {
+      "term": "executeQuery",
+      "type": "operation",
+      "description": "Execute a saved query"
+    },
+    {
+      "term": "executeQueryWithPost",
+      "type": "operation",
+      "description": "Execute a saved query (with parameters)"
+    },
+    {
+      "term": "getQueryVersion",
+      "type": "operation",
+      "description": "Retrieve a saved query version"
+    },
+    {
+      "term": "acceptRequest_1",
+      "type": "operation",
+      "description": "Accept a resource request"
+    },
+    {
+      "term": "createAuthRequest",
+      "type": "operation",
+      "description": "Create an authorization request"
+    },
+    {
+      "term": "acceptRequest",
+      "type": "operation",
+      "description": "Accept an authorization request"
+    },
+    {
+      "term": "getForApprover",
+      "type": "operation",
+      "description": "Get authorization requests that can be approved/rejected"
+    },
+    {
+      "term": "deleteRequest",
+      "type": "operation",
+      "description": "Delete an authorization request"
+    },
+    {
+      "term": "rejectRequest",
+      "type": "operation",
+      "description": "Reject an authorization request"
+    },
+    {
+      "term": "getRequests",
+      "type": "operation",
+      "description": "Get all resource requests in an organization"
+    },
+    {
+      "term": "rejectRequest_1",
+      "type": "operation",
+      "description": "Reject a resource request"
+    },
+    {
+      "term": "createResourceRequest",
+      "type": "operation",
+      "description": "Create a resource request"
+    },
+    {
+      "term": "deleteRequest_1",
+      "type": "operation",
+      "description": "Delete a resource request"
+    },
+    {
+      "term": "getRequest",
+      "type": "operation",
+      "description": "Get a resource request"
+    },
+    {
+      "term": "searchResources_1",
+      "type": "operation",
+      "description": "Advanced search on resources"
+    },
+    {
+      "term": "simpleSearchResources",
+      "type": "operation",
+      "description": "Simple search on resources"
+    },
+    {
+      "term": "getServiceAccounts",
+      "type": "operation",
+      "description": "Gets all service accounts by owner."
+    },
+    {
+      "term": "createServiceAccount",
+      "type": "operation",
+      "description": "Create a new service account."
+    },
+    {
+      "term": "deleteServiceAccount",
+      "type": "operation",
+      "description": "Delete service account"
+    },
+    {
+      "term": "updateServiceAccount",
+      "type": "operation",
+      "description": "Update service account"
+    },
+    {
+      "term": "refreshServiceAccountToken",
+      "type": "operation",
+      "description": "Refresh service account token"
+    },
+    {
+      "term": "queryViaGetWithDefaultGraph",
+      "type": "operation",
+      "description": "Execute SPARQL query via GET with the default graph"
+    },
+    {
+      "term": "queryWithJsonRequestWithDefaultGraph",
+      "type": "operation",
+      "description": "Execute SPARQL query via POST with the default graph"
+    },
+    {
+      "term": "queryViaGet",
+      "type": "operation",
+      "description": "Execute SPARQL query via GET"
+    },
+    {
+      "term": "queryWithJsonRequest",
+      "type": "operation",
+      "description": "Execute SPARQL query via POST"
+    },
+    {
+      "term": "sqlGet",
+      "type": "operation",
+      "description": "SQL query (via GET)"
+    },
+    {
+      "term": "sqlPostWithJsonRequest",
+      "type": "operation",
+      "description": "SQL query"
+    },
+    {
+      "term": "sqlDescribe",
+      "type": "operation",
+      "description": "Describe a SQL query"
+    },
+    {
+      "term": "appendRecords",
+      "type": "operation",
+      "description": "Append record(s)"
+    },
+    {
+      "term": "deleteRecords",
+      "type": "operation",
+      "description": "Delete all records"
+    },
+    {
+      "term": "getStreamSchema",
+      "type": "operation",
+      "description": "Retrieve stream schema"
+    },
+    {
+      "term": "patchStreamSchema",
+      "type": "operation",
+      "description": "Set / Update stream schema"
+    },
+    {
+      "term": "governanceBilling",
+      "type": "operation",
+      "description": "Get governance billing query result"
+    },
+    {
+      "term": "createTopic",
+      "type": "operation",
+      "description": "Create a new topic"
+    },
+    {
+      "term": "getRecentComments",
+      "type": "operation",
+      "description": "Get recently updated comments"
+    },
+    {
+      "term": "getHotTopics",
+      "type": "operation",
+      "description": "Get active topics"
+    },
+    {
+      "term": "getTopicsByResource",
+      "type": "operation",
+      "description": "Get topics for an owner and optional resource"
+    },
+    {
+      "term": "deleteTopic",
+      "type": "operation",
+      "description": "Delete an existing topic"
+    },
+    {
+      "term": "getTopic",
+      "type": "operation",
+      "description": "Get a topic"
+    },
+    {
+      "term": "updateTopic",
+      "type": "operation",
+      "description": "Update an existing topic"
+    },
+    {
+      "term": "getCommentsByTopic",
+      "type": "operation",
+      "description": "Get comments for a topic"
+    },
+    {
+      "term": "createComment",
+      "type": "operation",
+      "description": "Create a comment"
+    },
+    {
+      "term": "deleteComment",
+      "type": "operation",
+      "description": "Delete an existing comment"
+    },
+    {
+      "term": "getComment",
+      "type": "operation",
+      "description": "Get a comment"
+    },
+    {
+      "term": "updateComment",
+      "type": "operation",
+      "description": "Update an existing comment"
+    },
+    {
+      "term": "uploadFiles",
+      "type": "operation",
+      "description": "Upload files"
+    },
+    {
+      "term": "uploadFile",
+      "type": "operation",
+      "description": "Upload a file"
+    },
+    {
+      "term": "getUserData",
+      "type": "operation",
+      "description": "Retrieve user data"
+    },
+    {
+      "term": "fetchContributingDatasets",
+      "type": "operation",
+      "description": "List datasets as contributor"
+    },
+    {
+      "term": "fetchLikedDatasets",
+      "type": "operation",
+      "description": "List liked (bookmarked) datasets"
+    },
+    {
+      "term": "fetchDatasets",
+      "type": "operation",
+      "description": "List datasets as owner"
+    },
+    {
+      "term": "fetchOrganizations",
+      "type": "operation",
+      "description": "List organization memberships"
+    },
+    {
+      "term": "fetchContributingProjects",
+      "type": "operation",
+      "description": "List projects as contributor"
+    },
+    {
+      "term": "fetchLikedProjects",
+      "type": "operation",
+      "description": "List liked (bookmarked) projects"
+    },
+    {
+      "term": "fetchProjects",
+      "type": "operation",
+      "description": "List projects owned"
+    },
+    {
+      "term": "getWebhooks",
+      "type": "operation",
+      "description": "List subscriptions"
+    },
+    {
+      "term": "unsubscribeFromDataset",
+      "type": "operation",
+      "description": "Unsubscribe from dataset"
+    },
+    {
+      "term": "getForDataset",
+      "type": "operation",
+      "description": "Retrieve dataset subscription"
+    },
+    {
+      "term": "subscribeToDataset",
+      "type": "operation",
+      "description": "Subscribe to dataset"
+    },
+    {
+      "term": "unsubscribeFromProject",
+      "type": "operation",
+      "description": "Unsubscribe from data project"
+    },
+    {
+      "term": "getForProject",
+      "type": "operation",
+      "description": "Retrieve data project subscription"
+    },
+    {
+      "term": "subscribeToProject",
+      "type": "operation",
+      "description": "Subscribe to data project"
+    },
+    {
+      "term": "unsubscribeFromUser",
+      "type": "operation",
+      "description": "Unsubscribe from account"
+    },
+    {
+      "term": "getForUser",
+      "type": "operation",
+      "description": "Retrieve account subscription"
+    },
+    {
+      "term": "subscribeToUser",
+      "type": "operation",
+      "description": "Subscribe to account"
+    },
+    {
+      "term": "getAccount",
+      "type": "operation",
+      "description": "Retrieve a user's profile"
+    }
+  ]
+}

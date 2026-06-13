@@ -39,7 +39,7 @@ apis:
       - type: Reference
         url: https://developer.data.world/reference
       - type: OpenAPI
-        url: https://developer.data.world/llms.txt
+        url: https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/openapi/openapi.json
       - type: Authentication
         url: https://developer.data.world/docs/api-getting-started
       - type: SDKs

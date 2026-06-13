@@ -1,0 +1,237 @@
+{
+  "@context": {
+    "@vocab": "https://api.data.world/v0/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "dw": "https://api.data.world/v0/",
+    "Dataset": {
+      "@id": "dcat:Dataset"
+    },
+    "Project": {
+      "@id": "schema:Project"
+    },
+    "Query": {
+      "@id": "dw:Query"
+    },
+    "Insight": {
+      "@id": "dw:Insight"
+    },
+    "Webhook": {
+      "@id": "dw:Webhook"
+    },
+    "Connection": {
+      "@id": "dw:Connection"
+    },
+    "owner": {
+      "@id": "dcterms:creator"
+    },
+    "title": {
+      "@id": "dcterms:title"
+    },
+    "description": {
+      "@id": "dcterms:description"
+    },
+    "created": {
+      "@id": "dcterms:created",
+      "@type": "xsd:dateTime"
+    },
+    "updated": {
+      "@id": "dcterms:modified",
+      "@type": "xsd:dateTime"
+    },
+    "tags": {
+      "@id": "dcat:keyword",
+      "@container": "@set"
+    },
+    "license": {
+      "@id": "dcterms:license"
+    },
+    "visibility": {
+      "@id": "dcterms:accessRights"
+    },
+    "files": {
+      "@id": "dcat:distribution",
+      "@container": "@set"
+    },
+    "accessLevel": {
+      "@id": "dcterms:accessRights"
+    },
+    "iri": {
+      "@id": "@id"
+    }
+  },
+  "@type": "schema:WebAPI",
+  "@id": "https://api.data.world/v0",
+  "schema:name": "data.world Public API",
+  "schema:description": "data.world Public API",
+  "schema:version": "0",
+  "schema:termsOfService": "https://data.world/terms-policies",
+  "schema:contactPoint": {
+    "@type": "schema:ContactPoint",
+    "schema:url": "https://data.world/company/contact-us"
+  },
+  "schema:documentation": "https://developer.data.world/docs/api-overview",
+  "dcat:endpointURL": "https://api.data.world/v0",
+  "schema:hasPart": [
+    {
+      "@type": "schema:WebAPI",
+      "schema:name": "catalog relationships",
+      "schema:description": "Manage relationships between catalog resources"
+    },
+    {
+      "@type": "schema:WebAPI",
+      "schema:name": "catalog resources",
+      "schema:description": ""
+    },
+    {
+      "@type": "schema:WebAPI",
+      "schema:name": "connections",
+      "schema:description": ""
+    },
+    {
+      "@type": "schema:WebAPI",
+      "schema:name": "data quality",
+      "schema:description": "Manage data quality of metadata resources"
+    },
+    {
+      "@type": "schema:WebAPI",
+      "schema:name": "datasets",
+      "schema:description": ""
+    },
+    {
+      "@type": "schema:WebAPI",
+      "schema:name": "DOIs",
+      "schema:description": ""
+    },
+    {
+      "@type": "schema:WebAPI",
+      "schema:name": "experimental",
+      "schema:description": "This API is in active development. Its definition may change frequently and without notice."
+    },
+    {
+      "@type": "schema:WebAPI",
+      "schema:name": "download",
+      "schema:description": ""
+    },
+    {
+      "@type": "schema:WebAPI",
+      "schema:name": "files",
+      "schema:description": ""
+    },
+    {
+      "@type": "schema:WebAPI",
+      "schema:name": "insights",
+      "schema:description": ""
+    },
+    {
+      "@type": "schema:WebAPI",
+      "schema:name": "legacy catalog - analysis",
+      "schema:description": ""
+    },
+    {
+      "@type": "schema:WebAPI",
+      "schema:name": "legacy catalog - collections",
+      "schema:description": ""
+    },
+    {
+      "@type": "schema:WebAPI",
+      "schema:name": "legacy catalog - data",
+      "schema:description": ""
+    },
+    {
+      "@type": "schema:WebAPI",
+      "schema:name": "legacy catalog - glossary",
+      "schema:description": ""
+    },
+    {
+      "@type": "schema:WebAPI",
+      "schema:name": "legacy catalog - properties",
+      "schema:description": ""
+    },
+    {
+      "@type": "schema:WebAPI",
+      "schema:name": "legacy catalog - relationships",
+      "schema:description": ""
+    },
+    {
+      "@type": "schema:WebAPI",
+      "schema:name": "organizations",
+      "schema:description": ""
+    },
+    {
+      "@type": "schema:WebAPI",
+      "schema:name": "projects",
+      "schema:description": ""
+    },
+    {
+      "@type": "schema:WebAPI",
+      "schema:name": "queries",
+      "schema:description": ""
+    },
+    {
+      "@type": "schema:WebAPI",
+      "schema:name": "requests - authorization",
+      "schema:description": "Manage authorization requests"
+    },
+    {
+      "@type": "schema:WebAPI",
+      "schema:name": "requests - resource",
+      "schema:description": "Manage resource requests"
+    },
+    {
+      "@type": "schema:WebAPI",
+      "schema:name": "search",
+      "schema:description": ""
+    },
+    {
+      "@type": "schema:WebAPI",
+      "schema:name": "serviceaccount",
+      "schema:description": ""
+    },
+    {
+      "@type": "schema:WebAPI",
+      "schema:name": "streams",
+      "schema:description": ""
+    },
+    {
+      "@type": "schema:WebAPI",
+      "schema:name": "tables",
+      "schema:description": ""
+    },
+    {
+      "@type": "schema:WebAPI",
+      "schema:name": "user",
+      "schema:description": ""
+    },
+    {
+      "@type": "schema:WebAPI",
+      "schema:name": "users",
+      "schema:description": ""
+    },
+    {
+      "@type": "schema:WebAPI",
+      "schema:name": "webhooks",
+      "schema:description": ""
+    },
+    {
+      "@type": "schema:WebAPI",
+      "schema:name": "instance admin",
+      "schema:description": ""
+    },
+    {
+      "@type": "schema:WebAPI",
+      "schema:name": "telemetry",
+      "schema:description": ""
+    },
+    {
+      "@type": "schema:WebAPI",
+      "schema:name": "topics and comments - resource",
+      "schema:description": ""
+    }
+  ]
+}
