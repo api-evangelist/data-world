@@ -1,0 +1,196 @@
+name: data.world
+description: Collaborative data catalog platform with REST APIs for accessing public and private datasets, running SQL and SPARQL queries, managing metadata, and integrating data across projects and organizations. Provides enterprise data governance, lineage, and business glossary capabilities.
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/apis.yml
+version: "0.19"
+tags:
+  - Data Catalog
+  - Data Governance
+  - Metadata Management
+  - SPARQL
+  - SQL
+  - Open Data
+  - Collaboration
+created: "2026-06-13"
+modified: "2026-06-13"
+specificationVersion: "0.19"
+
+apis:
+
+  - name: data.world REST API
+    description: The data.world REST API enables programmatic access to datasets, projects, files, queries, metadata, and governance resources. Supports SQL and SPARQL querying, webhook subscriptions, and OAuth 2.0 authentication.
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://developer.data.world/docs/api-overview
+    baseURL: https://api.data.world/v0
+    tags:
+      - Datasets
+      - Projects
+      - Files
+      - SQL
+      - SPARQL
+      - Metadata
+      - Webhooks
+      - Governance
+    properties:
+      - type: Documentation
+        url: https://developer.data.world/docs/api-overview
+      - type: GettingStarted
+        url: https://developer.data.world/docs/api-getting-started
+      - type: Reference
+        url: https://developer.data.world/reference
+      - type: OpenAPI
+        url: https://developer.data.world/llms.txt
+      - type: Authentication
+        url: https://developer.data.world/docs/api-getting-started
+      - type: SDKs
+        url: https://developer.data.world/docs/data-world-for-developers
+      - type: Webhooks
+        url: https://developer.data.world/docs/data-world-for-developers
+      - type: ChangeLog
+        url: https://whatsnew.data.world/
+      - type: Status
+        url: https://status.data.world
+      - type: Plans
+        url: https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/plans/plans.yml
+      - type: RateLimits
+        url: https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/rate-limits/rate-limits.yml
+      - type: FinOps
+        url: https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/finops/finops.yml
+    contact:
+      - FN: data.world Support
+        url: https://dataworld.atlassian.net/servicedesk/customer/portals
+        email: ""
+
+  - name: data.world Datasets API
+    description: Create, retrieve, update, delete, and download datasets. Manage dataset metadata, links, contributors, and access permissions.
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://developer.data.world/reference
+    baseURL: https://api.data.world/v0
+    tags:
+      - Datasets
+      - Files
+      - Upload
+      - Download
+    properties:
+      - type: Documentation
+        url: https://developer.data.world/reference
+      - type: Authentication
+        url: https://developer.data.world/docs/api-getting-started
+
+  - name: data.world Projects API
+    description: Create, retrieve, update, and delete projects. Link datasets to projects, manage contributors and access controls.
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://developer.data.world/reference
+    baseURL: https://api.data.world/v0
+    tags:
+      - Projects
+      - Collaboration
+    properties:
+      - type: Documentation
+        url: https://developer.data.world/reference
+
+  - name: data.world SQL Query API
+    description: Execute SQL queries against datasets and projects, describe columns, manage saved queries, and retrieve results in multiple formats.
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://developer.data.world/reference
+    baseURL: https://api.data.world/v0
+    tags:
+      - SQL
+      - Queries
+      - Analytics
+    properties:
+      - type: Documentation
+        url: https://developer.data.world/reference
+
+  - name: data.world SPARQL Query API
+    description: Execute SPARQL queries via GET or POST against datasets. Supports multiple output formats for semantic data querying.
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://developer.data.world/reference
+    baseURL: https://api.data.world/v0
+    tags:
+      - SPARQL
+      - Semantic Web
+      - RDF
+      - Linked Data
+    properties:
+      - type: Documentation
+        url: https://developer.data.world/reference
+
+  - name: data.world Metadata Management API
+    description: Create, search, update, and delete catalog resources by IRI. Manage tables, columns, relationships, collections, business glossaries, and data quality badges.
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://developer.data.world/reference
+    baseURL: https://api.data.world/v0
+    tags:
+      - Metadata
+      - Data Catalog
+      - Business Glossary
+      - Data Quality
+      - Lineage
+    properties:
+      - type: Documentation
+        url: https://developer.data.world/reference
+
+  - name: data.world Webhooks API
+    description: Subscribe to dataset, project, and account events to automatically respond to activity on data.world.
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://developer.data.world/reference
+    baseURL: https://api.data.world/v0
+    tags:
+      - Webhooks
+      - Events
+      - Automation
+    properties:
+      - type: Documentation
+        url: https://developer.data.world/reference
+
+  - name: data.world Answer API
+    description: Ask natural language questions against structured data and receive answers. Enables AI-powered data exploration within the catalog.
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://developer.data.world/reference
+    baseURL: https://api.data.world/v0
+    tags:
+      - AI
+      - Natural Language
+      - Question Answering
+    properties:
+      - type: Documentation
+        url: https://developer.data.world/reference
+
+common:
+  - type: Portal
+    url: https://developer.data.world/
+  - type: Documentation
+    url: https://docs.data.world/
+  - type: Authentication
+    url: https://developer.data.world/docs/api-getting-started
+  - type: SDKs
+    url: https://developer.data.world/docs/data-world-for-developers
+  - type: PythonSDK
+    url: https://developer.data.world/docs/data-world-for-developers
+  - type: RSDK
+    url: https://developer.data.world/docs/data-world-for-developers
+  - type: GoSDK
+    url: https://developer.data.world/docs/data-world-for-developers
+  - type: JDBC
+    url: https://developer.data.world/docs/data-world-for-developers
+  - type: ChangeLog
+    url: https://whatsnew.data.world/
+  - type: Status
+    url: https://status.data.world
+  - type: Support
+    url: https://dataworld.atlassian.net/servicedesk/customer/portals
+  - type: Blog
+    url: https://data.world/blog/
+  - type: TermsOfService
+    url: https://data.world/legal/terms/
+  - type: Plans
+    url: https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/plans/plans.yml
+  - type: RateLimits
+    url: https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/rate-limits/rate-limits.yml
+  - type: FinOps
+    url: https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/finops/finops.yml
+
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

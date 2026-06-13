@@ -1,0 +1,35 @@
+name: data.world API Rate Limits
+description: data.world does not publicly document specific rate limit numbers for its REST API. Rate limits are enforced server-side and vary by plan tier and account type. Standard HTTP 429 responses are returned when limits are exceeded. Developers are advised to implement exponential back-off and contact support for limit increases.
+url: https://developer.data.world/docs/api-overview
+limits:
+  - name: General API Rate Limit
+    description: API requests are subject to rate limiting enforced per API token. Specific request-per-minute or request-per-day thresholds are not publicly disclosed and depend on the subscription plan.
+    type: requests
+    period: unknown
+    limit: undisclosed
+    notes: HTTP 429 Too Many Requests is returned when the limit is exceeded. Use Bearer token authentication to ensure limits are applied at the account level.
+
+  - name: Query Rate Limit
+    description: SQL and SPARQL query endpoints may have separate throttling limits from other API operations due to their computational cost.
+    type: requests
+    period: unknown
+    limit: undisclosed
+    notes: Saved Queries can be executed via GET/POST. Consider caching query results to reduce API call frequency.
+
+  - name: File Upload/Download Rate Limit
+    description: File upload and download operations via the Files API may be subject to bandwidth and request rate limits.
+    type: requests
+    period: unknown
+    limit: undisclosed
+    notes: Use streams API for incremental data append operations to reduce overhead.
+
+headers:
+  - name: Retry-After
+    description: When a 429 response is returned, the Retry-After header may indicate how long to wait before retrying.
+
+best_practices:
+  - Implement exponential back-off when receiving 429 responses.
+  - Cache frequently accessed datasets and query results locally.
+  - Use SPARQL or SQL saved queries to offload repeated computations.
+  - Use webhook subscriptions instead of polling for resource change events.
+  - Contact data.world support for rate limit increases on enterprise plans.

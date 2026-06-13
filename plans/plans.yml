@@ -1,0 +1,57 @@
+name: data.world Plans
+description: data.world offers enterprise data catalog and governance plans priced per annual contract. Public pricing is not listed; all plans require contacting sales. The Open Data Community (free tier) was retired on July 11, 2026.
+url: https://data.world/company/get-pricing/
+plans:
+  - name: Essentials
+    description: Basic metadata management with Tier 1 integrations and core catalog capabilities.
+    price: 90000
+    unit: per year
+    currency: USD
+    features:
+      - Basic metadata management
+      - Tier 1 integrations
+      - REST API access
+      - Python, R, Go, JDBC SDKs
+      - Webhook subscriptions
+      - OAuth 2.0 authentication
+
+  - name: Standard
+    description: Adds enterprise support, full audit logs, lineage, and data governance features.
+    price: 120000
+    unit: per year
+    currency: USD
+    features:
+      - All Essentials features
+      - Enterprise support and SLAs
+      - Full audit log history
+      - Eureka Explorer Lineage
+      - Data Governance Core
+      - Tier 2 integrations
+      - SPARQL query API
+      - Saved Queries API
+      - Data Quality API
+
+  - name: Enterprise
+    description: Adds Tier 3 integrations, on-premise data collection agents, and secure connectivity.
+    price: 180000
+    unit: per year
+    currency: USD
+    features:
+      - All Standard features
+      - Tier 3 integrations
+      - On-premise data collection agents
+      - Secure connectivity options
+      - Answer API (natural language queries)
+      - Virtual Connections API
+
+  - name: Enterprise+
+    description: Custom pricing for single-tenant installations, customer-managed encryption keys, and specific security certifications.
+    price: custom
+    unit: per year
+    currency: USD
+    features:
+      - All Enterprise features
+      - Single-tenant installation
+      - Customer-managed encryption keys
+      - Specific security certifications
+      - Automation Agents API (Private Instances)

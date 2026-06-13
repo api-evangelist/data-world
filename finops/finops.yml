@@ -1,0 +1,56 @@
+name: data.world FinOps
+description: Financial operations guidance for managing data.world API and platform costs. data.world uses annual enterprise contracts with custom pricing. All plans are negotiated directly with sales; there is no self-serve billing portal for enterprise tiers.
+url: https://data.world/company/get-pricing/
+
+cost_model:
+  type: annual_contract
+  billing_period: annual
+  currency: USD
+  pricing_visibility: private
+  notes: Pricing is not publicly listed. Estimates are sourced from AWS Marketplace listings and third-party research. Contact sales for an accurate quote.
+
+tiers:
+  - name: Essentials
+    estimated_annual: 90000
+    base_users: 10
+    overage: per_user_fees_apply
+
+  - name: Standard
+    estimated_annual: 120000
+    base_users: 10
+    overage: per_user_fees_apply
+
+  - name: Enterprise
+    estimated_annual: 180000
+    base_users: 10
+    overage: per_user_fees_apply
+
+  - name: Enterprise+
+    estimated_annual: custom
+    base_users: negotiated
+    overage: negotiated
+
+add_ons:
+  - name: Extended Data Virtualization / Federation
+    description: Additional capability for virtualizing and federating data across external sources.
+    price: custom
+
+  - name: Sensitive Data Discovery
+    description: Automated discovery and classification of sensitive data assets.
+    price: custom
+
+  - name: Advanced Partner Lineage (Manta)
+    description: Enhanced end-to-end data lineage via the Manta integration.
+    price: custom
+
+cost_optimization:
+  - Use saved SQL/SPARQL queries to avoid repeated computation and reduce query API calls.
+  - Leverage webhooks for event-driven integrations rather than polling the API, reducing unnecessary API calls.
+  - Use service accounts for automated workflows to consolidate API token usage under a single identity.
+  - Negotiate volume discounts when onboarding many catalog users above the base 10-user tier.
+  - Evaluate AWS Marketplace procurement for consolidated billing and potential enterprise discount programs.
+
+procurement:
+  - name: AWS Marketplace
+    url: https://aws.amazon.com/marketplace/seller-profile?id=data.world
+    description: data.world is available through the AWS Marketplace for consolidated cloud billing.
