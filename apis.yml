@@ -1,6 +1,6 @@
 name: data.world
 description: Collaborative data catalog platform with REST APIs for accessing public and private datasets, running SQL and SPARQL queries, managing metadata, and integrating data across projects and organizations. Provides enterprise data governance, lineage, and business glossary capabilities.
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/apis.yml
 version: "0.19"
 tags:
@@ -19,7 +19,7 @@ apis:
 
   - name: data.world REST API
     description: The data.world REST API enables programmatic access to datasets, projects, files, queries, metadata, and governance resources. Supports SQL and SPARQL querying, webhook subscriptions, and OAuth 2.0 authentication.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://developer.data.world/docs/api-overview
     baseURL: https://api.data.world/v0
     tags:
@@ -63,7 +63,7 @@ apis:
 
   - name: data.world Datasets API
     description: Create, retrieve, update, delete, and download datasets. Manage dataset metadata, links, contributors, and access permissions.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://developer.data.world/reference
     baseURL: https://api.data.world/v0
     tags:
@@ -79,7 +79,7 @@ apis:
 
   - name: data.world Projects API
     description: Create, retrieve, update, and delete projects. Link datasets to projects, manage contributors and access controls.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://developer.data.world/reference
     baseURL: https://api.data.world/v0
     tags:
@@ -91,7 +91,7 @@ apis:
 
   - name: data.world SQL Query API
     description: Execute SQL queries against datasets and projects, describe columns, manage saved queries, and retrieve results in multiple formats.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://developer.data.world/reference
     baseURL: https://api.data.world/v0
     tags:
@@ -104,7 +104,7 @@ apis:
 
   - name: data.world SPARQL Query API
     description: Execute SPARQL queries via GET or POST against datasets. Supports multiple output formats for semantic data querying.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://developer.data.world/reference
     baseURL: https://api.data.world/v0
     tags:
@@ -118,7 +118,7 @@ apis:
 
   - name: data.world Metadata Management API
     description: Create, search, update, and delete catalog resources by IRI. Manage tables, columns, relationships, collections, business glossaries, and data quality badges.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://developer.data.world/reference
     baseURL: https://api.data.world/v0
     tags:
@@ -133,7 +133,7 @@ apis:
 
   - name: data.world Webhooks API
     description: Subscribe to dataset, project, and account events to automatically respond to activity on data.world.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://developer.data.world/reference
     baseURL: https://api.data.world/v0
     tags:
@@ -146,7 +146,7 @@ apis:
 
   - name: data.world Answer API
     description: Ask natural language questions against structured data and receive answers. Enables AI-powered data exploration within the catalog.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://developer.data.world/reference
     baseURL: https://api.data.world/v0
     tags:
