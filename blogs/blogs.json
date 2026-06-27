@@ -2,13 +2,13 @@
   "repo": "data-world",
   "feeds": [
     {
-      "source": "https://dataworld.atlassian.net/servicedesk/customer/portals",
-      "feed_url": "https://dataworld.atlassian.net/servicedesk/customer/portals",
-      "title": "",
+      "source": "https://data.world/blog/",
+      "feed_url": "",
       "saved": 0,
-      "method": "none"
+      "method": "agent-scrape"
     }
   ],
-  "post_count": 0,
-  "fetched": "2026-06-14T20:42:17Z"
+  "post_count": 13,
+  "fetched": "2026-06-27T12:35:01Z",
+  "agent_pulled": "2026-06-27"
 }
