@@ -158,6 +158,12 @@ apis:
         url: https://developer.data.world/reference
 
 common:
+  - type: TrustCenter
+    url: security/data-world-trust-center.yml
+  - type: DomainSecurity
+    url: security/data-world-domain-security.yml
+  - type: Authentication
+    url: authentication/data-world-authentication.yml
   - type: Portal
     url: https://developer.data.world/
   - type: Documentation
