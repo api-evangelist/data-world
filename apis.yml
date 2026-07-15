@@ -158,6 +158,8 @@ apis:
         url: https://developer.data.world/reference
 
 common:
+  - type: AgenticAccess
+    url: agentic-access/data-world-agentic-access.yml
   - type: TrustCenter
     url: security/data-world-trust-center.yml
   - type: DomainSecurity
