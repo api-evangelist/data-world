@@ -1,0 +1,681 @@
+openapi: 3.1.0
+info:
+  contact:
+    name: Contact Us
+    url: https://data.world/company/contact-us
+  termsOfService: https://data.world/terms-policies
+  title: data.world Public catalog relationships data quality API
+  version: '0'
+  description: Manage relationships between catalog resources
+servers:
+- url: /v0
+security:
+- bearerAuth: []
+tags:
+- description: Manage data quality of metadata resources
+  name: data quality
+paths:
+  /dataquality/audits/{orgAgentId}:
+    get:
+      description: 'Shows audits that happened during processing of data quality inputs.
+
+        One of "requestId" or "resourceIri" needs to be provided.
+
+        Only errors are tracked. Audits expire 1 day after creation. Returns a maximum of 100 audits.
+
+        If there are no audits, it is likely the request was executed successfully.
+
+
+        Access requirement: Requires an admin token. It also requires admin access to the organization.
+
+
+        This endpoint is in active development. Its definition and behavior may change frequently and without notice.'
+      operationId: getAudits
+      parameters:
+      - description: organization agent ID
+        in: path
+        name: orgAgentId
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: requestId
+        schema:
+          type: string
+      - description: Internationalized Resource Identifier (IRI) of the resource. You can find the IRI in the Technical Reference section under the Settings tab on the resource’s catalog page.
+        in: query
+        name: resourceIri
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataQualityAuditsDto'
+          description: Successful operation
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+          description: User is unauthorized to perform action
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+          description: Access forbidden
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+          description: Server error
+      summary: Show data quality audits
+      tags:
+      - data quality
+  /dataquality/badges/{orgAgentId}:
+    post:
+      description: 'Associate a metadata resource with a Badge that describes its overall data quality status.
+
+
+        Access requirement: Requires an admin token. It also requires admin access to the organization.
+
+
+        This endpoint is in active development. Its definition and behavior may change frequently and without notice.'
+      operationId: addBadges
+      parameters:
+      - description: organization agent ID
+        in: path
+        name: orgAgentId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BadgesDto'
+        required: true
+      responses:
+        '202':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: Accepted
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+          description: User is unauthorized to perform action
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+          description: Access forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+          description: Not found
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+          description: Server error
+      summary: Add Badges
+      tags:
+      - data quality
+  /dataquality/checkruns/{orgAgentId}:
+    post:
+      description: 'Add executions of a check against a metadata resource.
+
+
+        Access requirement: Requires an admin token. It also requires admin access to the organization.
+
+
+        This endpoint is in active development. Its definition and behavior may change frequently and without notice.'
+      operationId: addCheckRuns
+      parameters:
+      - description: organization agent ID
+        in: path
+        name: orgAgentId
+        required: true
+        schema:
+          type: string
+      - description: The collection to insert resources in. Identified by IRI. You can find the IRI in the Technical Reference section under the Settings tab on the resource’s catalog page.
+        in: query
+        name: collectionIri
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CheckRunsDto'
+        required: true
+      responses:
+        '202':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: Accepted
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+          description: User is unauthorized to perform action
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+          description: Access forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+          description: Not found
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+          description: Server error
+      summary: Add Check Runs
+      tags:
+      - data quality
+  /dataquality/checks/delete/{orgAgentId}:
+    post:
+      description: 'Asynchronously delete data quality Checks and all associated Check Versions and Check Runs.
+
+
+        This operation enqueues delete requests for background processing. The response indicates
+
+        how many requests were successfully enqueued, not how many deletions have completed.
+
+
+        Response fields:
+
+        - success: Number of delete requests successfully enqueued
+
+        - failed: Number of delete requests that failed to enqueue
+
+        - requestId: Correlation ID for tracking
+
+
+        Access requirement: Requires an admin token. It also requires admin access to the organization.
+
+
+        This endpoint is in active development. Its definition and behavior may change frequently and without notice.'
+      operationId: deleteChecks
+      parameters:
+      - description: organization agent ID
+        in: path
+        name: orgAgentId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteChecksDto'
+        required: true
+      responses:
+        '202':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: Accepted
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+          description: User is unauthorized to perform action
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+          description: Access forbidden
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+          description: Server error
+      summary: Delete data quality checks
+      tags:
+      - data quality
+components:
+  schemas:
+    IRIResource:
+      allOf:
+      - $ref: '#/components/schemas/DatabaseResource'
+      - type: object
+        properties:
+          iri:
+            type: string
+            format: uri
+            description: Internationalized Resource Identifier (IRI) of the resource. You can find the IRI in the Technical Reference section under the Settings tab on the resource’s catalog page.
+          type:
+            type: string
+            const: IRI
+      description: A metadata resource represented by an IRI
+      required:
+      - iri
+    DataQualityAuditRecord:
+      type: object
+      properties:
+        auditType:
+          type: string
+        executedAt:
+          type: string
+          format: date-time
+        message:
+          type: string
+        requestId:
+          type: string
+        resourceIri:
+          type: string
+    DatabaseColumn:
+      allOf:
+      - $ref: '#/components/schemas/DatabaseResource'
+      - type: object
+        properties:
+          column:
+            type: string
+            description: The table column
+            minLength: 1
+          context:
+            type: string
+            description: 'The original organization agent ID that the resource was collected into. This can be found in the RDF
+
+              file outputted by the collector. In the RDF, there is a resource of type "dwec:CatalogCuration" containing
+
+              many configuration properties. The "context" property is this field.
+
+              '
+            minLength: 1
+          database:
+            type: string
+            description: The Database
+            minLength: 1
+          databaseLocation:
+            type: string
+            description: 'Database server host and port, formatted as "host:port". This can be found in the RDF file outputted by the
+
+              collector. In the RDF, there is a resource of type "dwec:CatalogCuration" containing many configuration
+
+              properties. The "host" property is part of this field. Port can be found under any "dwec:Database"
+
+              resource under the predicate "dwec:databasePort".
+
+              '
+            minLength: 1
+          schema:
+            type: string
+            description: The database schema
+          table:
+            type: string
+            description: The database table
+            minLength: 1
+          type:
+            type: string
+            const: COLUMN
+      description: A column in a database table
+      required:
+      - column
+      - context
+      - database
+      - databaseLocation
+      - table
+    Database:
+      allOf:
+      - $ref: '#/components/schemas/DatabaseResource'
+      - type: object
+        properties:
+          context:
+            type: string
+            description: 'The original organization agent ID that the resource was collected into. This can be found in the RDF
+
+              file outputted by the collector. In the RDF, there is a resource of type "dwec:CatalogCuration" containing
+
+              many configuration properties. The "context" property is this field.
+
+              '
+            minLength: 1
+          database:
+            type: string
+            description: The Database
+            minLength: 1
+          databaseLocation:
+            type: string
+            description: 'Database server host and port, formatted as "host:port". This can be found in the RDF file outputted by the
+
+              collector. In the RDF, there is a resource of type "dwec:CatalogCuration" containing many configuration
+
+              properties. The "host" property is part of this field. Port can be found under any "dwec:Database"
+
+              resource under the predicate "dwec:databasePort".
+
+              '
+            minLength: 1
+          type:
+            type: string
+            const: DATABASE
+      description: A database
+      required:
+      - context
+      - database
+      - databaseLocation
+    BadgeDto:
+      type: object
+      description: Check definition
+      properties:
+        badgeIri:
+          type: string
+          format: uri
+          description: "Badge's IRI defined in the metadata profile.\n The default Badges included in every metadata profile are:\n https://dwec.data.world/v0/default-profile/GoodBadge,\n https://dwec.data.world/v0/default-profile/PoorBadge, and\n https://dwec.data.world/v0/default-profile/ModerateBadge."
+        resource:
+          $ref: '#/components/schemas/DatabaseResource'
+          description: Metadata resource associated with the Badge
+          oneOf:
+          - $ref: '#/components/schemas/IRIResource'
+          - $ref: '#/components/schemas/Database'
+          - $ref: '#/components/schemas/DatabaseTable'
+          - $ref: '#/components/schemas/DatabaseColumn'
+      required:
+      - badgeIri
+      - resource
+    DeleteChecksDto:
+      type: object
+      description: A list of data quality checks to delete
+      properties:
+        checks:
+          type: array
+          description: The list of checks to delete
+          items:
+            $ref: '#/components/schemas/DeleteCheckDto'
+          maxItems: 100
+          minItems: 1
+      required:
+      - checks
+    DatabaseResource:
+      discriminator:
+        mapping:
+          COLUMN: '#/components/schemas/DatabaseColumn'
+          DATABASE: '#/components/schemas/Database'
+          IRI: '#/components/schemas/IRIResource'
+          TABLE: '#/components/schemas/DatabaseTable'
+        propertyName: type
+      properties:
+        type:
+          type: string
+          enum:
+          - IRI
+          - DATABASE
+          - TABLE
+          - COLUMN
+      required:
+      - type
+    BadgesDto:
+      type: object
+      description: Pairs of metadata resources and their data quality Badge
+      properties:
+        badges:
+          type: array
+          items:
+            $ref: '#/components/schemas/BadgeDto'
+          maxItems: 100
+          minItems: 1
+      required:
+      - badges
+    DatabaseTable:
+      allOf:
+      - $ref: '#/components/schemas/DatabaseResource'
+      - type: object
+        properties:
+          context:
+            type: string
+            description: 'The original organization agent ID that the resource was collected into. This can be found in the RDF
+
+              file outputted by the collector. In the RDF, there is a resource of type "dwec:CatalogCuration" containing
+
+              many configuration properties. The "context" property is this field.
+
+              '
+            minLength: 1
+          database:
+            type: string
+            description: The Database
+            minLength: 1
+          databaseLocation:
+            type: string
+            description: 'Database server host and port, formatted as "host:port". This can be found in the RDF file outputted by the
+
+              collector. In the RDF, there is a resource of type "dwec:CatalogCuration" containing many configuration
+
+              properties. The "host" property is part of this field. Port can be found under any "dwec:Database"
+
+              resource under the predicate "dwec:databasePort".
+
+              '
+            minLength: 1
+          schema:
+            type: string
+            description: The database schema
+          table:
+            type: string
+            description: The database table
+            minLength: 1
+          type:
+            type: string
+            const: TABLE
+      description: A table in a database
+      required:
+      - context
+      - database
+      - databaseLocation
+      - table
+    CheckRunsDto:
+      type: object
+      description: Executions of a check against a metadata resource
+      properties:
+        checkRuns:
+          type: array
+          description: The list of executions
+          items:
+            $ref: '#/components/schemas/CheckRunDto'
+          maxItems: 100
+          minItems: 1
+      required:
+      - checkRuns
+    DataQualityAuditsDto:
+      type: object
+      description: Audits of the Data Quality
+      properties:
+        audits:
+          type: array
+          description: The list of audits
+          items:
+            $ref: '#/components/schemas/DataQualityAuditRecord'
+    DeleteCheckDto:
+      type: object
+      description: A data quality check to delete
+      properties:
+        checkId:
+          type: string
+          description: Check identifier as provided by the data quality provider
+          example: freshness-check-001
+          minLength: 1
+        source:
+          type: string
+          description: Data quality provider name as given at resource creation
+          example: anamalo
+          minLength: 1
+      required:
+      - checkId
+      - source
+    ErrorMessage:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        details:
+          type: string
+        message:
+          type: string
+    SuccessMessage:
+      type: object
+      properties:
+        message:
+          type: string
+          maxLength: 256
+          minLength: 0
+    CheckRunDto:
+      type: object
+      description: Execution of a check against a metadata resource
+      properties:
+        config:
+          $ref: '#/components/schemas/CheckDto'
+          description: Check configuration
+        end:
+          type: string
+          format: date-time
+          description: Time when execution was completed
+        evaluatedMessage:
+          type: string
+          description: Success or error message
+        historyMessage:
+          type: string
+          description: Message describing how many runs have passed/failed in the past
+        result:
+          type: string
+          description: Execution status
+          enum:
+          - PASS
+          - FAIL
+          - WARN
+        runSuccessful:
+          type: boolean
+          description: Indicates whether execution was completed successfully
+        score:
+          type: number
+          format: double
+          description: Evaluated score for the resource after this check run
+        start:
+          type: string
+          format: date-time
+          description: Time when execution was started
+        url:
+          type: string
+          format: uri
+          description: Check execution URL
+      required:
+      - config
+      - end
+      - result
+      - runSuccessful
+      - start
+    CheckDto:
+      type: object
+      description: Check definition
+      properties:
+        description:
+          type: string
+          description: Description of the check
+        dimension:
+          type: string
+          description: The dimension of the check, e.g. 'validation', 'data freshness', 'anomalies', etc.
+        id:
+          type: string
+          description: Unique identifier of the check
+          minLength: 1
+        lastUpdated:
+          type: string
+          format: date-time
+          description: The time when the check was created or last updated.
+        priorityLevel:
+          type: string
+          description: Priority level
+        query:
+          type: string
+          description: SQL query of the check. Or the name of an internal function like "TableExistsBasic"
+          minLength: 1
+        resource:
+          $ref: '#/components/schemas/DatabaseResource'
+          description: Corresponding resource of the check
+          oneOf:
+          - $ref: '#/components/schemas/IRIResource'
+          - $ref: '#/components/schemas/Database'
+          - $ref: '#/components/schemas/DatabaseTable'
+          - $ref: '#/components/schemas/DatabaseColumn'
+        source:
+          type: string
+          description: Data quality provider where this Check came from
+        title:
+          type: string
+          description: Title of the check
+          minLength: 1
+        url:
+          type: string
+          format: uri
+          description: Check URL
+        weight:
+          type: number
+          format: double
+          default: 1
+          description: 'A multiplier to the score of a Check Run. If a Check Run results in a score of 10 and the Check has
+
+            a weight of 1.5, the overall score for the resource will be interpreted as 15.'
+      required:
+      - id
+      - lastUpdated
+      - query
+      - resource
+      - source
+      - title
+  securitySchemes:
+    bearerAuth:
+      bearerFormat: JWT
+      scheme: bearer
+      type: http

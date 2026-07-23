@@ -1,0 +1,492 @@
+openapi: 3.1.0
+info:
+  contact:
+    name: Contact Us
+    url: https://data.world/company/contact-us
+  termsOfService: https://data.world/terms-policies
+  title: data.world Public catalog relationships requests - authorization API
+  version: '0'
+  description: Manage relationships between catalog resources
+servers:
+- url: /v0
+security:
+- bearerAuth: []
+tags:
+- description: Manage authorization requests
+  name: requests - authorization
+paths:
+  /requests/auth:
+    post:
+      description: Create a request asking for access against a dataset. A request can ask the resource admin for permission to access a resource. It may also be an invitation from the resource admin to give others access to a resource.
+      operationId: createAuthRequest
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthRequestCreateDto'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthRequestDto'
+          description: default response
+      summary: Create an authorization request
+      tags:
+      - requests - authorization
+  /requests/auth/accept:
+    post:
+      description: Accept an authorization request. This will give the grantee access to the resource. For more details about authorization request, see "Create an authorization request".
+      operationId: acceptRequest
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthRequestRespondDto'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessageDto'
+          description: default response
+      summary: Accept an authorization request
+      tags:
+      - requests - authorization
+  /requests/auth/approver:
+    get:
+      description: Get a list of authorization requests that can be approved or rejected by the user. For more details about authorization request, see "Create an authorization request".
+      operationId: getForApprover
+      parameters:
+      - description: Number of results to return
+        in: query
+        name: limit
+        schema:
+          type: integer
+          format: int32
+          default: 10
+          maximum: 100
+          minimum: 1
+      - description: A token supplied by the previous response to retrieve the next page of results
+        in: query
+        name: next
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedResultsDtoAuthRequestDto'
+          description: default response
+      summary: Get authorization requests that can be approved/rejected
+      tags:
+      - requests - authorization
+  /requests/auth/delete:
+    post:
+      description: Delete an authorization request. This will delete the request. The grantee will not receive any access to the resource. For more details about authorization request, see "Create an authorization request".
+      operationId: deleteRequest
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthRequestRespondDto'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessageDto'
+          description: default response
+      summary: Delete an authorization request
+      tags:
+      - requests - authorization
+  /requests/auth/reject:
+    post:
+      description: Reject an authorization request. This will delete the request. The grantee will not receive any access to the resource. For more details about authorization request, see "Create an authorization request".
+      operationId: rejectRequest
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthRequestRespondDto'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessageDto'
+          description: default response
+      summary: Reject an authorization request
+      tags:
+      - requests - authorization
+components:
+  schemas:
+    AuthRequestCreateDto:
+      type: object
+      properties:
+        dataset:
+          $ref: '#/components/schemas/DatasetIdentifierRequest'
+          description: The dataset that grantee will receive access to
+        granteeId:
+          type: string
+          description: ID of the user that will be granted access
+        level:
+          type: string
+          description: Level of access the grantee will receive
+          enum:
+          - DISCOVER
+          - READ
+          - WRITE
+          - ADMIN
+      required:
+      - dataset
+      - granteeId
+      - level
+    PublicDatasetInsightResource:
+      allOf:
+      - $ref: '#/components/schemas/PublicResource'
+      - type: object
+        properties:
+          datasetId:
+            type: string
+            description: ID of a dataset
+          insightUuid:
+            type: string
+            format: uuid
+            description: ID of a dataset insight
+          type:
+            type: string
+            const: DATASET_INSIGHT
+      required:
+      - datasetId
+      - insightUuid
+      - owner
+      title: Dataset Insight Resource
+    PublicResource:
+      type: object
+      discriminator:
+        mapping:
+          ANALYSIS: '#/components/schemas/PublicAnalysisResource'
+          CATALOG: '#/components/schemas/PublicCollectionResource'
+          COLUMN: '#/components/schemas/PublicColumnResource'
+          DATABASE: '#/components/schemas/PublicDatabaseResource'
+          DATASET: '#/components/schemas/PublicDatasetResource'
+          DATASET_INSIGHT: '#/components/schemas/PublicDatasetInsightResource'
+          GLOSSARY: '#/components/schemas/PublicGlossaryResource'
+          GROUP: '#/components/schemas/PublicGroupParty'
+          METADATA_RESOURCE: '#/components/schemas/PublicMetadataResource'
+          TABLE: '#/components/schemas/PublicTableResource'
+        propertyName: type
+      properties:
+        owner:
+          type: string
+          description: ID of an organization that owns the resource
+          title: organization id
+        type:
+          type: string
+          enum:
+          - ANALYSIS
+          - CATALOG
+          - COLUMN
+          - DATABASE
+          - DATASET
+          - DATASET_INSIGHT
+          - GLOSSARY
+          - GROUP
+          - METADATA_RESOURCE
+          - TABLE
+      required:
+      - owner
+      - type
+    PublicGroupParty:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/PublicParty'
+      - type: object
+        properties:
+          id:
+            type: string
+            description: ID of a group
+          owner:
+            type: string
+            description: ID of an organization that owns the resource
+            title: organization id
+          type:
+            type: string
+            const: GROUP
+      - $ref: '#/components/schemas/PublicResource'
+      required:
+      - id
+      - owner
+      title: Group Identifier
+    PublicAnalysisResource:
+      allOf:
+      - $ref: '#/components/schemas/PublicResource'
+      - type: object
+        properties:
+          referent:
+            type: string
+            description: An analysis referent
+          type:
+            type: string
+            const: ANALYSIS
+      required:
+      - owner
+      - referent
+      title: Analysis Resource
+    PublicUserParty:
+      type: object
+      properties:
+        id:
+          type: string
+          description: ID of the user
+      required:
+      - id
+      title: User Identifier
+    PublicMetadataResource:
+      allOf:
+      - $ref: '#/components/schemas/PublicResource'
+      - type: object
+        properties:
+          referent:
+            type: string
+            description: A metadata resource referent
+          type:
+            type: string
+            const: METADATA_RESOURCE
+      required:
+      - owner
+      - referent
+      title: Metadata Resource
+    PublicDatasetResource:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/PublicResource'
+      - $ref: '#/components/schemas/DatasetIdentifier'
+      - type: object
+        properties:
+          id:
+            type: string
+            description: ID of a dataset
+      required:
+      - id
+      - owner
+      title: Dataset Resource
+    DatasetIdentifier:
+      type: object
+      properties:
+        id:
+          type: string
+        owner:
+          type: string
+      required:
+      - id
+      - owner
+    PublicGlossaryResource:
+      allOf:
+      - $ref: '#/components/schemas/PublicResource'
+      - type: object
+        properties:
+          referent:
+            type: string
+            description: A glossary referent
+          type:
+            type: string
+            const: GLOSSARY
+      required:
+      - owner
+      - referent
+      title: Glossary Metadata Resource
+    PublicCollectionResource:
+      allOf:
+      - $ref: '#/components/schemas/PublicResource'
+      - type: object
+        properties:
+          referent:
+            type: string
+            description: A collection referent
+          type:
+            type: string
+            const: CATALOG
+      required:
+      - owner
+      - referent
+      title: Collection Metadata Resource
+    AuthRequestDto:
+      type: object
+      properties:
+        approverParty:
+          $ref: '#/components/schemas/PublicParty'
+          description: User designated to approve the request
+          oneOf:
+          - $ref: '#/components/schemas/PublicUserParty'
+          - $ref: '#/components/schemas/PublicGroupParty'
+        created:
+          type: string
+          format: date-time
+        granteeParty:
+          $ref: '#/components/schemas/PublicParty'
+          description: User or group that will be granted access if approved
+          oneOf:
+          - $ref: '#/components/schemas/PublicUserParty'
+          - $ref: '#/components/schemas/PublicGroupParty'
+        level:
+          type: string
+          description: Level of access the grantee will receive
+          enum:
+          - NONE
+          - SAML_GATED
+          - DISCOVER
+          - MEMBER
+          - READ
+          - WRITE
+          - ADMIN
+        requesterParty:
+          $ref: '#/components/schemas/PublicParty'
+          description: User that initiated the request
+          oneOf:
+          - $ref: '#/components/schemas/PublicUserParty'
+          - $ref: '#/components/schemas/PublicGroupParty'
+        requestid:
+          type: string
+          format: uuid
+          description: Unique identifier for the request
+        resource:
+          $ref: '#/components/schemas/PublicResource'
+          description: The resource that grantee will receive access to
+          oneOf:
+          - $ref: '#/components/schemas/PublicAnalysisResource'
+          - $ref: '#/components/schemas/PublicCollectionResource'
+          - $ref: '#/components/schemas/PublicColumnResource'
+          - $ref: '#/components/schemas/PublicDatabaseResource'
+          - $ref: '#/components/schemas/PublicDatasetResource'
+          - $ref: '#/components/schemas/PublicDatasetInsightResource'
+          - $ref: '#/components/schemas/PublicGlossaryResource'
+          - $ref: '#/components/schemas/PublicGroupParty'
+          - $ref: '#/components/schemas/PublicMetadataResource'
+          - $ref: '#/components/schemas/PublicTableResource'
+        updated:
+          type: string
+          format: date-time
+        visibility:
+          type: string
+          description: Authorization visibility
+          enum:
+          - PRIVATE
+          - PUBLIC
+    DatasetIdentifierRequest:
+      type: object
+      properties:
+        id:
+          type: string
+          description: ID of dataset
+        owner:
+          type: string
+          description: ID of user or organization that owns the dataset
+      required:
+      - id
+      - owner
+    PublicParty:
+      discriminator:
+        mapping:
+          GROUP: '#/components/schemas/PublicGroupParty'
+          USER: '#/components/schemas/PublicUserParty'
+        propertyName: type
+      properties:
+        type:
+          type: string
+          enum:
+          - USER
+          - GROUP
+      required:
+      - type
+    PublicColumnResource:
+      allOf:
+      - $ref: '#/components/schemas/PublicResource'
+      - type: object
+        properties:
+          referent:
+            type: string
+            description: A column referent
+          type:
+            type: string
+            const: COLUMN
+      required:
+      - owner
+      - referent
+      title: Column Metadata Resource
+    SuccessMessageDto:
+      type: object
+      properties:
+        message:
+          type: string
+          maxLength: 256
+          minLength: 0
+    PublicDatabaseResource:
+      allOf:
+      - $ref: '#/components/schemas/PublicResource'
+      - type: object
+        properties:
+          referent:
+            type: string
+            description: A database referent
+          type:
+            type: string
+            const: DATABASE
+      required:
+      - owner
+      - referent
+      title: Database Metadata Resource
+    PublicTableResource:
+      allOf:
+      - $ref: '#/components/schemas/PublicResource'
+      - type: object
+        properties:
+          referent:
+            type: string
+            description: Resource referent
+          type:
+            type: string
+            const: TABLE
+      required:
+      - owner
+      - referent
+      title: Table Metadata Resource
+    PaginatedResultsDtoAuthRequestDto:
+      type: object
+      properties:
+        consistent:
+          type: boolean
+        count:
+          type: integer
+          format: int32
+          minimum: 0
+        next:
+          type: string
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/AuthRequestDto'
+    AuthRequestRespondDto:
+      type: object
+      properties:
+        dataset:
+          $ref: '#/components/schemas/DatasetIdentifierRequest'
+          description: The dataset that this request is for
+        requestId:
+          type: string
+          format: uuid
+          description: ID of the request to accept
+      required:
+      - dataset
+      - requestId
+  securitySchemes:
+    bearerAuth:
+      bearerFormat: JWT
+      scheme: bearer
+      type: http

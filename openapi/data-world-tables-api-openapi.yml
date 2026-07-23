@@ -1,0 +1,303 @@
+openapi: 3.1.0
+info:
+  contact:
+    name: Contact Us
+    url: https://data.world/company/contact-us
+  termsOfService: https://data.world/terms-policies
+  title: data.world Public catalog relationships tables API
+  version: '0'
+  description: Manage relationships between catalog resources
+servers:
+- url: /v0
+security:
+- bearerAuth: []
+tags:
+- name: tables
+paths:
+  /datasets/{owner}/{id}/tables:
+    post:
+      description: 'Add tables from an established virtual connection. For increased security, endpoints that interact with
+
+        external connection sources require an Enterprise Admin Token. This token can be found under
+
+        [Advanced Settings](https://data.world/settings/advanced). To learn more about the virtual connections
+
+        data.world supports, please visit our
+
+        [help portal](https://help.data.world/hc/en-us/sections/360009504254-Create-and-manage-virtual-connections).'
+      operationId: addTables
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TableBatchUpdateRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: Add live tables from a virtual connection
+      tags:
+      - tables
+components:
+  schemas:
+    QueryExecutionDto:
+      type: object
+      properties:
+        query:
+          type: string
+          maxLength: 10000
+          minLength: 1
+      required:
+      - query
+    DatabaseMetadataSpecDto:
+      type: object
+      properties:
+        tableSpecs:
+          type: array
+          items:
+            $ref: '#/components/schemas/TableMetadataSpecDto'
+          maxItems: 100
+          minItems: 0
+    TableMetadataSpecDto:
+      type: object
+      properties:
+        database:
+          type: string
+        schema:
+          type: string
+        tablePrefixes:
+          type: array
+          items:
+            type: string
+        tableTypes:
+          type: array
+          items:
+            type: string
+            enum:
+            - TABLE
+            - EXTERNAL_TABLE
+            - VIEW
+        tables:
+          type: array
+          items:
+            type: string
+    SingleTableMetadataSpecDto:
+      type: object
+      properties:
+        database:
+          type: string
+        schema:
+          type: string
+        table:
+          type: string
+        tableType:
+          type: string
+          enum:
+          - EXTRACT
+          - VIRTUAL
+    WebCredentials:
+      type: object
+      properties:
+        password:
+          type: string
+          maxLength: 2048
+          minLength: 0
+        user:
+          type: string
+          maxLength: 2048
+          minLength: 0
+      required:
+      - user
+    FileCreateOrUpdateRequest:
+      type: object
+      properties:
+        description:
+          type: string
+          maxLength: 120
+          minLength: 1
+        labels:
+          type: array
+          items:
+            type: string
+        mediaType:
+          type: string
+        mediaTypeLocked:
+          type: boolean
+        name:
+          type: string
+          maxLength: 128
+          minLength: 1
+          pattern: ^[^/]+$
+        source:
+          $ref: '#/components/schemas/FileSourceCreateOrUpdateRequest'
+      required:
+      - name
+    ViewRequestDto:
+      type: object
+      properties:
+        baseAgentId:
+          type: string
+        baseDatasetId:
+          type: string
+        queryId:
+          type: string
+          format: uuid
+        queryName:
+          type: string
+        queryText:
+          type: string
+          maxLength: 10000
+          minLength: 1
+        queryType:
+          type: string
+          enum:
+          - SPARQL
+          - SQL
+        runAsAgentId:
+          type: string
+        targetAgentId:
+          type: string
+        targetDatasetId:
+          type: string
+      required:
+      - baseAgentId
+      - baseDatasetId
+      - queryName
+      - queryType
+      - runAsAgentId
+      - targetAgentId
+      - targetDatasetId
+    FileSourceCreateOrUpdateRequest:
+      type: object
+      properties:
+        authorization:
+          $ref: '#/components/schemas/WebAuthorization'
+        credentials:
+          $ref: '#/components/schemas/WebCredentials'
+        dataTables:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/QueryExecutionDto'
+        databaseMetadataSpec:
+          $ref: '#/components/schemas/DatabaseMetadataSpecDto'
+        databaseSource:
+          $ref: '#/components/schemas/DatabaseSourceReference'
+        dwccSpec:
+          $ref: '#/components/schemas/DwccSpecDto'
+        expandArchive:
+          type: boolean
+        method:
+          type: string
+          enum:
+          - GET
+          - POST
+        oauthToken:
+          $ref: '#/components/schemas/OauthTokenReference'
+        requestEntity:
+          type: string
+          maxLength: 10000
+          minLength: 0
+        requestHeaders:
+          type: object
+          additionalProperties:
+            type: string
+        tableSpec:
+          $ref: '#/components/schemas/SingleTableMetadataSpecDto'
+        url:
+          type: string
+          format: uri
+        useDwCredentials:
+          type: boolean
+        viewRequest:
+          $ref: '#/components/schemas/ViewRequestDto'
+    TableBatchUpdateRequest:
+      type: object
+      properties:
+        tables:
+          type: array
+          items:
+            $ref: '#/components/schemas/FileCreateOrUpdateRequest'
+    OauthTokenReference:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        owner:
+          type: string
+        site:
+          type: string
+      required:
+      - id
+      - owner
+      - site
+    DwccSpecDto:
+      type: object
+      properties:
+        databaseId:
+          type: string
+        metadataToExclude:
+          type: array
+          items:
+            type: string
+        sourceDatabase:
+          type: string
+        sourceSchemas:
+          type: array
+          items:
+            type: string
+        targetCatalog:
+          type: string
+    SuccessMessage:
+      type: object
+      properties:
+        message:
+          type: string
+          maxLength: 256
+          minLength: 0
+    DatabaseSourceReference:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        owner:
+          type: string
+      required:
+      - id
+      - owner
+    WebAuthorization:
+      type: object
+      properties:
+        credentials:
+          type: string
+          maxLength: 2048
+          minLength: 1
+        type:
+          type: string
+          maxLength: 50
+          minLength: 0
+      required:
+      - type
+  securitySchemes:
+    bearerAuth:
+      bearerFormat: JWT
+      scheme: bearer
+      type: http

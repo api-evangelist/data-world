@@ -1,0 +1,77 @@
+openapi: 3.1.0
+info:
+  contact:
+    name: Contact Us
+    url: https://data.world/company/contact-us
+  termsOfService: https://data.world/terms-policies
+  title: data.world Public catalog relationships legacy catalog - properties API
+  version: '0'
+  description: Manage relationships between catalog resources
+servers:
+- url: /v0
+security:
+- bearerAuth: []
+tags:
+- name: legacy catalog - properties
+paths:
+  /properties/{owner}:
+    get:
+      description: 'Get supported metadata properties by owner.
+
+
+        This endpoint can be used to obtain a reference list of supported custom metadata properties for your
+
+        organization''s catalog. Custom properties for resources in your catalog require an ApiBinding to be
+
+        configured for use in the public API. For more information about how to correctly configure ApiBindings,
+
+        please reach out to your data.world support representative or message help@data.world.'
+      operationId: getPropertiesByOwner
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: categorylabel
+        schema:
+          type: string
+      - in: query
+        name: typelabel
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CatalogPropertyDto'
+          description: default response
+      summary: Get supported metadata properties by owner
+      tags:
+      - legacy catalog - properties
+components:
+  schemas:
+    CatalogPropertyDto:
+      type: object
+      properties:
+        allowedValues:
+          type: array
+          items:
+            type: string
+        categoryLabel:
+          type: string
+        label:
+          type: string
+        multivalued:
+          type: boolean
+        typeLabel:
+          type: string
+  securitySchemes:
+    bearerAuth:
+      bearerFormat: JWT
+      scheme: bearer
+      type: http

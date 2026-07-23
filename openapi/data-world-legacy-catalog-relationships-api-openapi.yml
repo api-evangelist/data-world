@@ -1,0 +1,707 @@
+openapi: 3.1.0
+info:
+  contact:
+    name: Contact Us
+    url: https://data.world/company/contact-us
+  termsOfService: https://data.world/terms-policies
+  title: data.world Public catalog relationships legacy catalog - relationships API
+  version: '0'
+  description: Manage relationships between catalog resources
+servers:
+- url: /v0
+security:
+- bearerAuth: []
+tags:
+- name: legacy catalog - relationships
+paths:
+  /metadata/relationships/{owner}:
+    post:
+      description: Please refer to the updated IRI-based relationship endpoints.
+      operationId: createRelationship
+      parameters:
+      - description: 'User name and unique identifier of the user or organization a resource belongs to.
+
+          For example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.
+
+          '
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RelationshipCreateOrDeleteRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: Legacy - Creates a relationship between two catalog resources
+      tags:
+      - legacy catalog - relationships
+  /metadata/relationships/{owner}/delete:
+    post:
+      description: Please refer to the updated IRI-based relationship endpoints.
+      operationId: deleteRelationship
+      parameters:
+      - description: 'User name and unique identifier of the user or organization a resource belongs to.
+
+          For example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.
+
+          '
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RelationshipCreateOrDeleteRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: Legacy - Deletes a relationship between two catalog resources
+      tags:
+      - legacy catalog - relationships
+  /metadata/relationships/{owner}/resource/{resourceId}:
+    post:
+      description: Please refer to the updated IRI-based relationship endpoints.
+      operationId: getRelationships
+      parameters:
+      - description: 'User name and unique identifier of the user or organization a resource belongs to.
+
+          For example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.
+
+          '
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: resourceId
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - description: Number of results to return
+        in: query
+        name: limit
+        schema:
+          type: integer
+          format: int32
+          default: 10
+          maximum: 100
+          minimum: 1
+      - description: A token supplied by the previous response to retrieve the next page of results
+        in: query
+        name: next
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RelationshipGetRequestById'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedGenericResultsMetadataResourceDto'
+          description: default response
+      summary: Legacy - Get resources that are related to a resource
+      tags:
+      - legacy catalog - relationships
+  /metadata/relationships/{owner}/table/{sourceId}/{tableId}:
+    post:
+      description: Please refer to the updated IRI-based relationship endpoints.
+      operationId: getTableRelationships
+      parameters:
+      - description: 'User name and unique identifier of the user or organization a resource belongs to.
+
+          For example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.
+
+          '
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - description: ID of dataset that the table is in
+        in: path
+        name: sourceId
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: tableId
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - description: Number of results to return
+        in: query
+        name: limit
+        schema:
+          type: integer
+          format: int32
+          default: 10
+          maximum: 100
+          minimum: 1
+      - description: A token supplied by the previous response to retrieve the next page of results
+        in: query
+        name: next
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RelationshipGetRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedGenericResultsMetadataResourceDto'
+          description: default response
+      summary: Legacy - Get resources that are related to a table
+      tags:
+      - legacy catalog - relationships
+components:
+  schemas:
+    ImageIcon:
+      allOf:
+      - $ref: '#/components/schemas/Icon'
+      - type: object
+        properties:
+          image:
+            $ref: '#/components/schemas/Image'
+            oneOf:
+            - $ref: '#/components/schemas/HostedImage'
+            - $ref: '#/components/schemas/ProvidedImage'
+          largeImage:
+            $ref: '#/components/schemas/Image'
+            oneOf:
+            - $ref: '#/components/schemas/HostedImage'
+            - $ref: '#/components/schemas/ProvidedImage'
+          selectedImage:
+            $ref: '#/components/schemas/Image'
+            oneOf:
+            - $ref: '#/components/schemas/HostedImage'
+            - $ref: '#/components/schemas/ProvidedImage'
+          type:
+            type: string
+            const: image
+    PubSearchHydrations:
+      type: object
+      properties:
+        agents:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/AgentHydrationDto'
+        catalogConcepts:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/CatalogConceptHydrationDto'
+        collections:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/CollectionHydrationDto'
+        properties:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/PropertyHydrationDto'
+        relationships:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/RelationshipHydrationDto'
+        resourceHierarchy:
+          type: object
+          additionalProperties:
+            type: object
+            additionalProperties:
+              type: array
+              items:
+                $ref: '#/components/schemas/ResourceHierarchyDto'
+    EmojiIcon:
+      allOf:
+      - $ref: '#/components/schemas/Icon'
+      - type: object
+        properties:
+          type:
+            type: string
+            const: emoji
+          value:
+            type: string
+    AgentHydrationDto:
+      type: object
+      properties:
+        avatarUrl:
+          type: string
+        deactivated:
+          type: boolean
+        displayName:
+          type: string
+        id:
+          type: string
+    Image:
+      type: object
+      discriminator:
+        mapping:
+          hosted: '#/components/schemas/HostedImage'
+          provided: '#/components/schemas/ProvidedImage'
+        propertyName: type
+      properties:
+        type:
+          type: string
+          enum:
+          - hosted
+          - provided
+    RelationshipHydrationDto:
+      type: object
+      properties:
+        labels:
+          type: array
+          description: Label of the relationship presentation associated with the relationship
+          items:
+            type: string
+    PropertyHydrationDto:
+      type: object
+      properties:
+        label:
+          type: array
+          description: Label of the metadata presentation associated with the property
+          items:
+            type: string
+    ResourceHierarchyDto:
+      type: object
+      properties:
+        assetStatus:
+          $ref: '#/components/schemas/AssetStatus'
+          description: 'Resource status: Pending, Approved etc.'
+        hierarchy:
+          type: array
+          description: Parent types of this resource's type. Returns the most specific type followed by its parent. The first item is the same as type. The last item is the root type.
+          items:
+            $ref: '#/components/schemas/EntryType'
+        icon:
+          $ref: '#/components/schemas/Icon'
+          description: Resource icon details.
+          oneOf:
+          - $ref: '#/components/schemas/EmojiIcon'
+          - $ref: '#/components/schemas/ImageIcon'
+          - $ref: '#/components/schemas/SvgIcon'
+        iri:
+          type: string
+          description: Resource IRI.
+        owner:
+          type: string
+          description: The ID of the organization that this resource belongs to
+        title:
+          type: string
+          description: Resource title
+        type:
+          type: string
+          description: Resource simple type name, e.g. catalogDatabase, catalogEntry etc.
+        typeLabel:
+          type: string
+          description: Resource type label.
+    AssetStatus:
+      type: object
+      properties:
+        assetStatusLabel:
+          type: string
+        dispositionLabel:
+          type: string
+    TableId:
+      type: object
+      properties:
+        owner:
+          type: string
+        sourceId:
+          type: string
+        tableId:
+          type: string
+      required:
+      - owner
+      - tableId
+    SvgIcon:
+      allOf:
+      - $ref: '#/components/schemas/Icon'
+      - type: object
+        properties:
+          image:
+            $ref: '#/components/schemas/Image'
+            oneOf:
+            - $ref: '#/components/schemas/HostedImage'
+            - $ref: '#/components/schemas/ProvidedImage'
+          largeImage:
+            $ref: '#/components/schemas/Image'
+            oneOf:
+            - $ref: '#/components/schemas/HostedImage'
+            - $ref: '#/components/schemas/ProvidedImage'
+          selectedImage:
+            $ref: '#/components/schemas/Image'
+            oneOf:
+            - $ref: '#/components/schemas/HostedImage'
+            - $ref: '#/components/schemas/ProvidedImage'
+          type:
+            type: string
+            const: svg-image
+    Icon:
+      type: object
+      discriminator:
+        mapping:
+          emoji: '#/components/schemas/EmojiIcon'
+          image: '#/components/schemas/ImageIcon'
+          svg-image: '#/components/schemas/SvgIcon'
+        propertyName: type
+      properties:
+        type:
+          type: string
+          enum:
+          - emoji
+          - image
+          - svg-image
+    StringOrArray:
+      oneOf:
+      - type: string
+      - type: array
+        items:
+          type: string
+    HostedImage:
+      allOf:
+      - $ref: '#/components/schemas/Image'
+      - type: object
+        properties:
+          type:
+            type: string
+            const: hosted
+          url:
+            type: string
+    CatalogId:
+      type: object
+      properties:
+        collectionId:
+          type: string
+        owner:
+          type: string
+        referent:
+          type: string
+      required:
+      - collectionId
+      - owner
+      - referent
+    RelationshipGetRequest:
+      type: object
+      properties:
+        byRelationTypes:
+          type: array
+          description: Filter by these relation types. Relation types should be IRIs.
+          example: https://dwec.data.world/v0/usesDataFrom
+          items:
+            type: string
+        byResourceTypes:
+          type: array
+          description: Filter by these resource types.
+          items:
+            type: string
+            enum:
+            - CATALOG
+            - ANALYSIS
+            - BUSINESS_TERM
+            - COLUMN
+            - DATA_TYPE
+            - DATABASE
+            - DATASET
+            - PROJECT
+            - TABLE
+            - CONCEPT
+            - UNKNOWN_CATALOG_ENTRY
+    EntryType:
+      type: object
+      properties:
+        icon:
+          $ref: '#/components/schemas/Icon'
+          oneOf:
+          - $ref: '#/components/schemas/EmojiIcon'
+          - $ref: '#/components/schemas/ImageIcon'
+          - $ref: '#/components/schemas/SvgIcon'
+        instantiable:
+          type: boolean
+        label:
+          type: string
+        pluralLabel:
+          type: string
+        requestable:
+          type: boolean
+        type:
+          type: string
+          description: Entry type IRI
+    CollectionHydrationDto:
+      type: object
+      properties:
+        description:
+          type: string
+        id:
+          type: string
+          description: dct:identifier of the collection
+        iri:
+          type: string
+        owner:
+          type: string
+        title:
+          type: string
+    RelationshipCreateOrDeleteRequest:
+      type: object
+      properties:
+        relationshipType:
+          type: string
+          format: uri
+          description: IRI of the relationship type
+        sourceDatasetId:
+          type: string
+          description: If source is a table or column, populate with database ID that contains table.
+        sourceId:
+          type: string
+        sourceTableId:
+          type: string
+          description: If source is a column, populate with table ID that contains column.
+        sourceType:
+          type: string
+          enum:
+          - CATALOG
+          - ANALYSIS
+          - BUSINESS_TERM
+          - COLUMN
+          - DATA_TYPE
+          - DATABASE
+          - DATASET
+          - PROJECT
+          - TABLE
+          - CONCEPT
+          - UNKNOWN_CATALOG_ENTRY
+        sourceTypeIri:
+          type: string
+          format: uri
+          description: IRI of specified sourceType, this is required when sourceType is generic.
+        targetDatasetId:
+          type: string
+          description: If target is a table or column, populate with database ID that contains table.
+        targetId:
+          type: string
+        targetTableId:
+          type: string
+          description: If target is a column, populate with table ID that contains column.
+        targetType:
+          type: string
+          description: Type of targetId.
+          enum:
+          - CATALOG
+          - ANALYSIS
+          - BUSINESS_TERM
+          - COLUMN
+          - DATA_TYPE
+          - DATABASE
+          - DATASET
+          - PROJECT
+          - TABLE
+          - CONCEPT
+          - UNKNOWN_CATALOG_ENTRY
+      required:
+      - relationshipType
+      - sourceId
+      - sourceType
+      - targetId
+      - targetType
+    PaginatedGenericResultsMetadataResourceDto:
+      type: object
+      properties:
+        consistent:
+          type: boolean
+        count:
+          type: integer
+          format: int32
+          minimum: 0
+        hydrations:
+          $ref: '#/components/schemas/PubSearchHydrations'
+        next:
+          type: string
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/MetadataResourceDto'
+    MetadataResourceDto:
+      type: object
+      properties:
+        assetStatus:
+          $ref: '#/components/schemas/AssetStatus'
+        category:
+          type: string
+        collections:
+          type: array
+          items:
+            $ref: '#/components/schemas/CatalogId'
+        columnIndex:
+          type: integer
+          format: int32
+        created:
+          type: string
+          format: date-time
+        dataType:
+          type: string
+        description:
+          type: string
+        encodedIri:
+          type: string
+        externalUrls:
+          type: array
+          items:
+            type: string
+        id:
+          type: string
+        iri:
+          type: string
+        owner:
+          type: string
+        properties:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/StringOrArray'
+          description: All properties of the resource that are associated with a metadata presentation. Key is the IRI of the property. Value is the value of the property.
+        relationshipTypes:
+          type: array
+          items:
+            type: string
+        rootParentTypeIri:
+          type: string
+        rootParentTypeLabel:
+          type: string
+        summary:
+          type: string
+        table:
+          $ref: '#/components/schemas/TableId'
+        tags:
+          type: array
+          items:
+            type: string
+        title:
+          type: string
+        typeIri:
+          type: string
+        typeLabel:
+          type: string
+        updated:
+          type: string
+          format: date-time
+        url:
+          type: string
+          format: uri
+        visibility:
+          type: string
+          enum:
+          - DISCOVERABLE
+          - OPEN
+          - PRIVATE
+      required:
+      - created
+      - id
+      - owner
+      - visibility
+    ProvidedImage:
+      allOf:
+      - $ref: '#/components/schemas/Image'
+      - type: object
+        properties:
+          slug:
+            type: string
+          type:
+            type: string
+            const: provided
+    RelationshipGetRequestById:
+      type: object
+      properties:
+        byRelationTypes:
+          type: array
+          description: Filter by these relation types. Relation types should be IRIs.
+          example: https://dwec.data.world/v0/usesDataFrom
+          items:
+            type: string
+        byResourceTypes:
+          type: array
+          description: Filter by these resource types.
+          items:
+            type: string
+            enum:
+            - CATALOG
+            - ANALYSIS
+            - BUSINESS_TERM
+            - COLUMN
+            - DATA_TYPE
+            - DATABASE
+            - DATASET
+            - PROJECT
+            - TABLE
+            - CONCEPT
+            - UNKNOWN_CATALOG_ENTRY
+        resourceType:
+          type: string
+          description: The type of resourceId.
+          enum:
+          - CATALOG
+          - ANALYSIS
+          - BUSINESS_TERM
+          - COLUMN
+          - DATA_TYPE
+          - DATABASE
+          - DATASET
+          - PROJECT
+          - TABLE
+          - CONCEPT
+          - UNKNOWN_CATALOG_ENTRY
+      required:
+      - resourceType
+    CatalogConceptHydrationDto:
+      type: object
+      properties:
+        altLabel:
+          type: string
+        iri:
+          type: string
+        owner:
+          type: string
+        prefLabel:
+          type: string
+    SuccessMessage:
+      type: object
+      properties:
+        message:
+          type: string
+          maxLength: 256
+          minLength: 0
+  securitySchemes:
+    bearerAuth:
+      bearerFormat: JWT
+      scheme: bearer
+      type: http

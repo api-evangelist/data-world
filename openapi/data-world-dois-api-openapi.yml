@@ -1,0 +1,158 @@
+openapi: 3.1.0
+info:
+  contact:
+    name: Contact Us
+    url: https://data.world/company/contact-us
+  termsOfService: https://data.world/terms-policies
+  title: data.world Public catalog relationships DOIs API
+  version: '0'
+  description: Manage relationships between catalog resources
+servers:
+- url: /v0
+security:
+- bearerAuth: []
+tags:
+- name: DOIs
+paths:
+  /datasets/{owner}/{id}/dois/{doi}:
+    delete:
+      description: Delete a DOI ([Digital Object Identifier](https://www.doi.org/)) associated with a dataset.
+      operationId: deleteDoi
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: doi
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: Delete dataset DOI
+      tags:
+      - DOIs
+    put:
+      description: Associate a DOI ([Digital Object Identifier](https://www.doi.org/)) with a dataset.
+      operationId: addDoi
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: doi
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: Create dataset DOI
+      tags:
+      - DOIs
+  /datasets/{owner}/{id}/v/{versionId}/dois/{doi}:
+    delete:
+      description: Delete a DOI ([Digital Object Identifier](https://www.doi.org/)) associated with a version of a dataset.
+      operationId: deleteVersionDoi
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: versionId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: doi
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: Delete dataset version DOI
+      tags:
+      - DOIs
+    put:
+      description: Associate a DOI ([Digital Object Identifier](https://www.doi.org/)) with a version of a dataset.
+      operationId: addVersionDoi
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: versionId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: doi
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: Create dataset version DOI
+      tags:
+      - DOIs
+components:
+  schemas:
+    SuccessMessage:
+      type: object
+      properties:
+        message:
+          type: string
+          maxLength: 256
+          minLength: 0
+  securitySchemes:
+    bearerAuth:
+      bearerFormat: JWT
+      scheme: bearer
+      type: http

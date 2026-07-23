@@ -1,0 +1,1194 @@
+openapi: 3.1.0
+info:
+  contact:
+    name: Contact Us
+    url: https://data.world/company/contact-us
+  termsOfService: https://data.world/terms-policies
+  title: data.world Public catalog relationships queries API
+  version: '0'
+  description: Manage relationships between catalog resources
+servers:
+- url: /v0
+security:
+- bearerAuth: []
+tags:
+- name: queries
+paths:
+  /cancel:
+    post:
+      description: Cancel a running query.
+      operationId: cancel
+      parameters:
+      - in: query
+        name: queryruntoken
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      responses:
+        '200':
+          content:
+            '*/*': {}
+          description: default response
+      summary: Cancel a query
+      tags:
+      - queries
+  /datasets/{owner}/{id}/queries:
+    get:
+      description: 'List published saved queries associated with a dataset. Query definitions will be returned, not the query results.
+
+        To retrieve query results use `GET:/queries/{id}/results`.'
+      operationId: getPublishedDatasetQueries
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      - description: Number of results to return
+        in: query
+        name: limit
+        schema:
+          type: integer
+          format: int32
+          default: 10
+          maximum: 100
+          minimum: 1
+      - description: A token supplied by the previous response to retrieve the next page of results
+        in: query
+        name: next
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedQueryResults'
+          description: default response
+      summary: List published queries
+      tags:
+      - queries
+    post:
+      description: Create a saved query in a specified dataset.
+      operationId: createSavedQuery
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateQueryRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuerySummaryResponse'
+          description: default response
+      summary: Create a saved query in a specified dataset
+      tags:
+      - queries
+  /datasets/{owner}/{id}/queries/{queryId}:
+    delete:
+      description: Delete a saved query in a specified dataset.
+      operationId: deleteSavedQuery
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: queryId
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: Delete a saved query in a specified dataset
+      tags:
+      - queries
+    put:
+      description: Update a saved query in a specified dataset.
+      operationId: updateSavedQuery
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: queryId
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryPutRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuerySummaryResponse'
+          description: default response
+      summary: Update a saved query in a specified dataset
+      tags:
+      - queries
+  /datasets/{owner}/{id}/userQueries:
+    get:
+      description: 'List user saved queries associated with a dataset. Query definitions will be returned, not the query results.
+
+        To retrieve query results use `GET:/queries/{id}/results`.'
+      operationId: getUserSavedDatasetQueries
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      - description: Number of results to return
+        in: query
+        name: limit
+        schema:
+          type: integer
+          format: int32
+          default: 10
+          maximum: 100
+          minimum: 1
+      - description: A token supplied by the previous response to retrieve the next page of results
+        in: query
+        name: next
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedQueryResults'
+          description: default response
+      summary: List user saved queries
+      tags:
+      - queries
+  /projects/{owner}/{id}/queries:
+    get:
+      description: List published saved queries associated with a project.
+      operationId: getProjectQueries
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      - description: Number of results to return
+        in: query
+        name: limit
+        schema:
+          type: integer
+          format: int32
+          default: 10
+          maximum: 100
+          minimum: 1
+      - description: A token supplied by the previous response to retrieve the next page of results
+        in: query
+        name: next
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedQueryResults'
+          description: default response
+      summary: List published queries
+      tags:
+      - queries
+    post:
+      description: Create a saved query in a specified project.
+      operationId: createSavedQuery_1
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateQueryRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuerySummaryResponse'
+          description: default response
+      summary: Create a saved query
+      tags:
+      - queries
+  /projects/{owner}/{id}/queries/{queryId}:
+    delete:
+      description: Delete a saved query in a specified project.
+      operationId: deleteSavedQuery_1
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: queryId
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: Delete a saved query
+      tags:
+      - queries
+    put:
+      description: Update a saved query in a specified project.
+      operationId: updateSavedQuery_1
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: queryId
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryPutRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuerySummaryResponse'
+          description: default response
+      summary: Update a saved query
+      tags:
+      - queries
+  /projects/{owner}/{id}/userQueries:
+    get:
+      description: List user saved queries associated with a project.
+      operationId: getUserSavedProjectQueries
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      - description: Number of results to return
+        in: query
+        name: limit
+        schema:
+          type: integer
+          format: int32
+          default: 10
+          maximum: 100
+          minimum: 1
+      - description: A token supplied by the previous response to retrieve the next page of results
+        in: query
+        name: next
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedQueryResults'
+          description: default response
+      summary: List saved queries
+      tags:
+      - queries
+  /queries/{id}:
+    get:
+      description: 'Retrieve a saved query. Query definitions will be returned, not query results. To retrieve query results
+
+        use `GET:/queries/{id}/results`.'
+      operationId: getQuery
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuerySummaryResponse'
+          description: default response
+      summary: Retrieve a saved query
+      tags:
+      - queries
+  /queries/{id}/results:
+    get:
+      description: 'Execute a saved query.
+
+
+        SQL results are available in a variety of formats. By default, `application/json` will be returned. Set
+
+        the `Accept` header to one of the following values in accordance with your preference:
+
+
+        * `text/csv`
+
+        * `application/json`
+
+        * `application/json-l`
+
+        * `application/x-ndjson`
+
+
+        SPARQL results are available in a variety of formats. By default, `application/sparql-results+json` will
+
+        be returned. Set the `Accept` header to one of the following values in accordance with your preference:
+
+
+        - `application/sparql-results+xml`
+
+        - `application/sparql-results+json`
+
+        - `application/rdf+json`
+
+        - `application/rdf+xml`
+
+        - `text/csv`
+
+        - `text/tab-separated-values`
+
+        - `text/turtle`'
+      operationId: executeQuery
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: includeTableSchema
+        schema:
+          type: boolean
+          default: false
+      - description: Query token to use with cancel
+        in: query
+        name: queryruntoken
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json: {}
+            application/json-l: {}
+            application/rdf+json: {}
+            application/rdf+xml: {}
+            application/sparql-results+json: {}
+            application/sparql-results+xml: {}
+            application/trig: {}
+            application/x-ndjson: {}
+            text/csv: {}
+            text/tab-separated-values: {}
+            text/turtle: {}
+          description: default response
+      summary: Execute a saved query
+      tags:
+      - queries
+    post:
+      description: 'Execute a saved query (same as GET:/queries/{id}/results) with the option to specify named query
+
+        parameters.'
+      operationId: executeQueryWithPost
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - description: Query token to use with cancel
+        in: query
+        name: queryruntoken
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SavedQueryExecutionRequest'
+      responses:
+        '200':
+          content:
+            application/json: {}
+            application/json-l: {}
+            application/rdf+json: {}
+            application/rdf+xml: {}
+            application/sparql-results+json: {}
+            application/sparql-results+xml: {}
+            application/trig: {}
+            application/x-ndjson: {}
+            text/csv: {}
+            text/tab-separated-values: {}
+            text/turtle: {}
+          description: default response
+      summary: Execute a saved query (with parameters)
+      tags:
+      - queries
+  /queries/{id}/v/{versionId}:
+    get:
+      description: Retrieve a version of a saved query. Query definitions will be returned, not query results.
+      operationId: getQueryVersion
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - in: path
+        name: versionId
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuerySummaryResponse'
+          description: default response
+      summary: Retrieve a saved query version
+      tags:
+      - queries
+  /sparql/{owner}:
+    get:
+      description: 'Execute a SPARQL query. The query will default to using the :current graph if the query contains no FROM
+
+        clauses and no default graph URI parameters are specified, in which case it will return a 404 if the
+
+        :current graph does not exist for the org.
+
+
+        SPARQL results are available in a variety of formats. By default, `application/sparql-results+json` will
+
+        be returned. Set the `Accept` header to one of the following values in accordance with your preference
+
+        and the type of the query (SELECT, CONSTRUCT, DESCRIBE, ASK):
+
+
+        - `application/sparql-results+xml`
+
+        - `application/sparql-results+json`
+
+        - `application/rdf+json`
+
+        - `application/rdf+xml`
+
+        - `text/csv`
+
+        - `text/tab-separated-values`
+
+        - `text/turtle`
+
+
+        New to SPARQL? Check out data.world''s [SPARQL tutorial](https://docs.data.world/tutorials/sparql/).'
+      operationId: queryViaGetWithDefaultGraph
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: query
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: query
+        name: diagnose
+        schema:
+          type: boolean
+          default: false
+      - description: Specify URI for named graph(s) to query, overriding any FROM clauses in the query. If the default-graph-uri parameter is omitted and there are no FROM clauses, the :current graph will be used. See [Our Docs](https://docs.data.world/en/168180-understanding-the-catalog-graph.html#UUID-46e644b5-119a-a4a2-eb69-e09ce33bd986) for more info.
+        in: query
+        name: default-graph-uri
+        schema:
+          type: array
+          items:
+            type: string
+      - description: Specify URI for named graph(s) to query, overriding any FROM NAMED clauses in the query. See [Our Docs](https://docs.data.world/en/168180-understanding-the-catalog-graph.html#UUID-46e644b5-119a-a4a2-eb69-e09ce33bd986) for more info.
+        in: query
+        name: named-graph-uri
+        schema:
+          type: array
+          items:
+            type: string
+      - description: Query token to use with cancel
+        in: query
+        name: queryruntoken
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/rdf+json: {}
+            application/rdf+xml: {}
+            application/sparql-results+json: {}
+            application/sparql-results+xml: {}
+            text/csv: {}
+            text/tab-separated-values: {}
+            text/turtle: {}
+          description: default response
+      summary: Execute SPARQL query via GET with the default graph
+      tags:
+      - queries
+    post:
+      description: 'Execute a SPARQL query. The query will default to using the :current graph if the query contains no FROM
+
+        clauses and no default graph URI parameters are specified, in which case it will return a 404 if the
+
+        :current graph does not exist for the org.
+
+
+        SPARQL results are available in a variety of formats. By default, `application/sparql-results+json` will
+
+        be returned. Set the `Accept` header to one of the following values in accordance with your preference
+
+        and the type of the query (SELECT, CONSTRUCT, DESCRIBE, ASK):
+
+
+        - `application/sparql-results+xml`
+
+        - `application/sparql-results+json`
+
+        - `application/rdf+json`
+
+        - `application/rdf+xml`
+
+        - `text/csv`
+
+        - `text/tab-separated-values`
+
+        - `text/turtle`
+
+
+        New to SPARQL? Check out data.world''s [SPARQL tutorial](https://docs.data.world/tutorials/sparql/).'
+      operationId: queryWithJsonRequestWithDefaultGraph
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SparqlQueryRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/rdf+json: {}
+            application/rdf+xml: {}
+            application/sparql-results+json: {}
+            application/sparql-results+xml: {}
+            text/csv: {}
+            text/tab-separated-values: {}
+            text/turtle: {}
+          description: default response
+      summary: Execute SPARQL query via POST with the default graph
+      tags:
+      - queries
+  /sparql/{owner}/{id}:
+    get:
+      description: 'Execute a SPARQL query against a dataset or data project.
+
+
+        SPARQL results are available in a variety of formats. By default, `application/sparql-results+json` will
+
+        be returned. Set the `Accept` header to one of the following values in accordance with your preference
+
+        and the type of the query (SELECT, CONSTRUCT, DESCRIBE, ASK):
+
+
+        - `application/sparql-results+xml`
+
+        - `application/sparql-results+json`
+
+        - `application/rdf+json`
+
+        - `application/rdf+xml`
+
+        - `text/csv`
+
+        - `text/tab-separated-values`
+
+        - `text/turtle`
+
+
+        New to SPARQL? Check out data.world''s [SPARQL tutorial](https://docs.data.world/tutorials/sparql/).'
+      operationId: queryViaGet
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: Dataset to query, e.g. `ddw-catalogs`
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: query
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: query
+        name: diagnose
+        schema:
+          type: boolean
+          default: false
+      - description: Specify URI for named graph(s) to query, overriding any FROM clauses in the query. See [Our Docs](https://docs.data.world/en/168180-understanding-the-catalog-graph.html#UUID-46e644b5-119a-a4a2-eb69-e09ce33bd986) for more info.
+        in: query
+        name: default-graph-uri
+        schema:
+          type: array
+          items:
+            type: string
+      - description: Specify URI for named graph(s) to query, overriding any FROM NAMED clauses in the query. See [Our Docs](https://docs.data.world/en/168180-understanding-the-catalog-graph.html#UUID-46e644b5-119a-a4a2-eb69-e09ce33bd986) for more info.
+        in: query
+        name: named-graph-uri
+        schema:
+          type: array
+          items:
+            type: string
+      - description: Query token to use with cancel
+        in: query
+        name: queryruntoken
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/rdf+json: {}
+            application/rdf+xml: {}
+            application/sparql-results+json: {}
+            application/sparql-results+xml: {}
+            text/csv: {}
+            text/tab-separated-values: {}
+            text/turtle: {}
+          description: default response
+      summary: Execute SPARQL query via GET
+      tags:
+      - queries
+    post:
+      description: 'Execute a SPARQL query against a dataset or data project.
+
+
+        SPARQL results are available in a variety of formats. By default, `application/sparql-results+json` will
+
+        be returned. Set the `Accept` header to one of the following values in accordance with your preference
+
+        and the type of the query (SELECT, CONSTRUCT, DESCRIBE, ASK):
+
+
+        - `application/sparql-results+xml`
+
+        - `application/sparql-results+json`
+
+        - `application/rdf+json`
+
+        - `application/rdf+xml`
+
+        - `text/csv`
+
+        - `text/tab-separated-values`
+
+        - `text/turtle`
+
+
+        New to SPARQL? Check out data.world''s [SPARQL tutorial](https://docs.data.world/tutorials/sparql/).'
+      operationId: queryWithJsonRequest
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: Dataset to query, e.g. `ddw-catalogs`
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SparqlQueryRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/rdf+json: {}
+            application/rdf+xml: {}
+            application/sparql-results+json: {}
+            application/sparql-results+xml: {}
+            text/csv: {}
+            text/tab-separated-values: {}
+            text/turtle: {}
+          description: default response
+      summary: Execute SPARQL query via POST
+      tags:
+      - queries
+  /sql/{owner}/{id}:
+    get:
+      description: Same as `POST:/sql/{owner}/{id}`
+      operationId: sqlGet
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: includeTableSchema
+        schema:
+          type: boolean
+          default: false
+      - in: query
+        name: query
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: query
+        name: dialect
+        schema:
+          type: string
+          default: DW_SQL
+          enum:
+          - DW_SQL
+          - POSTGRESQL
+      - in: query
+        name: diagnose
+        schema:
+          type: boolean
+          default: false
+      - description: Query token to use with cancel
+        in: query
+        name: queryruntoken
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json: {}
+            application/json-l: {}
+            application/x-ndjson: {}
+            text/csv: {}
+          description: default response
+      summary: SQL query (via GET)
+      tags:
+      - queries
+    post:
+      description: 'Execute a SQL query against a dataset or data project.
+
+
+        SQL results are available in a variety of formats. By default, `application/json` will be returned. Set
+
+        the `Accept` header to one of the following values in accordance with your preference:
+
+
+        * `text/csv`
+
+        * `application/json`
+
+        * `application/json-l`
+
+        * `application/x-ndjson`
+
+
+        New to SQL? Check out data.world''s [SQL manual](https://docs.data.world/tutorials/dwsql/) .'
+      operationId: sqlPostWithJsonRequest
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: dialect
+        schema:
+          type: string
+          default: DW_SQL
+          enum:
+          - DW_SQL
+          - POSTGRESQL
+      - in: query
+        name: diagnose
+        schema:
+          type: boolean
+          default: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SqlQueryRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json: {}
+            application/json-l: {}
+            application/x-ndjson: {}
+            text/csv: {}
+          description: default response
+      summary: SQL query
+      tags:
+      - queries
+  /sql/{owner}/{id}/describe:
+    post:
+      description: 'This endpoint describes what columns will be included if the given SQL query is performed against the specified dataset.
+
+        New to SQL? Check out data.world''s [SQL manual](https://docs.data.world/tutorials/dwsql/) .'
+      operationId: sqlDescribe
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: dialect
+        schema:
+          type: string
+          default: DW_SQL
+          enum:
+          - DW_SQL
+          - POSTGRESQL
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SqlQueryRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json: {}
+            application/json-l: {}
+            application/x-ndjson: {}
+            text/csv: {}
+          description: default response
+      summary: Describe a SQL query
+      tags:
+      - queries
+components:
+  schemas:
+    SavedQueryExecutionRequest:
+      type: object
+      properties:
+        datasetVersions:
+          type: string
+        defaultGraphUris:
+          type: array
+          items:
+            type: string
+        includeTableSchema:
+          type: boolean
+        maxRows:
+          type: integer
+          format: int64
+        namedGraphUris:
+          type: array
+          items:
+            type: string
+        parameters:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/RdfTerm'
+        queryRunToken:
+          type: string
+    QueryPutRequest:
+      type: object
+      properties:
+        content:
+          type: string
+        description:
+          type: string
+          maxLength: 1000
+          minLength: 0
+        name:
+          type: string
+          maxLength: 128
+          minLength: 0
+        published:
+          type: boolean
+      required:
+      - content
+      - name
+    CreateQueryRequest:
+      type: object
+      properties:
+        content:
+          type: string
+        description:
+          type: string
+          maxLength: 1000
+          minLength: 0
+        language:
+          type: string
+          enum:
+          - SPARQL
+          - SQL
+        name:
+          type: string
+          maxLength: 128
+          minLength: 0
+        published:
+          type: boolean
+      required:
+      - content
+      - language
+      - name
+    SparqlQueryRequest:
+      type: object
+      properties:
+        datasetVersions:
+          type: string
+        defaultGraphUris:
+          type: array
+          items:
+            type: string
+        diagnose:
+          type: boolean
+        namedGraphUris:
+          type: array
+          items:
+            type: string
+        query:
+          type: string
+        queryRunToken:
+          type: string
+      required:
+      - query
+    PaginatedQueryResults:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+          minimum: 0
+        nextPageToken:
+          type: string
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/QuerySummaryResponse'
+      required:
+      - count
+      - records
+    QuerySummaryResponse:
+      type: object
+      properties:
+        body:
+          type: string
+        created:
+          type: string
+          format: date-time
+        description:
+          type: string
+        id:
+          type: string
+          format: uuid
+        language:
+          type: string
+          enum:
+          - SPARQL
+          - SQL
+        name:
+          type: string
+        owner:
+          type: string
+        parameters:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/QueryParameter'
+        updated:
+          type: string
+          format: date-time
+        version:
+          type: string
+    RdfTerm:
+      type: object
+      properties:
+        datatype:
+          type: string
+        type:
+          type: string
+          enum:
+          - literal
+          - uri
+          - bnode
+        value:
+          type: string
+        xml:lang:
+          type: string
+      required:
+      - type
+      - value
+    QueryParameter:
+      type: object
+      properties:
+        datatype:
+          type: string
+        type:
+          type: string
+    SuccessMessage:
+      type: object
+      properties:
+        message:
+          type: string
+          maxLength: 256
+          minLength: 0
+    SqlQueryRequest:
+      type: object
+      properties:
+        datasetVersions:
+          type: string
+        includeTableSchema:
+          type: boolean
+        query:
+          type: string
+        queryRunToken:
+          type: string
+      required:
+      - query
+  securitySchemes:
+    bearerAuth:
+      bearerFormat: JWT
+      scheme: bearer
+      type: http

@@ -1,0 +1,69 @@
+openapi: 3.1.0
+info:
+  contact:
+    name: Contact Us
+    url: https://data.world/company/contact-us
+  termsOfService: https://data.world/terms-policies
+  title: data.world Public catalog relationships users API
+  version: '0'
+  description: Manage relationships between catalog resources
+servers:
+- url: /v0
+security:
+- bearerAuth: []
+tags:
+- name: users
+paths:
+  /users/{account}:
+    get:
+      description: Retrieve user profile information for the specified account.
+      operationId: getAccount
+      parameters:
+      - in: path
+        name: account
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDataResponse'
+          description: default response
+      summary: Retrieve a user's profile
+      tags:
+      - users
+components:
+  schemas:
+    UserDataResponse:
+      type: object
+      properties:
+        avatarUrl:
+          type: string
+          maxLength: 256
+          minLength: 0
+        baseUrl:
+          type: string
+        created:
+          type: string
+          format: date-time
+        displayName:
+          type: string
+          maxLength: 128
+          minLength: 0
+        id:
+          type: string
+        updated:
+          type: string
+          format: date-time
+      required:
+      - created
+      - id
+      - updated
+  securitySchemes:
+    bearerAuth:
+      bearerFormat: JWT
+      scheme: bearer
+      type: http

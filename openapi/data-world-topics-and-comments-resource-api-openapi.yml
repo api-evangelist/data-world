@@ -1,0 +1,829 @@
+openapi: 3.1.0
+info:
+  contact:
+    name: Contact Us
+    url: https://data.world/company/contact-us
+  termsOfService: https://data.world/terms-policies
+  title: data.world Public catalog relationships topics and comments - resource API
+  version: '0'
+  description: Manage relationships between catalog resources
+servers:
+- url: /v0
+security:
+- bearerAuth: []
+tags:
+- name: topics and comments - resource
+paths:
+  /topics:
+    post:
+      description: This API allows users to initiate a new topic for discussions and comments. To create a topic, the user must have access to the resource.
+      operationId: createTopic
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PublicTopicDto'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicTopicDto'
+          description: default response
+      summary: Create a new topic
+      tags:
+      - topics and comments - resource
+  /topics/comments/recent:
+    get:
+      description: This API retrieves recently updated comments that are open and discoverable. Users can filter results by the owner's ID and specify the number of comments to fetch, with a limit of 100 and a default of 5.
+      operationId: getRecentComments
+      parameters:
+      - description: Optional parameter to reduce the result set by owner who created it
+        in: query
+        name: owner
+        schema:
+          type: string
+      - description: Optional parameter to return number of matched comments with limit of 100 and default size of 5
+        in: query
+        name: size
+        schema:
+          type: integer
+          format: int32
+          default: 5
+          maximum: 100
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedGenericResultsPublicCommentDto'
+          description: default response
+      summary: Get recently updated comments
+      tags:
+      - topics and comments - resource
+  /topics/hot:
+    get:
+      description: This API allows users to access trending topics determined by their level of activity. Users can specify the number of topics to retrieve per request, with a maximum limit of 1000 topics. If the number is not specified, it defaults to 10.
+      operationId: getHotTopics
+      parameters:
+      - description: Optional parameter to return number of found hot topics with limit of 100 and default size of 5
+        in: query
+        name: size
+        schema:
+          type: integer
+          format: int32
+          default: 5
+          maximum: 100
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedGenericResultsPublicTopicDto'
+          description: default response
+      summary: Get active topics
+      tags:
+      - topics and comments - resource
+  /topics/{owner}:
+    get:
+      description: 'Retrieve open and discoverable topics associated with a specific owner. If an optional resource is provided in the query parameter, this will retrieve topics for the resource that is owned by the owner. To reference a dataset insight, both `datasetId` and `insightUuid` should be provided. To reference a metadata resource, `iri` should be provided."
+
+        '
+      operationId: getTopicsByResource
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: datasetId
+        schema:
+          type: string
+      - description: The parameter requires datasetId to be provided.
+        in: query
+        name: insightUuid
+        schema:
+          type: string
+      - in: query
+        name: iri
+        schema:
+          type: string
+      - description: Size of page to fetch
+        in: query
+        name: size
+        schema:
+          type: integer
+          format: int32
+          default: 10
+          maximum: 1000
+      - description: Result number to start fetch from (not the page number to start from)
+        in: query
+        name: from
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - description: Sort results by fields
+        in: query
+        name: sort
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedGenericResultsPublicTopicDto'
+          description: default response
+      summary: Get topics for an owner and optional resource
+      tags:
+      - topics and comments - resource
+  /topics/{owner}/{topicUuid}:
+    delete:
+      description: This API allows users to remove a topic they have permission to access, specified by the owner's ID and the topic's UUID. This DELETE request ensures the topic is successfully deleted if access criteria are met.
+      operationId: deleteTopic
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: topicUuid
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          content:
+            application/json: {}
+          description: default response
+      summary: Delete an existing topic
+      tags:
+      - topics and comments - resource
+    get:
+      description: Access an individual topic using this API by providing the owner's identifier and the unique topic UUID. This API ensures user permissions are validated for visibility and access to the specified topic.
+      operationId: getTopic
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: topicUuid
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicTopicDto'
+          description: default response
+      summary: Get a topic
+      tags:
+      - topics and comments - resource
+    put:
+      description: This API enables users to modify details of a topic they have access to, identified by the owner's ID and the topic's UUID. This PUT request ensures that all changes comply with the required access permissions and topic visibility settings.
+      operationId: updateTopic
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: topicUuid
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PublicTopicDto'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicTopicDto'
+          description: default response
+      summary: Update an existing topic
+      tags:
+      - topics and comments - resource
+  /topics/{owner}/{topicUuid}/comments:
+    get:
+      description: This API allows users to retrieve comments for a specific topic they have access to, identified by the owner's ID and the topic's UUID. Users can control the number of comments returned, with options to sort and paginate results.
+      operationId: getCommentsByTopic
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: topicUuid
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - description: Size of page to fetch
+        in: query
+        name: size
+        schema:
+          type: integer
+          format: int32
+          default: 10
+          maximum: 1000
+      - description: Result number to start fetch from (not the page number to start from)
+        in: query
+        name: from
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - description: Sort results by fields
+        in: query
+        name: sort
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedGenericResultsPublicCommentDto'
+          description: default response
+      summary: Get comments for a topic
+      tags:
+      - topics and comments - resource
+    post:
+      description: This API enables users to add a comment to a specific topic, provided they have access permissions. This POST request requires the owner's ID and the topic's UUID, along with the comment content, to successfully create and store the comment.
+      operationId: createComment
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: topicUuid
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PublicCommentDto'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicCommentDto'
+          description: default response
+      summary: Create a comment
+      tags:
+      - topics and comments - resource
+  /topics/{owner}/{topicUuid}/comments/{commentid}:
+    delete:
+      description: This API allows users to remove a comment from a topic, provided they have access rights. This DELETE request requires the owner's ID, topic's UUID, and the comment ID to successfully execute the deletion.
+      operationId: deleteComment
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: topicUuid
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - in: path
+        name: commentid
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json: {}
+          description: default response
+      summary: Delete an existing comment
+      tags:
+      - topics and comments - resource
+    get:
+      description: This API allows users to access a specific comment within a topic, provided they have the necessary access permissions. This GET request requires the owner's ID and the topic's UUID to retrieve the comment details.
+      operationId: getComment
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: topicUuid
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - in: path
+        name: commentid
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicCommentDto'
+          description: default response
+      summary: Get a comment
+      tags:
+      - topics and comments - resource
+    put:
+      description: This API allows users to modify the content of a comment within a topic, provided they have the necessary permissions. By using a PUT request with the owner's ID, topic's UUID, and comment ID, users can update the comment's details effectively.
+      operationId: updateComment
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: topicUuid
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - in: path
+        name: commentid
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PublicCommentDto'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicCommentDto'
+          description: default response
+      summary: Update an existing comment
+      tags:
+      - topics and comments - resource
+components:
+  schemas:
+    ImageIcon:
+      allOf:
+      - $ref: '#/components/schemas/Icon'
+      - type: object
+        properties:
+          image:
+            $ref: '#/components/schemas/Image'
+            oneOf:
+            - $ref: '#/components/schemas/HostedImage'
+            - $ref: '#/components/schemas/ProvidedImage'
+          largeImage:
+            $ref: '#/components/schemas/Image'
+            oneOf:
+            - $ref: '#/components/schemas/HostedImage'
+            - $ref: '#/components/schemas/ProvidedImage'
+          selectedImage:
+            $ref: '#/components/schemas/Image'
+            oneOf:
+            - $ref: '#/components/schemas/HostedImage'
+            - $ref: '#/components/schemas/ProvidedImage'
+          type:
+            type: string
+            const: image
+    PubSearchHydrations:
+      type: object
+      properties:
+        agents:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/AgentHydrationDto'
+        catalogConcepts:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/CatalogConceptHydrationDto'
+        collections:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/CollectionHydrationDto'
+        properties:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/PropertyHydrationDto'
+        relationships:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/RelationshipHydrationDto'
+        resourceHierarchy:
+          type: object
+          additionalProperties:
+            type: object
+            additionalProperties:
+              type: array
+              items:
+                $ref: '#/components/schemas/ResourceHierarchyDto'
+    PublicDatasetInsightResource:
+      allOf:
+      - $ref: '#/components/schemas/PublicResource'
+      - type: object
+        properties:
+          datasetId:
+            type: string
+            description: ID of a dataset
+          insightUuid:
+            type: string
+            format: uuid
+            description: ID of a dataset insight
+          type:
+            type: string
+            const: DATASET_INSIGHT
+      required:
+      - datasetId
+      - insightUuid
+      - owner
+      title: Dataset Insight Resource
+    PublicResource:
+      type: object
+      discriminator:
+        mapping:
+          ANALYSIS: '#/components/schemas/PublicAnalysisResource'
+          CATALOG: '#/components/schemas/PublicCollectionResource'
+          COLUMN: '#/components/schemas/PublicColumnResource'
+          DATABASE: '#/components/schemas/PublicDatabaseResource'
+          DATASET: '#/components/schemas/PublicDatasetResource'
+          DATASET_INSIGHT: '#/components/schemas/PublicDatasetInsightResource'
+          GLOSSARY: '#/components/schemas/PublicGlossaryResource'
+          GROUP: '#/components/schemas/PublicGroupParty'
+          METADATA_RESOURCE: '#/components/schemas/PublicMetadataResource'
+          TABLE: '#/components/schemas/PublicTableResource'
+        propertyName: type
+      properties:
+        owner:
+          type: string
+          description: ID of an organization that owns the resource
+          title: organization id
+        type:
+          type: string
+          enum:
+          - ANALYSIS
+          - CATALOG
+          - COLUMN
+          - DATABASE
+          - DATASET
+          - DATASET_INSIGHT
+          - GLOSSARY
+          - GROUP
+          - METADATA_RESOURCE
+          - TABLE
+      required:
+      - owner
+      - type
+    PublicMetadataResource:
+      allOf:
+      - $ref: '#/components/schemas/PublicResource'
+      - type: object
+        properties:
+          referent:
+            type: string
+            description: A metadata resource referent
+          type:
+            type: string
+            const: METADATA_RESOURCE
+      required:
+      - owner
+      - referent
+      title: Metadata Resource
+    PublicDatasetResource:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/PublicResource'
+      - $ref: '#/components/schemas/DatasetIdentifier'
+      - type: object
+        properties:
+          id:
+            type: string
+            description: ID of a dataset
+      required:
+      - id
+      - owner
+      title: Dataset Resource
+    EmojiIcon:
+      allOf:
+      - $ref: '#/components/schemas/Icon'
+      - type: object
+        properties:
+          type:
+            type: string
+            const: emoji
+          value:
+            type: string
+    AgentHydrationDto:
+      type: object
+      properties:
+        avatarUrl:
+          type: string
+        deactivated:
+          type: boolean
+        displayName:
+          type: string
+        id:
+          type: string
+    DatasetIdentifier:
+      type: object
+      properties:
+        id:
+          type: string
+        owner:
+          type: string
+      required:
+      - id
+      - owner
+    Image:
+      type: object
+      discriminator:
+        mapping:
+          hosted: '#/components/schemas/HostedImage'
+          provided: '#/components/schemas/ProvidedImage'
+        propertyName: type
+      properties:
+        type:
+          type: string
+          enum:
+          - hosted
+          - provided
+    RelationshipHydrationDto:
+      type: object
+      properties:
+        labels:
+          type: array
+          description: Label of the relationship presentation associated with the relationship
+          items:
+            type: string
+    PropertyHydrationDto:
+      type: object
+      properties:
+        label:
+          type: array
+          description: Label of the metadata presentation associated with the property
+          items:
+            type: string
+    ResourceHierarchyDto:
+      type: object
+      properties:
+        assetStatus:
+          $ref: '#/components/schemas/AssetStatus'
+          description: 'Resource status: Pending, Approved etc.'
+        hierarchy:
+          type: array
+          description: Parent types of this resource's type. Returns the most specific type followed by its parent. The first item is the same as type. The last item is the root type.
+          items:
+            $ref: '#/components/schemas/EntryType'
+        icon:
+          $ref: '#/components/schemas/Icon'
+          description: Resource icon details.
+          oneOf:
+          - $ref: '#/components/schemas/EmojiIcon'
+          - $ref: '#/components/schemas/ImageIcon'
+          - $ref: '#/components/schemas/SvgIcon'
+        iri:
+          type: string
+          description: Resource IRI.
+        owner:
+          type: string
+          description: The ID of the organization that this resource belongs to
+        title:
+          type: string
+          description: Resource title
+        type:
+          type: string
+          description: Resource simple type name, e.g. catalogDatabase, catalogEntry etc.
+        typeLabel:
+          type: string
+          description: Resource type label.
+    PaginatedGenericResultsPublicCommentDto:
+      type: object
+      properties:
+        consistent:
+          type: boolean
+        count:
+          type: integer
+          format: int32
+          minimum: 0
+        hydrations:
+          $ref: '#/components/schemas/PubSearchHydrations'
+        next:
+          type: string
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/PublicCommentDto'
+    AssetStatus:
+      type: object
+      properties:
+        assetStatusLabel:
+          type: string
+        dispositionLabel:
+          type: string
+    PaginatedGenericResultsPublicTopicDto:
+      type: object
+      properties:
+        consistent:
+          type: boolean
+        count:
+          type: integer
+          format: int32
+          minimum: 0
+        hydrations:
+          $ref: '#/components/schemas/PubSearchHydrations'
+        next:
+          type: string
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/PublicTopicDto'
+    SvgIcon:
+      allOf:
+      - $ref: '#/components/schemas/Icon'
+      - type: object
+        properties:
+          image:
+            $ref: '#/components/schemas/Image'
+            oneOf:
+            - $ref: '#/components/schemas/HostedImage'
+            - $ref: '#/components/schemas/ProvidedImage'
+          largeImage:
+            $ref: '#/components/schemas/Image'
+            oneOf:
+            - $ref: '#/components/schemas/HostedImage'
+            - $ref: '#/components/schemas/ProvidedImage'
+          selectedImage:
+            $ref: '#/components/schemas/Image'
+            oneOf:
+            - $ref: '#/components/schemas/HostedImage'
+            - $ref: '#/components/schemas/ProvidedImage'
+          type:
+            type: string
+            const: svg-image
+    Icon:
+      type: object
+      discriminator:
+        mapping:
+          emoji: '#/components/schemas/EmojiIcon'
+          image: '#/components/schemas/ImageIcon'
+          svg-image: '#/components/schemas/SvgIcon'
+        propertyName: type
+      properties:
+        type:
+          type: string
+          enum:
+          - emoji
+          - image
+          - svg-image
+    PublicCommentDto:
+      type: object
+      properties:
+        body:
+          type: string
+          description: Body content of the comment.
+        commentid:
+          type: string
+          description: Comment id generated while creating a comment. Returned for reference but must be provided through URL only.
+        owner:
+          type: string
+          description: An organization owning a comment. Returned for reference but must be provided through URL only.
+        topicUuid:
+          type: string
+          format: uuid
+          description: Topic unique id stored along comments. Returned for reference but must be provided through URL only.
+    HostedImage:
+      allOf:
+      - $ref: '#/components/schemas/Image'
+      - type: object
+        properties:
+          type:
+            type: string
+            const: hosted
+          url:
+            type: string
+    PublicTopicDto:
+      type: object
+      properties:
+        defaultTopic:
+          type: boolean
+          description: True if this is the default topic for the specified resource. There should only be 1 topic with this field set per resource. Must be provided while creating a topic only.
+        resource:
+          $ref: '#/components/schemas/PublicResource'
+          description: A resource for which the topic is created.
+          oneOf:
+          - $ref: '#/components/schemas/PublicDatasetResource'
+          - $ref: '#/components/schemas/PublicDatasetInsightResource'
+          - $ref: '#/components/schemas/PublicMetadataResource'
+        title:
+          type: string
+        topicId:
+          type: string
+          description: Short friendly form of a topic id that uniquely identifies the topic within a resource.
+        topicSlug:
+          type: string
+          description: Short friendly form of a topic title.
+        topicUuid:
+          type: string
+          format: uuid
+          description: Unique id of the topic generated while create new one. Returned for reference but must be provided through URL only.
+        visibility:
+          type: string
+          description: Topic visibility. The field is required.
+          enum:
+          - DISCOVERABLE
+          - OPEN
+          - PRIVATE
+    EntryType:
+      type: object
+      properties:
+        icon:
+          $ref: '#/components/schemas/Icon'
+          oneOf:
+          - $ref: '#/components/schemas/EmojiIcon'
+          - $ref: '#/components/schemas/ImageIcon'
+          - $ref: '#/components/schemas/SvgIcon'
+        instantiable:
+          type: boolean
+        label:
+          type: string
+        pluralLabel:
+          type: string
+        requestable:
+          type: boolean
+        type:
+          type: string
+          description: Entry type IRI
+    CollectionHydrationDto:
+      type: object
+      properties:
+        description:
+          type: string
+        id:
+          type: string
+          description: dct:identifier of the collection
+        iri:
+          type: string
+        owner:
+          type: string
+        title:
+          type: string
+    ProvidedImage:
+      allOf:
+      - $ref: '#/components/schemas/Image'
+      - type: object
+        properties:
+          slug:
+            type: string
+          type:
+            type: string
+            const: provided
+    CatalogConceptHydrationDto:
+      type: object
+      properties:
+        altLabel:
+          type: string
+        iri:
+          type: string
+        owner:
+          type: string
+        prefLabel:
+          type: string
+  securitySchemes:
+    bearerAuth:
+      bearerFormat: JWT
+      scheme: bearer
+      type: http

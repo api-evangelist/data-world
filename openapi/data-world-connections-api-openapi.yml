@@ -1,0 +1,467 @@
+openapi: 3.1.0
+info:
+  contact:
+    name: Contact Us
+    url: https://data.world/company/contact-us
+  termsOfService: https://data.world/terms-policies
+  title: data.world Public catalog relationships connections API
+  version: '0'
+  description: Manage relationships between catalog resources
+servers:
+- url: /v0
+security:
+- bearerAuth: []
+tags:
+- name: connections
+paths:
+  /connections/test:
+    post:
+      description: 'Test a virtual connection. For increased security, connection endpoints require an Enterprise Admin
+
+        Token. This token can be found under [Advanced Settings](https://data.world/settings/advanced).'
+      operationId: testConnection
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConnectionDto'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PingStatusDto'
+          description: Successful operation
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+          description: User is unauthorized to perform action
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+          description: Access forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+          description: Not found
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+          description: Unable to parse request. URLs provided must be fully-formed http or https URLs
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+          description: Server error
+      summary: Test a connection
+      tags:
+      - connections
+  /connections/{owner}:
+    get:
+      description: 'Get a list of configured virtual connections by owner. For increased security, connection
+
+        endpoints require an Enterprise Admin Token. This token can be found under
+
+        [Advanced Settings](https://data.world/settings/advanced).'
+      operationId: getConnectionsByOwner
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: sort
+        schema:
+          type: array
+          items:
+            type: string
+      - in: query
+        name: size
+        schema:
+          type: integer
+          format: int32
+          default: 10
+      - in: query
+        name: from
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedConnectionResults'
+          description: default response
+      summary: Get connections by owner
+      tags:
+      - connections
+    post:
+      description: 'Create a new virtual connection. For increased security, connection endpoints require an Enterprise Admin
+
+        Token. This token can be found under [Advanced Settings](https://data.world/settings/advanced).'
+      operationId: createConnection
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: Validate connection before save
+        in: query
+        name: validate
+        schema:
+          type: boolean
+          default: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConnectionDto'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateResponse'
+          description: Connection created successfully.
+      summary: Create a new connection
+      tags:
+      - connections
+  /connections/{owner}/{id}:
+    delete:
+      description: 'Delete a Connection. For increased security, connection endpoints require an Enterprise Admin Token. This
+
+        token can be found under [Advanced Settings](https://data.world/settings/advanced).'
+      operationId: deleteConnection
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: Delete a Connection
+      tags:
+      - connections
+    get:
+      description: 'Get details for an individual virtual connection. For increased security, connection endpoints require an
+
+        Enterprise Admin Token. This token can be found under
+
+        [Advanced Settings](https://data.world/settings/advanced).'
+      operationId: getConnection
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConnectionDto'
+          description: default response
+      summary: Get an individual connection
+      tags:
+      - connections
+components:
+  schemas:
+    SshTunnel:
+      type: object
+      properties:
+        host:
+          type: string
+          description: ssh tunnel host
+          example: passthru.tunnel.ca
+        port:
+          type: integer
+          format: int32
+          description: Tunnel Port
+          example: 3454
+          maximum: 65535
+          minimum: 1
+        user:
+          type: string
+          description: user name
+          example: johnsmith
+          maxLength: 1024
+          minLength: 0
+        userKeyPair:
+          type: boolean
+          description: whether authentication is required
+          example: true
+      required:
+      - host
+      - user
+      - userKeyPair
+    DatabaseCredentials:
+      type: object
+      properties:
+        password:
+          type: string
+          description: password
+          example: '!AdHJfGgd@3#'
+          maxLength: 16384
+          minLength: 0
+        user:
+          type: string
+          description: user name
+          example: johnsmith
+          maxLength: 1024
+          minLength: 0
+      required:
+      - user
+    PaginatedConnectionResults:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+          minimum: 0
+        nextPageToken:
+          type: string
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConnectionDto'
+      required:
+      - count
+      - records
+    SuccessMessage:
+      type: object
+      properties:
+        message:
+          type: string
+          maxLength: 256
+          minLength: 0
+    ErrorMessage:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        details:
+          type: string
+        message:
+          type: string
+    PingStatusDto:
+      type: object
+      properties:
+        cleanupStarted:
+          type: boolean
+        cleanupSuccess:
+          type: boolean
+        configureStarted:
+          type: boolean
+        configureSuccess:
+          type: boolean
+        connectHost:
+          type: string
+        connectStarted:
+          type: boolean
+        connectSuccess:
+          type: boolean
+        done:
+          type: boolean
+          description: Is the ping operation 100% complete?
+        elapsed:
+          type: number
+          format: double
+        errorMessage:
+          type: string
+          description: Failures
+        internalError:
+          type: boolean
+          description: Is the cause of a failure likely an internal bug in our code, not something users have control over?
+        queryStarted:
+          type: boolean
+        querySuccess:
+          type: boolean
+        queryText:
+          type: string
+        serverDescription:
+          type: string
+          description: Technical string describing the location of the database on the network.  This may be a JDBC url.
+        serverType:
+          type: string
+          enum:
+          - ATHENA
+          - AZURESYNAPSE
+          - BIGQUERY
+          - DB2
+          - DENODO
+          - HIVE
+          - DATABRICKS
+          - INFOR_ION
+          - MYSQL
+          - ORACLE
+          - POSTGRESQL
+          - REDSHIFT
+          - SERVICENOW
+          - SNOWFLAKE
+          - SPARK
+          - SQLSERVER
+          - TABLEAU
+        sslCertificateChain:
+          type: array
+          description: If the ping failed due to an SSL issue
+          items:
+            type: string
+        sslCertificateNameProblem:
+          type: boolean
+          description: Did the ping fail because the server's name didn't match the name in the certificate?
+        sslCertificateTrustPathProblem:
+          type: boolean
+          description: Did the ping fail because it didn't trust the server's certificate due to a lack of a path to a root CA?
+        sslNotSupported:
+          type: boolean
+          description: Did the ping fail because it tried to use SSL but the server+port combination doesn't support SSL?
+        success:
+          type: boolean
+          description: Everything successfully done
+        tunnelHost:
+          type: string
+        tunnelStarted:
+          type: boolean
+        tunnelSuccess:
+          type: boolean
+    ConnectionDto:
+      type: object
+      properties:
+        advancedProperties:
+          type: object
+          additionalProperties:
+            type: string
+          description: Advanced properties
+        credentials:
+          $ref: '#/components/schemas/DatabaseCredentials'
+          description: Database Credentials
+        database:
+          type: string
+          description: Database/Schema Logical Name
+          example: schemadw
+          maxLength: 256
+          minLength: 0
+          pattern: '[\w\_]{0,}'
+        host:
+          type: string
+          description: Database Host
+          example: dwserver.thinktank.com
+        name:
+          type: string
+          description: Connection name
+          example: Humanitarian_Aid
+          maxLength: 1024
+          minLength: 0
+          pattern: '[\w\_\.-]{0,}'
+        port:
+          type: integer
+          format: int32
+          description: Database Port
+          example: 5432
+          maximum: 65535
+          minimum: 1
+        properties:
+          type: object
+          additionalProperties:
+            type: string
+          description: Properties such as auto commit, isolation level etc.
+        sshTunnel:
+          $ref: '#/components/schemas/SshTunnel'
+          description: ssh tunnel configuration
+        sslRequired:
+          type: boolean
+          description: Is ssl required
+          example: true
+        trustedServerCertificates:
+          type: string
+          description: trusted server certificates
+          maxLength: 100000
+          minLength: 0
+        type:
+          type: string
+          description: Database Type
+          enum:
+          - ATHENA
+          - AZURESYNAPSE
+          - BIGQUERY
+          - DB2
+          - DENODO
+          - HIVE
+          - DATABRICKS
+          - INFOR_ION
+          - MYSQL
+          - ORACLE
+          - POSTGRESQL
+          - REDSHIFT
+          - SERVICENOW
+          - SNOWFLAKE
+          - SPARK
+          - SQLSERVER
+          - TABLEAU
+          example: ATHENA
+        usePrivateKey:
+          type: boolean
+          description: Should this connection use a private key?
+        verifyServerCertificate:
+          type: boolean
+          description: Should server certificate be verified
+          example: true
+    CreateResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          maxLength: 256
+          minLength: 0
+        uri:
+          type: string
+          format: uri
+      required:
+      - uri
+  securitySchemes:
+    bearerAuth:
+      bearerFormat: JWT
+      scheme: bearer
+      type: http

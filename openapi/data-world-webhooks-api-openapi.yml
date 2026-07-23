@@ -1,0 +1,452 @@
+openapi: 3.1.0
+info:
+  contact:
+    name: Contact Us
+    url: https://data.world/company/contact-us
+  termsOfService: https://data.world/terms-policies
+  title: data.world Public catalog relationships webhooks API
+  version: '0'
+  description: Manage relationships between catalog resources
+servers:
+- url: /v0
+security:
+- bearerAuth: []
+tags:
+- name: webhooks
+paths:
+  /user/webhooks:
+    get:
+      description: List webhook subscriptions associated with the currently authenticated user.
+      operationId: getWebhooks
+      parameters:
+      - description: Number of results to return
+        in: query
+        name: limit
+        schema:
+          type: integer
+          format: int32
+          default: 10
+          maximum: 100
+          minimum: 1
+      - description: A token supplied by the previous response to retrieve the next page of results
+        in: query
+        name: next
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedSubscriptionResults'
+          description: default response
+      summary: List subscriptions
+      tags:
+      - webhooks
+  /user/webhooks/datasets/{owner}/{id}:
+    delete:
+      description: Delete webhook subscription associated with the currently authenticated user and to a given dataset.
+      operationId: unsubscribeFromDataset
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: Unsubscribe from dataset
+      tags:
+      - webhooks
+    get:
+      description: Retrieve webhook subscription associated with the currently authenticated user and to a given dataset.
+      operationId: getForDataset
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subscription'
+          description: default response
+      summary: Retrieve dataset subscription
+      tags:
+      - webhooks
+    put:
+      description: Create webhook subscription associated with the currently authenticated user and to a given dataset.
+      operationId: subscribeToDataset
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriptionCreateRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: Subscribe to dataset
+      tags:
+      - webhooks
+  /user/webhooks/projects/{owner}/{id}:
+    delete:
+      description: Delete webhook subscription associated with the currently authenticated user and to a given project.
+      operationId: unsubscribeFromProject
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: Unsubscribe from data project
+      tags:
+      - webhooks
+    get:
+      description: Retrieve webhook subscription associated with the currently authenticated user and to a given project.
+      operationId: getForProject
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subscription'
+          description: default response
+      summary: Retrieve data project subscription
+      tags:
+      - webhooks
+    put:
+      description: Create webhook subscription associated with the currently authenticated user and to a given project.
+      operationId: subscribeToProject
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriptionCreateRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: Subscribe to data project
+      tags:
+      - webhooks
+  /user/webhooks/users/{account}:
+    delete:
+      description: Delete webhook subscription associated with the currently authenticated user and to a given user account.
+      operationId: unsubscribeFromUser
+      parameters:
+      - in: path
+        name: account
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: Unsubscribe from account
+      tags:
+      - webhooks
+    get:
+      description: Retrieve webhook subscription associated with the currently authenticated user and to a given user account.
+      operationId: getForUser
+      parameters:
+      - in: path
+        name: account
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subscription'
+          description: default response
+      summary: Retrieve account subscription
+      tags:
+      - webhooks
+    put:
+      description: Create webhook subscription associated with the currently authenticated user and to a given user account.
+      operationId: subscribeToUser
+      parameters:
+      - in: path
+        name: account
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriptionCreateRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: Subscribe to account
+      tags:
+      - webhooks
+components:
+  schemas:
+    PublicDatasetResource:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/PublicResource'
+      - $ref: '#/components/schemas/DatasetIdentifier'
+      - type: object
+        properties:
+          id:
+            type: string
+            description: ID of a dataset
+      required:
+      - id
+      - owner
+      title: Dataset Resource
+    DatasetIdentifier:
+      type: object
+      properties:
+        id:
+          type: string
+        owner:
+          type: string
+      required:
+      - id
+      - owner
+    SubscriptionApiLinks:
+      type: object
+      properties:
+        self:
+          type: string
+          format: uri
+      required:
+      - self
+    PaginatedSubscriptionResults:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+          minimum: 0
+        nextPageToken:
+          type: string
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubscriptionResponse'
+      required:
+      - count
+      - records
+    Subscription:
+      type: object
+      properties:
+        dataset:
+          $ref: '#/components/schemas/DatasetIdentifier'
+        events:
+          type: array
+          items:
+            type: string
+            enum:
+            - ALL
+        project:
+          $ref: '#/components/schemas/DatasetIdentifier'
+        user:
+          $ref: '#/components/schemas/UserIdentifier'
+      required:
+      - events
+    UserIdentifier:
+      type: object
+      properties:
+        id:
+          type: string
+      required:
+      - id
+    SubscriptionResponse:
+      type: object
+      properties:
+        dataset:
+          $ref: '#/components/schemas/PublicDatasetResource'
+        events:
+          type: array
+          items:
+            type: string
+            enum:
+            - ALL
+        links:
+          $ref: '#/components/schemas/SubscriptionLinks'
+        project:
+          $ref: '#/components/schemas/PublicDatasetResource'
+        user:
+          $ref: '#/components/schemas/PublicUserParty'
+      required:
+      - events
+    PublicResource:
+      type: object
+      discriminator:
+        mapping:
+          ANALYSIS: '#/components/schemas/PublicAnalysisResource'
+          CATALOG: '#/components/schemas/PublicCollectionResource'
+          COLUMN: '#/components/schemas/PublicColumnResource'
+          DATABASE: '#/components/schemas/PublicDatabaseResource'
+          DATASET: '#/components/schemas/PublicDatasetResource'
+          DATASET_INSIGHT: '#/components/schemas/PublicDatasetInsightResource'
+          GLOSSARY: '#/components/schemas/PublicGlossaryResource'
+          GROUP: '#/components/schemas/PublicGroupParty'
+          METADATA_RESOURCE: '#/components/schemas/PublicMetadataResource'
+          TABLE: '#/components/schemas/PublicTableResource'
+        propertyName: type
+      properties:
+        owner:
+          type: string
+          description: ID of an organization that owns the resource
+          title: organization id
+        type:
+          type: string
+          enum:
+          - ANALYSIS
+          - CATALOG
+          - COLUMN
+          - DATABASE
+          - DATASET
+          - DATASET_INSIGHT
+          - GLOSSARY
+          - GROUP
+          - METADATA_RESOURCE
+          - TABLE
+      required:
+      - owner
+      - type
+    SubscriptionLinks:
+      type: object
+      properties:
+        api:
+          $ref: '#/components/schemas/SubscriptionApiLinks'
+      required:
+      - api
+    SuccessMessage:
+      type: object
+      properties:
+        message:
+          type: string
+          maxLength: 256
+          minLength: 0
+    PublicUserParty:
+      type: object
+      properties:
+        id:
+          type: string
+          description: ID of the user
+      required:
+      - id
+      title: User Identifier
+    SubscriptionCreateRequest:
+      type: object
+      properties:
+        events:
+          type: array
+          items:
+            type: string
+            enum:
+            - ALL
+          maxItems: 50
+          minItems: 1
+      required:
+      - events
+  securitySchemes:
+    bearerAuth:
+      bearerFormat: JWT
+      scheme: bearer
+      type: http

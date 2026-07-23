@@ -1,0 +1,120 @@
+openapi: 3.1.0
+info:
+  contact:
+    name: Contact Us
+    url: https://data.world/company/contact-us
+  termsOfService: https://data.world/terms-policies
+  title: data.world Public catalog relationships organizations API
+  version: '0'
+  description: Manage relationships between catalog resources
+servers:
+- url: /v0
+security:
+- bearerAuth: []
+tags:
+- name: organizations
+paths:
+  /organizations/{agentid}/authorizations/{teamid}:
+    post:
+      description: Authorize a Team to access an organization
+      operationId: authorizeOrgAccess
+      parameters:
+      - description: organization agent ID
+        in: path
+        name: agentid
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - description: team agent ID
+        in: path
+        name: teamid
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessageDto'
+          description: default response
+      summary: Authorize a Team to access an organization
+      tags:
+      - organizations
+  /organizations/{id}:
+    get:
+      description: Get organization details
+      operationId: getOrganizationDetails
+      parameters:
+      - description: Organization ID.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrgDetailsResponse'
+          description: default response
+      summary: Get organization details
+      tags:
+      - organizations
+components:
+  schemas:
+    OrgDetailsResponse:
+      type: object
+      properties:
+        avatarUrl:
+          type: string
+          description: URL that points to a small, graphical representation of an organization
+          maxLength: 256
+          minLength: 0
+        company:
+          type: string
+          description: Company name
+        created:
+          type: string
+          format: date-time
+        description:
+          type: string
+          description: Short description of an organization.
+        displayName:
+          type: string
+          description: Human-readable organization name
+          maxLength: 128
+          minLength: 0
+        id:
+          type: string
+          description: Organization agentid
+        location:
+          type: string
+          description: Company location
+        summary:
+          type: string
+          description: Details of an organization.
+        updated:
+          type: string
+          format: date-time
+        website:
+          type: string
+          description: Company website URL
+      required:
+      - id
+    SuccessMessageDto:
+      type: object
+      properties:
+        message:
+          type: string
+          maxLength: 256
+          minLength: 0
+  securitySchemes:
+    bearerAuth:
+      bearerFormat: JWT
+      scheme: bearer
+      type: http

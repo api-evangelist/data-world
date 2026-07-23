@@ -1,0 +1,211 @@
+openapi: 3.1.0
+info:
+  contact:
+    name: Contact Us
+    url: https://data.world/company/contact-us
+  termsOfService: https://data.world/terms-policies
+  title: data.world Public catalog relationships streams API
+  version: '0'
+  description: Manage relationships between catalog resources
+servers:
+- url: /v0
+security:
+- bearerAuth: []
+tags:
+- name: streams
+paths:
+  /streams/{owner}/{id}/{streamId}:
+    post:
+      description: "Append JSON data to a stream associated with a dataset.\n\ndata.world streams are append-only by default. Alternatively, if a primary key is specified (see:\n`POST:/streams/{owner}/{id}/{streamId}/schema`), data.world will replace records with the same primary\nkey value.\n\n**Streams don't need to be created before you can append data to them**. They will be created on-demand,\n when the first record is appended or by defining its schema.\n\nMultiple records can be appended at once by using JSON-L (`application/json-l`) as the request content type.\n\n**IMPORTANT**\n\nData uploaded to a dataset via a stream is not immediatelly processed. Instead, it is processed\nautomatically in accordance with the dataset settings (default: daily) or as a result of calling\n`POST:/datasets/{owner}/{id}/sync`.\n\nOnce processed, the contents of a stream will appear as part of the respective dataset as a `.jsonl`\nfile (e.g. `my-stream` will produce a file named `my-stream.jsonl`).\n"
+      operationId: appendRecords
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: streamId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json: {}
+          application/json-l: {}
+          application/n-triples: {}
+          application/rdf+xml: {}
+          text/turtle: {}
+        description: records to append
+        required: true
+      responses:
+        '200':
+          content:
+            application/json: {}
+          description: default response
+      summary: Append record(s)
+      tags:
+      - streams
+  /streams/{owner}/{id}/{streamId}/records:
+    delete:
+      description: ' Delete all records previously appended to stream.
+
+        '
+      operationId: deleteRecords
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: streamId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: Delete all records
+      tags:
+      - streams
+  /streams/{owner}/{id}/{streamId}/schema:
+    get:
+      description: 'Retrieve stream schema.
+
+        '
+      operationId: getStreamSchema
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: streamId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StreamSchema'
+          description: default response
+      summary: Retrieve stream schema
+      tags:
+      - streams
+    patch:
+      description: '"Set or update a stream''s schema.
+
+
+        The schema of a stream defines its primary key(s) and sort/sequence field.
+
+
+        data.world streams are append-only by default. Alternatively, if a primary key is specified, data.world
+
+        will replace records with the same primary key value. data.world will sort records by sequence field
+
+        value and will discard all but the last record appended for each given primary key value.
+
+
+        The `updateMethod` parameter specifies how data.world should handle existing records when schema is
+
+        updated. Currently, the only `updateMethod` supported is `TRUNCATED`. data.world will discard all
+
+        records when the schema is updated."
+
+        '
+      operationId: patchStreamSchema
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: streamId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StreamSchemaPatchRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: Set / Update stream schema
+      tags:
+      - streams
+components:
+  schemas:
+    SuccessMessage:
+      type: object
+      properties:
+        message:
+          type: string
+          maxLength: 256
+          minLength: 0
+    StreamSchemaPatchRequest:
+      type: object
+      properties:
+        primaryKeyFields:
+          type: array
+          items:
+            type: string
+        sequenceField:
+          type: string
+        updateMethod:
+          type: string
+          enum:
+          - TRUNCATE
+      required:
+      - updateMethod
+    StreamSchema:
+      type: object
+      properties:
+        primaryKeyFields:
+          type: array
+          items:
+            type: string
+          maxItems: 10
+          minItems: 1
+        sequenceField:
+          type: string
+  securitySchemes:
+    bearerAuth:
+      bearerFormat: JWT
+      scheme: bearer
+      type: http

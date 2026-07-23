@@ -1,0 +1,714 @@
+openapi: 3.1.0
+info:
+  contact:
+    name: Contact Us
+    url: https://data.world/company/contact-us
+  termsOfService: https://data.world/terms-policies
+  title: data.world Public catalog relationships files API
+  version: '0'
+  description: Manage relationships between catalog resources
+servers:
+- url: /v0
+security:
+- bearerAuth: []
+tags:
+- name: files
+paths:
+  /datasets/{owner}/{id}/files:
+    delete:
+      description: 'Delete one or more files from a dataset.
+
+
+        **Batching**
+
+        Note that the `name` parameter can be include multiple times in the query string, once for each file that is to be deleted together in a single request.'
+      operationId: deleteFilesAndSyncSources
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: query
+        name: name
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: Delete files
+      tags:
+      - files
+    post:
+      description: 'Add files from URLs to a dataset. This method allows files published on the web to be added to a
+
+        data.world dataset via their URL. This method can also be used to retrieve data via web APIs, with
+
+        advanced options for http method, request payload and authentication.
+
+
+        The source URL will be stored so you can easily update your file anytime it changes via the *fetch latest*
+
+        link on the [data.world](https://data.world/) dataset page or by triggering the `GET:/sync` endpoint.'
+      operationId: addFilesBySource
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileBatchUpdateRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: Add files from URLs
+      tags:
+      - files
+  /datasets/{owner}/{id}/files/{file}:
+    delete:
+      description: Delete a single file from a dataset.
+      operationId: deleteFileAndSyncSource
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - description: Filename
+        in: path
+        name: file
+        required: true
+        schema:
+          type: string
+          maxLength: 128
+          minLength: 1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: Delete a file
+      tags:
+      - files
+  /datasets/{owner}/{id}/files/{file}/metadata:
+    get:
+      description: Get file description and labels
+      operationId: getFileMetadata
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: file
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileMetadataResponse'
+          description: default response
+      summary: Get file description and labels
+      tags:
+      - files
+    patch:
+      description: 'Update file description and labels. Only elements included in the request will be updated. All omitted
+
+        elements will remain untouched. Requesting change in a list replaces the entire list. Requesting an element
+
+        to be null deletes all values on the element.'
+      operationId: patchFileMetadata
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: file
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileMetadataUpdateRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: Update file description and labels
+      tags:
+      - files
+    put:
+      description: Replace file description and labels
+      operationId: putFileMetadata
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: file
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileMetadataUpdateRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: Replace file description and labels
+      tags:
+      - files
+  /datasets/{owner}/{id}/sync:
+    get:
+      description: Same as `POST:/dataset/{owner}/{id}/sync`. The id parameter can either be a dataset id or project id.
+      operationId: syncViaGet
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: Sync files (via GET)
+      tags:
+      - files
+    post:
+      description: 'Sync files within a dataset or project. This method will process the latest data available for files added
+
+        from URLs or via streams. The id parameter can either be a dataset id or project id.'
+      operationId: sync
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: Sync files
+      tags:
+      - files
+  /file_download/{owner}/{id}/{file}:
+    get:
+      description: 'Download a file within the dataset as originally uploaded. Prefer `POST:/sql` or `POST:/sparql` for
+
+        retrieving clean and structured data.'
+      operationId: downloadFile
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: file
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            '*/*': {}
+          description: default response
+      summary: Download a file
+      tags:
+      - files
+  /uploads/{owner}/{id}/files:
+    post:
+      description: "\"Upload multiple files at once to a dataset.\n\nThis endpoint expects requests of type `multipart/form-data` and you can include one or more parts named\n`file`, each containing a different file to be uploaded.\n\nFor example, assuming that you want to upload two local files named `file1.csv` and `file2.csv` to a\nhypothetical dataset `https://data.world/awesome-user/awesome-dataset`, this is what the cURL command\nwould look like.\n\n```bash\ncurl \\\n  -H \"Authorization: Bearer <YOUR_API_TOKEN>\" \\\n  -F \"file=@file1.csv\" \\\n  -F \"file=@file2.csv\" \\\n  https://api.data.world/v0/uploads/awesome-user/awesome-dataset/files\n```\n\nSwagger clients may limit this method of upload to one file at a time. Other HTTP clients capable of\nmaking multipart/form-data requests can be used to upload multiple files in a single request.\"\n"
+      operationId: uploadFiles
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: expandArchives
+        schema:
+          type: boolean
+          default: false
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              file:
+                style: form
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: Multipart-encoded file contents
+              required:
+              - file
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: Upload files
+      tags:
+      - files
+  /uploads/{owner}/{id}/files/{file}:
+    put:
+      description: "Upload one file at a time to a dataset.\n\nThis endpoint expects requests of type `application/octet-stream`.\n\nFor example, assuming that you want to upload a local file named `file1.csv` to a hypothetical dataset\n`https://data.world/awesome-user/awesome-dataset` and choose its name on data.world to be\n`better-name.csv`, this is what the cURL command would look like.\n\n```bash\ncurl \\\n  -H \"Authorization: Bearer <YOUR_API_TOKEN>\" \\\n  -X PUT -H \"Content-Type: application/octet-stream\" \\\n  --data-binary @file1.csv \\\n  https://api.data.world/v0/uploads/awesome-user/awesome-dataset/files/better-name.csv\n```\n\nThis method of upload is typically not supported by Swagger clients. Other HTTP clients can be used to\nsupply the contents of the file directly in the body of the request.\n"
+      operationId: uploadFile
+      parameters:
+      - in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      - description: Filename
+        in: path
+        name: file
+        required: true
+        schema:
+          type: string
+          maxLength: 128
+          minLength: 1
+          pattern: ^[^/]+$
+      - in: query
+        name: expandArchive
+        schema:
+          type: boolean
+          default: false
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              type: string
+              format: binary
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+        description: file data
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: Upload a file
+      tags:
+      - files
+components:
+  schemas:
+    QueryExecutionDto:
+      type: object
+      properties:
+        query:
+          type: string
+          maxLength: 10000
+          minLength: 1
+      required:
+      - query
+    FileMetadataUpdateRequest:
+      type: object
+      properties:
+        description:
+          type: string
+        labels:
+          type: array
+          items:
+            type: string
+          uniqueItems: true
+    DatabaseMetadataSpecDto:
+      type: object
+      properties:
+        tableSpecs:
+          type: array
+          items:
+            $ref: '#/components/schemas/TableMetadataSpecDto'
+          maxItems: 100
+          minItems: 0
+    TableMetadataSpecDto:
+      type: object
+      properties:
+        database:
+          type: string
+        schema:
+          type: string
+        tablePrefixes:
+          type: array
+          items:
+            type: string
+        tableTypes:
+          type: array
+          items:
+            type: string
+            enum:
+            - TABLE
+            - EXTERNAL_TABLE
+            - VIEW
+        tables:
+          type: array
+          items:
+            type: string
+    SingleTableMetadataSpecDto:
+      type: object
+      properties:
+        database:
+          type: string
+        schema:
+          type: string
+        table:
+          type: string
+        tableType:
+          type: string
+          enum:
+          - EXTRACT
+          - VIRTUAL
+    WebCredentials:
+      type: object
+      properties:
+        password:
+          type: string
+          maxLength: 2048
+          minLength: 0
+        user:
+          type: string
+          maxLength: 2048
+          minLength: 0
+      required:
+      - user
+    FileCreateOrUpdateRequest:
+      type: object
+      properties:
+        description:
+          type: string
+          maxLength: 120
+          minLength: 1
+        labels:
+          type: array
+          items:
+            type: string
+        mediaType:
+          type: string
+        mediaTypeLocked:
+          type: boolean
+        name:
+          type: string
+          maxLength: 128
+          minLength: 1
+          pattern: ^[^/]+$
+        source:
+          $ref: '#/components/schemas/FileSourceCreateOrUpdateRequest'
+      required:
+      - name
+    ViewRequestDto:
+      type: object
+      properties:
+        baseAgentId:
+          type: string
+        baseDatasetId:
+          type: string
+        queryId:
+          type: string
+          format: uuid
+        queryName:
+          type: string
+        queryText:
+          type: string
+          maxLength: 10000
+          minLength: 1
+        queryType:
+          type: string
+          enum:
+          - SPARQL
+          - SQL
+        runAsAgentId:
+          type: string
+        targetAgentId:
+          type: string
+        targetDatasetId:
+          type: string
+      required:
+      - baseAgentId
+      - baseDatasetId
+      - queryName
+      - queryType
+      - runAsAgentId
+      - targetAgentId
+      - targetDatasetId
+    FileSourceCreateOrUpdateRequest:
+      type: object
+      properties:
+        authorization:
+          $ref: '#/components/schemas/WebAuthorization'
+        credentials:
+          $ref: '#/components/schemas/WebCredentials'
+        dataTables:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/QueryExecutionDto'
+        databaseMetadataSpec:
+          $ref: '#/components/schemas/DatabaseMetadataSpecDto'
+        databaseSource:
+          $ref: '#/components/schemas/DatabaseSourceReference'
+        dwccSpec:
+          $ref: '#/components/schemas/DwccSpecDto'
+        expandArchive:
+          type: boolean
+        method:
+          type: string
+          enum:
+          - GET
+          - POST
+        oauthToken:
+          $ref: '#/components/schemas/OauthTokenReference'
+        requestEntity:
+          type: string
+          maxLength: 10000
+          minLength: 0
+        requestHeaders:
+          type: object
+          additionalProperties:
+            type: string
+        tableSpec:
+          $ref: '#/components/schemas/SingleTableMetadataSpecDto'
+        url:
+          type: string
+          format: uri
+        useDwCredentials:
+          type: boolean
+        viewRequest:
+          $ref: '#/components/schemas/ViewRequestDto'
+    OauthTokenReference:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        owner:
+          type: string
+        site:
+          type: string
+      required:
+      - id
+      - owner
+      - site
+    DwccSpecDto:
+      type: object
+      properties:
+        databaseId:
+          type: string
+        metadataToExclude:
+          type: array
+          items:
+            type: string
+        sourceDatabase:
+          type: string
+        sourceSchemas:
+          type: array
+          items:
+            type: string
+        targetCatalog:
+          type: string
+    SuccessMessage:
+      type: object
+      properties:
+        message:
+          type: string
+          maxLength: 256
+          minLength: 0
+    DatabaseSourceReference:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        owner:
+          type: string
+      required:
+      - id
+      - owner
+    WebAuthorization:
+      type: object
+      properties:
+        credentials:
+          type: string
+          maxLength: 2048
+          minLength: 1
+        type:
+          type: string
+          maxLength: 50
+          minLength: 0
+      required:
+      - type
+    FileMetadataResponse:
+      type: object
+      properties:
+        created:
+          type: string
+          format: date-time
+        createdBy:
+          type: string
+        description:
+          type: string
+          maxLength: 120
+          minLength: 1
+        labels:
+          type: array
+          items:
+            type: string
+        name:
+          type: string
+          maxLength: 128
+          minLength: 1
+          pattern: ^[^/]+$
+        sizeInBytes:
+          type: integer
+          format: int64
+        updated:
+          type: string
+          format: date-time
+        updatedBy:
+          type: string
+      required:
+      - created
+      - name
+      - updated
+    FileBatchUpdateRequest:
+      type: object
+      properties:
+        files:
+          type: array
+          items:
+            $ref: '#/components/schemas/FileCreateOrUpdateRequest'
+  securitySchemes:
+    bearerAuth:
+      bearerFormat: JWT
+      scheme: bearer
+      type: http

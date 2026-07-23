@@ -1,0 +1,433 @@
+openapi: 3.1.0
+info:
+  contact:
+    name: Contact Us
+    url: https://data.world/company/contact-us
+  termsOfService: https://data.world/terms-policies
+  title: data.world Public catalog relationships insights API
+  version: '0'
+  description: Manage relationships between catalog resources
+servers:
+- url: /v0
+security:
+- bearerAuth: []
+tags:
+- name: insights
+paths:
+  /insights/{projectOwner}/{projectId}:
+    get:
+      description: List insights associated with a project.
+      operationId: getInsightsForProject
+      parameters:
+      - in: path
+        name: projectOwner
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - description: Number of results to return
+        in: query
+        name: limit
+        schema:
+          type: integer
+          format: int32
+          default: 10
+          maximum: 100
+          minimum: 1
+      - description: A token supplied by the previous response to retrieve the next page of results
+        in: query
+        name: next
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedInsightResults'
+          description: default response
+      summary: List insights
+      tags:
+      - insights
+    post:
+      description: Create a new insight.
+      operationId: createInsight
+      parameters:
+      - in: path
+        name: projectOwner
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InsightCreateRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateInsightResponse'
+          description: Insight created successfully.
+      summary: Create an insight
+      tags:
+      - insights
+  /insights/{projectOwner}/{projectId}/{id}:
+    delete:
+      description: Delete an insight.
+      operationId: deleteInsight
+      parameters:
+      - in: path
+        name: projectOwner
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: Delete an insight
+      tags:
+      - insights
+    get:
+      description: Retrieve an insight.
+      operationId: getInsight
+      parameters:
+      - in: path
+        name: projectOwner
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InsightSummaryResponse'
+          description: default response
+      summary: Retrieve an insight
+      tags:
+      - insights
+    patch:
+      description: 'Update an insight. Note that only elements included in the request will be updated. All omitted elements
+
+        will remain untouched.'
+      operationId: updateInsight
+      parameters:
+      - in: path
+        name: projectOwner
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InsightPatchRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: Update an insight
+      tags:
+      - insights
+    put:
+      description: Replace an insight.
+      operationId: replaceInsight
+      parameters:
+      - in: path
+        name: projectOwner
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InsightPutRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: Replace an insight
+      tags:
+      - insights
+  /insights/{projectOwner}/{projectId}/{id}/v/{versionId}:
+    get:
+      description: Retrieve an insight version.
+      operationId: getInsightByVersion
+      parameters:
+      - in: path
+        name: projectOwner
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - in: path
+        name: versionId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InsightSummaryResponse'
+          description: default response
+      summary: Retrieve an insight version
+      tags:
+      - insights
+components:
+  schemas:
+    InsightPutRequest:
+      type: object
+      properties:
+        body:
+          $ref: '#/components/schemas/InsightBody'
+        dataSourceLinks:
+          type: array
+          items:
+            type: string
+            format: uri
+        description:
+          type: string
+          maxLength: 25000
+          minLength: 0
+        sourceLink:
+          type: string
+          format: uri
+        thumbnail:
+          type: string
+          format: uri
+        title:
+          type: string
+          maxLength: 128
+          minLength: 1
+      required:
+      - body
+      - title
+    InsightSummaryResponse:
+      type: object
+      properties:
+        author:
+          type: string
+        body:
+          $ref: '#/components/schemas/InsightBody'
+        created:
+          type: string
+          format: date-time
+        dataSourceLinks:
+          type: array
+          items:
+            type: string
+            format: uri
+        description:
+          type: string
+          maxLength: 25000
+          minLength: 0
+        id:
+          type: string
+          format: uuid
+        sourceLink:
+          type: string
+          format: uri
+        thumbnail:
+          type: string
+          format: uri
+        title:
+          type: string
+          maxLength: 128
+          minLength: 1
+        updated:
+          type: string
+          format: date-time
+        version:
+          type: string
+      required:
+      - author
+      - body
+      - created
+      - id
+      - title
+      - updated
+      - version
+    CreateInsightResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          maxLength: 256
+          minLength: 0
+        uri:
+          type: string
+          format: uri
+      required:
+      - uri
+    InsightBody:
+      type: object
+      properties:
+        embedUrl:
+          type: string
+          format: uri
+        imageUrl:
+          type: string
+          format: uri
+        markdownBody:
+          type: string
+          maxLength: 25000
+          minLength: 0
+    InsightPatchRequest:
+      type: object
+      properties:
+        body:
+          $ref: '#/components/schemas/InsightBody'
+        dataSourceLinks:
+          type: array
+          description: Data source links included in a PATCH request will replace existing data source links.
+          items:
+            type: string
+            format: uri
+        description:
+          type: string
+        sourceLink:
+          type: string
+          format: uri
+        thumbnail:
+          type: string
+          format: uri
+        title:
+          type: string
+          maxLength: 128
+          minLength: 1
+    InsightCreateRequest:
+      type: object
+      properties:
+        body:
+          $ref: '#/components/schemas/InsightBody'
+        dataSourceLinks:
+          type: array
+          items:
+            type: string
+            format: uri
+        description:
+          type: string
+          maxLength: 25000
+          minLength: 0
+        sourceLink:
+          type: string
+          format: uri
+        thumbnail:
+          type: string
+          format: uri
+        title:
+          type: string
+          maxLength: 128
+          minLength: 1
+      required:
+      - body
+      - title
+    PaginatedInsightResults:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+          minimum: 0
+        nextPageToken:
+          type: string
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/InsightSummaryResponse'
+      required:
+      - count
+      - records
+    SuccessMessage:
+      type: object
+      properties:
+        message:
+          type: string
+          maxLength: 256
+          minLength: 0
+  securitySchemes:
+    bearerAuth:
+      bearerFormat: JWT
+      scheme: bearer
+      type: http

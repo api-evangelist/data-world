@@ -1,0 +1,1293 @@
+openapi: 3.1.0
+info:
+  contact:
+    name: Contact Us
+    url: https://data.world/company/contact-us
+  termsOfService: https://data.world/terms-policies
+  title: data.world Public catalog relationships legacy catalog - data API
+  version: '0'
+  description: Manage relationships between catalog resources
+servers:
+- url: /v0
+security:
+- bearerAuth: []
+tags:
+- name: legacy catalog - data
+paths:
+  /metadata/data/sources/suggest/{owner}/{sourceid}/tables/{tableid}:
+    patch:
+      description: Please refer to the updated IRI-based resource endpoints.
+      operationId: suggestCatalogTable
+      parameters:
+      - description: id of the user or organization
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: database source id
+        in: path
+        name: sourceid
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: tableid
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CatalogTableSuggestRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: suggest for an existing table.
+      tags:
+      - legacy catalog - data
+  /metadata/data/sources/{owner}:
+    get:
+      description: Please refer to the updated IRI-based resource endpoints.
+      operationId: getDatabases
+      parameters:
+      - description: id of the user or organization
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: sort
+        schema:
+          type: array
+          items:
+            type: string
+      - in: query
+        name: size
+        schema:
+          type: integer
+          format: int32
+          default: 10
+      - in: query
+        name: from
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedDatabaseResults'
+          description: default response
+      summary: Gets datasources by owner.
+      tags:
+      - legacy catalog - data
+  /metadata/data/sources/{owner}/{sourceid}:
+    get:
+      description: Please refer to the updated IRI-based resource endpoints.
+      operationId: getDatabase
+      parameters:
+      - description: id of the user or organization
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - description: database source id
+        in: path
+        name: sourceid
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatabaseDto'
+          description: default response
+      summary: Get an individual datasource metadata
+      tags:
+      - legacy catalog - data
+  /metadata/data/sources/{owner}/{sourceid}/tables:
+    get:
+      description: Please refer to the updated IRI-based resource endpoints.
+      operationId: getTables
+      parameters:
+      - description: id of the user or organization
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - description: database source id
+        in: path
+        name: sourceid
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: query
+        name: typelabel
+        schema:
+          type: string
+      - in: query
+        name: typeiri
+        schema:
+          type: string
+      - in: query
+        name: sort
+        schema:
+          type: array
+          items:
+            type: string
+      - in: query
+        name: size
+        schema:
+          type: integer
+          format: int32
+          default: 10
+      - in: query
+        name: from
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedGenericResultsMetadataResourceDto'
+          description: default response
+      summary: Get tables for a data source
+      tags:
+      - legacy catalog - data
+    post:
+      description: Please refer to the updated IRI-based resource endpoints.
+      operationId: createCatalogTable
+      parameters:
+      - description: id of the user or organization
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: database source id
+        in: path
+        name: sourceid
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CatalogTableRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateResponse'
+          description: Table Metadata created successfully.
+      summary: Create a new table metadata.
+      tags:
+      - legacy catalog - data
+  /metadata/data/sources/{owner}/{sourceid}/tables/iri/{tableiri}:
+    patch:
+      description: Please refer to the updated IRI-based resource endpoints.
+      operationId: patchCatalogTableByIri
+      parameters:
+      - description: id of the user or organization
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: database source id
+        in: path
+        name: sourceid
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: tableiri
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CatalogTableRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: Update an existing table identified by IRI.
+      tags:
+      - legacy catalog - data
+  /metadata/data/sources/{owner}/{sourceid}/tables/{tableid}:
+    delete:
+      description: Please refer to the updated IRI-based resource endpoints.
+      operationId: deleteCatalogTable
+      parameters:
+      - description: id of the user or organization
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: database source id
+        in: path
+        name: sourceid
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: tableid
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: Delete a table.
+      tags:
+      - legacy catalog - data
+    get:
+      description: Please refer to the updated IRI-based resource endpoints.
+      operationId: getTable
+      parameters:
+      - description: id of the user or organization
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - description: database source id
+        in: path
+        name: sourceid
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: tableid
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: query
+        name: schema
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetadataResourceDto'
+          description: default response
+      summary: Get an individual table metadata
+      tags:
+      - legacy catalog - data
+    patch:
+      description: Please refer to the updated IRI-based resource endpoints.
+      operationId: patchCatalogTable
+      parameters:
+      - description: id of the user or organization
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: database source id
+        in: path
+        name: sourceid
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: tableid
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: query
+        name: schema
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CatalogTableRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: Update an existing table.
+      tags:
+      - legacy catalog - data
+    put:
+      description: Please refer to the updated IRI-based resource endpoints.
+      operationId: replaceCatalogTable
+      parameters:
+      - description: id of the user or organization
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: database source id
+        in: path
+        name: sourceid
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: tableid
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CatalogTableRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: Replace an existing table
+      tags:
+      - legacy catalog - data
+  /metadata/data/sources/{owner}/{sourceid}/tables/{tableid}/columns:
+    get:
+      description: Please refer to the updated IRI-based resource endpoints.
+      operationId: getTableColumns
+      parameters:
+      - description: id of the user or organization
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - description: database source id
+        in: path
+        name: sourceid
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: tableid
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: query
+        name: sort
+        schema:
+          type: array
+          items:
+            type: string
+      - in: query
+        name: size
+        schema:
+          type: integer
+          format: int32
+          default: 10
+      - in: query
+        name: from
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedGenericResultsMetadataResourceDto'
+          description: default response
+      summary: Get columns for a given table
+      tags:
+      - legacy catalog - data
+    post:
+      description: Please refer to the updated IRI-based resource endpoints.
+      operationId: createCatalogColumn
+      parameters:
+      - description: id of the user or organization
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: database source id
+        in: path
+        name: sourceid
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: tableid
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CatalogColumnRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateResponse'
+          description: Column Metadata created successfully.
+      summary: Create a Column.
+      tags:
+      - legacy catalog - data
+  /metadata/data/sources/{owner}/{sourceid}/tables/{tableid}/columns/{columnid}:
+    delete:
+      description: Please refer to the updated IRI-based resource endpoints.
+      operationId: deleteCatalogColumn
+      parameters:
+      - description: id of the user or organization
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: database source id
+        in: path
+        name: sourceid
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: tableid
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: columnid
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: Delete a Column.
+      tags:
+      - legacy catalog - data
+    get:
+      description: Please refer to the updated IRI-based resource endpoints.
+      operationId: getTableColumn
+      parameters:
+      - description: id of the user or organization
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - description: database source id
+        in: path
+        name: sourceid
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: tableid
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: columnid
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetadataResourceDto'
+          description: default response
+      summary: Get an individual column metadata
+      tags:
+      - legacy catalog - data
+    patch:
+      description: Please refer to the updated IRI-based resource endpoints.
+      operationId: patchCatalogColumn
+      parameters:
+      - description: id of the user or organization
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: database source id
+        in: path
+        name: sourceid
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: tableid
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: columnid
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CatalogColumnRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: Update an existing Column.
+      tags:
+      - legacy catalog - data
+    put:
+      description: Please refer to the updated IRI-based resource endpoints.
+      operationId: replaceCatalogColumn
+      parameters:
+      - description: id of the user or organization
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: database source id
+        in: path
+        name: sourceid
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: tableid
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - in: path
+        name: columnid
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CatalogColumnRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessage'
+          description: default response
+      summary: Replace an existing column
+      tags:
+      - legacy catalog - data
+components:
+  schemas:
+    ImageIcon:
+      allOf:
+      - $ref: '#/components/schemas/Icon'
+      - type: object
+        properties:
+          image:
+            $ref: '#/components/schemas/Image'
+            oneOf:
+            - $ref: '#/components/schemas/HostedImage'
+            - $ref: '#/components/schemas/ProvidedImage'
+          largeImage:
+            $ref: '#/components/schemas/Image'
+            oneOf:
+            - $ref: '#/components/schemas/HostedImage'
+            - $ref: '#/components/schemas/ProvidedImage'
+          selectedImage:
+            $ref: '#/components/schemas/Image'
+            oneOf:
+            - $ref: '#/components/schemas/HostedImage'
+            - $ref: '#/components/schemas/ProvidedImage'
+          type:
+            type: string
+            const: image
+    PubSearchHydrations:
+      type: object
+      properties:
+        agents:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/AgentHydrationDto'
+        catalogConcepts:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/CatalogConceptHydrationDto'
+        collections:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/CollectionHydrationDto'
+        properties:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/PropertyHydrationDto'
+        relationships:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/RelationshipHydrationDto'
+        resourceHierarchy:
+          type: object
+          additionalProperties:
+            type: object
+            additionalProperties:
+              type: array
+              items:
+                $ref: '#/components/schemas/ResourceHierarchyDto'
+    CatalogTableRequest:
+      type: object
+      properties:
+        assetStatusIri:
+          type: string
+          maxLength: 5000
+          minLength: 0
+        collections:
+          type: array
+          description: Catalog Collection to which this metadata resource is added. Required for POST and PUT.Available catalog collection can be discovered via appropriate discovery endpoints.
+          example:
+          - Aid Option
+          items:
+            type: string
+            description: Catalog Collection to which this metadata resource is added. Required for POST and PUT.Available catalog collection can be discovered via appropriate discovery endpoints.
+            example:
+            - Aid Option
+        description:
+          type: string
+          description: A short, but descriptive statement about the metadata resource.
+          example: Aid given to charity is an option that can be exercised by individuals and corporations
+          maxLength: 5000
+          minLength: 0
+        properties:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/StringOrArray'
+          description: Custom properties for the metadata resource mapped to API Bindings. Can be simple name-value string pairs or nested values for a string name. See examples for details.
+        summary:
+          type: string
+          maxLength: 25000
+          minLength: 0
+        tags:
+          type: array
+          description: A collection of tags to identify the relevance of metadata resource. Tags with no spaces is defacto standard
+          example:
+          - HumanitarianAid
+          items:
+            type: string
+            description: A collection of tags to identify the relevance of metadata resource. Tags with no spaces is defacto standard
+            example:
+            - HumanitarianAid
+        title:
+          type: string
+          description: Title of the metadata resource. Required for POST and PUT.
+          example: crypto.snowflake
+          maxLength: 120
+          minLength: 1
+        typeLabel:
+          type: string
+          description: 'Indicates the type of metadata resource. Some examples of valid values are Report, Tableau dashboard, Glossary, Table, Database view etc. Default values will be assumed if not provided. Defaults to Report for analysis resources, Glossary for Glossary resources, Table for Table resources and Column for Column resources. Once specified during creation, this cannot be changed via PATCH. Only a PUT can change the type '
+          example: Tableau dashboard
+    DatabaseDto:
+      type: object
+      properties:
+        catalog:
+          type: string
+        created:
+          type: string
+          format: date-time
+        environment:
+          type: string
+        id:
+          type: string
+        port:
+          type: integer
+          format: int32
+        schema:
+          type: string
+        server:
+          type: string
+        type:
+          type: string
+        updated:
+          type: string
+          format: date-time
+    EmojiIcon:
+      allOf:
+      - $ref: '#/components/schemas/Icon'
+      - type: object
+        properties:
+          type:
+            type: string
+            const: emoji
+          value:
+            type: string
+    AgentHydrationDto:
+      type: object
+      properties:
+        avatarUrl:
+          type: string
+        deactivated:
+          type: boolean
+        displayName:
+          type: string
+        id:
+          type: string
+    Image:
+      type: object
+      discriminator:
+        mapping:
+          hosted: '#/components/schemas/HostedImage'
+          provided: '#/components/schemas/ProvidedImage'
+        propertyName: type
+      properties:
+        type:
+          type: string
+          enum:
+          - hosted
+          - provided
+    CatalogTableSuggestRequest:
+      type: object
+      properties:
+        collectionsToAdd:
+          type: array
+          description: Catalog Collection to which this metadata resource is added. Required for POST and PUT.Available catalog collection can be discovered via appropriate discovery endpoints.
+          example:
+          - Aid Option
+          items:
+            type: string
+            description: Catalog Collection to which this metadata resource is added. Required for POST and PUT.Available catalog collection can be discovered via appropriate discovery endpoints.
+            example:
+            - Aid Option
+        collectionsToRemove:
+          type: array
+          description: Catalog Collection to which this metadata resource is added. Required for POST and PUT.Available catalog collection can be discovered via appropriate discovery endpoints.
+          example:
+          - Aid Option
+          items:
+            type: string
+            description: Catalog Collection to which this metadata resource is added. Required for POST and PUT.Available catalog collection can be discovered via appropriate discovery endpoints.
+            example:
+            - Aid Option
+        description:
+          type: string
+          description: A short, but descriptive statement about the metadata resource.
+          example: Aid given to charity is an option that can be exercised by individuals and corporations
+          maxLength: 5000
+          minLength: 0
+        message:
+          type: string
+          description: Message for the suggestion
+          example: I strongly suggest
+          maxLength: 250
+          minLength: 1
+        properties:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/StringOrArray'
+          description: Custom properties for the metadata resource mapped to API BindingsCan be simple name-value string pairs or nested values for a string name. See examples for details.
+        summary:
+          type: string
+          maxLength: 25000
+          minLength: 0
+        tagsToAdd:
+          type: array
+          description: A collection of tags to identify the relevance of metadata resource. Tags with no spaces is defacto standard
+          example:
+          - HumanitarianAid
+          items:
+            type: string
+            description: A collection of tags to identify the relevance of metadata resource. Tags with no spaces is defacto standard
+            example:
+            - HumanitarianAid
+        tagsToRemove:
+          type: array
+          description: A collection of tags to identify the relevance of metadata resource. Tags with no spaces is defacto standard
+          example:
+          - HumanitarianAid
+          items:
+            type: string
+            description: A collection of tags to identify the relevance of metadata resource. Tags with no spaces is defacto standard
+            example:
+            - HumanitarianAid
+        title:
+          type: string
+          description: Title of the metadata resource. Required for POST and PUT.
+          example: crypto.snowflake
+          maxLength: 120
+          minLength: 1
+        typeLabel:
+          type: string
+          description: 'Indicates the type of metadata resource. Some examples of valid values are Report, Tableau dashboard, Glossary, Table, Database view etc. Default values will be assumed if not provided. Defaults to Report for analysis resources, Glossary for Glossary resources, Table for Table resources and Column for Column resources. Once specified during creation, this cannot be changed via PATCH. Only a PUT can change the type '
+          example: Tableau dashboard
+    RelationshipHydrationDto:
+      type: object
+      properties:
+        labels:
+          type: array
+          description: Label of the relationship presentation associated with the relationship
+          items:
+            type: string
+    PropertyHydrationDto:
+      type: object
+      properties:
+        label:
+          type: array
+          description: Label of the metadata presentation associated with the property
+          items:
+            type: string
+    ResourceHierarchyDto:
+      type: object
+      properties:
+        assetStatus:
+          $ref: '#/components/schemas/AssetStatus'
+          description: 'Resource status: Pending, Approved etc.'
+        hierarchy:
+          type: array
+          description: Parent types of this resource's type. Returns the most specific type followed by its parent. The first item is the same as type. The last item is the root type.
+          items:
+            $ref: '#/components/schemas/EntryType'
+        icon:
+          $ref: '#/components/schemas/Icon'
+          description: Resource icon details.
+          oneOf:
+          - $ref: '#/components/schemas/EmojiIcon'
+          - $ref: '#/components/schemas/ImageIcon'
+          - $ref: '#/components/schemas/SvgIcon'
+        iri:
+          type: string
+          description: Resource IRI.
+        owner:
+          type: string
+          description: The ID of the organization that this resource belongs to
+        title:
+          type: string
+          description: Resource title
+        type:
+          type: string
+          description: Resource simple type name, e.g. catalogDatabase, catalogEntry etc.
+        typeLabel:
+          type: string
+          description: Resource type label.
+    AssetStatus:
+      type: object
+      properties:
+        assetStatusLabel:
+          type: string
+        dispositionLabel:
+          type: string
+    TableId:
+      type: object
+      properties:
+        owner:
+          type: string
+        sourceId:
+          type: string
+        tableId:
+          type: string
+      required:
+      - owner
+      - tableId
+    CreateResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          maxLength: 256
+          minLength: 0
+        uri:
+          type: string
+          format: uri
+      required:
+      - uri
+    SvgIcon:
+      allOf:
+      - $ref: '#/components/schemas/Icon'
+      - type: object
+        properties:
+          image:
+            $ref: '#/components/schemas/Image'
+            oneOf:
+            - $ref: '#/components/schemas/HostedImage'
+            - $ref: '#/components/schemas/ProvidedImage'
+          largeImage:
+            $ref: '#/components/schemas/Image'
+            oneOf:
+            - $ref: '#/components/schemas/HostedImage'
+            - $ref: '#/components/schemas/ProvidedImage'
+          selectedImage:
+            $ref: '#/components/schemas/Image'
+            oneOf:
+            - $ref: '#/components/schemas/HostedImage'
+            - $ref: '#/components/schemas/ProvidedImage'
+          type:
+            type: string
+            const: svg-image
+    Icon:
+      type: object
+      discriminator:
+        mapping:
+          emoji: '#/components/schemas/EmojiIcon'
+          image: '#/components/schemas/ImageIcon'
+          svg-image: '#/components/schemas/SvgIcon'
+        propertyName: type
+      properties:
+        type:
+          type: string
+          enum:
+          - emoji
+          - image
+          - svg-image
+    StringOrArray:
+      oneOf:
+      - type: string
+      - type: array
+        items:
+          type: string
+    HostedImage:
+      allOf:
+      - $ref: '#/components/schemas/Image'
+      - type: object
+        properties:
+          type:
+            type: string
+            const: hosted
+          url:
+            type: string
+    CatalogId:
+      type: object
+      properties:
+        collectionId:
+          type: string
+        owner:
+          type: string
+        referent:
+          type: string
+      required:
+      - collectionId
+      - owner
+      - referent
+    PaginatedDatabaseResults:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+          minimum: 0
+        nextPageToken:
+          type: string
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/DatabaseDto'
+      required:
+      - count
+      - records
+    EntryType:
+      type: object
+      properties:
+        icon:
+          $ref: '#/components/schemas/Icon'
+          oneOf:
+          - $ref: '#/components/schemas/EmojiIcon'
+          - $ref: '#/components/schemas/ImageIcon'
+          - $ref: '#/components/schemas/SvgIcon'
+        instantiable:
+          type: boolean
+        label:
+          type: string
+        pluralLabel:
+          type: string
+        requestable:
+          type: boolean
+        type:
+          type: string
+          description: Entry type IRI
+    CollectionHydrationDto:
+      type: object
+      properties:
+        description:
+          type: string
+        id:
+          type: string
+          description: dct:identifier of the collection
+        iri:
+          type: string
+        owner:
+          type: string
+        title:
+          type: string
+    MetadataResourceDto:
+      type: object
+      properties:
+        assetStatus:
+          $ref: '#/components/schemas/AssetStatus'
+        category:
+          type: string
+        collections:
+          type: array
+          items:
+            $ref: '#/components/schemas/CatalogId'
+        columnIndex:
+          type: integer
+          format: int32
+        created:
+          type: string
+          format: date-time
+        dataType:
+          type: string
+        description:
+          type: string
+        encodedIri:
+          type: string
+        externalUrls:
+          type: array
+          items:
+            type: string
+        id:
+          type: string
+        iri:
+          type: string
+        owner:
+          type: string
+        properties:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/StringOrArray'
+          description: All properties of the resource that are associated with a metadata presentation. Key is the IRI of the property. Value is the value of the property.
+        relationshipTypes:
+          type: array
+          items:
+            type: string
+        rootParentTypeIri:
+          type: string
+        rootParentTypeLabel:
+          type: string
+        summary:
+          type: string
+        table:
+          $ref: '#/components/schemas/TableId'
+        tags:
+          type: array
+          items:
+            type: string
+        title:
+          type: string
+        typeIri:
+          type: string
+        typeLabel:
+          type: string
+        updated:
+          type: string
+          format: date-time
+        url:
+          type: string
+          format: uri
+        visibility:
+          type: string
+          enum:
+          - DISCOVERABLE
+          - OPEN
+          - PRIVATE
+      required:
+      - created
+      - id
+      - owner
+      - visibility
+    PaginatedGenericResultsMetadataResourceDto:
+      type: object
+      properties:
+        consistent:
+          type: boolean
+        count:
+          type: integer
+          format: int32
+          minimum: 0
+        hydrations:
+          $ref: '#/components/schemas/PubSearchHydrations'
+        next:
+          type: string
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/MetadataResourceDto'
+    ProvidedImage:
+      allOf:
+      - $ref: '#/components/schemas/Image'
+      - type: object
+        properties:
+          slug:
+            type: string
+          type:
+            type: string
+            const: provided
+    CatalogColumnRequest:
+      type: object
+      properties:
+        assetStatusIri:
+          type: string
+          maxLength: 5000
+          minLength: 0
+        collections:
+          type: array
+          description: Catalog Collection to which this metadata resource is added. Required for POST and PUT.Available catalog collection can be discovered via appropriate discovery endpoints.
+          example:
+          - Aid Option
+          items:
+            type: string
+            description: Catalog Collection to which this metadata resource is added. Required for POST and PUT.Available catalog collection can be discovered via appropriate discovery endpoints.
+            example:
+            - Aid Option
+        columnIndex:
+          type: integer
+          format: int32
+          description: Column index values from 1 and upwards. 0 is default.
+          example: 5
+        dataType:
+          type: string
+          description: Data Type name for column. Required for POST and PUT.
+          example: BIGINT
+        description:
+          type: string
+          description: A short, but descriptive statement about the metadata resource.
+          example: Aid given to charity is an option that can be exercised by individuals and corporations
+          maxLength: 5000
+          minLength: 0
+        properties:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/StringOrArray'
+          description: Custom properties for the metadata resource mapped to API Bindings. Can be simple name-value string pairs or nested values for a string name. See examples for details.
+        summary:
+          type: string
+          maxLength: 25000
+          minLength: 0
+        tags:
+          type: array
+          description: A collection of tags to identify the relevance of metadata resource. Tags with no spaces is defacto standard
+          example:
+          - HumanitarianAid
+          items:
+            type: string
+            description: A collection of tags to identify the relevance of metadata resource. Tags with no spaces is defacto standard
+            example:
+            - HumanitarianAid
+        title:
+          type: string
+          description: Title of the metadata resource. Required for POST and PUT.
+          example: crypto.snowflake
+          maxLength: 120
+          minLength: 1
+        typeLabel:
+          type: string
+          description: 'Indicates the type of metadata resource. Some examples of valid values are Report, Tableau dashboard, Glossary, Table, Database view etc. Default values will be assumed if not provided. Defaults to Report for analysis resources, Glossary for Glossary resources, Table for Table resources and Column for Column resources. Once specified during creation, this cannot be changed via PATCH. Only a PUT can change the type '
+          example: Tableau dashboard
+    CatalogConceptHydrationDto:
+      type: object
+      properties:
+        altLabel:
+          type: string
+        iri:
+          type: string
+        owner:
+          type: string
+        prefLabel:
+          type: string
+    SuccessMessage:
+      type: object
+      properties:
+        message:
+          type: string
+          maxLength: 256
+          minLength: 0
+  securitySchemes:
+    bearerAuth:
+      bearerFormat: JWT
+      scheme: bearer
+      type: http

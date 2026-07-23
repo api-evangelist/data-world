@@ -1,0 +1,158 @@
+openapi: 3.1.0
+info:
+  contact:
+    name: Contact Us
+    url: https://data.world/company/contact-us
+  termsOfService: https://data.world/terms-policies
+  title: data.world Public catalog relationships instance admin API
+  version: '0'
+  description: Manage relationships between catalog resources
+servers:
+- url: /v0
+security:
+- bearerAuth: []
+tags:
+- name: instance admin
+paths:
+  /instanceAdmin/agents/{agentid}:
+    put:
+      description: 'This operation is only usable in Private Instances and requires the instance admin role permission. See the
+
+        [Get API Tokens](https://developer.data.world/docs/api-getting-started#/step-2-get-the-tokens) documentation
+
+        for more information.'
+      operationId: createOrUpdateAgent
+      parameters:
+      - description: agent id or username
+        in: path
+        name: agentid
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateOrUpdateUserRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessageDto'
+          description: default response
+      summary: Create a new user or update existing one
+      tags:
+      - instance admin
+  /instanceAdmin/agents/{agentid}/deactivate:
+    post:
+      description: 'This operation is only usable in Private Instances and requires the instance admin role permission. See the
+
+        [Get API Tokens](https://developer.data.world/docs/api-getting-started#/step-2-get-the-tokens) documentation
+
+        for more information.'
+      operationId: deactivateAgent
+      parameters:
+      - description: agent id or username
+        in: path
+        name: agentid
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessageDto'
+          description: default response
+      summary: Deactivate specified agent
+      tags:
+      - instance admin
+  /instanceAdmin/agents/{agentid}/reactivate:
+    post:
+      description: 'This operation is only usable in Private Instances and requires the instance admin role permission. See the
+
+        [Get API Tokens](https://developer.data.world/docs/api-getting-started#/step-2-get-the-tokens) documentation
+
+        for more information.'
+      operationId: activateAgent
+      parameters:
+      - description: agent id or username
+        in: path
+        name: agentid
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessMessageDto'
+          description: default response
+      summary: Reactivate specified agent
+      tags:
+      - instance admin
+components:
+  schemas:
+    CreateOrUpdateUserRequest:
+      type: object
+      properties:
+        assignments:
+          type: array
+          description: Organizations with groups that user should be assigned to. The requester needs to be an admin of the requested organizations.
+          items:
+            $ref: '#/components/schemas/UserAssignment'
+          maxItems: 10
+          minItems: 0
+        credentials:
+          type: string
+          description: credentials
+        displayName:
+          type: string
+          description: Human-readable organization or agent name
+          maxLength: 128
+          minLength: 0
+        email:
+          type: string
+          description: email
+          maxLength: 128
+          minLength: 0
+      required:
+      - credentials
+      - displayName
+      - email
+    UserAssignment:
+      type: object
+      properties:
+        groups:
+          type: array
+          description: Groups in the organization that user should be assigned to
+          items:
+            type: string
+            minLength: 1
+          maxItems: 30
+          minItems: 0
+          uniqueItems: true
+        orgAgentId:
+          type: string
+          description: Organization that user should be assigned to
+      required:
+      - orgAgentId
+    SuccessMessageDto:
+      type: object
+      properties:
+        message:
+          type: string
+          maxLength: 256
+          minLength: 0
+  securitySchemes:
+    bearerAuth:
+      bearerFormat: JWT
+      scheme: bearer
+      type: http

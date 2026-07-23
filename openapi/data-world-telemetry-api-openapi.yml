@@ -1,0 +1,53 @@
+openapi: 3.1.0
+info:
+  contact:
+    name: Contact Us
+    url: https://data.world/company/contact-us
+  termsOfService: https://data.world/terms-policies
+  title: data.world Public catalog relationships telemetry API
+  version: '0'
+  description: Manage relationships between catalog resources
+servers:
+- url: /v0
+security:
+- bearerAuth: []
+tags:
+- name: telemetry
+paths:
+  /telemetry/governanceBilling:
+    get:
+      description: This endpoint executes query against ddw-catalogs to get data from governance billing.
+      operationId: governanceBilling
+      parameters:
+      - in: query
+        name: agentId
+        schema:
+          type: string
+          default: datadotworldsupport
+      - in: query
+        name: sampleData
+        schema:
+          type: boolean
+          default: false
+      - in: query
+        name: catalog
+        schema:
+          type: string
+          default: main
+      responses:
+        '200':
+          content:
+            application/json: {}
+            application/json-l: {}
+            application/x-ndjson: {}
+            text/csv: {}
+          description: default response
+      summary: Get governance billing query result
+      tags:
+      - telemetry
+components:
+  securitySchemes:
+    bearerAuth:
+      bearerFormat: JWT
+      scheme: bearer
+      type: http
