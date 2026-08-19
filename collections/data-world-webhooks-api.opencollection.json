@@ -1,0 +1,253 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "data.world Public catalog relationships webhooks API",
+    "version": "0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "webhooks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List subscriptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/user/webhooks",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return"
+              },
+              {
+                "name": "next",
+                "value": "",
+                "type": "query",
+                "description": "A token supplied by the previous response to retrieve the next page of results"
+              }
+            ]
+          },
+          "docs": "List webhook subscriptions associated with the currently authenticated user."
+        },
+        {
+          "info": {
+            "name": "Retrieve dataset subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/user/webhooks/datasets/:owner/:id",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve webhook subscription associated with the currently authenticated user and to a given dataset."
+        },
+        {
+          "info": {
+            "name": "Subscribe to dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/v0/user/webhooks/datasets/:owner/:id",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create webhook subscription associated with the currently authenticated user and to a given dataset."
+        },
+        {
+          "info": {
+            "name": "Unsubscribe from dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/user/webhooks/datasets/:owner/:id",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete webhook subscription associated with the currently authenticated user and to a given dataset."
+        },
+        {
+          "info": {
+            "name": "Retrieve data project subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/user/webhooks/projects/:owner/:id",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve webhook subscription associated with the currently authenticated user and to a given project."
+        },
+        {
+          "info": {
+            "name": "Subscribe to data project",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/v0/user/webhooks/projects/:owner/:id",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create webhook subscription associated with the currently authenticated user and to a given project."
+        },
+        {
+          "info": {
+            "name": "Unsubscribe from data project",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/user/webhooks/projects/:owner/:id",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete webhook subscription associated with the currently authenticated user and to a given project."
+        },
+        {
+          "info": {
+            "name": "Retrieve account subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/user/webhooks/users/:account",
+            "params": [
+              {
+                "name": "account",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve webhook subscription associated with the currently authenticated user and to a given user account."
+        },
+        {
+          "info": {
+            "name": "Subscribe to account",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/v0/user/webhooks/users/:account",
+            "params": [
+              {
+                "name": "account",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create webhook subscription associated with the currently authenticated user and to a given user account."
+        },
+        {
+          "info": {
+            "name": "Unsubscribe from account",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/user/webhooks/users/:account",
+            "params": [
+              {
+                "name": "account",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete webhook subscription associated with the currently authenticated user and to a given user account."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

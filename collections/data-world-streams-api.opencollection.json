@@ -1,0 +1,144 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "data.world Public catalog relationships streams API",
+    "version": "0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "streams",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Append record(s)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/streams/:owner/:id/:streamId",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "streamId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Append JSON data to a stream associated with a dataset.\n\ndata.world streams are append-only by default. Alternatively, if a primary key is specified (see:\n`POST:/streams/{owner}/{id}/{streamId}/schema`), data.world will replace records with the same primary\nkey value.\n\n**Streams don't need to be created before you can append data to them**. They will be created on-demand,\n when the first record is appended or by defining its schema.\n\nMultiple records can be appended at once by using JSON-L (`app"
+        },
+        {
+          "info": {
+            "name": "Delete all records",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/streams/:owner/:id/:streamId/records",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "streamId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": " Delete all records previously appended to stream.\n"
+        },
+        {
+          "info": {
+            "name": "Retrieve stream schema",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/streams/:owner/:id/:streamId/schema",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "streamId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve stream schema.\n"
+        },
+        {
+          "info": {
+            "name": "Set / Update stream schema",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/streams/:owner/:id/:streamId/schema",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "streamId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "\"Set or update a stream's schema.\n\nThe schema of a stream defines its primary key(s) and sort/sequence field.\n\ndata.world streams are append-only by default. Alternatively, if a primary key is specified, data.world\nwill replace records with the same primary key value. data.world will sort records by sequence field\nvalue and will discard all but the last record appended for each given primary key value.\n\nThe `updateMethod` parameter specifies how data.world should handle existing records when sch"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

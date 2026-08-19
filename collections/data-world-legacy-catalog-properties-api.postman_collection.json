@@ -1,0 +1,157 @@
+{
+  "item": [
+    {
+      "id": "08352811-7fa9-4ee0-9b99-26a88f32ec1a",
+      "name": "legacy catalog - properties",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c7a360d2-4a66-4592-a5c1-7abebe2ab9b3",
+          "name": "Get supported metadata properties by owner",
+          "request": {
+            "name": "Get supported metadata properties by owner",
+            "description": {
+              "content": "Get supported metadata properties by owner.\n\nThis endpoint can be used to obtain a reference list of supported custom metadata properties for your\norganization's catalog. Custom properties for resources in your catalog require an ApiBinding to be\nconfigured for use in the public API. For more information about how to correctly configure ApiBindings,\nplease reach out to your data.world support representative or message help@data.world.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "properties",
+                ":owner"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "categorylabel",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "typelabel",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e38b051e-15c9-4b2d-b4d1-5ab761adda27",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "properties",
+                    ":owner"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "categorylabel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "typelabel",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"allowedValues\": [\n      \"string\",\n      \"string\"\n    ],\n    \"categoryLabel\": \"string\",\n    \"label\": \"string\",\n    \"multivalued\": false,\n    \"typeLabel\": \"string\"\n  },\n  {\n    \"allowedValues\": [\n      \"string\",\n      \"string\"\n    ],\n    \"categoryLabel\": \"string\",\n    \"label\": \"string\",\n    \"multivalued\": false,\n    \"typeLabel\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "17f02d46-19f7-4e2f-b918-66099977c027",
+    "name": "data.world Public catalog relationships legacy catalog - properties API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Manage relationships between catalog resources\n\nContact Support:\n Name: Contact Us",
+      "type": "text/plain"
+    }
+  }
+}

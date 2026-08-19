@@ -1,0 +1,720 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "data.world Public catalog relationships queries API",
+    "version": "0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "queries",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Cancel a query",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/cancel",
+            "params": [
+              {
+                "name": "queryruntoken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Cancel a running query."
+        },
+        {
+          "info": {
+            "name": "List published queries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/datasets/:owner/:id/queries",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return"
+              },
+              {
+                "name": "next",
+                "value": "",
+                "type": "query",
+                "description": "A token supplied by the previous response to retrieve the next page of results"
+              }
+            ]
+          },
+          "docs": "List published saved queries associated with a dataset. Query definitions will be returned, not the query results.\nTo retrieve query results use `GET:/queries/{id}/results`."
+        },
+        {
+          "info": {
+            "name": "Create a saved query in a specified dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/datasets/:owner/:id/queries",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a saved query in a specified dataset."
+        },
+        {
+          "info": {
+            "name": "Update a saved query in a specified dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/v0/datasets/:owner/:id/queries/:queryId",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "queryId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a saved query in a specified dataset."
+        },
+        {
+          "info": {
+            "name": "Delete a saved query in a specified dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/datasets/:owner/:id/queries/:queryId",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "queryId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a saved query in a specified dataset."
+        },
+        {
+          "info": {
+            "name": "List user saved queries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/datasets/:owner/:id/userQueries",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return"
+              },
+              {
+                "name": "next",
+                "value": "",
+                "type": "query",
+                "description": "A token supplied by the previous response to retrieve the next page of results"
+              }
+            ]
+          },
+          "docs": "List user saved queries associated with a dataset. Query definitions will be returned, not the query results.\nTo retrieve query results use `GET:/queries/{id}/results`."
+        },
+        {
+          "info": {
+            "name": "List published queries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/projects/:owner/:id/queries",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return"
+              },
+              {
+                "name": "next",
+                "value": "",
+                "type": "query",
+                "description": "A token supplied by the previous response to retrieve the next page of results"
+              }
+            ]
+          },
+          "docs": "List published saved queries associated with a project."
+        },
+        {
+          "info": {
+            "name": "Create a saved query",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/projects/:owner/:id/queries",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a saved query in a specified project."
+        },
+        {
+          "info": {
+            "name": "Update a saved query",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/v0/projects/:owner/:id/queries/:queryId",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "queryId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a saved query in a specified project."
+        },
+        {
+          "info": {
+            "name": "Delete a saved query",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/projects/:owner/:id/queries/:queryId",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "queryId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a saved query in a specified project."
+        },
+        {
+          "info": {
+            "name": "List saved queries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/projects/:owner/:id/userQueries",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return"
+              },
+              {
+                "name": "next",
+                "value": "",
+                "type": "query",
+                "description": "A token supplied by the previous response to retrieve the next page of results"
+              }
+            ]
+          },
+          "docs": "List user saved queries associated with a project."
+        },
+        {
+          "info": {
+            "name": "Retrieve a saved query",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/queries/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a saved query. Query definitions will be returned, not query results. To retrieve query results\nuse `GET:/queries/{id}/results`."
+        },
+        {
+          "info": {
+            "name": "Execute a saved query",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/queries/:id/results",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "includeTableSchema",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "queryruntoken",
+                "value": "",
+                "type": "query",
+                "description": "Query token to use with cancel"
+              }
+            ]
+          },
+          "docs": "Execute a saved query.\n\nSQL results are available in a variety of formats. By default, `application/json` will be returned. Set\nthe `Accept` header to one of the following values in accordance with your preference:\n\n* `text/csv`\n* `application/json`\n* `application/json-l`\n* `application/x-ndjson`\n\nSPARQL results are available in a variety of formats. By default, `application/sparql-results+json` will\nbe returned. Set the `Accept` header to one of the following values in accordance with your pref"
+        },
+        {
+          "info": {
+            "name": "Execute a saved query (with parameters)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/queries/:id/results",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "queryruntoken",
+                "value": "",
+                "type": "query",
+                "description": "Query token to use with cancel"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute a saved query (same as GET:/queries/{id}/results) with the option to specify named query\nparameters."
+        },
+        {
+          "info": {
+            "name": "Retrieve a saved query version",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/queries/:id/v/:versionId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "versionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a version of a saved query. Query definitions will be returned, not query results."
+        },
+        {
+          "info": {
+            "name": "Execute SPARQL query via GET with the default graph",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/sparql/:owner",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "diagnose",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "default-graph-uri",
+                "value": "",
+                "type": "query",
+                "description": "Specify URI for named graph(s) to query, overriding any FROM clauses in the query. If the default-graph-uri parameter is omitted and there are no FROM clauses, the :current graph will be used. See [Our Docs](https://docs.data.world/en/168180-understanding-the-catalog-graph.html#UUID-46e644b5-119a-a4a2-eb69-e09ce33bd986) for more info."
+              },
+              {
+                "name": "named-graph-uri",
+                "value": "",
+                "type": "query",
+                "description": "Specify URI for named graph(s) to query, overriding any FROM NAMED clauses in the query. See [Our Docs](https://docs.data.world/en/168180-understanding-the-catalog-graph.html#UUID-46e644b5-119a-a4a2-eb69-e09ce33bd986) for more info."
+              },
+              {
+                "name": "queryruntoken",
+                "value": "",
+                "type": "query",
+                "description": "Query token to use with cancel"
+              }
+            ]
+          },
+          "docs": "Execute a SPARQL query. The query will default to using the :current graph if the query contains no FROM\nclauses and no default graph URI parameters are specified, in which case it will return a 404 if the\n:current graph does not exist for the org.\n\nSPARQL results are available in a variety of formats. By default, `application/sparql-results+json` will\nbe returned. Set the `Accept` header to one of the following values in accordance with your preference\nand the type of the query (SELECT, CONSTRU"
+        },
+        {
+          "info": {
+            "name": "Execute SPARQL query via POST with the default graph",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/sparql/:owner",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute a SPARQL query. The query will default to using the :current graph if the query contains no FROM\nclauses and no default graph URI parameters are specified, in which case it will return a 404 if the\n:current graph does not exist for the org.\n\nSPARQL results are available in a variety of formats. By default, `application/sparql-results+json` will\nbe returned. Set the `Accept` header to one of the following values in accordance with your preference\nand the type of the query (SELECT, CONSTRU"
+        },
+        {
+          "info": {
+            "name": "Execute SPARQL query via GET",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/sparql/:owner/:id",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Dataset to query, e.g. `ddw-catalogs`"
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "diagnose",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "default-graph-uri",
+                "value": "",
+                "type": "query",
+                "description": "Specify URI for named graph(s) to query, overriding any FROM clauses in the query. See [Our Docs](https://docs.data.world/en/168180-understanding-the-catalog-graph.html#UUID-46e644b5-119a-a4a2-eb69-e09ce33bd986) for more info."
+              },
+              {
+                "name": "named-graph-uri",
+                "value": "",
+                "type": "query",
+                "description": "Specify URI for named graph(s) to query, overriding any FROM NAMED clauses in the query. See [Our Docs](https://docs.data.world/en/168180-understanding-the-catalog-graph.html#UUID-46e644b5-119a-a4a2-eb69-e09ce33bd986) for more info."
+              },
+              {
+                "name": "queryruntoken",
+                "value": "",
+                "type": "query",
+                "description": "Query token to use with cancel"
+              }
+            ]
+          },
+          "docs": "Execute a SPARQL query against a dataset or data project.\n\nSPARQL results are available in a variety of formats. By default, `application/sparql-results+json` will\nbe returned. Set the `Accept` header to one of the following values in accordance with your preference\nand the type of the query (SELECT, CONSTRUCT, DESCRIBE, ASK):\n\n- `application/sparql-results+xml`\n- `application/sparql-results+json`\n- `application/rdf+json`\n- `application/rdf+xml`\n- `text/csv`\n- `text/tab-separated-values`\n- `text"
+        },
+        {
+          "info": {
+            "name": "Execute SPARQL query via POST",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/sparql/:owner/:id",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Dataset to query, e.g. `ddw-catalogs`"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute a SPARQL query against a dataset or data project.\n\nSPARQL results are available in a variety of formats. By default, `application/sparql-results+json` will\nbe returned. Set the `Accept` header to one of the following values in accordance with your preference\nand the type of the query (SELECT, CONSTRUCT, DESCRIBE, ASK):\n\n- `application/sparql-results+xml`\n- `application/sparql-results+json`\n- `application/rdf+json`\n- `application/rdf+xml`\n- `text/csv`\n- `text/tab-separated-values`\n- `text"
+        },
+        {
+          "info": {
+            "name": "SQL query (via GET)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/sql/:owner/:id",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "includeTableSchema",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dialect",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "diagnose",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "queryruntoken",
+                "value": "",
+                "type": "query",
+                "description": "Query token to use with cancel"
+              }
+            ]
+          },
+          "docs": "Same as `POST:/sql/{owner}/{id}`"
+        },
+        {
+          "info": {
+            "name": "SQL query",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/sql/:owner/:id",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dialect",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "diagnose",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute a SQL query against a dataset or data project.\n\nSQL results are available in a variety of formats. By default, `application/json` will be returned. Set\nthe `Accept` header to one of the following values in accordance with your preference:\n\n* `text/csv`\n* `application/json`\n* `application/json-l`\n* `application/x-ndjson`\n\nNew to SQL? Check out data.world's [SQL manual](https://docs.data.world/tutorials/dwsql/) ."
+        },
+        {
+          "info": {
+            "name": "Describe a SQL query",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/sql/:owner/:id/describe",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dialect",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint describes what columns will be included if the given SQL query is performed against the specified dataset.\nNew to SQL? Check out data.world's [SQL manual](https://docs.data.world/tutorials/dwsql/) ."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

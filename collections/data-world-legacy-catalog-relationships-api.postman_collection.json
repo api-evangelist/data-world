@@ -1,0 +1,615 @@
+{
+  "item": [
+    {
+      "id": "3f31437a-0462-4c77-83fa-ede6d58d0289",
+      "name": "legacy catalog - relationships",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "83d42e76-aea4-41f3-91e6-eba2e8bf64bb",
+          "name": "Legacy - Creates a relationship between two catalog resources",
+          "request": {
+            "name": "Legacy - Creates a relationship between two catalog resources",
+            "description": {
+              "content": "Please refer to the updated IRI-based relationship endpoints.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metadata",
+                "relationships",
+                ":owner"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"relationshipType\": \"<uri>\",\n  \"sourceId\": \"<string>\",\n  \"sourceType\": \"<string>\",\n  \"targetId\": \"<string>\",\n  \"targetType\": \"<string>\",\n  \"sourceDatasetId\": \"<string>\",\n  \"sourceTableId\": \"<string>\",\n  \"sourceTypeIri\": \"<uri>\",\n  \"targetDatasetId\": \"<string>\",\n  \"targetTableId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8a384c05-7a0f-4eeb-bd17-57f682f700af",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "relationships",
+                    ":owner"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"relationshipType\": \"<uri>\",\n  \"sourceId\": \"<string>\",\n  \"sourceType\": \"<string>\",\n  \"targetId\": \"<string>\",\n  \"targetType\": \"<string>\",\n  \"sourceDatasetId\": \"<string>\",\n  \"sourceTableId\": \"<string>\",\n  \"sourceTypeIri\": \"<uri>\",\n  \"targetDatasetId\": \"<string>\",\n  \"targetTableId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a93d2e07-0fd2-41f6-9e65-2cdc9a122d7c",
+          "name": "Legacy - Deletes a relationship between two catalog resources",
+          "request": {
+            "name": "Legacy - Deletes a relationship between two catalog resources",
+            "description": {
+              "content": "Please refer to the updated IRI-based relationship endpoints.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metadata",
+                "relationships",
+                ":owner",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"relationshipType\": \"<uri>\",\n  \"sourceId\": \"<string>\",\n  \"sourceType\": \"<string>\",\n  \"targetId\": \"<string>\",\n  \"targetType\": \"<string>\",\n  \"sourceDatasetId\": \"<string>\",\n  \"sourceTableId\": \"<string>\",\n  \"sourceTypeIri\": \"<uri>\",\n  \"targetDatasetId\": \"<string>\",\n  \"targetTableId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0cf238e5-3ee3-4c79-a40e-73a654a0eea0",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "relationships",
+                    ":owner",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"relationshipType\": \"<uri>\",\n  \"sourceId\": \"<string>\",\n  \"sourceType\": \"<string>\",\n  \"targetId\": \"<string>\",\n  \"targetType\": \"<string>\",\n  \"sourceDatasetId\": \"<string>\",\n  \"sourceTableId\": \"<string>\",\n  \"sourceTypeIri\": \"<uri>\",\n  \"targetDatasetId\": \"<string>\",\n  \"targetTableId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d5898012-cfb9-4f97-a493-ee44ce01f1e5",
+          "name": "Legacy - Get resources that are related to a resource",
+          "request": {
+            "name": "Legacy - Get resources that are related to a resource",
+            "description": {
+              "content": "Please refer to the updated IRI-based relationship endpoints.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metadata",
+                "relationships",
+                ":owner",
+                "resource",
+                ":resourceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Number of results to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "next",
+                  "value": "<string>",
+                  "description": "A token supplied by the previous response to retrieve the next page of results"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"resourceType\": \"<string>\",\n  \"byRelationTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"byResourceTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "168dcd18-2682-460a-a94a-9644136de2d8",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "relationships",
+                    ":owner",
+                    "resource",
+                    ":resourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "next",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"<string>\",\n  \"byRelationTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"byResourceTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"consistent\": true,\n  \"count\": 4929,\n  \"hydrations\": {\n    \"agents\": {\n      \"key_0\": {\n        \"avatarUrl\": \"string\",\n        \"deactivated\": false,\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      }\n    },\n    \"catalogConcepts\": {\n      \"key_0\": {\n        \"altLabel\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"prefLabel\": \"string\"\n      },\n      \"key_1\": {\n        \"altLabel\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"prefLabel\": \"string\"\n      },\n      \"key_2\": {\n        \"altLabel\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"prefLabel\": \"string\"\n      },\n      \"key_3\": {\n        \"altLabel\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"prefLabel\": \"string\"\n      }\n    },\n    \"collections\": {\n      \"key_0\": {\n        \"description\": \"string\",\n        \"id\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"title\": \"string\"\n      }\n    },\n    \"properties\": {\n      \"key_0\": {\n        \"label\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"key_1\": {\n        \"label\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"key_2\": {\n        \"label\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"key_3\": {\n        \"label\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    },\n    \"relationships\": {\n      \"key_0\": {\n        \"labels\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"key_1\": {\n        \"labels\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    },\n    \"resourceHierarchy\": {\n      \"key_0\": {\n        \"key_0\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          }\n        ]\n      },\n      \"key_1\": {\n        \"key_0\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          }\n        ],\n        \"key_1\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          }\n        ]\n      }\n    }\n  },\n  \"next\": \"string\",\n  \"records\": [\n    {\n      \"created\": \"1998-05-23T19:03:11.729Z\",\n      \"id\": \"string\",\n      \"owner\": \"string\",\n      \"visibility\": \"DISCOVERABLE\",\n      \"assetStatus\": {\n        \"assetStatusLabel\": \"string\",\n        \"dispositionLabel\": \"string\"\n      },\n      \"category\": \"string\",\n      \"collections\": [\n        {\n          \"collectionId\": \"string\",\n          \"owner\": \"string\",\n          \"referent\": \"string\"\n        },\n        {\n          \"collectionId\": \"string\",\n          \"owner\": \"string\",\n          \"referent\": \"string\"\n        }\n      ],\n      \"columnIndex\": 1275,\n      \"dataType\": \"string\",\n      \"description\": \"string\",\n      \"encodedIri\": \"string\",\n      \"externalUrls\": [\n        \"string\",\n        \"string\"\n      ],\n      \"iri\": \"string\",\n      \"properties\": {\n        \"key_0\": \"string\"\n      },\n      \"relationshipTypes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"rootParentTypeIri\": \"string\",\n      \"rootParentTypeLabel\": \"string\",\n      \"summary\": \"string\",\n      \"table\": {\n        \"owner\": \"string\",\n        \"tableId\": \"string\",\n        \"sourceId\": \"string\"\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"title\": \"string\",\n      \"typeIri\": \"string\",\n      \"typeLabel\": \"string\",\n      \"updated\": \"2001-08-06T20:45:05.885Z\",\n      \"url\": \"https://nqWDvCjpz.adwriKx-UfF.h,PIiklL1JjV8VrodrA.uWA7ZljXBZfsjAZ+pRVXWwczO,eob\"\n    },\n    {\n      \"created\": \"1963-08-26T13:43:11.851Z\",\n      \"id\": \"string\",\n      \"owner\": \"string\",\n      \"visibility\": \"DISCOVERABLE\",\n      \"assetStatus\": {\n        \"assetStatusLabel\": \"string\",\n        \"dispositionLabel\": \"string\"\n      },\n      \"category\": \"string\",\n      \"collections\": [\n        {\n          \"collectionId\": \"string\",\n          \"owner\": \"string\",\n          \"referent\": \"string\"\n        },\n        {\n          \"collectionId\": \"string\",\n          \"owner\": \"string\",\n          \"referent\": \"string\"\n        }\n      ],\n      \"columnIndex\": 2980,\n      \"dataType\": \"string\",\n      \"description\": \"string\",\n      \"encodedIri\": \"string\",\n      \"externalUrls\": [\n        \"string\",\n        \"string\"\n      ],\n      \"iri\": \"string\",\n      \"properties\": {\n        \"key_0\": \"string\"\n      },\n      \"relationshipTypes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"rootParentTypeIri\": \"string\",\n      \"rootParentTypeLabel\": \"string\",\n      \"summary\": \"string\",\n      \"table\": {\n        \"owner\": \"string\",\n        \"tableId\": \"string\",\n        \"sourceId\": \"string\"\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"title\": \"string\",\n      \"typeIri\": \"string\",\n      \"typeLabel\": \"string\",\n      \"updated\": \"2007-04-16T15:56:51.195Z\",\n      \"url\": \"http://jjV.psW73-XCM9O1rUKM3Ctm28JAazA2Bw,0gkZRS\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "97104a95-8bd8-455a-995c-9cbdad4e8371",
+          "name": "Legacy - Get resources that are related to a table",
+          "request": {
+            "name": "Legacy - Get resources that are related to a table",
+            "description": {
+              "content": "Please refer to the updated IRI-based relationship endpoints.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metadata",
+                "relationships",
+                ":owner",
+                "table",
+                ":sourceId",
+                ":tableId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Number of results to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "next",
+                  "value": "<string>",
+                  "description": "A token supplied by the previous response to retrieve the next page of results"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sourceId",
+                  "description": "(Required) ID of dataset that the table is in"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"byRelationTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"byResourceTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "96f97621-cdf6-466b-b669-01ab433534ab",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "relationships",
+                    ":owner",
+                    "table",
+                    ":sourceId",
+                    ":tableId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "next",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) ID of dataset that the table is in"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"byRelationTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"byResourceTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"consistent\": true,\n  \"count\": 4929,\n  \"hydrations\": {\n    \"agents\": {\n      \"key_0\": {\n        \"avatarUrl\": \"string\",\n        \"deactivated\": false,\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      }\n    },\n    \"catalogConcepts\": {\n      \"key_0\": {\n        \"altLabel\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"prefLabel\": \"string\"\n      },\n      \"key_1\": {\n        \"altLabel\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"prefLabel\": \"string\"\n      },\n      \"key_2\": {\n        \"altLabel\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"prefLabel\": \"string\"\n      },\n      \"key_3\": {\n        \"altLabel\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"prefLabel\": \"string\"\n      }\n    },\n    \"collections\": {\n      \"key_0\": {\n        \"description\": \"string\",\n        \"id\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"title\": \"string\"\n      }\n    },\n    \"properties\": {\n      \"key_0\": {\n        \"label\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"key_1\": {\n        \"label\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"key_2\": {\n        \"label\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"key_3\": {\n        \"label\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    },\n    \"relationships\": {\n      \"key_0\": {\n        \"labels\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"key_1\": {\n        \"labels\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    },\n    \"resourceHierarchy\": {\n      \"key_0\": {\n        \"key_0\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          }\n        ]\n      },\n      \"key_1\": {\n        \"key_0\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          }\n        ],\n        \"key_1\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          }\n        ]\n      }\n    }\n  },\n  \"next\": \"string\",\n  \"records\": [\n    {\n      \"created\": \"1998-05-23T19:03:11.729Z\",\n      \"id\": \"string\",\n      \"owner\": \"string\",\n      \"visibility\": \"DISCOVERABLE\",\n      \"assetStatus\": {\n        \"assetStatusLabel\": \"string\",\n        \"dispositionLabel\": \"string\"\n      },\n      \"category\": \"string\",\n      \"collections\": [\n        {\n          \"collectionId\": \"string\",\n          \"owner\": \"string\",\n          \"referent\": \"string\"\n        },\n        {\n          \"collectionId\": \"string\",\n          \"owner\": \"string\",\n          \"referent\": \"string\"\n        }\n      ],\n      \"columnIndex\": 1275,\n      \"dataType\": \"string\",\n      \"description\": \"string\",\n      \"encodedIri\": \"string\",\n      \"externalUrls\": [\n        \"string\",\n        \"string\"\n      ],\n      \"iri\": \"string\",\n      \"properties\": {\n        \"key_0\": \"string\"\n      },\n      \"relationshipTypes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"rootParentTypeIri\": \"string\",\n      \"rootParentTypeLabel\": \"string\",\n      \"summary\": \"string\",\n      \"table\": {\n        \"owner\": \"string\",\n        \"tableId\": \"string\",\n        \"sourceId\": \"string\"\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"title\": \"string\",\n      \"typeIri\": \"string\",\n      \"typeLabel\": \"string\",\n      \"updated\": \"2001-08-06T20:45:05.885Z\",\n      \"url\": \"https://nqWDvCjpz.adwriKx-UfF.h,PIiklL1JjV8VrodrA.uWA7ZljXBZfsjAZ+pRVXWwczO,eob\"\n    },\n    {\n      \"created\": \"1963-08-26T13:43:11.851Z\",\n      \"id\": \"string\",\n      \"owner\": \"string\",\n      \"visibility\": \"DISCOVERABLE\",\n      \"assetStatus\": {\n        \"assetStatusLabel\": \"string\",\n        \"dispositionLabel\": \"string\"\n      },\n      \"category\": \"string\",\n      \"collections\": [\n        {\n          \"collectionId\": \"string\",\n          \"owner\": \"string\",\n          \"referent\": \"string\"\n        },\n        {\n          \"collectionId\": \"string\",\n          \"owner\": \"string\",\n          \"referent\": \"string\"\n        }\n      ],\n      \"columnIndex\": 2980,\n      \"dataType\": \"string\",\n      \"description\": \"string\",\n      \"encodedIri\": \"string\",\n      \"externalUrls\": [\n        \"string\",\n        \"string\"\n      ],\n      \"iri\": \"string\",\n      \"properties\": {\n        \"key_0\": \"string\"\n      },\n      \"relationshipTypes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"rootParentTypeIri\": \"string\",\n      \"rootParentTypeLabel\": \"string\",\n      \"summary\": \"string\",\n      \"table\": {\n        \"owner\": \"string\",\n        \"tableId\": \"string\",\n        \"sourceId\": \"string\"\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"title\": \"string\",\n      \"typeIri\": \"string\",\n      \"typeLabel\": \"string\",\n      \"updated\": \"2007-04-16T15:56:51.195Z\",\n      \"url\": \"http://jjV.psW73-XCM9O1rUKM3Ctm28JAazA2Bw,0gkZRS\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "eff56749-987d-4892-8b93-8d3161cd4547",
+    "name": "data.world Public catalog relationships legacy catalog - relationships API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Manage relationships between catalog resources\n\nContact Support:\n Name: Contact Us",
+      "type": "text/plain"
+    }
+  }
+}

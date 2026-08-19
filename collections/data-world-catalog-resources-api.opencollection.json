@@ -1,0 +1,329 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "data.world Public catalog relationships catalog resources API",
+    "version": "0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "catalog resources",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Bulk: delete properties from resources",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/metadata/resources/bulk/property/:owner",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path",
+                "description": "User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Delete properties from a maximum of 25 resources of any type in the organization at once. To delete properties from a single resource, use \"Delete properties from a resource\"."
+        },
+        {
+          "info": {
+            "name": "Bulk: create multiple resources at once",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/metadata/resources/bulk/:owner",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path",
+                "description": "User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a maximum of 25 resources of any type in the organization at once. The resources are created with the provided properties. To create one resource at a time, use \"Create a new resource\"."
+        },
+        {
+          "info": {
+            "name": "Bulk: update multiple resources at once",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/metadata/resources/bulk/:owner",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path",
+                "description": "User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
+              },
+              {
+                "name": "updateListBy",
+                "value": "",
+                "type": "query",
+                "description": "Set this option when updating properties that supports having a list of values. Given a list of values in the request body, should this request add to the existing list, remove the specified values, or replace the existing list with the specified values?"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a maximum of 25 resources of any type in the organization at once. To create one resource at a time, use \"Create a new resource\". Also, see the aforementioned endpoint for further update behaviors."
+        },
+        {
+          "info": {
+            "name": "Delete properties from a resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/metadata/resources/property/:owner",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path",
+                "description": "User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
+              },
+              {
+                "name": "iri",
+                "value": "",
+                "type": "query",
+                "description": "Internationalized Resource Identifier (IRI) of the resource. You can find the IRI in the Technical Reference section under the Settings tab on the resource’s catalog page."
+              },
+              {
+                "name": "property",
+                "value": "",
+                "type": "query",
+                "description": "Property is identified by its IRI"
+              }
+            ]
+          },
+          "docs": "Delete properties from a resource of any type in the organization. To update properties, use \"Update a resource\". To delete properties from multiple resources at once, use \"Bulk: delete properties from resources\"."
+        },
+        {
+          "info": {
+            "name": "Search for resources",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/metadata/resources/search",
+            "params": [
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Size of page to fetch"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Result number to start fetch from (not the page number to start from)"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort results by fields"
+              },
+              {
+                "name": "hydration",
+                "value": "",
+                "type": "query",
+                "description": "Return additional information about the resource. For example, if the resource is in a collection, the collection IRI will be returned by default. If hydration is enabled, the collection's title and description will also be returned."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search for resources in the organization. See request body for filtering options. To paginate through results, use \"from\" and \"size\" query parameters. To return more details about the resources, see \"hydration\" query parameter."
+        },
+        {
+          "info": {
+            "name": "Get a resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/metadata/resources/:owner",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path",
+                "description": "User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
+              },
+              {
+                "name": "iri",
+                "value": "",
+                "type": "query",
+                "description": "Internationalized Resource Identifier (IRI) of the resource. You can find the IRI in the Technical Reference section under the Settings tab on the resource’s catalog page."
+              },
+              {
+                "name": "hydrations",
+                "value": "",
+                "type": "query",
+                "description": "Return additional information about the resource. For example, if the resource is in a collection, the collection IRI will be returned by default. If hydration is enabled, the collection's title and description will also be returned."
+              }
+            ]
+          },
+          "docs": "Return details about a resource of any type in the organization. See \"hydrations\" query parameter for options to return even more details."
+        },
+        {
+          "info": {
+            "name": "Create a new resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/metadata/resources/:owner",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path",
+                "description": "User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new resource of any type in the organization. The resource is created with the provided properties. To create multiple resources at once, use \"Bulk: create multiple resources at once\"."
+        },
+        {
+          "info": {
+            "name": "Update a resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/metadata/resources/:owner",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path",
+                "description": "User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
+              },
+              {
+                "name": "iri",
+                "value": "",
+                "type": "query",
+                "description": "Internationalized Resource Identifier (IRI) of the resource. You can find the IRI in the Technical Reference section under the Settings tab on the resource’s catalog page."
+              },
+              {
+                "name": "updateListBy",
+                "value": "",
+                "type": "query",
+                "description": "Set this option when updating properties that supports having a list of values. Given a list of values in the request body, should this request add to the existing list, remove the specified values, or replace the existing list with the specified values?"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a resource of any type in the organization. Properties that are not defined in the request are not updated. When updating properties that have a single value, the old value is replaced by the new value in the request. When updating properties that have a list of values, see \"updateListBy\" query parameter for more granular controls. To delete properties, use \"Delete properties from a resource\". To update multiple resources at once, use \"Bulk: update multiple resources at once\"."
+        },
+        {
+          "info": {
+            "name": "Delete a resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/metadata/resources/:owner",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path",
+                "description": "User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
+              },
+              {
+                "name": "iri",
+                "value": "",
+                "type": "query",
+                "description": "Internationalized Resource Identifier (IRI) of the resource. You can find the IRI in the Technical Reference section under the Settings tab on the resource’s catalog page."
+              }
+            ]
+          },
+          "docs": "Delete a resource of any type in the organization."
+        },
+        {
+          "info": {
+            "name": "Clear all user edits from a resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/metadata/:owner/resources/clear",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This is an advanced operation and should be used with caution. The data.world catalog graph relies on a layered model that keeps the content from collected source systems separate from edits made by end users on the platform. This allows the collected source system data to update regularly withoutoverwriting enrichment and curation efforts that are authored on data.world. Sometimes, however, it is desirable to overwrite the end user edits or let the source system metadata replace user edits. Thi"
+        },
+        {
+          "info": {
+            "name": "Clear all user edits on specified properties from a resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/v0/metadata/:owner/resources/properties/clear",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This is an advanced operation and should be used with caution. The data.world catalog graph relies on a layered model that keeps the content from collected source systems separate from edits made by end users on the platform. This allows the collected source system data to update regularly without overwriting enrichment and curation efforts that are authored on data.world. Sometimes, however, it is desirable to overwrite the end user edits or let the source system metadata replace user edits. Th"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

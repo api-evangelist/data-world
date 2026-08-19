@@ -1,0 +1,150 @@
+{
+  "item": [
+    {
+      "id": "6cdc1341-69d2-4a34-ba9f-a100ece0281d",
+      "name": "telemetry",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f040fa49-58b3-403e-afef-523ab6220029",
+          "name": "Get governance billing query result",
+          "request": {
+            "name": "Get governance billing query result",
+            "description": {
+              "content": "This endpoint executes query against ddw-catalogs to get data from governance billing.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "telemetry",
+                "governanceBilling"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "agentId",
+                  "value": "datadotworldsupport"
+                },
+                {
+                  "disabled": false,
+                  "key": "sampleData",
+                  "value": "false"
+                },
+                {
+                  "disabled": false,
+                  "key": "catalog",
+                  "value": "main"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "73fe4353-f684-4b0b-88b8-644341c40d81",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "telemetry",
+                    "governanceBilling"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "agentId",
+                      "value": "datadotworldsupport"
+                    },
+                    {
+                      "key": "sampleData",
+                      "value": "false"
+                    },
+                    {
+                      "key": "catalog",
+                      "value": "main"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0a51ae84-8d20-44a9-a689-c456cfee83d1",
+    "name": "data.world Public catalog relationships telemetry API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Manage relationships between catalog resources\n\nContact Support:\n Name: Contact Us",
+      "type": "text/plain"
+    }
+  }
+}

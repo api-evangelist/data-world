@@ -1,0 +1,360 @@
+{
+  "item": [
+    {
+      "id": "c3d000e3-de69-4d9f-abb9-73aaa5ef0447",
+      "name": "instance admin",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2912acca-4afc-4814-917a-db9029af9353",
+          "name": "Create a new user or update existing one",
+          "request": {
+            "name": "Create a new user or update existing one",
+            "description": {
+              "content": "This operation is only usable in Private Instances and requires the instance admin role permission. See the\n[Get API Tokens](https://developer.data.world/docs/api-getting-started#/step-2-get-the-tokens) documentation\nfor more information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "instanceAdmin",
+                "agents",
+                ":agentid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "agentid",
+                  "description": "(Required) agent id or username"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"credentials\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"assignments\": [\n    {\n      \"orgAgentId\": \"<string>\",\n      \"groups\": [\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"orgAgentId\": \"<string>\",\n      \"groups\": [\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"orgAgentId\": \"<string>\",\n      \"groups\": [\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"orgAgentId\": \"<string>\",\n      \"groups\": [\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"orgAgentId\": \"<string>\",\n      \"groups\": [\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"orgAgentId\": \"<string>\",\n      \"groups\": [\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"orgAgentId\": \"<string>\",\n      \"groups\": [\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"orgAgentId\": \"<string>\",\n      \"groups\": [\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"orgAgentId\": \"<string>\",\n      \"groups\": [\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"orgAgentId\": \"<string>\",\n      \"groups\": [\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9b24491e-d5b7-431a-acb0-df08e4a71837",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instanceAdmin",
+                    "agents",
+                    ":agentid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "agentid",
+                      "description": "(Required) agent id or username"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"credentials\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"assignments\": [\n    {\n      \"orgAgentId\": \"string\",\n      \"groups\": [\n        \"string\",\n        \"st\"\n      ]\n    },\n    {\n      \"orgAgentId\": \"string\",\n      \"groups\": [\n        \"string\",\n        \"str\",\n        \"st\"\n      ]\n    },\n    {\n      \"orgAgentId\": \"string\",\n      \"groups\": [\n        \"string\"\n      ]\n    },\n    {\n      \"orgAgentId\": \"string\",\n      \"groups\": [\n        \"string\"\n      ]\n    },\n    {\n      \"orgAgentId\": \"string\",\n      \"groups\": [\n        \"string\"\n      ]\n    },\n    {\n      \"orgAgentId\": \"string\",\n      \"groups\": [\n        \"string\",\n        \"strin\"\n      ]\n    },\n    {\n      \"orgAgentId\": \"string\",\n      \"groups\": [\n        \"string\"\n      ]\n    },\n    {\n      \"orgAgentId\": \"string\",\n      \"groups\": [\n        \"string\",\n        \"st\"\n      ]\n    },\n    {\n      \"orgAgentId\": \"string\",\n      \"groups\": [\n        \"string\",\n        \"strin\"\n      ]\n    },\n    {\n      \"orgAgentId\": \"string\",\n      \"groups\": [\n        \"string\",\n        \"strin\"\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "72b6a7f1-92e2-4a69-879f-3ff338c07f4c",
+          "name": "Deactivate specified agent",
+          "request": {
+            "name": "Deactivate specified agent",
+            "description": {
+              "content": "This operation is only usable in Private Instances and requires the instance admin role permission. See the\n[Get API Tokens](https://developer.data.world/docs/api-getting-started#/step-2-get-the-tokens) documentation\nfor more information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "instanceAdmin",
+                "agents",
+                ":agentid",
+                "deactivate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "agentid",
+                  "description": "(Required) agent id or username"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5e7ccfa5-751b-4bd0-a29e-6edaef0f2410",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instanceAdmin",
+                    "agents",
+                    ":agentid",
+                    "deactivate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "agentid",
+                      "description": "(Required) agent id or username"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "46d511b4-ed60-4cd9-94fd-cb015af097ea",
+          "name": "Reactivate specified agent",
+          "request": {
+            "name": "Reactivate specified agent",
+            "description": {
+              "content": "This operation is only usable in Private Instances and requires the instance admin role permission. See the\n[Get API Tokens](https://developer.data.world/docs/api-getting-started#/step-2-get-the-tokens) documentation\nfor more information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "instanceAdmin",
+                "agents",
+                ":agentid",
+                "reactivate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "agentid",
+                  "description": "(Required) agent id or username"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e1ded3f6-dd5a-41c0-8c60-c1433b667fe4",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instanceAdmin",
+                    "agents",
+                    ":agentid",
+                    "reactivate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "agentid",
+                      "description": "(Required) agent id or username"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2977a9c4-e4af-41cd-a3f5-0ee0266d35fa",
+    "name": "data.world Public catalog relationships instance admin API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Manage relationships between catalog resources\n\nContact Support:\n Name: Contact Us",
+      "type": "text/plain"
+    }
+  }
+}

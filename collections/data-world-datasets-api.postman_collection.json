@@ -1,0 +1,1271 @@
+{
+  "item": [
+    {
+      "id": "d54c938d-c777-43bc-aee6-ec1c1cede4f0",
+      "name": "datasets",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4f326d00-79af-4cd6-ba62-cf9e2a190586",
+          "name": "List datasets for a specified owner",
+          "request": {
+            "name": "List datasets for a specified owner",
+            "description": {
+              "content": "List datasets that the currently authenticated user has access to, for the specified owner; when the\ndataset is open, private (but discoverable by the authenticated user) or the authenticated user is a\ncontributor with discover visibility",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "datasets",
+                ":owner"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Number of results to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "next",
+                  "value": "<string>",
+                  "description": "A token supplied by the previous response to retrieve the next page of results"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ce01eb65-c240-41ff-b951-b8ded9ab459b",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets",
+                    ":owner"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "next",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 9309,\n  \"records\": [\n    {\n      \"accessLevel\": \"NONE, DISCOVER, READ, WRITE, ADMIN\",\n      \"created\": \"2013-10-12T05:13:57.103Z\",\n      \"id\": \"string\",\n      \"isProject\": true,\n      \"owner\": \"string\",\n      \"status\": \"NEW, INPROGRESS, LOADED, SYSTEMERROR\",\n      \"title\": \"string\",\n      \"updated\": \"1955-12-25T07:37:33.919Z\",\n      \"version\": \"string\",\n      \"visibility\": \"OPEN, PRIVATE\",\n      \"assetStatus\": {\n        \"assetStatusLabel\": \"string\",\n        \"dispositionLabel\": \"string\"\n      },\n      \"datasetStatistics\": {\n        \"columnCount\": 9769,\n        \"fileCount\": 2392,\n        \"tableCount\": 3798\n      },\n      \"description\": \"string\",\n      \"dois\": [\n        {\n          \"created\": \"1981-11-16T17:31:35.097Z\",\n          \"doi\": \"string\"\n        },\n        {\n          \"created\": \"1959-05-19T19:30:42.456Z\",\n          \"doi\": \"string\"\n        }\n      ],\n      \"files\": [\n        {\n          \"created\": \"2002-08-25T03:55:36.833Z\",\n          \"name\": \"gyo\",\n          \"updated\": \"2002-01-06T16:35:04.356Z\",\n          \"createdBy\": \"string\",\n          \"description\": \"string\",\n          \"labels\": [\n            \"string\",\n            \"string\"\n          ],\n          \"sizeInBytes\": 2231,\n          \"source\": {\n            \"syncStatus\": \"SYSTEMERROR\",\n            \"authorization\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"credentials\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dataTables\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"databaseMetadataSpec\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"databaseSource\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dwccSpec\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"expandArchive\": true,\n            \"lastSyncFailure\": \"1961-08-24T05:26:55.523Z\",\n            \"lastSyncStart\": \"1986-11-25T09:20:27.779Z\",\n            \"lastSyncSuccess\": \"1947-08-21T15:17:05.625Z\",\n            \"mediaType\": \"string\",\n            \"mediaTypeLocked\": true,\n            \"method\": \"POST\",\n            \"oauthToken\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"requestEntity\": \"string\",\n            \"requestHeaders\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"syncSummary\": \"string\",\n            \"tableSpec\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": \"https://oSMFMeXKcecHJkd.ghautp8q47ZO5d+zofwfcMOF1tMOZgOPM0veovqNbl1AoFp\",\n            \"useDwCredentials\": true,\n            \"viewRequest\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"updatedBy\": \"string\"\n        },\n        {\n          \"created\": \"1998-06-17T07:04:10.374Z\",\n          \"name\": \"s1@5R\",\n          \"updated\": \"1995-03-13T09:25:45.888Z\",\n          \"createdBy\": \"string\",\n          \"description\": \"string\",\n          \"labels\": [\n            \"string\",\n            \"string\"\n          ],\n          \"sizeInBytes\": 5177,\n          \"source\": {\n            \"syncStatus\": \"OK\",\n            \"authorization\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"credentials\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dataTables\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"databaseMetadataSpec\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"databaseSource\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dwccSpec\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"expandArchive\": false,\n            \"lastSyncFailure\": \"1954-11-28T05:25:00.849Z\",\n            \"lastSyncStart\": \"1994-03-22T08:08:01.616Z\",\n            \"lastSyncSuccess\": \"2003-10-23T09:10:37.211Z\",\n            \"mediaType\": \"string\",\n            \"mediaTypeLocked\": true,\n            \"method\": \"GET\",\n            \"oauthToken\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"requestEntity\": \"string\",\n            \"requestHeaders\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"syncSummary\": \"string\",\n            \"tableSpec\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": \"http://sNTxTMTzKTUPzUFLrsRAiMVR.itsdVF5zi+RViIr7boBXODyT\",\n            \"useDwCredentials\": false,\n            \"viewRequest\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"updatedBy\": \"string\"\n        }\n      ],\n      \"license\": \"Public Domain, PDDL, CC-0, CC-BY, CDLA-Permissive-1.0, CC-BY-IGO, CC-BY 3.0, CC-BY 3.0 AU, CC-BY 3.0 IGO, CC-BY-SA, CC-BY-SA 3.0, CDLA-Sharing-1.0, CC BY-NC, CC BY-ND, CC BY-ND 3.0, CC-BY 3.0 NZ, CC-BY-NC 3.0, CC BY-NC-ND, CC-BY-NC-SA 3.0, CC-BY-SA 3.0 NZ, CC-BY-NC-SA 3.0 NZ, CC-BY-NC 3.0 NZ, CC-BY-NC-ND-NZ-3.0, CC BY-NC-SA, Italian-ODL, MIT License, OGL, OGL-Canada, OGL-Nova Scotia, OGL-UK, OSODL, ODC-BY, ODC-ODbL, Other\",\n      \"properties\": {\n        \"key_0\": \"string\"\n      },\n      \"similarResources\": [\n        {\n          \"id\": \"string\",\n          \"owner\": \"string\",\n          \"type\": \"dataset\",\n          \"description\": \"s\",\n          \"license\": \"Public Domain, PDDL, CC-0, CC-BY, CDLA-Permissive-1.0, CC-BY-IGO, CC-BY 3.0, CC-BY 3.0 AU, CC-BY 3.0 IGO, CC-BY-SA, CC-BY-SA 3.0, CDLA-Sharing-1.0, CC BY-NC, CC BY-ND, CC BY-ND 3.0, CC-BY 3.0 NZ, CC-BY-NC 3.0, CC BY-NC-ND, CC-BY-NC-SA 3.0, CC-BY-SA 3.0 NZ, CC-BY-NC-SA 3.0 NZ, CC-BY-NC 3.0 NZ, CC-BY-NC-ND-NZ-3.0, CC BY-NC-SA, Italian-ODL, MIT License, OGL, OGL-Canada, OGL-Nova Scotia, OGL-UK, OSODL, ODC-BY, ODC-ODbL, Other\",\n          \"summary\": \"string\",\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"title\": \"string\",\n          \"visibility\": \"OPEN, PRIVATE\"\n        },\n        {\n          \"id\": \"string\",\n          \"owner\": \"string\",\n          \"type\": \"project\",\n          \"description\": \"string\",\n          \"license\": \"Public Domain, PDDL, CC-0, CC-BY, CDLA-Permissive-1.0, CC-BY-IGO, CC-BY 3.0, CC-BY 3.0 AU, CC-BY 3.0 IGO, CC-BY-SA, CC-BY-SA 3.0, CDLA-Sharing-1.0, CC BY-NC, CC BY-ND, CC BY-ND 3.0, CC-BY 3.0 NZ, CC-BY-NC 3.0, CC BY-NC-ND, CC-BY-NC-SA 3.0, CC-BY-SA 3.0 NZ, CC-BY-NC-SA 3.0 NZ, CC-BY-NC 3.0 NZ, CC-BY-NC-ND-NZ-3.0, CC BY-NC-SA, Italian-ODL, MIT License, OGL, OGL-Canada, OGL-Nova Scotia, OGL-UK, OSODL, ODC-BY, ODC-ODbL, Other\",\n          \"summary\": \"string\",\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"title\": \"string\",\n          \"visibility\": \"OPEN, PRIVATE\"\n        }\n      ],\n      \"summary\": \"string\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"versionDois\": [\n        {\n          \"created\": \"1957-06-08T19:29:36.865Z\",\n          \"doi\": \"string\"\n        },\n        {\n          \"created\": \"1991-07-15T10:15:24.039Z\",\n          \"doi\": \"string\"\n        }\n      ]\n    },\n    {\n      \"accessLevel\": \"NONE, DISCOVER, READ, WRITE, ADMIN\",\n      \"created\": \"1950-01-30T19:13:13.644Z\",\n      \"id\": \"string\",\n      \"isProject\": false,\n      \"owner\": \"string\",\n      \"status\": \"NEW, INPROGRESS, LOADED, SYSTEMERROR\",\n      \"title\": \"string\",\n      \"updated\": \"2011-11-20T02:13:01.767Z\",\n      \"version\": \"string\",\n      \"visibility\": \"OPEN, PRIVATE\",\n      \"assetStatus\": {\n        \"assetStatusLabel\": \"string\",\n        \"dispositionLabel\": \"string\"\n      },\n      \"datasetStatistics\": {\n        \"columnCount\": 1616,\n        \"fileCount\": 6845,\n        \"tableCount\": 2901\n      },\n      \"description\": \"string\",\n      \"dois\": [\n        {\n          \"created\": \"1965-08-02T14:27:02.590Z\",\n          \"doi\": \"string\"\n        },\n        {\n          \"created\": \"1989-09-12T04:08:35.578Z\",\n          \"doi\": \"string\"\n        }\n      ],\n      \"files\": [\n        {\n          \"created\": \"1977-12-09T15:36:23.147Z\",\n          \"name\": \"ZR\",\n          \"updated\": \"2014-12-11T19:16:22.073Z\",\n          \"createdBy\": \"string\",\n          \"description\": \"string\",\n          \"labels\": [\n            \"string\",\n            \"string\"\n          ],\n          \"sizeInBytes\": 3143,\n          \"source\": {\n            \"syncStatus\": \"INPROGRESS\",\n            \"authorization\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"credentials\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dataTables\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"databaseMetadataSpec\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"databaseSource\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dwccSpec\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"expandArchive\": false,\n            \"lastSyncFailure\": \"2023-07-16T04:00:47.696Z\",\n            \"lastSyncStart\": \"1991-05-06T13:07:38.995Z\",\n            \"lastSyncSuccess\": \"1987-06-12T15:47:30.351Z\",\n            \"mediaType\": \"string\",\n            \"mediaTypeLocked\": false,\n            \"method\": \"POST\",\n            \"oauthToken\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"requestEntity\": \"string\",\n            \"requestHeaders\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"syncSummary\": \"string\",\n            \"tableSpec\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": \"https://ohqasiefTOGfxIFFafGzvMYvUfOk.qbMvGxnSaC-PHdrNocz1HX9oF-7+O582CH,I.rydAwU10EpOlSV7Y8b2l\",\n            \"useDwCredentials\": false,\n            \"viewRequest\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"updatedBy\": \"string\"\n        },\n        {\n          \"created\": \"2014-02-08T09:55:52.849Z\",\n          \"name\": \"ZO\",\n          \"updated\": \"2019-03-04T18:38:22.245Z\",\n          \"createdBy\": \"string\",\n          \"description\": \"string\",\n          \"labels\": [\n            \"string\",\n            \"string\"\n          ],\n          \"sizeInBytes\": 8964,\n          \"source\": {\n            \"syncStatus\": \"OK\",\n            \"authorization\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"credentials\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dataTables\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_2\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"databaseMetadataSpec\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"databaseSource\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dwccSpec\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"expandArchive\": false,\n            \"lastSyncFailure\": \"1965-06-25T15:54:10.861Z\",\n            \"lastSyncStart\": \"1995-09-09T11:14:39.495Z\",\n            \"lastSyncSuccess\": \"1991-09-28T09:20:46.963Z\",\n            \"mediaType\": \"string\",\n            \"mediaTypeLocked\": true,\n            \"method\": \"GET\",\n            \"oauthToken\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"requestEntity\": \"string\",\n            \"requestHeaders\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"syncSummary\": \"string\",\n            \"tableSpec\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": \"https://cGCxFMDuLynfWHxsfzQtUlFMLILXQXflJ.vlXU1PfDBSzQM90oGPSJr,4QnSnTLXazjcKu\",\n            \"useDwCredentials\": true,\n            \"viewRequest\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"updatedBy\": \"string\"\n        }\n      ],\n      \"license\": \"Public Domain, PDDL, CC-0, CC-BY, CDLA-Permissive-1.0, CC-BY-IGO, CC-BY 3.0, CC-BY 3.0 AU, CC-BY 3.0 IGO, CC-BY-SA, CC-BY-SA 3.0, CDLA-Sharing-1.0, CC BY-NC, CC BY-ND, CC BY-ND 3.0, CC-BY 3.0 NZ, CC-BY-NC 3.0, CC BY-NC-ND, CC-BY-NC-SA 3.0, CC-BY-SA 3.0 NZ, CC-BY-NC-SA 3.0 NZ, CC-BY-NC 3.0 NZ, CC-BY-NC-ND-NZ-3.0, CC BY-NC-SA, Italian-ODL, MIT License, OGL, OGL-Canada, OGL-Nova Scotia, OGL-UK, OSODL, ODC-BY, ODC-ODbL, Other\",\n      \"properties\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"similarResources\": [\n        {\n          \"id\": \"string\",\n          \"owner\": \"string\",\n          \"type\": \"project\",\n          \"description\": \"string\",\n          \"license\": \"Public Domain, PDDL, CC-0, CC-BY, CDLA-Permissive-1.0, CC-BY-IGO, CC-BY 3.0, CC-BY 3.0 AU, CC-BY 3.0 IGO, CC-BY-SA, CC-BY-SA 3.0, CDLA-Sharing-1.0, CC BY-NC, CC BY-ND, CC BY-ND 3.0, CC-BY 3.0 NZ, CC-BY-NC 3.0, CC BY-NC-ND, CC-BY-NC-SA 3.0, CC-BY-SA 3.0 NZ, CC-BY-NC-SA 3.0 NZ, CC-BY-NC 3.0 NZ, CC-BY-NC-ND-NZ-3.0, CC BY-NC-SA, Italian-ODL, MIT License, OGL, OGL-Canada, OGL-Nova Scotia, OGL-UK, OSODL, ODC-BY, ODC-ODbL, Other\",\n          \"summary\": \"string\",\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"title\": \"str\",\n          \"visibility\": \"OPEN, PRIVATE\"\n        },\n        {\n          \"id\": \"string\",\n          \"owner\": \"string\",\n          \"type\": \"project\",\n          \"description\": \"string\",\n          \"license\": \"Public Domain, PDDL, CC-0, CC-BY, CDLA-Permissive-1.0, CC-BY-IGO, CC-BY 3.0, CC-BY 3.0 AU, CC-BY 3.0 IGO, CC-BY-SA, CC-BY-SA 3.0, CDLA-Sharing-1.0, CC BY-NC, CC BY-ND, CC BY-ND 3.0, CC-BY 3.0 NZ, CC-BY-NC 3.0, CC BY-NC-ND, CC-BY-NC-SA 3.0, CC-BY-SA 3.0 NZ, CC-BY-NC-SA 3.0 NZ, CC-BY-NC 3.0 NZ, CC-BY-NC-ND-NZ-3.0, CC BY-NC-SA, Italian-ODL, MIT License, OGL, OGL-Canada, OGL-Nova Scotia, OGL-UK, OSODL, ODC-BY, ODC-ODbL, Other\",\n          \"summary\": \"string\",\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"title\": \"string\",\n          \"visibility\": \"OPEN, PRIVATE\"\n        }\n      ],\n      \"summary\": \"string\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"versionDois\": [\n        {\n          \"created\": \"1952-01-15T20:40:36.977Z\",\n          \"doi\": \"string\"\n        },\n        {\n          \"created\": \"1951-10-23T16:01:21.455Z\",\n          \"doi\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7bbb3dad-df52-42da-a85e-70bb4df5e6f9",
+          "name": "Create a dataset",
+          "request": {
+            "name": "Create a dataset",
+            "description": {
+              "content": "Create a new dataset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "datasets",
+                ":owner"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"assetStatusIri\": \"<string>\",\n  \"autoSyncInterval\": \"<string>\",\n  \"description\": \"<string>\",\n  \"files\": [\n    {\n      \"name\": \"<string>\",\n      \"source\": {\n        \"authorization\": {\n          \"type\": \"<string>\",\n          \"credentials\": \"<string>\"\n        },\n        \"credentials\": {\n          \"user\": \"<string>\",\n          \"password\": \"<string>\"\n        },\n        \"dataTables\": {\n          \"key_0\": {\n            \"query\": \"<string>\"\n          },\n          \"key_1\": {\n            \"query\": \"<string>\"\n          }\n        },\n        \"databaseMetadataSpec\": {\n          \"tableSpecs\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"databaseSource\": {\n          \"id\": \"<uuid>\",\n          \"owner\": \"<string>\"\n        },\n        \"dwccSpec\": {\n          \"databaseId\": \"<string>\",\n          \"metadataToExclude\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sourceDatabase\": \"<string>\",\n          \"sourceSchemas\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"targetCatalog\": \"<string>\"\n        },\n        \"expandArchive\": \"<boolean>\",\n        \"method\": \"<string>\",\n        \"oauthToken\": {\n          \"id\": \"<uuid>\",\n          \"owner\": \"<string>\",\n          \"site\": \"<string>\"\n        },\n        \"requestEntity\": \"<string>\",\n        \"requestHeaders\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\"\n        },\n        \"tableSpec\": {\n          \"database\": \"<string>\",\n          \"schema\": \"<string>\",\n          \"table\": \"<string>\",\n          \"tableType\": \"<string>\"\n        },\n        \"url\": \"<uri>\",\n        \"useDwCredentials\": \"<boolean>\",\n        \"viewRequest\": {\n          \"baseAgentId\": \"<string>\",\n          \"baseDatasetId\": \"<string>\",\n          \"queryName\": \"<string>\",\n          \"queryType\": \"<string>\",\n          \"runAsAgentId\": \"<string>\",\n          \"targetAgentId\": \"<string>\",\n          \"targetDatasetId\": \"<string>\",\n          \"queryId\": \"<uuid>\",\n          \"queryText\": \"<string>\"\n        }\n      },\n      \"description\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"name\": \"<string>\",\n      \"source\": {\n        \"authorization\": {\n          \"type\": \"<string>\",\n          \"credentials\": \"<string>\"\n        },\n        \"credentials\": {\n          \"user\": \"<string>\",\n          \"password\": \"<string>\"\n        },\n        \"dataTables\": {\n          \"key_0\": {\n            \"query\": \"<string>\"\n          },\n          \"key_1\": {\n            \"query\": \"<string>\"\n          }\n        },\n        \"databaseMetadataSpec\": {\n          \"tableSpecs\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"databaseSource\": {\n          \"id\": \"<uuid>\",\n          \"owner\": \"<string>\"\n        },\n        \"dwccSpec\": {\n          \"databaseId\": \"<string>\",\n          \"metadataToExclude\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sourceDatabase\": \"<string>\",\n          \"sourceSchemas\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"targetCatalog\": \"<string>\"\n        },\n        \"expandArchive\": \"<boolean>\",\n        \"method\": \"<string>\",\n        \"oauthToken\": {\n          \"id\": \"<uuid>\",\n          \"owner\": \"<string>\",\n          \"site\": \"<string>\"\n        },\n        \"requestEntity\": \"<string>\",\n        \"requestHeaders\": {\n          \"key_0\": \"<string>\"\n        },\n        \"tableSpec\": {\n          \"database\": \"<string>\",\n          \"schema\": \"<string>\",\n          \"table\": \"<string>\",\n          \"tableType\": \"<string>\"\n        },\n        \"url\": \"<uri>\",\n        \"useDwCredentials\": \"<boolean>\",\n        \"viewRequest\": {\n          \"baseAgentId\": \"<string>\",\n          \"baseDatasetId\": \"<string>\",\n          \"queryName\": \"<string>\",\n          \"queryType\": \"<string>\",\n          \"runAsAgentId\": \"<string>\",\n          \"targetAgentId\": \"<string>\",\n          \"targetDatasetId\": \"<string>\",\n          \"queryId\": \"<uuid>\",\n          \"queryText\": \"<string>\"\n        }\n      },\n      \"description\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"license\": \"<string>\",\n  \"properties\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"summary\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5c26e5ef-bb17-4a1b-bad6-6fbc06ff452d",
+              "name": "Dataset created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets",
+                    ":owner"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"assetStatusIri\": \"<string>\",\n  \"autoSyncInterval\": \"<string>\",\n  \"description\": \"<string>\",\n  \"files\": [\n    {\n      \"name\": \"S{\",\n      \"source\": {\n        \"authorization\": {\n          \"type\": \"string\",\n          \"credentials\": \"string\"\n        },\n        \"credentials\": {\n          \"user\": \"string\",\n          \"password\": \"string\"\n        },\n        \"dataTables\": {\n          \"key_0\": {\n            \"query\": \"string\"\n          },\n          \"key_1\": {\n            \"query\": \"string\"\n          }\n        },\n        \"databaseMetadataSpec\": {\n          \"tableSpecs\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"databaseSource\": {\n          \"id\": \"bd1553df-b0c9-8ee2-ccee-5b5b4506fb79\",\n          \"owner\": \"string\"\n        },\n        \"dwccSpec\": {\n          \"databaseId\": \"string\",\n          \"metadataToExclude\": [\n            \"string\",\n            \"string\"\n          ],\n          \"sourceDatabase\": \"string\",\n          \"sourceSchemas\": [\n            \"string\",\n            \"string\"\n          ],\n          \"targetCatalog\": \"string\"\n        },\n        \"expandArchive\": false,\n        \"method\": \"POST\",\n        \"oauthToken\": {\n          \"id\": \"c923baa8-e792-971b-fe90-a8eb9751a20c\",\n          \"owner\": \"string\",\n          \"site\": \"string\"\n        },\n        \"requestEntity\": \"string\",\n        \"requestHeaders\": {\n          \"key_0\": \"string\"\n        },\n        \"tableSpec\": {\n          \"database\": \"string\",\n          \"schema\": \"string\",\n          \"table\": \"string\",\n          \"tableType\": \"EXTRACT\"\n        },\n        \"url\": \"http://zapRhXaUefPWBBCQKAOsJkEhvLhjYaC.olryGPkm3JMFap,1BdGSliWe4iWYcKit6HmcVS8kqMgrLUUr7L\",\n        \"useDwCredentials\": false,\n        \"viewRequest\": {\n          \"baseAgentId\": \"string\",\n          \"baseDatasetId\": \"string\",\n          \"queryName\": \"string\",\n          \"queryType\": \"SQL\",\n          \"runAsAgentId\": \"string\",\n          \"targetAgentId\": \"string\",\n          \"targetDatasetId\": \"string\",\n          \"queryId\": \"10486521-e4d2-ac81-0ca3-c106c6a44ed2\",\n          \"queryText\": \"string\"\n        }\n      },\n      \"description\": \"string\",\n      \"labels\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"name\": \"P*),*2Ym&MG\",\n      \"source\": {\n        \"authorization\": {\n          \"type\": \"string\",\n          \"credentials\": \"string\"\n        },\n        \"credentials\": {\n          \"user\": \"s\",\n          \"password\": \"string\"\n        },\n        \"dataTables\": {\n          \"key_0\": {\n            \"query\": \"string\"\n          },\n          \"key_1\": {\n            \"query\": \"st\"\n          }\n        },\n        \"databaseMetadataSpec\": {\n          \"tableSpecs\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"databaseSource\": {\n          \"id\": \"3c40ea31-9f12-ee2e-8c7b-6972888dbb5c\",\n          \"owner\": \"string\"\n        },\n        \"dwccSpec\": {\n          \"databaseId\": \"string\",\n          \"metadataToExclude\": [\n            \"string\",\n            \"string\"\n          ],\n          \"sourceDatabase\": \"string\",\n          \"sourceSchemas\": [\n            \"string\",\n            \"string\"\n          ],\n          \"targetCatalog\": \"string\"\n        },\n        \"expandArchive\": true,\n        \"method\": \"POST\",\n        \"oauthToken\": {\n          \"id\": \"4fcae193-a4c5-a413-b40b-36ce9c139f50\",\n          \"owner\": \"string\",\n          \"site\": \"string\"\n        },\n        \"requestEntity\": \"string\",\n        \"requestHeaders\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"tableSpec\": {\n          \"database\": \"string\",\n          \"schema\": \"string\",\n          \"table\": \"string\",\n          \"tableType\": \"EXTRACT\"\n        },\n        \"url\": \"https://yHwtkmzMas.puyoiv9OPXCVyGXvGOu.HSUNT0IuaS5hYkFbrDvoNutMCUnyZZknv7\",\n        \"useDwCredentials\": false,\n        \"viewRequest\": {\n          \"baseAgentId\": \"string\",\n          \"baseDatasetId\": \"string\",\n          \"queryName\": \"string\",\n          \"queryType\": \"SPARQL\",\n          \"runAsAgentId\": \"string\",\n          \"targetAgentId\": \"string\",\n          \"targetDatasetId\": \"string\",\n          \"queryId\": \"37111500-e6b8-611e-7a11-49fc3ae2a404\",\n          \"queryText\": \"string\"\n        }\n      },\n      \"description\": \"string\",\n      \"labels\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"license\": \"<string>\",\n  \"properties\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"summary\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"uri\": \"https://xTEpPfnfBEVFbFdzmVOiAolh.tziKwDXwqtY.b5ce,aVGCxV-joz42k2i2yL-c\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "61cb9e47-6553-426e-b27c-1ec0457c8e97",
+          "name": "Delete a dataset",
+          "request": {
+            "name": "Delete a dataset",
+            "description": {
+              "content": "Delete a dataset and associated data. This operation cannot be undone, but you may recreate the dataset\nusing the same id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "datasets",
+                ":owner",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "811e5609-de97-4f83-a964-10cd9fc8c0fb",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets",
+                    ":owner",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7ed57f57-2220-44a0-b901-ce8f5f6da9ac",
+          "name": "Retrieve a dataset",
+          "request": {
+            "name": "Retrieve a dataset",
+            "description": {
+              "content": "Retrieve a dataset. The definition of the dataset will be returned, not its data. Use\n`GET:/download/{owner}/{id}` or `GET:/file_download/{owner}/{id}/{file}` to retrieve the original files\ncontent, or `POST:/sql/{owner}/{id}` or `POST:/sparql/{owner}/{id}` to query the data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "datasets",
+                ":owner",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "97b09f2f-fd73-474d-839b-325fce7fa88b",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets",
+                    ":owner",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accessLevel\": \"NONE, DISCOVER, READ, WRITE, ADMIN\",\n  \"created\": \"1962-06-23T10:53:17.559Z\",\n  \"id\": \"string\",\n  \"isProject\": false,\n  \"owner\": \"string\",\n  \"status\": \"NEW, INPROGRESS, LOADED, SYSTEMERROR\",\n  \"title\": \"string\",\n  \"updated\": \"1982-03-29T20:48:07.829Z\",\n  \"version\": \"string\",\n  \"visibility\": \"OPEN, PRIVATE\",\n  \"assetStatus\": {\n    \"assetStatusLabel\": \"string\",\n    \"dispositionLabel\": \"string\"\n  },\n  \"datasetStatistics\": {\n    \"columnCount\": 1330,\n    \"fileCount\": 1796,\n    \"tableCount\": 2760\n  },\n  \"description\": \"string\",\n  \"dois\": [\n    {\n      \"created\": \"1947-06-20T19:29:46.798Z\",\n      \"doi\": \"string\"\n    },\n    {\n      \"created\": \"2003-08-10T09:42:49.538Z\",\n      \"doi\": \"string\"\n    }\n  ],\n  \"files\": [\n    {\n      \"created\": \"2022-08-30T17:56:34.877Z\",\n      \"name\": \"g \",\n      \"updated\": \"1954-08-26T22:12:34.722Z\",\n      \"createdBy\": \"string\",\n      \"description\": \"string\",\n      \"labels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"sizeInBytes\": 2878,\n      \"source\": {\n        \"syncStatus\": \"OK\",\n        \"authorization\": {\n          \"type\": \"string\",\n          \"credentials\": \"string\"\n        },\n        \"credentials\": {\n          \"user\": \"string\",\n          \"password\": \"string\"\n        },\n        \"dataTables\": {\n          \"key_0\": {\n            \"query\": \"string\"\n          },\n          \"key_1\": {\n            \"query\": \"string\"\n          }\n        },\n        \"databaseMetadataSpec\": {\n          \"tableSpecs\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"databaseSource\": {\n          \"id\": \"57c6c333-2f22-3853-af1e-490db7d5ad8e\",\n          \"owner\": \"string\"\n        },\n        \"dwccSpec\": {\n          \"databaseId\": \"string\",\n          \"metadataToExclude\": [\n            \"string\",\n            \"string\"\n          ],\n          \"sourceDatabase\": \"string\",\n          \"sourceSchemas\": [\n            \"string\",\n            \"string\"\n          ],\n          \"targetCatalog\": \"string\"\n        },\n        \"expandArchive\": false,\n        \"lastSyncFailure\": \"1989-11-10T07:29:28.214Z\",\n        \"lastSyncStart\": \"1984-03-05T17:43:36.522Z\",\n        \"lastSyncSuccess\": \"1994-09-02T19:17:47.200Z\",\n        \"mediaType\": \"string\",\n        \"mediaTypeLocked\": false,\n        \"method\": \"GET\",\n        \"oauthToken\": {\n          \"id\": \"4495ea82-5ba5-3694-022e-ad8a57f0c01b\",\n          \"owner\": \"string\",\n          \"site\": \"string\"\n        },\n        \"requestEntity\": \"string\",\n        \"requestHeaders\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\"\n        },\n        \"syncSummary\": \"string\",\n        \"tableSpec\": {\n          \"database\": \"string\",\n          \"schema\": \"string\",\n          \"table\": \"string\",\n          \"tableType\": \"EXTRACT\"\n        },\n        \"url\": \"https://FNRuQdjveYhPtNuIabjUGTK.dsbcDyoCVA9og+qudFZf61h-N3eRuhwww+Gy1bl1qWZjRKXCQtyqxib6T,euFh,q7JYocQmSBrr\",\n        \"useDwCredentials\": false,\n        \"viewRequest\": {\n          \"baseAgentId\": \"string\",\n          \"baseDatasetId\": \"string\",\n          \"queryName\": \"string\",\n          \"queryType\": \"SQL\",\n          \"runAsAgentId\": \"string\",\n          \"targetAgentId\": \"string\",\n          \"targetDatasetId\": \"string\",\n          \"queryId\": \"6d101b7b-6f81-7e06-d461-33104f905da1\",\n          \"queryText\": \"string\"\n        }\n      },\n      \"updatedBy\": \"string\"\n    },\n    {\n      \"created\": \"1966-08-07T06:04:27.705Z\",\n      \"name\": \"Y\",\n      \"updated\": \"1991-01-07T02:02:38.698Z\",\n      \"createdBy\": \"string\",\n      \"description\": \"string\",\n      \"labels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"sizeInBytes\": 2767,\n      \"source\": {\n        \"syncStatus\": \"INPROGRESS\",\n        \"authorization\": {\n          \"type\": \"string\",\n          \"credentials\": \"string\"\n        },\n        \"credentials\": {\n          \"user\": \"string\",\n          \"password\": \"string\"\n        },\n        \"dataTables\": {\n          \"key_0\": {\n            \"query\": \"string\"\n          }\n        },\n        \"databaseMetadataSpec\": {\n          \"tableSpecs\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"databaseSource\": {\n          \"id\": \"d0f4cb8c-f0b7-0d55-8396-2c7f4946d774\",\n          \"owner\": \"string\"\n        },\n        \"dwccSpec\": {\n          \"databaseId\": \"string\",\n          \"metadataToExclude\": [\n            \"string\",\n            \"string\"\n          ],\n          \"sourceDatabase\": \"string\",\n          \"sourceSchemas\": [\n            \"string\",\n            \"string\"\n          ],\n          \"targetCatalog\": \"string\"\n        },\n        \"expandArchive\": true,\n        \"lastSyncFailure\": \"2025-12-16T08:29:07.998Z\",\n        \"lastSyncStart\": \"1989-04-08T00:52:20.725Z\",\n        \"lastSyncSuccess\": \"1964-08-13T10:46:46.145Z\",\n        \"mediaType\": \"string\",\n        \"mediaTypeLocked\": false,\n        \"method\": \"GET\",\n        \"oauthToken\": {\n          \"id\": \"a2ed1d0a-eab0-5b19-ea65-38be1cf1cce7\",\n          \"owner\": \"string\",\n          \"site\": \"string\"\n        },\n        \"requestEntity\": \"string\",\n        \"requestHeaders\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\"\n        },\n        \"syncSummary\": \"string\",\n        \"tableSpec\": {\n          \"database\": \"string\",\n          \"schema\": \"string\",\n          \"table\": \"string\",\n          \"tableType\": \"VIRTUAL\"\n        },\n        \"url\": \"https://FIhuCVTaKIOtuauUrBfHdKcx.hwzpxIf8vvXpegR6E\",\n        \"useDwCredentials\": true,\n        \"viewRequest\": {\n          \"baseAgentId\": \"string\",\n          \"baseDatasetId\": \"string\",\n          \"queryName\": \"string\",\n          \"queryType\": \"SQL\",\n          \"runAsAgentId\": \"string\",\n          \"targetAgentId\": \"string\",\n          \"targetDatasetId\": \"string\",\n          \"queryId\": \"6318bc5a-2c5a-bd36-45fe-463145395210\",\n          \"queryText\": \"string\"\n        }\n      },\n      \"updatedBy\": \"string\"\n    }\n  ],\n  \"license\": \"Public Domain, PDDL, CC-0, CC-BY, CDLA-Permissive-1.0, CC-BY-IGO, CC-BY 3.0, CC-BY 3.0 AU, CC-BY 3.0 IGO, CC-BY-SA, CC-BY-SA 3.0, CDLA-Sharing-1.0, CC BY-NC, CC BY-ND, CC BY-ND 3.0, CC-BY 3.0 NZ, CC-BY-NC 3.0, CC BY-NC-ND, CC-BY-NC-SA 3.0, CC-BY-SA 3.0 NZ, CC-BY-NC-SA 3.0 NZ, CC-BY-NC 3.0 NZ, CC-BY-NC-ND-NZ-3.0, CC BY-NC-SA, Italian-ODL, MIT License, OGL, OGL-Canada, OGL-Nova Scotia, OGL-UK, OSODL, ODC-BY, ODC-ODbL, Other\",\n  \"properties\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"similarResources\": [\n    {\n      \"id\": \"string\",\n      \"owner\": \"string\",\n      \"type\": \"project\",\n      \"description\": \"string\",\n      \"license\": \"Public Domain, PDDL, CC-0, CC-BY, CDLA-Permissive-1.0, CC-BY-IGO, CC-BY 3.0, CC-BY 3.0 AU, CC-BY 3.0 IGO, CC-BY-SA, CC-BY-SA 3.0, CDLA-Sharing-1.0, CC BY-NC, CC BY-ND, CC BY-ND 3.0, CC-BY 3.0 NZ, CC-BY-NC 3.0, CC BY-NC-ND, CC-BY-NC-SA 3.0, CC-BY-SA 3.0 NZ, CC-BY-NC-SA 3.0 NZ, CC-BY-NC 3.0 NZ, CC-BY-NC-ND-NZ-3.0, CC BY-NC-SA, Italian-ODL, MIT License, OGL, OGL-Canada, OGL-Nova Scotia, OGL-UK, OSODL, ODC-BY, ODC-ODbL, Other\",\n      \"summary\": \"string\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"title\": \"string\",\n      \"visibility\": \"OPEN, PRIVATE\"\n    },\n    {\n      \"id\": \"string\",\n      \"owner\": \"string\",\n      \"type\": \"dataset\",\n      \"description\": \"string\",\n      \"license\": \"Public Domain, PDDL, CC-0, CC-BY, CDLA-Permissive-1.0, CC-BY-IGO, CC-BY 3.0, CC-BY 3.0 AU, CC-BY 3.0 IGO, CC-BY-SA, CC-BY-SA 3.0, CDLA-Sharing-1.0, CC BY-NC, CC BY-ND, CC BY-ND 3.0, CC-BY 3.0 NZ, CC-BY-NC 3.0, CC BY-NC-ND, CC-BY-NC-SA 3.0, CC-BY-SA 3.0 NZ, CC-BY-NC-SA 3.0 NZ, CC-BY-NC 3.0 NZ, CC-BY-NC-ND-NZ-3.0, CC BY-NC-SA, Italian-ODL, MIT License, OGL, OGL-Canada, OGL-Nova Scotia, OGL-UK, OSODL, ODC-BY, ODC-ODbL, Other\",\n      \"summary\": \"string\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"title\": \"string\",\n      \"visibility\": \"OPEN, PRIVATE\"\n    }\n  ],\n  \"summary\": \"string\",\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ],\n  \"versionDois\": [\n    {\n      \"created\": \"1949-12-08T18:52:35.483Z\",\n      \"doi\": \"string\"\n    },\n    {\n      \"created\": \"2002-07-01T02:05:04.611Z\",\n      \"doi\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "28faddee-6fe1-479d-9096-2dc5d9442ff7",
+          "name": "Update a dataset",
+          "request": {
+            "name": "Update a dataset",
+            "description": {
+              "content": "Update an existing dataset. Only elements included in the request will be updated. All omitted elements\nwill remain untouched. Requesting change in a list replaces the entire list. Requesting an element to be\nnull deletes all values on the element.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "datasets",
+                ":owner",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"assetStatusIri\": \"<string>\",\n  \"autoSyncInterval\": \"<string>\",\n  \"description\": \"<string>\",\n  \"license\": \"<string>\",\n  \"properties\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"summary\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"visibility\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d599ae88-4b92-4057-bd5a-4fac886efa73",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets",
+                    ":owner",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assetStatusIri\": \"<string>\",\n  \"autoSyncInterval\": \"<string>\",\n  \"description\": \"<string>\",\n  \"license\": \"<string>\",\n  \"properties\": {\n    \"key_0\": {}\n  },\n  \"summary\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"visibility\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "44b9c930-5f89-4a19-a596-d357b89790f1",
+          "name": "Create / Replace a dataset",
+          "request": {
+            "name": "Create / Replace a dataset",
+            "description": {
+              "content": "Create or replace a dataset with a given id. If a dataset exists with the same id, this call will reset\nsuch dataset and all the data contained in it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "datasets",
+                ":owner",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"assetStatusIri\": \"<string>\",\n  \"description\": \"<string>\",\n  \"license\": \"<string>\",\n  \"properties\": {\n    \"key_0\": \"<string>\"\n  },\n  \"summary\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4e4a75e8-d495-4ed9-a182-8cd5042b66b0",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets",
+                    ":owner",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"assetStatusIri\": \"<string>\",\n  \"description\": \"<string>\",\n  \"license\": \"<string>\",\n  \"properties\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"summary\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6893ab06-6b9b-4786-871f-a9bb9ff39fcf",
+          "name": "Fetch latest file from source and update dataset — via GET, for convenience.",
+          "request": {
+            "name": "Fetch latest file from source and update dataset — via GET, for convenience.",
+            "description": {},
+            "url": {
+              "path": [
+                "datasets",
+                ":owner",
+                ":id",
+                "sync",
+                ":filename"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "filename",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ad6cac35-e23f-44ea-9072-9e1332df32c3",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets",
+                    ":owner",
+                    ":id",
+                    "sync",
+                    ":filename"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "filename",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3d978c76-240f-4153-a74d-b28f3b30fd0a",
+          "name": "Fetch latest file from source and update dataset.",
+          "request": {
+            "name": "Fetch latest file from source and update dataset.",
+            "description": {},
+            "url": {
+              "path": [
+                "datasets",
+                ":owner",
+                ":id",
+                "sync",
+                ":filename"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "filename",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e51e07d3-e1d3-4170-b935-1f10afcd6e5d",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets",
+                    ":owner",
+                    ":id",
+                    "sync",
+                    ":filename"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "filename",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6ac14df7-bef6-4430-85d7-7a60b2b8ed19",
+          "name": "Retrieve a dataset version",
+          "request": {
+            "name": "Retrieve a dataset version",
+            "description": {
+              "content": "Retrieve a version of a dataset. The definition of the dataset will be returned, not its data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "datasets",
+                ":owner",
+                ":id",
+                "v",
+                ":versionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "versionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5cc4902a-240c-435c-b5ca-1028e4e6f420",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets",
+                    ":owner",
+                    ":id",
+                    "v",
+                    ":versionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "versionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accessLevel\": \"NONE, DISCOVER, READ, WRITE, ADMIN\",\n  \"created\": \"1962-06-23T10:53:17.559Z\",\n  \"id\": \"string\",\n  \"isProject\": false,\n  \"owner\": \"string\",\n  \"status\": \"NEW, INPROGRESS, LOADED, SYSTEMERROR\",\n  \"title\": \"string\",\n  \"updated\": \"1982-03-29T20:48:07.829Z\",\n  \"version\": \"string\",\n  \"visibility\": \"OPEN, PRIVATE\",\n  \"assetStatus\": {\n    \"assetStatusLabel\": \"string\",\n    \"dispositionLabel\": \"string\"\n  },\n  \"datasetStatistics\": {\n    \"columnCount\": 1330,\n    \"fileCount\": 1796,\n    \"tableCount\": 2760\n  },\n  \"description\": \"string\",\n  \"dois\": [\n    {\n      \"created\": \"1947-06-20T19:29:46.798Z\",\n      \"doi\": \"string\"\n    },\n    {\n      \"created\": \"2003-08-10T09:42:49.538Z\",\n      \"doi\": \"string\"\n    }\n  ],\n  \"files\": [\n    {\n      \"created\": \"2022-08-30T17:56:34.877Z\",\n      \"name\": \"g \",\n      \"updated\": \"1954-08-26T22:12:34.722Z\",\n      \"createdBy\": \"string\",\n      \"description\": \"string\",\n      \"labels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"sizeInBytes\": 2878,\n      \"source\": {\n        \"syncStatus\": \"OK\",\n        \"authorization\": {\n          \"type\": \"string\",\n          \"credentials\": \"string\"\n        },\n        \"credentials\": {\n          \"user\": \"string\",\n          \"password\": \"string\"\n        },\n        \"dataTables\": {\n          \"key_0\": {\n            \"query\": \"string\"\n          },\n          \"key_1\": {\n            \"query\": \"string\"\n          }\n        },\n        \"databaseMetadataSpec\": {\n          \"tableSpecs\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"databaseSource\": {\n          \"id\": \"57c6c333-2f22-3853-af1e-490db7d5ad8e\",\n          \"owner\": \"string\"\n        },\n        \"dwccSpec\": {\n          \"databaseId\": \"string\",\n          \"metadataToExclude\": [\n            \"string\",\n            \"string\"\n          ],\n          \"sourceDatabase\": \"string\",\n          \"sourceSchemas\": [\n            \"string\",\n            \"string\"\n          ],\n          \"targetCatalog\": \"string\"\n        },\n        \"expandArchive\": false,\n        \"lastSyncFailure\": \"1989-11-10T07:29:28.214Z\",\n        \"lastSyncStart\": \"1984-03-05T17:43:36.522Z\",\n        \"lastSyncSuccess\": \"1994-09-02T19:17:47.200Z\",\n        \"mediaType\": \"string\",\n        \"mediaTypeLocked\": false,\n        \"method\": \"GET\",\n        \"oauthToken\": {\n          \"id\": \"4495ea82-5ba5-3694-022e-ad8a57f0c01b\",\n          \"owner\": \"string\",\n          \"site\": \"string\"\n        },\n        \"requestEntity\": \"string\",\n        \"requestHeaders\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\"\n        },\n        \"syncSummary\": \"string\",\n        \"tableSpec\": {\n          \"database\": \"string\",\n          \"schema\": \"string\",\n          \"table\": \"string\",\n          \"tableType\": \"EXTRACT\"\n        },\n        \"url\": \"https://FNRuQdjveYhPtNuIabjUGTK.dsbcDyoCVA9og+qudFZf61h-N3eRuhwww+Gy1bl1qWZjRKXCQtyqxib6T,euFh,q7JYocQmSBrr\",\n        \"useDwCredentials\": false,\n        \"viewRequest\": {\n          \"baseAgentId\": \"string\",\n          \"baseDatasetId\": \"string\",\n          \"queryName\": \"string\",\n          \"queryType\": \"SQL\",\n          \"runAsAgentId\": \"string\",\n          \"targetAgentId\": \"string\",\n          \"targetDatasetId\": \"string\",\n          \"queryId\": \"6d101b7b-6f81-7e06-d461-33104f905da1\",\n          \"queryText\": \"string\"\n        }\n      },\n      \"updatedBy\": \"string\"\n    },\n    {\n      \"created\": \"1966-08-07T06:04:27.705Z\",\n      \"name\": \"Y\",\n      \"updated\": \"1991-01-07T02:02:38.698Z\",\n      \"createdBy\": \"string\",\n      \"description\": \"string\",\n      \"labels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"sizeInBytes\": 2767,\n      \"source\": {\n        \"syncStatus\": \"INPROGRESS\",\n        \"authorization\": {\n          \"type\": \"string\",\n          \"credentials\": \"string\"\n        },\n        \"credentials\": {\n          \"user\": \"string\",\n          \"password\": \"string\"\n        },\n        \"dataTables\": {\n          \"key_0\": {\n            \"query\": \"string\"\n          }\n        },\n        \"databaseMetadataSpec\": {\n          \"tableSpecs\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"databaseSource\": {\n          \"id\": \"d0f4cb8c-f0b7-0d55-8396-2c7f4946d774\",\n          \"owner\": \"string\"\n        },\n        \"dwccSpec\": {\n          \"databaseId\": \"string\",\n          \"metadataToExclude\": [\n            \"string\",\n            \"string\"\n          ],\n          \"sourceDatabase\": \"string\",\n          \"sourceSchemas\": [\n            \"string\",\n            \"string\"\n          ],\n          \"targetCatalog\": \"string\"\n        },\n        \"expandArchive\": true,\n        \"lastSyncFailure\": \"2025-12-16T08:29:07.998Z\",\n        \"lastSyncStart\": \"1989-04-08T00:52:20.725Z\",\n        \"lastSyncSuccess\": \"1964-08-13T10:46:46.145Z\",\n        \"mediaType\": \"string\",\n        \"mediaTypeLocked\": false,\n        \"method\": \"GET\",\n        \"oauthToken\": {\n          \"id\": \"a2ed1d0a-eab0-5b19-ea65-38be1cf1cce7\",\n          \"owner\": \"string\",\n          \"site\": \"string\"\n        },\n        \"requestEntity\": \"string\",\n        \"requestHeaders\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\"\n        },\n        \"syncSummary\": \"string\",\n        \"tableSpec\": {\n          \"database\": \"string\",\n          \"schema\": \"string\",\n          \"table\": \"string\",\n          \"tableType\": \"VIRTUAL\"\n        },\n        \"url\": \"https://FIhuCVTaKIOtuauUrBfHdKcx.hwzpxIf8vvXpegR6E\",\n        \"useDwCredentials\": true,\n        \"viewRequest\": {\n          \"baseAgentId\": \"string\",\n          \"baseDatasetId\": \"string\",\n          \"queryName\": \"string\",\n          \"queryType\": \"SQL\",\n          \"runAsAgentId\": \"string\",\n          \"targetAgentId\": \"string\",\n          \"targetDatasetId\": \"string\",\n          \"queryId\": \"6318bc5a-2c5a-bd36-45fe-463145395210\",\n          \"queryText\": \"string\"\n        }\n      },\n      \"updatedBy\": \"string\"\n    }\n  ],\n  \"license\": \"Public Domain, PDDL, CC-0, CC-BY, CDLA-Permissive-1.0, CC-BY-IGO, CC-BY 3.0, CC-BY 3.0 AU, CC-BY 3.0 IGO, CC-BY-SA, CC-BY-SA 3.0, CDLA-Sharing-1.0, CC BY-NC, CC BY-ND, CC BY-ND 3.0, CC-BY 3.0 NZ, CC-BY-NC 3.0, CC BY-NC-ND, CC-BY-NC-SA 3.0, CC-BY-SA 3.0 NZ, CC-BY-NC-SA 3.0 NZ, CC-BY-NC 3.0 NZ, CC-BY-NC-ND-NZ-3.0, CC BY-NC-SA, Italian-ODL, MIT License, OGL, OGL-Canada, OGL-Nova Scotia, OGL-UK, OSODL, ODC-BY, ODC-ODbL, Other\",\n  \"properties\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"similarResources\": [\n    {\n      \"id\": \"string\",\n      \"owner\": \"string\",\n      \"type\": \"project\",\n      \"description\": \"string\",\n      \"license\": \"Public Domain, PDDL, CC-0, CC-BY, CDLA-Permissive-1.0, CC-BY-IGO, CC-BY 3.0, CC-BY 3.0 AU, CC-BY 3.0 IGO, CC-BY-SA, CC-BY-SA 3.0, CDLA-Sharing-1.0, CC BY-NC, CC BY-ND, CC BY-ND 3.0, CC-BY 3.0 NZ, CC-BY-NC 3.0, CC BY-NC-ND, CC-BY-NC-SA 3.0, CC-BY-SA 3.0 NZ, CC-BY-NC-SA 3.0 NZ, CC-BY-NC 3.0 NZ, CC-BY-NC-ND-NZ-3.0, CC BY-NC-SA, Italian-ODL, MIT License, OGL, OGL-Canada, OGL-Nova Scotia, OGL-UK, OSODL, ODC-BY, ODC-ODbL, Other\",\n      \"summary\": \"string\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"title\": \"string\",\n      \"visibility\": \"OPEN, PRIVATE\"\n    },\n    {\n      \"id\": \"string\",\n      \"owner\": \"string\",\n      \"type\": \"dataset\",\n      \"description\": \"string\",\n      \"license\": \"Public Domain, PDDL, CC-0, CC-BY, CDLA-Permissive-1.0, CC-BY-IGO, CC-BY 3.0, CC-BY 3.0 AU, CC-BY 3.0 IGO, CC-BY-SA, CC-BY-SA 3.0, CDLA-Sharing-1.0, CC BY-NC, CC BY-ND, CC BY-ND 3.0, CC-BY 3.0 NZ, CC-BY-NC 3.0, CC BY-NC-ND, CC-BY-NC-SA 3.0, CC-BY-SA 3.0 NZ, CC-BY-NC-SA 3.0 NZ, CC-BY-NC 3.0 NZ, CC-BY-NC-ND-NZ-3.0, CC BY-NC-SA, Italian-ODL, MIT License, OGL, OGL-Canada, OGL-Nova Scotia, OGL-UK, OSODL, ODC-BY, ODC-ODbL, Other\",\n      \"summary\": \"string\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"title\": \"string\",\n      \"visibility\": \"OPEN, PRIVATE\"\n    }\n  ],\n  \"summary\": \"string\",\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ],\n  \"versionDois\": [\n    {\n      \"created\": \"1949-12-08T18:52:35.483Z\",\n      \"doi\": \"string\"\n    },\n    {\n      \"created\": \"2002-07-01T02:05:04.611Z\",\n      \"doi\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4e5a175e-201a-42c2-91a1-07859050a7fe",
+          "name": "Download a dataset",
+          "request": {
+            "name": "Download a dataset",
+            "description": {
+              "content": "Download a .zip file containing all files within a dataset as originally uploaded. Prefer `POST:/sql` or\n`POST:/sparql` for retrieving clean and structured data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "download",
+                ":owner",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/zip"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fe0b3251-9062-4ea2-b514-db55365929ee",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "download",
+                    ":owner",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/zip"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/zip"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "58370f5e-fbbb-4399-b52e-727ca1724e80",
+    "name": "data.world Public catalog relationships datasets API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Manage relationships between catalog resources\n\nContact Support:\n Name: Contact Us",
+      "type": "text/plain"
+    }
+  }
+}

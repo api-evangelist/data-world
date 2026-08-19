@@ -1,0 +1,176 @@
+{
+  "item": [
+    {
+      "id": "bf572cb8-c637-4d27-8f4f-31fed629e772",
+      "name": "tables",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "15cf8b9c-adfe-4c8a-bf32-e85f3e399682",
+          "name": "Add live tables from a virtual connection",
+          "request": {
+            "name": "Add live tables from a virtual connection",
+            "description": {
+              "content": "Add tables from an established virtual connection. For increased security, endpoints that interact with\nexternal connection sources require an Enterprise Admin Token. This token can be found under\n[Advanced Settings](https://data.world/settings/advanced). To learn more about the virtual connections\ndata.world supports, please visit our\n[help portal](https://help.data.world/hc/en-us/sections/360009504254-Create-and-manage-virtual-connections).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "datasets",
+                ":owner",
+                ":id",
+                "tables"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tables\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mediaType\": \"<string>\",\n      \"mediaTypeLocked\": \"<boolean>\",\n      \"source\": {\n        \"authorization\": {\n          \"type\": \"<string>\",\n          \"credentials\": \"<string>\"\n        },\n        \"credentials\": {\n          \"user\": \"<string>\",\n          \"password\": \"<string>\"\n        },\n        \"dataTables\": {\n          \"key_0\": {\n            \"query\": \"<string>\"\n          },\n          \"key_1\": {\n            \"query\": \"<string>\"\n          },\n          \"key_2\": {\n            \"query\": \"<string>\"\n          }\n        },\n        \"databaseMetadataSpec\": {\n          \"tableSpecs\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"databaseSource\": {\n          \"id\": \"<uuid>\",\n          \"owner\": \"<string>\"\n        },\n        \"dwccSpec\": {\n          \"databaseId\": \"<string>\",\n          \"metadataToExclude\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sourceDatabase\": \"<string>\",\n          \"sourceSchemas\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"targetCatalog\": \"<string>\"\n        },\n        \"expandArchive\": \"<boolean>\",\n        \"method\": \"<string>\",\n        \"oauthToken\": {\n          \"id\": \"<uuid>\",\n          \"owner\": \"<string>\",\n          \"site\": \"<string>\"\n        },\n        \"requestEntity\": \"<string>\",\n        \"requestHeaders\": {\n          \"key_0\": \"<string>\"\n        },\n        \"tableSpec\": {\n          \"database\": \"<string>\",\n          \"schema\": \"<string>\",\n          \"table\": \"<string>\",\n          \"tableType\": \"<string>\"\n        },\n        \"url\": \"<uri>\",\n        \"useDwCredentials\": \"<boolean>\",\n        \"viewRequest\": {\n          \"baseAgentId\": \"<string>\",\n          \"baseDatasetId\": \"<string>\",\n          \"queryName\": \"<string>\",\n          \"queryType\": \"<string>\",\n          \"runAsAgentId\": \"<string>\",\n          \"targetAgentId\": \"<string>\",\n          \"targetDatasetId\": \"<string>\",\n          \"queryId\": \"<uuid>\",\n          \"queryText\": \"<string>\"\n        }\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mediaType\": \"<string>\",\n      \"mediaTypeLocked\": \"<boolean>\",\n      \"source\": {\n        \"authorization\": {\n          \"type\": \"<string>\",\n          \"credentials\": \"<string>\"\n        },\n        \"credentials\": {\n          \"user\": \"<string>\",\n          \"password\": \"<string>\"\n        },\n        \"dataTables\": {\n          \"key_0\": {\n            \"query\": \"<string>\"\n          }\n        },\n        \"databaseMetadataSpec\": {\n          \"tableSpecs\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"databaseSource\": {\n          \"id\": \"<uuid>\",\n          \"owner\": \"<string>\"\n        },\n        \"dwccSpec\": {\n          \"databaseId\": \"<string>\",\n          \"metadataToExclude\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sourceDatabase\": \"<string>\",\n          \"sourceSchemas\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"targetCatalog\": \"<string>\"\n        },\n        \"expandArchive\": \"<boolean>\",\n        \"method\": \"<string>\",\n        \"oauthToken\": {\n          \"id\": \"<uuid>\",\n          \"owner\": \"<string>\",\n          \"site\": \"<string>\"\n        },\n        \"requestEntity\": \"<string>\",\n        \"requestHeaders\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\"\n        },\n        \"tableSpec\": {\n          \"database\": \"<string>\",\n          \"schema\": \"<string>\",\n          \"table\": \"<string>\",\n          \"tableType\": \"<string>\"\n        },\n        \"url\": \"<uri>\",\n        \"useDwCredentials\": \"<boolean>\",\n        \"viewRequest\": {\n          \"baseAgentId\": \"<string>\",\n          \"baseDatasetId\": \"<string>\",\n          \"queryName\": \"<string>\",\n          \"queryType\": \"<string>\",\n          \"runAsAgentId\": \"<string>\",\n          \"targetAgentId\": \"<string>\",\n          \"targetDatasetId\": \"<string>\",\n          \"queryId\": \"<uuid>\",\n          \"queryText\": \"<string>\"\n        }\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "65222adb-71bb-41a0-a8c5-bccb95a1fad4",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets",
+                    ":owner",
+                    ":id",
+                    "tables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tables\": [\n    {\n      \"name\": \"xau_8:,!h\",\n      \"description\": \"string\",\n      \"labels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mediaType\": \"string\",\n      \"mediaTypeLocked\": true,\n      \"source\": {\n        \"authorization\": {\n          \"type\": \"string\",\n          \"credentials\": \"string\"\n        },\n        \"credentials\": {\n          \"user\": \"string\",\n          \"password\": \"string\"\n        },\n        \"dataTables\": {\n          \"key_0\": {\n            \"query\": \"string\"\n          }\n        },\n        \"databaseMetadataSpec\": {\n          \"tableSpecs\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"databaseSource\": {\n          \"id\": \"f7948452-b1e4-c709-e58f-01a5b9e2183c\",\n          \"owner\": \"string\"\n        },\n        \"dwccSpec\": {\n          \"databaseId\": \"string\",\n          \"metadataToExclude\": [\n            \"string\",\n            \"string\"\n          ],\n          \"sourceDatabase\": \"string\",\n          \"sourceSchemas\": [\n            \"string\",\n            \"string\"\n          ],\n          \"targetCatalog\": \"string\"\n        },\n        \"expandArchive\": true,\n        \"method\": \"GET\",\n        \"oauthToken\": {\n          \"id\": \"26e8accc-4b65-e05b-a1a6-7d78b538f2a8\",\n          \"owner\": \"string\",\n          \"site\": \"string\"\n        },\n        \"requestEntity\": \"string\",\n        \"requestHeaders\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\"\n        },\n        \"tableSpec\": {\n          \"database\": \"string\",\n          \"schema\": \"string\",\n          \"table\": \"string\",\n          \"tableType\": \"EXTRACT\"\n        },\n        \"url\": \"http://OzXSQqFDGdA.htrH52vS2J-ZkfTjw8vdil+mM,gpbvaoi5iKSQShM0oj3VUkm4IoxVDaNYRnrBL\",\n        \"useDwCredentials\": false,\n        \"viewRequest\": {\n          \"baseAgentId\": \"string\",\n          \"baseDatasetId\": \"string\",\n          \"queryName\": \"string\",\n          \"queryType\": \"SPARQL\",\n          \"runAsAgentId\": \"string\",\n          \"targetAgentId\": \"string\",\n          \"targetDatasetId\": \"string\",\n          \"queryId\": \"4a9755aa-9b57-e7b1-72ac-92412c8d0b51\",\n          \"queryText\": \"string\"\n        }\n      }\n    },\n    {\n      \"name\": \"WY5eOtL]\",\n      \"description\": \"string\",\n      \"labels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mediaType\": \"string\",\n      \"mediaTypeLocked\": true,\n      \"source\": {\n        \"authorization\": {\n          \"type\": \"string\",\n          \"credentials\": \"string\"\n        },\n        \"credentials\": {\n          \"user\": \"string\",\n          \"password\": \"string\"\n        },\n        \"dataTables\": {\n          \"key_0\": {\n            \"query\": \"string\"\n          },\n          \"key_1\": {\n            \"query\": \"string\"\n          }\n        },\n        \"databaseMetadataSpec\": {\n          \"tableSpecs\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"databaseSource\": {\n          \"id\": \"a30f53b4-d2c9-931e-0bbc-dd7044206cec\",\n          \"owner\": \"string\"\n        },\n        \"dwccSpec\": {\n          \"databaseId\": \"string\",\n          \"metadataToExclude\": [\n            \"string\",\n            \"string\"\n          ],\n          \"sourceDatabase\": \"string\",\n          \"sourceSchemas\": [\n            \"string\",\n            \"string\"\n          ],\n          \"targetCatalog\": \"string\"\n        },\n        \"expandArchive\": true,\n        \"method\": \"GET\",\n        \"oauthToken\": {\n          \"id\": \"3d8cdd34-b54b-cfb0-6739-d5d257757be4\",\n          \"owner\": \"string\",\n          \"site\": \"string\"\n        },\n        \"requestEntity\": \"string\",\n        \"requestHeaders\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"tableSpec\": {\n          \"database\": \"string\",\n          \"schema\": \"string\",\n          \"table\": \"string\",\n          \"tableType\": \"EXTRACT\"\n        },\n        \"url\": \"http://hwSwrMmNYiUyilyYwaenUBmIAYF.kxyyp-DnW1A7,ZtEU8eYIL3yi\",\n        \"useDwCredentials\": true,\n        \"viewRequest\": {\n          \"baseAgentId\": \"string\",\n          \"baseDatasetId\": \"string\",\n          \"queryName\": \"string\",\n          \"queryType\": \"SPARQL\",\n          \"runAsAgentId\": \"string\",\n          \"targetAgentId\": \"string\",\n          \"targetDatasetId\": \"string\",\n          \"queryId\": \"7af6ff00-afc7-ff0f-d6c3-9a6504413cbc\",\n          \"queryText\": \"string\"\n        }\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6ed2dc64-4ea5-4d61-a502-1c35187c07bd",
+    "name": "data.world Public catalog relationships tables API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Manage relationships between catalog resources\n\nContact Support:\n Name: Contact Us",
+      "type": "text/plain"
+    }
+  }
+}

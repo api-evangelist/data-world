@@ -1,0 +1,332 @@
+{
+  "item": [
+    {
+      "id": "22c6d2e0-e820-4054-a37d-9c873e44055b",
+      "name": "search",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fae3278b-79a1-455a-95f1-7b3d8b96ef39",
+          "name": "Advanced search on resources",
+          "request": {
+            "name": "Advanced search on resources",
+            "description": {},
+            "url": {
+              "path": [
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "hydration",
+                  "value": "agent, catalog, catalogConcept, properties, resourceHierarchy"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"<string>\",\n  \"assetStatus\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"category\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"collection\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"createdRange\": {\n    \"endDate\": \"<string>\",\n    \"startDate\": \"<string>\"\n  },\n  \"minAccessLevel\": \"<string>\",\n  \"owner\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"property\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"tag\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"type\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"updatedRange\": {\n    \"endDate\": \"<string>\",\n    \"startDate\": \"<string>\"\n  },\n  \"visibility\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "be540ca9-6e5e-45bb-9392-bf5078cc07ed",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "10"
+                    },
+                    {
+                      "key": "from",
+                      "value": "0"
+                    },
+                    {
+                      "key": "hydration",
+                      "value": "agent, catalog, catalogConcept, properties, resourceHierarchy"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"<string>\",\n  \"assetStatus\": [\n    \"<string>\"\n  ],\n  \"category\": [\n    \"<string>\"\n  ],\n  \"collection\": [\n    \"<string>\"\n  ],\n  \"createdRange\": {\n    \"endDate\": \"string\",\n    \"startDate\": \"string\"\n  },\n  \"minAccessLevel\": \"<string>\",\n  \"owner\": [\n    \"<string>\"\n  ],\n  \"property\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"tag\": [\n    \"<string>\"\n  ],\n  \"type\": [\n    \"<string>\"\n  ],\n  \"updatedRange\": {\n    \"endDate\": \"string\",\n    \"startDate\": \"string\"\n  },\n  \"visibility\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"consistent\": false,\n  \"count\": 610,\n  \"hydrations\": {\n    \"agents\": {\n      \"key_0\": {\n        \"avatarUrl\": \"string\",\n        \"deactivated\": false,\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      }\n    },\n    \"catalogConcepts\": {\n      \"key_0\": {\n        \"altLabel\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"prefLabel\": \"string\"\n      },\n      \"key_1\": {\n        \"altLabel\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"prefLabel\": \"string\"\n      }\n    },\n    \"collections\": {\n      \"key_0\": {\n        \"description\": \"string\",\n        \"id\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"title\": \"string\"\n      },\n      \"key_1\": {\n        \"description\": \"string\",\n        \"id\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"title\": \"string\"\n      }\n    },\n    \"properties\": {\n      \"key_0\": {\n        \"label\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"key_1\": {\n        \"label\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    },\n    \"relationships\": {\n      \"key_0\": {\n        \"labels\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"key_1\": {\n        \"labels\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    },\n    \"resourceHierarchy\": {\n      \"key_0\": {\n        \"key_0\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          }\n        ],\n        \"key_1\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          }\n        ]\n      },\n      \"key_1\": {\n        \"key_0\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          }\n        ]\n      },\n      \"key_2\": {\n        \"key_0\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          }\n        ],\n        \"key_1\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          }\n        ]\n      }\n    }\n  },\n  \"next\": \"string\",\n  \"records\": [\n    {\n      \"category\": \"string\",\n      \"id\": \"string\",\n      \"owner\": \"string\",\n      \"assetStatus\": {\n        \"assetStatusLabel\": \"string\",\n        \"dispositionLabel\": \"string\"\n      },\n      \"collections\": [\n        \"string\",\n        \"string\"\n      ],\n      \"created\": \"1954-06-19T03:10:52.290Z\",\n      \"creator\": \"string\",\n      \"description\": \"string\",\n      \"fileCount\": 8234,\n      \"iri\": \"string\",\n      \"numLikes\": 5153,\n      \"properties\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"resourceDetails\": {\n        \"typeDetails\": {\n          \"id\": \"string\",\n          \"label\": \"string\",\n          \"subtypeOf\": \"string\"\n        }\n      },\n      \"resourceLink\": \"http://pFRiwWnHDwTgZaEBguxOtDNsDx.yyjREe+2aRQ4,EczWob5p\",\n      \"sourceId\": \"string\",\n      \"sourceOfRecord\": \"string\",\n      \"summary\": \"string\",\n      \"tableId\": \"string\",\n      \"tableIri\": \"string\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"title\": \"string\",\n      \"updated\": \"1988-05-14T20:43:39.771Z\",\n      \"updatedBy\": \"string\"\n    },\n    {\n      \"category\": \"string\",\n      \"id\": \"string\",\n      \"owner\": \"string\",\n      \"assetStatus\": {\n        \"assetStatusLabel\": \"string\",\n        \"dispositionLabel\": \"string\"\n      },\n      \"collections\": [\n        \"string\",\n        \"string\"\n      ],\n      \"created\": \"1997-12-14T12:33:50.220Z\",\n      \"creator\": \"string\",\n      \"description\": \"string\",\n      \"fileCount\": 7197,\n      \"iri\": \"string\",\n      \"numLikes\": 3473,\n      \"properties\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"resourceDetails\": {\n        \"typeDetails\": {\n          \"id\": \"string\",\n          \"label\": \"string\",\n          \"subtypeOf\": \"string\"\n        }\n      },\n      \"resourceLink\": \"http://GobFxoftvGDDvHAxCfjfHfBaDYG.nilBJZDztVQOL,xwUZ5m\",\n      \"sourceId\": \"string\",\n      \"sourceOfRecord\": \"string\",\n      \"summary\": \"string\",\n      \"tableId\": \"string\",\n      \"tableIri\": \"string\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"title\": \"string\",\n      \"updated\": \"1978-09-23T16:12:30.985Z\",\n      \"updatedBy\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ecc6829c-a20b-42cf-ab04-f438b967008f",
+          "name": "Simple search on resources",
+          "request": {
+            "name": "Simple search on resources",
+            "description": {
+              "content": "Simple search is a light weight API implementation exposing similar search capabilities as our main\nplatform search UI.\n\nBy default, the search response will return mixed result types including metadata resources, datasets,\nprojects, queries, insights, tables, and comments.\n\nA free-text search term is required. Simple search does not support complex keyword or logical operator\ngrammar.  Light weight filters for resource owner and resource category are supported. You may optionally\nspecify the includeCommunityResults param to query for resources in the data.world open data community.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search",
+                "resources"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "hydration",
+                  "value": "agent, catalog, catalogConcept, properties, resourceHierarchy"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"<string>\",\n  \"category\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"includeCommunityResults\": \"<boolean>\",\n  \"owner\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "98f76e24-d11f-4dbc-8eef-10db09cfe613",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "resources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "10"
+                    },
+                    {
+                      "key": "from",
+                      "value": "0"
+                    },
+                    {
+                      "key": "hydration",
+                      "value": "agent, catalog, catalogConcept, properties, resourceHierarchy"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"<string>\",\n  \"category\": [\n    \"<string>\"\n  ],\n  \"includeCommunityResults\": \"<boolean>\",\n  \"owner\": [\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"consistent\": false,\n  \"count\": 610,\n  \"hydrations\": {\n    \"agents\": {\n      \"key_0\": {\n        \"avatarUrl\": \"string\",\n        \"deactivated\": false,\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      }\n    },\n    \"catalogConcepts\": {\n      \"key_0\": {\n        \"altLabel\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"prefLabel\": \"string\"\n      },\n      \"key_1\": {\n        \"altLabel\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"prefLabel\": \"string\"\n      }\n    },\n    \"collections\": {\n      \"key_0\": {\n        \"description\": \"string\",\n        \"id\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"title\": \"string\"\n      },\n      \"key_1\": {\n        \"description\": \"string\",\n        \"id\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"title\": \"string\"\n      }\n    },\n    \"properties\": {\n      \"key_0\": {\n        \"label\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"key_1\": {\n        \"label\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    },\n    \"relationships\": {\n      \"key_0\": {\n        \"labels\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"key_1\": {\n        \"labels\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    },\n    \"resourceHierarchy\": {\n      \"key_0\": {\n        \"key_0\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          }\n        ],\n        \"key_1\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          }\n        ]\n      },\n      \"key_1\": {\n        \"key_0\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          }\n        ]\n      },\n      \"key_2\": {\n        \"key_0\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          }\n        ],\n        \"key_1\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          }\n        ]\n      }\n    }\n  },\n  \"next\": \"string\",\n  \"records\": [\n    {\n      \"category\": \"string\",\n      \"id\": \"string\",\n      \"owner\": \"string\",\n      \"assetStatus\": {\n        \"assetStatusLabel\": \"string\",\n        \"dispositionLabel\": \"string\"\n      },\n      \"collections\": [\n        \"string\",\n        \"string\"\n      ],\n      \"created\": \"1954-06-19T03:10:52.290Z\",\n      \"creator\": \"string\",\n      \"description\": \"string\",\n      \"fileCount\": 8234,\n      \"iri\": \"string\",\n      \"numLikes\": 5153,\n      \"properties\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"resourceDetails\": {\n        \"typeDetails\": {\n          \"id\": \"string\",\n          \"label\": \"string\",\n          \"subtypeOf\": \"string\"\n        }\n      },\n      \"resourceLink\": \"http://pFRiwWnHDwTgZaEBguxOtDNsDx.yyjREe+2aRQ4,EczWob5p\",\n      \"sourceId\": \"string\",\n      \"sourceOfRecord\": \"string\",\n      \"summary\": \"string\",\n      \"tableId\": \"string\",\n      \"tableIri\": \"string\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"title\": \"string\",\n      \"updated\": \"1988-05-14T20:43:39.771Z\",\n      \"updatedBy\": \"string\"\n    },\n    {\n      \"category\": \"string\",\n      \"id\": \"string\",\n      \"owner\": \"string\",\n      \"assetStatus\": {\n        \"assetStatusLabel\": \"string\",\n        \"dispositionLabel\": \"string\"\n      },\n      \"collections\": [\n        \"string\",\n        \"string\"\n      ],\n      \"created\": \"1997-12-14T12:33:50.220Z\",\n      \"creator\": \"string\",\n      \"description\": \"string\",\n      \"fileCount\": 7197,\n      \"iri\": \"string\",\n      \"numLikes\": 3473,\n      \"properties\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"resourceDetails\": {\n        \"typeDetails\": {\n          \"id\": \"string\",\n          \"label\": \"string\",\n          \"subtypeOf\": \"string\"\n        }\n      },\n      \"resourceLink\": \"http://GobFxoftvGDDvHAxCfjfHfBaDYG.nilBJZDztVQOL,xwUZ5m\",\n      \"sourceId\": \"string\",\n      \"sourceOfRecord\": \"string\",\n      \"summary\": \"string\",\n      \"tableId\": \"string\",\n      \"tableIri\": \"string\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"title\": \"string\",\n      \"updated\": \"1978-09-23T16:12:30.985Z\",\n      \"updatedBy\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5769c924-1305-488d-8574-5988ec2ac894",
+    "name": "data.world Public catalog relationships search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Manage relationships between catalog resources\n\nContact Support:\n Name: Contact Us",
+      "type": "text/plain"
+    }
+  }
+}

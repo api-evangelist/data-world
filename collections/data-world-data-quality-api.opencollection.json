@@ -1,0 +1,129 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "data.world Public catalog relationships data quality API",
+    "version": "0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "data quality",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Show data quality audits",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/dataquality/audits/:orgAgentId",
+            "params": [
+              {
+                "name": "orgAgentId",
+                "value": "",
+                "type": "path",
+                "description": "organization agent ID"
+              },
+              {
+                "name": "requestId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "resourceIri",
+                "value": "",
+                "type": "query",
+                "description": "Internationalized Resource Identifier (IRI) of the resource. You can find the IRI in the Technical Reference section under the Settings tab on the resource’s catalog page."
+              }
+            ]
+          },
+          "docs": "Shows audits that happened during processing of data quality inputs.\nOne of \"requestId\" or \"resourceIri\" needs to be provided.\nOnly errors are tracked. Audits expire 1 day after creation. Returns a maximum of 100 audits.\nIf there are no audits, it is likely the request was executed successfully.\n\nAccess requirement: Requires an admin token. It also requires admin access to the organization.\n\nThis endpoint is in active development. Its definition and behavior may change frequently and without not"
+        },
+        {
+          "info": {
+            "name": "Add Badges",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/dataquality/badges/:orgAgentId",
+            "params": [
+              {
+                "name": "orgAgentId",
+                "value": "",
+                "type": "path",
+                "description": "organization agent ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Associate a metadata resource with a Badge that describes its overall data quality status.\n\nAccess requirement: Requires an admin token. It also requires admin access to the organization.\n\nThis endpoint is in active development. Its definition and behavior may change frequently and without notice."
+        },
+        {
+          "info": {
+            "name": "Add Check Runs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/dataquality/checkruns/:orgAgentId",
+            "params": [
+              {
+                "name": "orgAgentId",
+                "value": "",
+                "type": "path",
+                "description": "organization agent ID"
+              },
+              {
+                "name": "collectionIri",
+                "value": "",
+                "type": "query",
+                "description": "The collection to insert resources in. Identified by IRI. You can find the IRI in the Technical Reference section under the Settings tab on the resource’s catalog page."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add executions of a check against a metadata resource.\n\nAccess requirement: Requires an admin token. It also requires admin access to the organization.\n\nThis endpoint is in active development. Its definition and behavior may change frequently and without notice."
+        },
+        {
+          "info": {
+            "name": "Delete data quality checks",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/dataquality/checks/delete/:orgAgentId",
+            "params": [
+              {
+                "name": "orgAgentId",
+                "value": "",
+                "type": "path",
+                "description": "organization agent ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Asynchronously delete data quality Checks and all associated Check Versions and Check Runs.\n\nThis operation enqueues delete requests for background processing. The response indicates\nhow many requests were successfully enqueued, not how many deletions have completed.\n\nResponse fields:\n- success: Number of delete requests successfully enqueued\n- failed: Number of delete requests that failed to enqueue\n- requestId: Correlation ID for tracking\n\nAccess requirement: Requires an admin token. It also r"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

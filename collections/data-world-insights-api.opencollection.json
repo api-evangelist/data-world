@@ -1,0 +1,239 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "data.world Public catalog relationships insights API",
+    "version": "0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "insights",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List insights",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/insights/:projectOwner/:projectId",
+            "params": [
+              {
+                "name": "projectOwner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return"
+              },
+              {
+                "name": "next",
+                "value": "",
+                "type": "query",
+                "description": "A token supplied by the previous response to retrieve the next page of results"
+              }
+            ]
+          },
+          "docs": "List insights associated with a project."
+        },
+        {
+          "info": {
+            "name": "Create an insight",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/insights/:projectOwner/:projectId",
+            "params": [
+              {
+                "name": "projectOwner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new insight."
+        },
+        {
+          "info": {
+            "name": "Retrieve an insight",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/insights/:projectOwner/:projectId/:id",
+            "params": [
+              {
+                "name": "projectOwner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve an insight."
+        },
+        {
+          "info": {
+            "name": "Replace an insight",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/v0/insights/:projectOwner/:projectId/:id",
+            "params": [
+              {
+                "name": "projectOwner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replace an insight."
+        },
+        {
+          "info": {
+            "name": "Update an insight",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/insights/:projectOwner/:projectId/:id",
+            "params": [
+              {
+                "name": "projectOwner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an insight. Note that only elements included in the request will be updated. All omitted elements\nwill remain untouched."
+        },
+        {
+          "info": {
+            "name": "Delete an insight",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/insights/:projectOwner/:projectId/:id",
+            "params": [
+              {
+                "name": "projectOwner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an insight."
+        },
+        {
+          "info": {
+            "name": "Retrieve an insight version",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/insights/:projectOwner/:projectId/:id/v/:versionId",
+            "params": [
+              {
+                "name": "projectOwner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "versionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve an insight version."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

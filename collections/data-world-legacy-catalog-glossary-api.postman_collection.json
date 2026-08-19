@@ -1,0 +1,949 @@
+{
+  "item": [
+    {
+      "id": "9bd8596d-95ee-4d68-b7da-99c86d200e00",
+      "name": "legacy catalog - glossary",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "319abb58-fb39-4333-9539-0cc93a581c83",
+          "name": "suggest for an existing glossary.",
+          "request": {
+            "name": "suggest for an existing glossary.",
+            "description": {
+              "content": "Please refer to the updated IRI-based resource endpoints.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metadata",
+                "glossary",
+                "suggest",
+                ":owner",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"collectionsToAdd\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"collectionsToRemove\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"message\": \"<string>\",\n  \"properties\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"summary\": \"<string>\",\n  \"tagsToAdd\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tagsToRemove\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"typeLabel\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "31c40fb6-97b5-4930-8dce-02092501f208",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "glossary",
+                    "suggest",
+                    ":owner",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"collectionsToAdd\": [\n    \"Aid Option\"\n  ],\n  \"collectionsToRemove\": [\n    \"Aid Option\"\n  ],\n  \"description\": \"Aid given to charity is an option that can be exercised by individuals and corporations\",\n  \"message\": \"I strongly suggest\",\n  \"properties\": {\n    \"key_0\": \"string\"\n  },\n  \"summary\": \"<string>\",\n  \"tagsToAdd\": [\n    \"HumanitarianAid\"\n  ],\n  \"tagsToRemove\": [\n    \"HumanitarianAid\"\n  ],\n  \"title\": \"crypto.snowflake\",\n  \"typeLabel\": \"Tableau dashboard\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9b5ef5de-e9d3-443a-99b7-b5d67839a931",
+          "name": "Gets metadata glossary by owner.",
+          "request": {
+            "name": "Gets metadata glossary by owner.",
+            "description": {
+              "content": "Please refer to the updated IRI-based resource endpoints.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metadata",
+                "glossary",
+                ":owner"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "typelabel",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "typeiri",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "0"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3c76fe40-bfa5-474a-8af9-7a31b0c48ac9",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "glossary",
+                    ":owner"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "typelabel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "typeiri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "10"
+                    },
+                    {
+                      "key": "from",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"consistent\": false,\n  \"count\": 3866,\n  \"hydrations\": {\n    \"agents\": {\n      \"key_0\": {\n        \"avatarUrl\": \"string\",\n        \"deactivated\": true,\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      },\n      \"key_1\": {\n        \"avatarUrl\": \"string\",\n        \"deactivated\": false,\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      },\n      \"key_2\": {\n        \"avatarUrl\": \"string\",\n        \"deactivated\": true,\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      }\n    },\n    \"catalogConcepts\": {\n      \"key_0\": {\n        \"altLabel\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"prefLabel\": \"string\"\n      },\n      \"key_1\": {\n        \"altLabel\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"prefLabel\": \"string\"\n      },\n      \"key_2\": {\n        \"altLabel\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"prefLabel\": \"string\"\n      },\n      \"key_3\": {\n        \"altLabel\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"prefLabel\": \"string\"\n      },\n      \"key_4\": {\n        \"altLabel\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"prefLabel\": \"string\"\n      }\n    },\n    \"collections\": {\n      \"key_0\": {\n        \"description\": \"string\",\n        \"id\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"title\": \"string\"\n      },\n      \"key_1\": {\n        \"description\": \"string\",\n        \"id\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"title\": \"string\"\n      },\n      \"key_2\": {\n        \"description\": \"string\",\n        \"id\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"title\": \"string\"\n      },\n      \"key_3\": {\n        \"description\": \"string\",\n        \"id\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"title\": \"string\"\n      },\n      \"key_4\": {\n        \"description\": \"string\",\n        \"id\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"title\": \"string\"\n      }\n    },\n    \"properties\": {\n      \"key_0\": {\n        \"label\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"key_1\": {\n        \"label\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    },\n    \"relationships\": {\n      \"key_0\": {\n        \"labels\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    },\n    \"resourceHierarchy\": {\n      \"key_0\": {\n        \"key_0\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          }\n        ],\n        \"key_1\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          }\n        ]\n      },\n      \"key_1\": {\n        \"key_0\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          }\n        ],\n        \"key_1\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          }\n        ]\n      }\n    }\n  },\n  \"next\": \"string\",\n  \"records\": [\n    {\n      \"created\": \"1980-11-02T14:54:18.261Z\",\n      \"id\": \"string\",\n      \"owner\": \"string\",\n      \"visibility\": \"DISCOVERABLE\",\n      \"assetStatus\": {\n        \"assetStatusLabel\": \"string\",\n        \"dispositionLabel\": \"string\"\n      },\n      \"category\": \"string\",\n      \"collections\": [\n        {\n          \"collectionId\": \"string\",\n          \"owner\": \"string\",\n          \"referent\": \"string\"\n        },\n        {\n          \"collectionId\": \"string\",\n          \"owner\": \"string\",\n          \"referent\": \"string\"\n        }\n      ],\n      \"columnIndex\": 5255,\n      \"dataType\": \"string\",\n      \"description\": \"string\",\n      \"encodedIri\": \"string\",\n      \"externalUrls\": [\n        \"string\",\n        \"string\"\n      ],\n      \"iri\": \"string\",\n      \"properties\": {\n        \"key_0\": \"string\"\n      },\n      \"relationshipTypes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"rootParentTypeIri\": \"string\",\n      \"rootParentTypeLabel\": \"string\",\n      \"summary\": \"string\",\n      \"table\": {\n        \"owner\": \"string\",\n        \"tableId\": \"string\",\n        \"sourceId\": \"string\"\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"title\": \"string\",\n      \"typeIri\": \"string\",\n      \"typeLabel\": \"string\",\n      \"updated\": \"1996-05-29T02:41:35.880Z\",\n      \"url\": \"http://BBJgxjinxDi.pwhorx5.53F\"\n    },\n    {\n      \"created\": \"1990-08-10T02:39:36.067Z\",\n      \"id\": \"string\",\n      \"owner\": \"string\",\n      \"visibility\": \"OPEN\",\n      \"assetStatus\": {\n        \"assetStatusLabel\": \"string\",\n        \"dispositionLabel\": \"string\"\n      },\n      \"category\": \"string\",\n      \"collections\": [\n        {\n          \"collectionId\": \"string\",\n          \"owner\": \"string\",\n          \"referent\": \"string\"\n        },\n        {\n          \"collectionId\": \"string\",\n          \"owner\": \"string\",\n          \"referent\": \"string\"\n        }\n      ],\n      \"columnIndex\": 3895,\n      \"dataType\": \"string\",\n      \"description\": \"string\",\n      \"encodedIri\": \"string\",\n      \"externalUrls\": [\n        \"string\",\n        \"string\"\n      ],\n      \"iri\": \"string\",\n      \"properties\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"relationshipTypes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"rootParentTypeIri\": \"string\",\n      \"rootParentTypeLabel\": \"string\",\n      \"summary\": \"string\",\n      \"table\": {\n        \"owner\": \"string\",\n        \"tableId\": \"string\",\n        \"sourceId\": \"string\"\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"title\": \"string\",\n      \"typeIri\": \"string\",\n      \"typeLabel\": \"string\",\n      \"updated\": \"1967-06-25T14:39:35.847Z\",\n      \"url\": \"https://sPpVT.qrAiZaGslm4kl0h2dJduVAn5UrJ2a9S1jQt0tRNcoyeFiaAiXtj3aCX8.WAhCD4qdMtI\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "97977520-5942-435c-8aa1-4e2feadf482f",
+          "name": "Create a new glossary metadata.",
+          "request": {
+            "name": "Create a new glossary metadata.",
+            "description": {
+              "content": "Please refer to the updated IRI-based resource endpoints.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metadata",
+                "glossary",
+                ":owner"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"assetStatusIri\": \"<string>\",\n  \"collections\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"properties\": {\n    \"key_0\": \"<string>\"\n  },\n  \"summary\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"typeLabel\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "29b510a5-afa3-46c9-9312-08fe8ec3f976",
+              "name": "Glossary Metadata created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "glossary",
+                    ":owner"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assetStatusIri\": \"<string>\",\n  \"collections\": [\n    \"Aid Option\"\n  ],\n  \"description\": \"Aid given to charity is an option that can be exercised by individuals and corporations\",\n  \"properties\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"summary\": \"<string>\",\n  \"tags\": [\n    \"HumanitarianAid\"\n  ],\n  \"title\": \"crypto.snowflake\",\n  \"typeLabel\": \"Tableau dashboard\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"uri\": \"http://Agtro.gamnc2L1fh9Q9NVjSiEBdJ5afHU4ACMxfAfBFj6unUU9wn896AfUOq,1LrKwq\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d170d1f5-bb30-4750-ab73-d9c8ec2e08d1",
+          "name": "Delete a Glossary.",
+          "request": {
+            "name": "Delete a Glossary.",
+            "description": {
+              "content": "Please refer to the updated IRI-based resource endpoints.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metadata",
+                "glossary",
+                ":owner",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "574b8317-9596-4800-a0f4-f6cb0c866908",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "glossary",
+                    ":owner",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3f478f94-71c0-493d-aba7-edb54a437fab",
+          "name": "Get an individual metadata glossary",
+          "request": {
+            "name": "Get an individual metadata glossary",
+            "description": {
+              "content": "Please refer to the updated IRI-based resource endpoints.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metadata",
+                "glossary",
+                ":owner",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2c65c250-8a60-416e-b28b-e49911b6fdce",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "glossary",
+                    ":owner",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created\": \"1949-03-27T12:03:00.176Z\",\n  \"id\": \"string\",\n  \"owner\": \"string\",\n  \"visibility\": \"PRIVATE\",\n  \"assetStatus\": {\n    \"assetStatusLabel\": \"string\",\n    \"dispositionLabel\": \"string\"\n  },\n  \"category\": \"string\",\n  \"collections\": [\n    {\n      \"collectionId\": \"string\",\n      \"owner\": \"string\",\n      \"referent\": \"string\"\n    },\n    {\n      \"collectionId\": \"string\",\n      \"owner\": \"string\",\n      \"referent\": \"string\"\n    }\n  ],\n  \"columnIndex\": 6201,\n  \"dataType\": \"string\",\n  \"description\": \"string\",\n  \"encodedIri\": \"string\",\n  \"externalUrls\": [\n    \"string\",\n    \"string\"\n  ],\n  \"iri\": \"string\",\n  \"properties\": {\n    \"key_0\": \"string\"\n  },\n  \"relationshipTypes\": [\n    \"string\",\n    \"string\"\n  ],\n  \"rootParentTypeIri\": \"string\",\n  \"rootParentTypeLabel\": \"string\",\n  \"summary\": \"string\",\n  \"table\": {\n    \"owner\": \"string\",\n    \"tableId\": \"string\",\n    \"sourceId\": \"string\"\n  },\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ],\n  \"title\": \"string\",\n  \"typeIri\": \"string\",\n  \"typeLabel\": \"string\",\n  \"updated\": \"2025-01-02T11:26:26.107Z\",\n  \"url\": \"https://AghmHfShnQ.jfehV1Tcps\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "75202c6d-b7bf-4b1e-a17f-13303b55d031",
+          "name": "Update an existing glossary.",
+          "request": {
+            "name": "Update an existing glossary.",
+            "description": {
+              "content": "Please refer to the updated IRI-based resource endpoints.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metadata",
+                "glossary",
+                ":owner",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"assetStatusIri\": \"<string>\",\n  \"collections\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"properties\": {\n    \"key_0\": \"<string>\"\n  },\n  \"summary\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"typeLabel\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6350d7be-eade-4624-84a5-83a23aab2fa2",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "glossary",
+                    ":owner",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assetStatusIri\": \"<string>\",\n  \"collections\": [\n    \"Aid Option\"\n  ],\n  \"description\": \"Aid given to charity is an option that can be exercised by individuals and corporations\",\n  \"properties\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"summary\": \"<string>\",\n  \"tags\": [\n    \"HumanitarianAid\"\n  ],\n  \"title\": \"crypto.snowflake\",\n  \"typeLabel\": \"Tableau dashboard\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7740e14a-a510-49fe-b5ef-42e532800b04",
+          "name": "Replace an existing glossary",
+          "request": {
+            "name": "Replace an existing glossary",
+            "description": {
+              "content": "Please refer to the updated IRI-based resource endpoints.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metadata",
+                "glossary",
+                ":owner",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"assetStatusIri\": \"<string>\",\n  \"collections\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"properties\": {\n    \"key_0\": \"<string>\"\n  },\n  \"summary\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"typeLabel\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f92af713-d298-49e8-8025-bb97ea0219d2",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "glossary",
+                    ":owner",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assetStatusIri\": \"<string>\",\n  \"collections\": [\n    \"Aid Option\"\n  ],\n  \"description\": \"Aid given to charity is an option that can be exercised by individuals and corporations\",\n  \"properties\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"summary\": \"<string>\",\n  \"tags\": [\n    \"HumanitarianAid\"\n  ],\n  \"title\": \"crypto.snowflake\",\n  \"typeLabel\": \"Tableau dashboard\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "16c4885b-cc6e-4489-8129-a0b938271db4",
+    "name": "data.world Public catalog relationships legacy catalog - glossary API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Manage relationships between catalog resources\n\nContact Support:\n Name: Contact Us",
+      "type": "text/plain"
+    }
+  }
+}

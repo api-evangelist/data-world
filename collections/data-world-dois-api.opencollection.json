@@ -1,0 +1,146 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "data.world Public catalog relationships DOIs API",
+    "version": "0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DOIs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create dataset DOI",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/v0/datasets/:owner/:id/dois/:doi",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "doi",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Associate a DOI ([Digital Object Identifier](https://www.doi.org/)) with a dataset."
+        },
+        {
+          "info": {
+            "name": "Delete dataset DOI",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/datasets/:owner/:id/dois/:doi",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "doi",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a DOI ([Digital Object Identifier](https://www.doi.org/)) associated with a dataset."
+        },
+        {
+          "info": {
+            "name": "Create dataset version DOI",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/v0/datasets/:owner/:id/v/:versionId/dois/:doi",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "versionId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "doi",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Associate a DOI ([Digital Object Identifier](https://www.doi.org/)) with a version of a dataset."
+        },
+        {
+          "info": {
+            "name": "Delete dataset version DOI",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/datasets/:owner/:id/v/:versionId/dois/:doi",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "versionId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "doi",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a DOI ([Digital Object Identifier](https://www.doi.org/)) associated with a version of a dataset."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,146 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "data.world Public catalog relationships connections API",
+    "version": "0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "connections",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Test a connection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/connections/test",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Test a virtual connection. For increased security, connection endpoints require an Enterprise Admin\nToken. This token can be found under [Advanced Settings](https://data.world/settings/advanced)."
+        },
+        {
+          "info": {
+            "name": "Get connections by owner",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/connections/:owner",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a list of configured virtual connections by owner. For increased security, connection\nendpoints require an Enterprise Admin Token. This token can be found under\n[Advanced Settings](https://data.world/settings/advanced)."
+        },
+        {
+          "info": {
+            "name": "Create a new connection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/connections/:owner",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "validate",
+                "value": "",
+                "type": "query",
+                "description": "Validate connection before save"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new virtual connection. For increased security, connection endpoints require an Enterprise Admin\nToken. This token can be found under [Advanced Settings](https://data.world/settings/advanced)."
+        },
+        {
+          "info": {
+            "name": "Get an individual connection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/connections/:owner/:id",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get details for an individual virtual connection. For increased security, connection endpoints require an\nEnterprise Admin Token. This token can be found under\n[Advanced Settings](https://data.world/settings/advanced)."
+        },
+        {
+          "info": {
+            "name": "Delete a Connection",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/connections/:owner/:id",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a Connection. For increased security, connection endpoints require an Enterprise Admin Token. This\ntoken can be found under [Advanced Settings](https://data.world/settings/advanced)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

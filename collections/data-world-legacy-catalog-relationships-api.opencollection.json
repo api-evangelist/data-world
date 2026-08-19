@@ -1,0 +1,156 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "data.world Public catalog relationships legacy catalog - relationships API",
+    "version": "0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "legacy catalog - relationships",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Legacy - Creates a relationship between two catalog resources",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/metadata/relationships/:owner",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path",
+                "description": "User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Please refer to the updated IRI-based relationship endpoints."
+        },
+        {
+          "info": {
+            "name": "Legacy - Deletes a relationship between two catalog resources",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/metadata/relationships/:owner/delete",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path",
+                "description": "User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Please refer to the updated IRI-based relationship endpoints."
+        },
+        {
+          "info": {
+            "name": "Legacy - Get resources that are related to a resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/metadata/relationships/:owner/resource/:resourceId",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path",
+                "description": "User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
+              },
+              {
+                "name": "resourceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return"
+              },
+              {
+                "name": "next",
+                "value": "",
+                "type": "query",
+                "description": "A token supplied by the previous response to retrieve the next page of results"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Please refer to the updated IRI-based relationship endpoints."
+        },
+        {
+          "info": {
+            "name": "Legacy - Get resources that are related to a table",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/metadata/relationships/:owner/table/:sourceId/:tableId",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path",
+                "description": "User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
+              },
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path",
+                "description": "ID of dataset that the table is in"
+              },
+              {
+                "name": "tableId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return"
+              },
+              {
+                "name": "next",
+                "value": "",
+                "type": "query",
+                "description": "A token supplied by the previous response to retrieve the next page of results"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Please refer to the updated IRI-based relationship endpoints."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

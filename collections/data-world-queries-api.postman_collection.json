@@ -1,0 +1,3027 @@
+{
+  "item": [
+    {
+      "id": "39f285f9-d757-415e-aa98-b7af02d1e5a8",
+      "name": "queries",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "75cf7748-18ca-4f99-96ce-d2b0cccf2822",
+          "name": "Cancel a query",
+          "request": {
+            "name": "Cancel a query",
+            "description": {
+              "content": "Cancel a running query.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cancel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "queryruntoken",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4b0eb8af-cd86-4bcc-b983-57daa85fe044",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "queryruntoken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b6b59d97-7099-41ea-a117-8a7cdc6591d0",
+          "name": "List published queries",
+          "request": {
+            "name": "List published queries",
+            "description": {
+              "content": "List published saved queries associated with a dataset. Query definitions will be returned, not the query results.\nTo retrieve query results use `GET:/queries/{id}/results`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "datasets",
+                ":owner",
+                ":id",
+                "queries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Number of results to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "next",
+                  "value": "<string>",
+                  "description": "A token supplied by the previous response to retrieve the next page of results"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c8a8d3ae-f728-4d31-ba2b-3c6f5c692879",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets",
+                    ":owner",
+                    ":id",
+                    "queries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "next",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 9985,\n  \"records\": [\n    {\n      \"body\": \"string\",\n      \"created\": \"1996-10-29T12:52:06.284Z\",\n      \"description\": \"string\",\n      \"id\": \"4b56c85b-515d-1aed-e4d0-f7a3cfdca295\",\n      \"language\": \"SPARQL\",\n      \"name\": \"string\",\n      \"owner\": \"string\",\n      \"parameters\": {\n        \"key_0\": {\n          \"datatype\": \"string\",\n          \"type\": \"string\"\n        },\n        \"key_1\": {\n          \"datatype\": \"string\",\n          \"type\": \"string\"\n        }\n      },\n      \"updated\": \"2016-02-28T00:34:47.024Z\",\n      \"version\": \"string\"\n    },\n    {\n      \"body\": \"string\",\n      \"created\": \"1993-11-19T09:18:34.287Z\",\n      \"description\": \"string\",\n      \"id\": \"a9743f8b-3cb5-9c66-e685-3287dff0b3d6\",\n      \"language\": \"SQL\",\n      \"name\": \"string\",\n      \"owner\": \"string\",\n      \"parameters\": {\n        \"key_0\": {\n          \"datatype\": \"string\",\n          \"type\": \"string\"\n        },\n        \"key_1\": {\n          \"datatype\": \"string\",\n          \"type\": \"string\"\n        }\n      },\n      \"updated\": \"1999-01-09T22:38:34.950Z\",\n      \"version\": \"string\"\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b470c1a9-097d-4b18-831a-1aef1185423c",
+          "name": "Create a saved query in a specified dataset",
+          "request": {
+            "name": "Create a saved query in a specified dataset",
+            "description": {
+              "content": "Create a saved query in a specified dataset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "datasets",
+                ":owner",
+                ":id",
+                "queries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"content\": \"<string>\",\n  \"language\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"published\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "81e3c1a2-a2bb-499e-986d-3d932debb323",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets",
+                    ":owner",
+                    ":id",
+                    "queries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"content\": \"<string>\",\n  \"language\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"published\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"body\": \"string\",\n  \"created\": \"1960-05-21T22:43:39.126Z\",\n  \"description\": \"string\",\n  \"id\": \"94496bfb-c5a4-f115-7d81-11e2e6caea6b\",\n  \"language\": \"SQL\",\n  \"name\": \"string\",\n  \"owner\": \"string\",\n  \"parameters\": {\n    \"key_0\": {\n      \"datatype\": \"string\",\n      \"type\": \"string\"\n    }\n  },\n  \"updated\": \"1993-04-24T02:55:39.296Z\",\n  \"version\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "08c62216-94cf-408a-a485-220dc9e98898",
+          "name": "Delete a saved query in a specified dataset",
+          "request": {
+            "name": "Delete a saved query in a specified dataset",
+            "description": {
+              "content": "Delete a saved query in a specified dataset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "datasets",
+                ":owner",
+                ":id",
+                "queries",
+                ":queryId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "queryId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3bd836c1-3ee8-4681-bda8-0643e653512c",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets",
+                    ":owner",
+                    ":id",
+                    "queries",
+                    ":queryId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "queryId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "69d1b5c0-f4b8-4ae3-a738-e4e5708cad08",
+          "name": "Update a saved query in a specified dataset",
+          "request": {
+            "name": "Update a saved query in a specified dataset",
+            "description": {
+              "content": "Update a saved query in a specified dataset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "datasets",
+                ":owner",
+                ":id",
+                "queries",
+                ":queryId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "queryId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"content\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"published\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6bd43e62-d123-4dd3-9264-9a7609d9da4d",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets",
+                    ":owner",
+                    ":id",
+                    "queries",
+                    ":queryId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "queryId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"content\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"published\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"body\": \"string\",\n  \"created\": \"1960-05-21T22:43:39.126Z\",\n  \"description\": \"string\",\n  \"id\": \"94496bfb-c5a4-f115-7d81-11e2e6caea6b\",\n  \"language\": \"SQL\",\n  \"name\": \"string\",\n  \"owner\": \"string\",\n  \"parameters\": {\n    \"key_0\": {\n      \"datatype\": \"string\",\n      \"type\": \"string\"\n    }\n  },\n  \"updated\": \"1993-04-24T02:55:39.296Z\",\n  \"version\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "273114ec-78cf-4dc7-aae6-a7b2fc3fc93e",
+          "name": "List user saved queries",
+          "request": {
+            "name": "List user saved queries",
+            "description": {
+              "content": "List user saved queries associated with a dataset. Query definitions will be returned, not the query results.\nTo retrieve query results use `GET:/queries/{id}/results`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "datasets",
+                ":owner",
+                ":id",
+                "userQueries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Number of results to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "next",
+                  "value": "<string>",
+                  "description": "A token supplied by the previous response to retrieve the next page of results"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0e55dd27-4856-4e5c-ab80-e9810df04c66",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets",
+                    ":owner",
+                    ":id",
+                    "userQueries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "next",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 9985,\n  \"records\": [\n    {\n      \"body\": \"string\",\n      \"created\": \"1996-10-29T12:52:06.284Z\",\n      \"description\": \"string\",\n      \"id\": \"4b56c85b-515d-1aed-e4d0-f7a3cfdca295\",\n      \"language\": \"SPARQL\",\n      \"name\": \"string\",\n      \"owner\": \"string\",\n      \"parameters\": {\n        \"key_0\": {\n          \"datatype\": \"string\",\n          \"type\": \"string\"\n        },\n        \"key_1\": {\n          \"datatype\": \"string\",\n          \"type\": \"string\"\n        }\n      },\n      \"updated\": \"2016-02-28T00:34:47.024Z\",\n      \"version\": \"string\"\n    },\n    {\n      \"body\": \"string\",\n      \"created\": \"1993-11-19T09:18:34.287Z\",\n      \"description\": \"string\",\n      \"id\": \"a9743f8b-3cb5-9c66-e685-3287dff0b3d6\",\n      \"language\": \"SQL\",\n      \"name\": \"string\",\n      \"owner\": \"string\",\n      \"parameters\": {\n        \"key_0\": {\n          \"datatype\": \"string\",\n          \"type\": \"string\"\n        },\n        \"key_1\": {\n          \"datatype\": \"string\",\n          \"type\": \"string\"\n        }\n      },\n      \"updated\": \"1999-01-09T22:38:34.950Z\",\n      \"version\": \"string\"\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "747fb4cb-f779-4a41-bb3f-196d307fa2d8",
+          "name": "List published queries",
+          "request": {
+            "name": "List published queries",
+            "description": {
+              "content": "List published saved queries associated with a project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":owner",
+                ":id",
+                "queries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Number of results to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "next",
+                  "value": "<string>",
+                  "description": "A token supplied by the previous response to retrieve the next page of results"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fb5d958a-60de-4a02-bff4-5cfc45797dc2",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":owner",
+                    ":id",
+                    "queries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "next",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 9985,\n  \"records\": [\n    {\n      \"body\": \"string\",\n      \"created\": \"1996-10-29T12:52:06.284Z\",\n      \"description\": \"string\",\n      \"id\": \"4b56c85b-515d-1aed-e4d0-f7a3cfdca295\",\n      \"language\": \"SPARQL\",\n      \"name\": \"string\",\n      \"owner\": \"string\",\n      \"parameters\": {\n        \"key_0\": {\n          \"datatype\": \"string\",\n          \"type\": \"string\"\n        },\n        \"key_1\": {\n          \"datatype\": \"string\",\n          \"type\": \"string\"\n        }\n      },\n      \"updated\": \"2016-02-28T00:34:47.024Z\",\n      \"version\": \"string\"\n    },\n    {\n      \"body\": \"string\",\n      \"created\": \"1993-11-19T09:18:34.287Z\",\n      \"description\": \"string\",\n      \"id\": \"a9743f8b-3cb5-9c66-e685-3287dff0b3d6\",\n      \"language\": \"SQL\",\n      \"name\": \"string\",\n      \"owner\": \"string\",\n      \"parameters\": {\n        \"key_0\": {\n          \"datatype\": \"string\",\n          \"type\": \"string\"\n        },\n        \"key_1\": {\n          \"datatype\": \"string\",\n          \"type\": \"string\"\n        }\n      },\n      \"updated\": \"1999-01-09T22:38:34.950Z\",\n      \"version\": \"string\"\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c314b8ea-c581-4836-bce7-fdd0fea327b5",
+          "name": "Create a saved query",
+          "request": {
+            "name": "Create a saved query",
+            "description": {
+              "content": "Create a saved query in a specified project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":owner",
+                ":id",
+                "queries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"content\": \"<string>\",\n  \"language\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"published\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1e318a01-0e69-4938-b8a6-b74e90ebdfc6",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":owner",
+                    ":id",
+                    "queries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"content\": \"<string>\",\n  \"language\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"published\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"body\": \"string\",\n  \"created\": \"1960-05-21T22:43:39.126Z\",\n  \"description\": \"string\",\n  \"id\": \"94496bfb-c5a4-f115-7d81-11e2e6caea6b\",\n  \"language\": \"SQL\",\n  \"name\": \"string\",\n  \"owner\": \"string\",\n  \"parameters\": {\n    \"key_0\": {\n      \"datatype\": \"string\",\n      \"type\": \"string\"\n    }\n  },\n  \"updated\": \"1993-04-24T02:55:39.296Z\",\n  \"version\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "00769d8d-7622-4f6e-9f2e-a4465c2a67fc",
+          "name": "Delete a saved query",
+          "request": {
+            "name": "Delete a saved query",
+            "description": {
+              "content": "Delete a saved query in a specified project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":owner",
+                ":id",
+                "queries",
+                ":queryId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "queryId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3329d6d4-034a-4833-acdc-ad7d43a57aba",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":owner",
+                    ":id",
+                    "queries",
+                    ":queryId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "queryId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "845095db-da7f-44e5-9716-99df9fb4c146",
+          "name": "Update a saved query",
+          "request": {
+            "name": "Update a saved query",
+            "description": {
+              "content": "Update a saved query in a specified project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":owner",
+                ":id",
+                "queries",
+                ":queryId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "queryId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"content\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"published\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fa83424c-867a-4c75-ac41-e294ea1bb121",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":owner",
+                    ":id",
+                    "queries",
+                    ":queryId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "queryId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"content\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"published\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"body\": \"string\",\n  \"created\": \"1960-05-21T22:43:39.126Z\",\n  \"description\": \"string\",\n  \"id\": \"94496bfb-c5a4-f115-7d81-11e2e6caea6b\",\n  \"language\": \"SQL\",\n  \"name\": \"string\",\n  \"owner\": \"string\",\n  \"parameters\": {\n    \"key_0\": {\n      \"datatype\": \"string\",\n      \"type\": \"string\"\n    }\n  },\n  \"updated\": \"1993-04-24T02:55:39.296Z\",\n  \"version\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "628b79db-06e5-45bf-992b-9970303d00b5",
+          "name": "List saved queries",
+          "request": {
+            "name": "List saved queries",
+            "description": {
+              "content": "List user saved queries associated with a project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":owner",
+                ":id",
+                "userQueries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Number of results to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "next",
+                  "value": "<string>",
+                  "description": "A token supplied by the previous response to retrieve the next page of results"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dad1f2ab-c0d4-4577-b05e-4fe58b11c7ad",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":owner",
+                    ":id",
+                    "userQueries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "next",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 9985,\n  \"records\": [\n    {\n      \"body\": \"string\",\n      \"created\": \"1996-10-29T12:52:06.284Z\",\n      \"description\": \"string\",\n      \"id\": \"4b56c85b-515d-1aed-e4d0-f7a3cfdca295\",\n      \"language\": \"SPARQL\",\n      \"name\": \"string\",\n      \"owner\": \"string\",\n      \"parameters\": {\n        \"key_0\": {\n          \"datatype\": \"string\",\n          \"type\": \"string\"\n        },\n        \"key_1\": {\n          \"datatype\": \"string\",\n          \"type\": \"string\"\n        }\n      },\n      \"updated\": \"2016-02-28T00:34:47.024Z\",\n      \"version\": \"string\"\n    },\n    {\n      \"body\": \"string\",\n      \"created\": \"1993-11-19T09:18:34.287Z\",\n      \"description\": \"string\",\n      \"id\": \"a9743f8b-3cb5-9c66-e685-3287dff0b3d6\",\n      \"language\": \"SQL\",\n      \"name\": \"string\",\n      \"owner\": \"string\",\n      \"parameters\": {\n        \"key_0\": {\n          \"datatype\": \"string\",\n          \"type\": \"string\"\n        },\n        \"key_1\": {\n          \"datatype\": \"string\",\n          \"type\": \"string\"\n        }\n      },\n      \"updated\": \"1999-01-09T22:38:34.950Z\",\n      \"version\": \"string\"\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "35d2bf9e-9f57-4f84-81a2-588655509609",
+          "name": "Retrieve a saved query",
+          "request": {
+            "name": "Retrieve a saved query",
+            "description": {
+              "content": "Retrieve a saved query. Query definitions will be returned, not query results. To retrieve query results\nuse `GET:/queries/{id}/results`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "queries",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "19945106-49e2-4e2f-94a2-e007f4f7a4f3",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "queries",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"body\": \"string\",\n  \"created\": \"1960-05-21T22:43:39.126Z\",\n  \"description\": \"string\",\n  \"id\": \"94496bfb-c5a4-f115-7d81-11e2e6caea6b\",\n  \"language\": \"SQL\",\n  \"name\": \"string\",\n  \"owner\": \"string\",\n  \"parameters\": {\n    \"key_0\": {\n      \"datatype\": \"string\",\n      \"type\": \"string\"\n    }\n  },\n  \"updated\": \"1993-04-24T02:55:39.296Z\",\n  \"version\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5a23639e-c56f-468e-86bd-dfad7c841db9",
+          "name": "Execute a saved query",
+          "request": {
+            "name": "Execute a saved query",
+            "description": {
+              "content": "Execute a saved query.\n\nSQL results are available in a variety of formats. By default, `application/json` will be returned. Set\nthe `Accept` header to one of the following values in accordance with your preference:\n\n* `text/csv`\n* `application/json`\n* `application/json-l`\n* `application/x-ndjson`\n\nSPARQL results are available in a variety of formats. By default, `application/sparql-results+json` will\nbe returned. Set the `Accept` header to one of the following values in accordance with your preference:\n\n- `application/sparql-results+xml`\n- `application/sparql-results+json`\n- `application/rdf+json`\n- `application/rdf+xml`\n- `text/csv`\n- `text/tab-separated-values`\n- `text/turtle`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "queries",
+                ":id",
+                "results"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "includeTableSchema",
+                  "value": "false"
+                },
+                {
+                  "disabled": false,
+                  "key": "queryruntoken",
+                  "value": "<string>",
+                  "description": "Query token to use with cancel"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fdfca43f-f361-4bc2-a3d5-b323595bc9ef",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "queries",
+                    ":id",
+                    "results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeTableSchema",
+                      "value": "false"
+                    },
+                    {
+                      "key": "queryruntoken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ad5e1f05-e3f0-4a31-8f4c-46c44709ab1d",
+          "name": "Execute a saved query (with parameters)",
+          "request": {
+            "name": "Execute a saved query (with parameters)",
+            "description": {
+              "content": "Execute a saved query (same as GET:/queries/{id}/results) with the option to specify named query\nparameters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "queries",
+                ":id",
+                "results"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "queryruntoken",
+                  "value": "<string>",
+                  "description": "Query token to use with cancel"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"datasetVersions\": \"<string>\",\n  \"defaultGraphUris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"includeTableSchema\": \"<boolean>\",\n  \"maxRows\": \"<long>\",\n  \"namedGraphUris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"parameters\": {\n    \"key_0\": {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\",\n      \"datatype\": \"<string>\",\n      \"xml:lang\": \"<string>\"\n    }\n  },\n  \"queryRunToken\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b7755ff6-a492-475c-8a46-b28aebb113da",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "queries",
+                    ":id",
+                    "results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "queryruntoken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"datasetVersions\": \"<string>\",\n  \"defaultGraphUris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"includeTableSchema\": \"<boolean>\",\n  \"maxRows\": \"<long>\",\n  \"namedGraphUris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"parameters\": {\n    \"key_0\": {\n      \"type\": \"bnode\",\n      \"value\": \"string\",\n      \"datatype\": \"string\",\n      \"xml:lang\": \"string\"\n    },\n    \"key_1\": {\n      \"type\": \"bnode\",\n      \"value\": \"string\",\n      \"datatype\": \"string\",\n      \"xml:lang\": \"string\"\n    }\n  },\n  \"queryRunToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3543e7e8-3493-45fc-befd-2128d6d05919",
+          "name": "Retrieve a saved query version",
+          "request": {
+            "name": "Retrieve a saved query version",
+            "description": {
+              "content": "Retrieve a version of a saved query. Query definitions will be returned, not query results.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "queries",
+                ":id",
+                "v",
+                ":versionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "versionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "61a62aa3-3bbb-4a4c-bec0-d3832b73d623",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "queries",
+                    ":id",
+                    "v",
+                    ":versionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "versionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"body\": \"string\",\n  \"created\": \"1960-05-21T22:43:39.126Z\",\n  \"description\": \"string\",\n  \"id\": \"94496bfb-c5a4-f115-7d81-11e2e6caea6b\",\n  \"language\": \"SQL\",\n  \"name\": \"string\",\n  \"owner\": \"string\",\n  \"parameters\": {\n    \"key_0\": {\n      \"datatype\": \"string\",\n      \"type\": \"string\"\n    }\n  },\n  \"updated\": \"1993-04-24T02:55:39.296Z\",\n  \"version\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d7e538fe-fc2e-4c61-8bcf-b66c5fa6a761",
+          "name": "Execute SPARQL query via GET with the default graph",
+          "request": {
+            "name": "Execute SPARQL query via GET with the default graph",
+            "description": {
+              "content": "Execute a SPARQL query. The query will default to using the :current graph if the query contains no FROM\nclauses and no default graph URI parameters are specified, in which case it will return a 404 if the\n:current graph does not exist for the org.\n\nSPARQL results are available in a variety of formats. By default, `application/sparql-results+json` will\nbe returned. Set the `Accept` header to one of the following values in accordance with your preference\nand the type of the query (SELECT, CONSTRUCT, DESCRIBE, ASK):\n\n- `application/sparql-results+xml`\n- `application/sparql-results+json`\n- `application/rdf+json`\n- `application/rdf+xml`\n- `text/csv`\n- `text/tab-separated-values`\n- `text/turtle`\n\nNew to SPARQL? Check out data.world's [SPARQL tutorial](https://docs.data.world/tutorials/sparql/).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sparql",
+                ":owner"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "diagnose",
+                  "value": "false"
+                },
+                {
+                  "disabled": false,
+                  "key": "default-graph-uri",
+                  "value": "<string>",
+                  "description": "Specify URI for named graph(s) to query, overriding any FROM clauses in the query. If the default-graph-uri parameter is omitted and there are no FROM clauses, the :current graph will be used. See [Our Docs](https://docs.data.world/en/168180-understanding-the-catalog-graph.html#UUID-46e644b5-119a-a4a2-eb69-e09ce33bd986) for more info."
+                },
+                {
+                  "disabled": false,
+                  "key": "default-graph-uri",
+                  "value": "<string>",
+                  "description": "Specify URI for named graph(s) to query, overriding any FROM clauses in the query. If the default-graph-uri parameter is omitted and there are no FROM clauses, the :current graph will be used. See [Our Docs](https://docs.data.world/en/168180-understanding-the-catalog-graph.html#UUID-46e644b5-119a-a4a2-eb69-e09ce33bd986) for more info."
+                },
+                {
+                  "disabled": false,
+                  "key": "named-graph-uri",
+                  "value": "<string>",
+                  "description": "Specify URI for named graph(s) to query, overriding any FROM NAMED clauses in the query. See [Our Docs](https://docs.data.world/en/168180-understanding-the-catalog-graph.html#UUID-46e644b5-119a-a4a2-eb69-e09ce33bd986) for more info."
+                },
+                {
+                  "disabled": false,
+                  "key": "named-graph-uri",
+                  "value": "<string>",
+                  "description": "Specify URI for named graph(s) to query, overriding any FROM NAMED clauses in the query. See [Our Docs](https://docs.data.world/en/168180-understanding-the-catalog-graph.html#UUID-46e644b5-119a-a4a2-eb69-e09ce33bd986) for more info."
+                },
+                {
+                  "disabled": false,
+                  "key": "queryruntoken",
+                  "value": "<string>",
+                  "description": "Query token to use with cancel"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/rdf+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fb9d073c-d981-4f00-bbd8-314125b00125",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sparql",
+                    ":owner"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "diagnose",
+                      "value": "false"
+                    },
+                    {
+                      "key": "default-graph-uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "default-graph-uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "named-graph-uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "named-graph-uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "queryruntoken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/rdf+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/rdf+json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d98805e9-68c4-45df-83f7-f957fb7b3415",
+          "name": "Execute SPARQL query via POST with the default graph",
+          "request": {
+            "name": "Execute SPARQL query via POST with the default graph",
+            "description": {
+              "content": "Execute a SPARQL query. The query will default to using the :current graph if the query contains no FROM\nclauses and no default graph URI parameters are specified, in which case it will return a 404 if the\n:current graph does not exist for the org.\n\nSPARQL results are available in a variety of formats. By default, `application/sparql-results+json` will\nbe returned. Set the `Accept` header to one of the following values in accordance with your preference\nand the type of the query (SELECT, CONSTRUCT, DESCRIBE, ASK):\n\n- `application/sparql-results+xml`\n- `application/sparql-results+json`\n- `application/rdf+json`\n- `application/rdf+xml`\n- `text/csv`\n- `text/tab-separated-values`\n- `text/turtle`\n\nNew to SPARQL? Check out data.world's [SPARQL tutorial](https://docs.data.world/tutorials/sparql/).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sparql",
+                ":owner"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/rdf+json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"<string>\",\n  \"datasetVersions\": \"<string>\",\n  \"defaultGraphUris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"diagnose\": \"<boolean>\",\n  \"namedGraphUris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"queryRunToken\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c6c705ed-b415-48f9-99e1-2c540988f536",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sparql",
+                    ":owner"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/rdf+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"<string>\",\n  \"datasetVersions\": \"<string>\",\n  \"defaultGraphUris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"diagnose\": \"<boolean>\",\n  \"namedGraphUris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"queryRunToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/rdf+json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e9ada796-d0db-4e4c-b423-e21be9a882df",
+          "name": "Execute SPARQL query via GET",
+          "request": {
+            "name": "Execute SPARQL query via GET",
+            "description": {
+              "content": "Execute a SPARQL query against a dataset or data project.\n\nSPARQL results are available in a variety of formats. By default, `application/sparql-results+json` will\nbe returned. Set the `Accept` header to one of the following values in accordance with your preference\nand the type of the query (SELECT, CONSTRUCT, DESCRIBE, ASK):\n\n- `application/sparql-results+xml`\n- `application/sparql-results+json`\n- `application/rdf+json`\n- `application/rdf+xml`\n- `text/csv`\n- `text/tab-separated-values`\n- `text/turtle`\n\nNew to SPARQL? Check out data.world's [SPARQL tutorial](https://docs.data.world/tutorials/sparql/).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sparql",
+                ":owner",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "diagnose",
+                  "value": "false"
+                },
+                {
+                  "disabled": false,
+                  "key": "default-graph-uri",
+                  "value": "<string>",
+                  "description": "Specify URI for named graph(s) to query, overriding any FROM clauses in the query. See [Our Docs](https://docs.data.world/en/168180-understanding-the-catalog-graph.html#UUID-46e644b5-119a-a4a2-eb69-e09ce33bd986) for more info."
+                },
+                {
+                  "disabled": false,
+                  "key": "default-graph-uri",
+                  "value": "<string>",
+                  "description": "Specify URI for named graph(s) to query, overriding any FROM clauses in the query. See [Our Docs](https://docs.data.world/en/168180-understanding-the-catalog-graph.html#UUID-46e644b5-119a-a4a2-eb69-e09ce33bd986) for more info."
+                },
+                {
+                  "disabled": false,
+                  "key": "named-graph-uri",
+                  "value": "<string>",
+                  "description": "Specify URI for named graph(s) to query, overriding any FROM NAMED clauses in the query. See [Our Docs](https://docs.data.world/en/168180-understanding-the-catalog-graph.html#UUID-46e644b5-119a-a4a2-eb69-e09ce33bd986) for more info."
+                },
+                {
+                  "disabled": false,
+                  "key": "named-graph-uri",
+                  "value": "<string>",
+                  "description": "Specify URI for named graph(s) to query, overriding any FROM NAMED clauses in the query. See [Our Docs](https://docs.data.world/en/168180-understanding-the-catalog-graph.html#UUID-46e644b5-119a-a4a2-eb69-e09ce33bd986) for more info."
+                },
+                {
+                  "disabled": false,
+                  "key": "queryruntoken",
+                  "value": "<string>",
+                  "description": "Query token to use with cancel"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Dataset to query, e.g. `ddw-catalogs`"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/rdf+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4b1d786f-5db2-4a3b-8ec6-bfeb20873e74",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sparql",
+                    ":owner",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "diagnose",
+                      "value": "false"
+                    },
+                    {
+                      "key": "default-graph-uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "default-graph-uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "named-graph-uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "named-graph-uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "queryruntoken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Dataset to query, e.g. `ddw-catalogs`"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/rdf+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/rdf+json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "25200e8c-13cf-4134-ab07-610adf91e4b4",
+          "name": "Execute SPARQL query via POST",
+          "request": {
+            "name": "Execute SPARQL query via POST",
+            "description": {
+              "content": "Execute a SPARQL query against a dataset or data project.\n\nSPARQL results are available in a variety of formats. By default, `application/sparql-results+json` will\nbe returned. Set the `Accept` header to one of the following values in accordance with your preference\nand the type of the query (SELECT, CONSTRUCT, DESCRIBE, ASK):\n\n- `application/sparql-results+xml`\n- `application/sparql-results+json`\n- `application/rdf+json`\n- `application/rdf+xml`\n- `text/csv`\n- `text/tab-separated-values`\n- `text/turtle`\n\nNew to SPARQL? Check out data.world's [SPARQL tutorial](https://docs.data.world/tutorials/sparql/).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sparql",
+                ":owner",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Dataset to query, e.g. `ddw-catalogs`"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/rdf+json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"<string>\",\n  \"datasetVersions\": \"<string>\",\n  \"defaultGraphUris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"diagnose\": \"<boolean>\",\n  \"namedGraphUris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"queryRunToken\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a93b173b-f80b-42f9-bc92-d2b95484fad0",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sparql",
+                    ":owner",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Dataset to query, e.g. `ddw-catalogs`"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/rdf+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"<string>\",\n  \"datasetVersions\": \"<string>\",\n  \"defaultGraphUris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"diagnose\": \"<boolean>\",\n  \"namedGraphUris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"queryRunToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/rdf+json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "965b7ef1-7972-447e-8451-e7e72140d87f",
+          "name": "SQL query (via GET)",
+          "request": {
+            "name": "SQL query (via GET)",
+            "description": {
+              "content": "Same as `POST:/sql/{owner}/{id}`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sql",
+                ":owner",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "includeTableSchema",
+                  "value": "false"
+                },
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "dialect",
+                  "value": "DW_SQL"
+                },
+                {
+                  "disabled": false,
+                  "key": "diagnose",
+                  "value": "false"
+                },
+                {
+                  "disabled": false,
+                  "key": "queryruntoken",
+                  "value": "<string>",
+                  "description": "Query token to use with cancel"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "36f82170-85cb-4d4c-b96a-be798f45dac8",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sql",
+                    ":owner",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeTableSchema",
+                      "value": "false"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dialect",
+                      "value": "DW_SQL"
+                    },
+                    {
+                      "key": "diagnose",
+                      "value": "false"
+                    },
+                    {
+                      "key": "queryruntoken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d31e281d-c662-4db3-b2ff-b74402b6281d",
+          "name": "SQL query",
+          "request": {
+            "name": "SQL query",
+            "description": {
+              "content": "Execute a SQL query against a dataset or data project.\n\nSQL results are available in a variety of formats. By default, `application/json` will be returned. Set\nthe `Accept` header to one of the following values in accordance with your preference:\n\n* `text/csv`\n* `application/json`\n* `application/json-l`\n* `application/x-ndjson`\n\nNew to SQL? Check out data.world's [SQL manual](https://docs.data.world/tutorials/dwsql/) .",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sql",
+                ":owner",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "dialect",
+                  "value": "DW_SQL"
+                },
+                {
+                  "disabled": false,
+                  "key": "diagnose",
+                  "value": "false"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"<string>\",\n  \"datasetVersions\": \"<string>\",\n  \"includeTableSchema\": \"<boolean>\",\n  \"queryRunToken\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "87d06860-6803-4bd8-8fad-b9abb352b04d",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sql",
+                    ":owner",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "dialect",
+                      "value": "DW_SQL"
+                    },
+                    {
+                      "key": "diagnose",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"<string>\",\n  \"datasetVersions\": \"<string>\",\n  \"includeTableSchema\": \"<boolean>\",\n  \"queryRunToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "05e296d8-5dc8-4115-8ae6-2bf219e98464",
+          "name": "Describe a SQL query",
+          "request": {
+            "name": "Describe a SQL query",
+            "description": {
+              "content": "This endpoint describes what columns will be included if the given SQL query is performed against the specified dataset.\nNew to SQL? Check out data.world's [SQL manual](https://docs.data.world/tutorials/dwsql/) .",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sql",
+                ":owner",
+                ":id",
+                "describe"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "dialect",
+                  "value": "DW_SQL"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"<string>\",\n  \"datasetVersions\": \"<string>\",\n  \"includeTableSchema\": \"<boolean>\",\n  \"queryRunToken\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "219d7efe-986b-4bb8-bf25-d379a7528861",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sql",
+                    ":owner",
+                    ":id",
+                    "describe"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "dialect",
+                      "value": "DW_SQL"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"<string>\",\n  \"datasetVersions\": \"<string>\",\n  \"includeTableSchema\": \"<boolean>\",\n  \"queryRunToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a8bc970c-2d46-4a4d-a385-ad4fbb23314d",
+    "name": "data.world Public catalog relationships queries API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Manage relationships between catalog resources\n\nContact Support:\n Name: Contact Us",
+      "type": "text/plain"
+    }
+  }
+}

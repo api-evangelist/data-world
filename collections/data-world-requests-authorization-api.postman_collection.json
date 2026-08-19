@@ -1,0 +1,555 @@
+{
+  "item": [
+    {
+      "id": "fb9897fc-62b9-452d-816d-884aab7aaf4b",
+      "name": "requests - authorization",
+      "description": {
+        "content": "Manage authorization requests",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "59354170-715b-42a9-98ac-ab8043b6c74e",
+          "name": "Create an authorization request",
+          "request": {
+            "name": "Create an authorization request",
+            "description": {
+              "content": "Create a request asking for access against a dataset. A request can ask the resource admin for permission to access a resource. It may also be an invitation from the resource admin to give others access to a resource.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "requests",
+                "auth"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"dataset\": {\n    \"id\": \"<string>\",\n    \"owner\": \"<string>\"\n  },\n  \"granteeId\": \"<string>\",\n  \"level\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a21ca919-2d66-4120-bb28-3c3fedf216d1",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "requests",
+                    "auth"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dataset\": {\n    \"id\": \"string\",\n    \"owner\": \"string\"\n  },\n  \"granteeId\": \"<string>\",\n  \"level\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"approverParty\": {\n    \"id\": \"string\"\n  },\n  \"created\": \"1977-01-04T23:04:50.966Z\",\n  \"granteeParty\": {\n    \"id\": \"string\"\n  },\n  \"level\": \"MEMBER\",\n  \"requesterParty\": {\n    \"id\": \"string\"\n  },\n  \"requestid\": \"3c0fa5bb-e073-9209-c16d-ec397ee1f01a\",\n  \"resource\": {\n    \"owner\": \"string\",\n    \"referent\": \"string\",\n    \"type\": \"CATALOG\"\n  },\n  \"updated\": \"1996-08-03T09:09:44.983Z\",\n  \"visibility\": \"PRIVATE\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "75a5f41f-0d97-4a45-bef5-dd38190f2b4f",
+          "name": "Accept an authorization request",
+          "request": {
+            "name": "Accept an authorization request",
+            "description": {
+              "content": "Accept an authorization request. This will give the grantee access to the resource. For more details about authorization request, see \"Create an authorization request\".",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "requests",
+                "auth",
+                "accept"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"dataset\": {\n    \"id\": \"<string>\",\n    \"owner\": \"<string>\"\n  },\n  \"requestId\": \"<uuid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f4848798-f6a8-4291-882e-a0d16f157e46",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "requests",
+                    "auth",
+                    "accept"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dataset\": {\n    \"id\": \"string\",\n    \"owner\": \"string\"\n  },\n  \"requestId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1c4923f2-0e11-44f4-95c5-3874262ab3b3",
+          "name": "Get authorization requests that can be approved/rejected",
+          "request": {
+            "name": "Get authorization requests that can be approved/rejected",
+            "description": {
+              "content": "Get a list of authorization requests that can be approved or rejected by the user. For more details about authorization request, see \"Create an authorization request\".",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "requests",
+                "auth",
+                "approver"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Number of results to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "next",
+                  "value": "<string>",
+                  "description": "A token supplied by the previous response to retrieve the next page of results"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1af7531d-70ec-45bb-8886-2c28abafdd13",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "requests",
+                    "auth",
+                    "approver"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "next",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"consistent\": false,\n  \"count\": 9628,\n  \"next\": \"string\",\n  \"records\": [\n    {\n      \"approverParty\": {\n        \"id\": \"string\"\n      },\n      \"created\": \"1974-02-14T08:48:29.027Z\",\n      \"granteeParty\": {\n        \"id\": \"string\"\n      },\n      \"level\": \"DISCOVER\",\n      \"requesterParty\": {\n        \"id\": \"string\"\n      },\n      \"requestid\": \"046597c7-66e8-083c-03a3-1ff66517af77\",\n      \"resource\": {\n        \"owner\": \"string\",\n        \"referent\": \"string\",\n        \"type\": \"DATABASE\"\n      },\n      \"updated\": \"1958-10-27T08:51:48.394Z\",\n      \"visibility\": \"PRIVATE\"\n    },\n    {\n      \"approverParty\": {\n        \"id\": \"string\"\n      },\n      \"created\": \"1948-10-31T23:52:51.088Z\",\n      \"granteeParty\": {\n        \"id\": \"string\"\n      },\n      \"level\": \"SAML_GATED\",\n      \"requesterParty\": {\n        \"id\": \"string\"\n      },\n      \"requestid\": \"6002ba02-7fea-1859-2a68-0134adcb483c\",\n      \"resource\": {\n        \"owner\": \"string\",\n        \"referent\": \"string\",\n        \"type\": \"COLUMN\"\n      },\n      \"updated\": \"1999-11-30T02:47:15.241Z\",\n      \"visibility\": \"PRIVATE\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "56eaef00-2ba5-42e0-b6c2-3b05f72a6b53",
+          "name": "Delete an authorization request",
+          "request": {
+            "name": "Delete an authorization request",
+            "description": {
+              "content": "Delete an authorization request. This will delete the request. The grantee will not receive any access to the resource. For more details about authorization request, see \"Create an authorization request\".",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "requests",
+                "auth",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"dataset\": {\n    \"id\": \"<string>\",\n    \"owner\": \"<string>\"\n  },\n  \"requestId\": \"<uuid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ae2a25f4-dcfa-4b5a-ab9f-1f463f8430e0",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "requests",
+                    "auth",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dataset\": {\n    \"id\": \"string\",\n    \"owner\": \"string\"\n  },\n  \"requestId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cb7f2f5a-a47f-4c75-a3a2-e4328c744c0a",
+          "name": "Reject an authorization request",
+          "request": {
+            "name": "Reject an authorization request",
+            "description": {
+              "content": "Reject an authorization request. This will delete the request. The grantee will not receive any access to the resource. For more details about authorization request, see \"Create an authorization request\".",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "requests",
+                "auth",
+                "reject"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"dataset\": {\n    \"id\": \"<string>\",\n    \"owner\": \"<string>\"\n  },\n  \"requestId\": \"<uuid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "63e92098-3467-4ce5-b0e9-ebbef896d6ee",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "requests",
+                    "auth",
+                    "reject"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dataset\": {\n    \"id\": \"string\",\n    \"owner\": \"string\"\n  },\n  \"requestId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3bcb3ffc-356f-4125-a502-f1701c3dacd4",
+    "name": "data.world Public catalog relationships requests - authorization API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Manage relationships between catalog resources\n\nContact Support:\n Name: Contact Us",
+      "type": "text/plain"
+    }
+  }
+}

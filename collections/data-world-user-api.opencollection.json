@@ -1,0 +1,225 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "data.world Public catalog relationships user API",
+    "version": "0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "user",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve user data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/user"
+          },
+          "docs": "Retrieve user profile information of the currently authenticated user."
+        },
+        {
+          "info": {
+            "name": "List datasets as contributor",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/user/datasets/contributing",
+            "params": [
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return"
+              },
+              {
+                "name": "next",
+                "value": "",
+                "type": "query",
+                "description": "A token supplied by the previous response to retrieve the next page of results"
+              }
+            ]
+          },
+          "docs": "List datasets that the currently authenticated user has access to because he or she is a contributor."
+        },
+        {
+          "info": {
+            "name": "List liked (bookmarked) datasets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/user/datasets/liked",
+            "params": [
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return"
+              },
+              {
+                "name": "next",
+                "value": "",
+                "type": "query",
+                "description": "A token supplied by the previous response to retrieve the next page of results"
+              }
+            ]
+          },
+          "docs": "List datasets that the currently authenticated user liked (bookmarked)."
+        },
+        {
+          "info": {
+            "name": "List datasets as owner",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/user/datasets/own",
+            "params": [
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return"
+              },
+              {
+                "name": "next",
+                "value": "",
+                "type": "query",
+                "description": "A token supplied by the previous response to retrieve the next page of results"
+              }
+            ]
+          },
+          "docs": "List datasets that the currently authenticated user has access to because he or she is the owner."
+        },
+        {
+          "info": {
+            "name": "List organization memberships",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/user/organizations",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return"
+              },
+              {
+                "name": "next",
+                "value": "",
+                "type": "query",
+                "description": "A token supplied by the previous response to retrieve the next page of results"
+              }
+            ]
+          },
+          "docs": "List organizations that the currently authenticated user is a member of."
+        },
+        {
+          "info": {
+            "name": "List projects as contributor",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/user/projects/contributing",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return"
+              },
+              {
+                "name": "next",
+                "value": "",
+                "type": "query",
+                "description": "A token supplied by the previous response to retrieve the next page of results"
+              }
+            ]
+          },
+          "docs": "List projects that the currently authenticated user has access to because he or she is a contributor."
+        },
+        {
+          "info": {
+            "name": "List liked (bookmarked) projects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/user/projects/liked",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return"
+              },
+              {
+                "name": "next",
+                "value": "",
+                "type": "query",
+                "description": "A token supplied by the previous response to retrieve the next page of results"
+              }
+            ]
+          },
+          "docs": "List projects that the currently authenticated user liked (bookmarked)."
+        },
+        {
+          "info": {
+            "name": "List projects owned",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/user/projects/own",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return"
+              },
+              {
+                "name": "next",
+                "value": "",
+                "type": "query",
+                "description": "A token supplied by the previous response to retrieve the next page of results"
+              }
+            ]
+          },
+          "docs": "List projects that the currently authenticated user has access to because he or she is the owner."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

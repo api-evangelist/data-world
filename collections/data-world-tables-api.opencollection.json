@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "data.world Public catalog relationships tables API",
+    "version": "0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "tables",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Add live tables from a virtual connection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/datasets/:owner/:id/tables",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add tables from an established virtual connection. For increased security, endpoints that interact with\nexternal connection sources require an Enterprise Admin Token. This token can be found under\n[Advanced Settings](https://data.world/settings/advanced). To learn more about the virtual connections\ndata.world supports, please visit our\n[help portal](https://help.data.world/hc/en-us/sections/360009504254-Create-and-manage-virtual-connections)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

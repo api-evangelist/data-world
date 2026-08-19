@@ -1,0 +1,137 @@
+{
+  "item": [
+    {
+      "id": "e0cf2e4e-123c-4f7f-b042-bf9503723dc3",
+      "name": "users",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e226007a-bd43-4e81-942f-b58ada817a35",
+          "name": "Retrieve a user's profile",
+          "request": {
+            "name": "Retrieve a user's profile",
+            "description": {
+              "content": "Retrieve user profile information for the specified account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                ":account"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "account",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "683ec3a9-c698-4b52-9fe5-722e5233ecad",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created\": \"1998-04-10T21:29:30.328Z\",\n  \"id\": \"string\",\n  \"updated\": \"2010-01-09T14:04:31.033Z\",\n  \"avatarUrl\": \"string\",\n  \"baseUrl\": \"string\",\n  \"displayName\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "00e09909-8e3f-4f8f-ba8d-d9540edfb5af",
+    "name": "data.world Public catalog relationships users API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Manage relationships between catalog resources\n\nContact Support:\n Name: Contact Us",
+      "type": "text/plain"
+    }
+  }
+}

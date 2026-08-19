@@ -1,0 +1,794 @@
+{
+  "item": [
+    {
+      "id": "a51cc65c-af95-4571-8716-06d1e9e5f462",
+      "name": "legacy catalog - collections",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cbf1f834-8014-41be-95a0-cf26113f3374",
+          "name": "Gets collections owned by specified owner",
+          "request": {
+            "name": "Gets collections owned by specified owner",
+            "description": {
+              "content": "Please refer to the updated IRI-based resource endpoints.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metadata",
+                "collections",
+                ":owner"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "0"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4119f0ad-adde-4132-8c19-3a220feeef88",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "collections",
+                    ":owner"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "10"
+                    },
+                    {
+                      "key": "from",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"consistent\": false,\n  \"count\": 1966,\n  \"facets\": {\n    \"key_0\": [\n      {\n        \"count\": 5050,\n        \"term\": \"string\"\n      },\n      {\n        \"count\": 2533,\n        \"term\": \"string\"\n      }\n    ]\n  },\n  \"hydrations\": {\n    \"agents\": {\n      \"key_0\": {\n        \"avatarUrl\": \"string\",\n        \"deactivated\": false,\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      },\n      \"key_1\": {\n        \"avatarUrl\": \"string\",\n        \"deactivated\": true,\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      },\n      \"key_2\": {\n        \"avatarUrl\": \"string\",\n        \"deactivated\": true,\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      }\n    },\n    \"catalogAnalysis\": {\n      \"key_0\": {\n        \"agentid\": \"string\",\n        \"analysisid\": \"string\",\n        \"assetStatus\": {\n          \"assetStatusLabel\": \"string\",\n          \"dispositionLabel\": \"string\"\n        },\n        \"catalogs\": [\n          {\n            \"collectionId\": \"string\",\n            \"owner\": \"string\",\n            \"referent\": \"string\"\n          },\n          {\n            \"collectionId\": \"string\",\n            \"owner\": \"string\",\n            \"referent\": \"string\"\n          }\n        ],\n        \"createdBy\": {\n          \"avatarUrl\": \"string\",\n          \"deactivated\": false,\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        },\n        \"description\": \"string\",\n        \"entryTypeHierarchy\": [\n          {\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"instantiable\": false,\n            \"label\": \"string\",\n            \"pluralLabel\": \"string\",\n            \"requestable\": false,\n            \"type\": \"string\"\n          },\n          {\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"instantiable\": true,\n            \"label\": \"string\",\n            \"pluralLabel\": \"string\",\n            \"requestable\": true,\n            \"type\": \"string\"\n          }\n        ],\n        \"entryTypeLabel\": \"string\",\n        \"previewImage\": {\n          \"externalUrl\": \"string\"\n        },\n        \"referent\": \"string\",\n        \"title\": \"string\",\n        \"type\": \"string\",\n        \"updated\": \"1993-12-05T22:39:19.765Z\"\n      },\n      \"key_1\": {\n        \"agentid\": \"string\",\n        \"analysisid\": \"string\",\n        \"assetStatus\": {\n          \"assetStatusLabel\": \"string\",\n          \"dispositionLabel\": \"string\"\n        },\n        \"catalogs\": [\n          {\n            \"collectionId\": \"string\",\n            \"owner\": \"string\",\n            \"referent\": \"string\"\n          },\n          {\n            \"collectionId\": \"string\",\n            \"owner\": \"string\",\n            \"referent\": \"string\"\n          }\n        ],\n        \"createdBy\": {\n          \"avatarUrl\": \"string\",\n          \"deactivated\": false,\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        },\n        \"description\": \"string\",\n        \"entryTypeHierarchy\": [\n          {\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"instantiable\": false,\n            \"label\": \"string\",\n            \"pluralLabel\": \"string\",\n            \"requestable\": false,\n            \"type\": \"string\"\n          },\n          {\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"instantiable\": false,\n            \"label\": \"string\",\n            \"pluralLabel\": \"string\",\n            \"requestable\": true,\n            \"type\": \"string\"\n          }\n        ],\n        \"entryTypeLabel\": \"string\",\n        \"previewImage\": {\n          \"externalUrl\": \"string\"\n        },\n        \"referent\": \"string\",\n        \"title\": \"string\",\n        \"type\": \"string\",\n        \"updated\": \"1960-11-08T00:46:15.313Z\"\n      }\n    },\n    \"catalogBusinessTerms\": {\n      \"key_0\": {\n        \"abstract_\": \"string\",\n        \"agentid\": \"string\",\n        \"assetStatus\": {\n          \"assetStatusLabel\": \"string\",\n          \"dispositionLabel\": \"string\"\n        },\n        \"businessTermid\": \"string\",\n        \"catalogs\": [\n          {\n            \"collectionId\": \"string\",\n            \"owner\": \"string\",\n            \"referent\": \"string\"\n          },\n          {\n            \"collectionId\": \"string\",\n            \"owner\": \"string\",\n            \"referent\": \"string\"\n          }\n        ],\n        \"createdBy\": {\n          \"avatarUrl\": \"string\",\n          \"deactivated\": true,\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        },\n        \"description\": \"string\",\n        \"entryTypeHierarchy\": [\n          {\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"instantiable\": true,\n            \"label\": \"string\",\n            \"pluralLabel\": \"string\",\n            \"requestable\": true,\n            \"type\": \"string\"\n          },\n          {\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"instantiable\": false,\n            \"label\": \"string\",\n            \"pluralLabel\": \"string\",\n            \"requestable\": false,\n            \"type\": \"string\"\n          }\n        ],\n        \"entryTypeLabel\": \"string\",\n        \"referent\": \"string\",\n        \"title\": \"string\",\n        \"type\": \"string\",\n        \"updated\": \"2024-09-15T02:07:01.348Z\"\n      },\n      \"key_1\": {\n        \"abstract_\": \"string\",\n        \"agentid\": \"string\",\n        \"assetStatus\": {\n          \"assetStatusLabel\": \"string\",\n          \"dispositionLabel\": \"string\"\n        },\n        \"businessTermid\": \"string\",\n        \"catalogs\": [\n          {\n            \"collectionId\": \"string\",\n            \"owner\": \"string\",\n            \"referent\": \"string\"\n          },\n          {\n            \"collectionId\": \"string\",\n            \"owner\": \"string\",\n            \"referent\": \"string\"\n          }\n        ],\n        \"createdBy\": {\n          \"avatarUrl\": \"string\",\n          \"deactivated\": true,\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        },\n        \"description\": \"string\",\n        \"entryTypeHierarchy\": [\n          {\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"instantiable\": true,\n            \"label\": \"string\",\n            \"pluralLabel\": \"string\",\n            \"requestable\": true,\n            \"type\": \"string\"\n          },\n          {\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"instantiable\": true,\n            \"label\": \"string\",\n            \"pluralLabel\": \"string\",\n            \"requestable\": true,\n            \"type\": \"string\"\n          }\n        ],\n        \"entryTypeLabel\": \"string\",\n        \"referent\": \"string\",\n        \"title\": \"string\",\n        \"type\": \"string\",\n        \"updated\": \"1969-06-04T04:27:20.566Z\"\n      },\n      \"key_2\": {\n        \"abstract_\": \"string\",\n        \"agentid\": \"string\",\n        \"assetStatus\": {\n          \"assetStatusLabel\": \"string\",\n          \"dispositionLabel\": \"string\"\n        },\n        \"businessTermid\": \"string\",\n        \"catalogs\": [\n          {\n            \"collectionId\": \"string\",\n            \"owner\": \"string\",\n            \"referent\": \"string\"\n          },\n          {\n            \"collectionId\": \"string\",\n            \"owner\": \"string\",\n            \"referent\": \"string\"\n          }\n        ],\n        \"createdBy\": {\n          \"avatarUrl\": \"string\",\n          \"deactivated\": false,\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        },\n        \"description\": \"string\",\n        \"entryTypeHierarchy\": [\n          {\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"instantiable\": true,\n            \"label\": \"string\",\n            \"pluralLabel\": \"string\",\n            \"requestable\": false,\n            \"type\": \"string\"\n          },\n          {\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"instantiable\": false,\n            \"label\": \"string\",\n            \"pluralLabel\": \"string\",\n            \"requestable\": true,\n            \"type\": \"string\"\n          }\n        ],\n        \"entryTypeLabel\": \"string\",\n        \"referent\": \"string\",\n        \"title\": \"string\",\n        \"type\": \"string\",\n        \"updated\": \"1987-10-29T11:37:05.862Z\"\n      },\n      \"key_3\": {\n        \"abstract_\": \"string\",\n        \"agentid\": \"string\",\n        \"assetStatus\": {\n          \"assetStatusLabel\": \"string\",\n          \"dispositionLabel\": \"string\"\n        },\n        \"businessTermid\": \"string\",\n        \"catalogs\": [\n          {\n            \"collectionId\": \"string\",\n            \"owner\": \"string\",\n            \"referent\": \"string\"\n          },\n          {\n            \"collectionId\": \"string\",\n            \"owner\": \"string\",\n            \"referent\": \"string\"\n          }\n        ],\n        \"createdBy\": {\n          \"avatarUrl\": \"string\",\n          \"deactivated\": false,\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        },\n        \"description\": \"string\",\n        \"entryTypeHierarchy\": [\n          {\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"instantiable\": false,\n            \"label\": \"string\",\n            \"pluralLabel\": \"string\",\n            \"requestable\": false,\n            \"type\": \"string\"\n          },\n          {\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"instantiable\": false,\n            \"label\": \"string\",\n            \"pluralLabel\": \"string\",\n            \"requestable\": false,\n            \"type\": \"string\"\n          }\n        ],\n        \"entryTypeLabel\": \"string\",\n        \"referent\": \"string\",\n        \"title\": \"string\",\n        \"type\": \"string\",\n        \"updated\": \"1956-07-11T14:35:46.131Z\"\n      }\n    },\n    \"catalogColumns\": {\n      \"key_0\": {\n        \"agentid\": \"string\",\n        \"assetStatus\": {\n          \"assetStatusLabel\": \"string\",\n          \"dispositionLabel\": \"string\"\n        },\n        \"columnid\": \"string\",\n        \"createdBy\": {\n          \"avatarUrl\": \"string\",\n          \"deactivated\": false,\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        },\n        \"description\": \"string\",\n        \"entryTypeHierarchy\": [\n          {\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"instantiable\": false,\n            \"label\": \"string\",\n            \"pluralLabel\": \"string\",\n            \"requestable\": true,\n            \"type\": \"string\"\n          },\n          {\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"instantiable\": false,\n            \"label\": \"string\",\n            \"pluralLabel\": \"string\",\n            \"requestable\": false,\n            \"type\": \"string\"\n          }\n        ],\n        \"entryTypeLabel\": \"string\",\n        \"referent\": \"string\",\n        \"title\": \"string\",\n        \"type\": \"string\",\n        \"updated\": \"2011-08-14T08:41:07.667Z\"\n      },\n      \"key_1\": {\n        \"agentid\": \"string\",\n        \"assetStatus\": {\n          \"assetStatusLabel\": \"string\",\n          \"dispositionLabel\": \"string\"\n        },\n        \"columnid\": \"string\",\n        \"createdBy\": {\n          \"avatarUrl\": \"string\",\n          \"deactivated\": false,\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        },\n        \"description\": \"string\",\n        \"entryTypeHierarchy\": [\n          {\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"instantiable\": true,\n            \"label\": \"string\",\n            \"pluralLabel\": \"string\",\n            \"requestable\": false,\n            \"type\": \"string\"\n          },\n          {\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"instantiable\": false,\n            \"label\": \"string\",\n            \"pluralLabel\": \"string\",\n            \"requestable\": true,\n            \"type\": \"string\"\n          }\n        ],\n        \"entryTypeLabel\": \"string\",\n        \"referent\": \"string\",\n        \"title\": \"string\",\n        \"type\": \"string\",\n        \"updated\": \"1958-06-29T04:21:27.308Z\"\n      },\n      \"key_2\": {\n        \"agentid\": \"string\",\n        \"assetStatus\": {\n          \"assetStatusLabel\": \"string\",\n          \"dispositionLabel\": \"string\"\n        },\n        \"columnid\": \"string\",\n        \"createdBy\": {\n          \"avatarUrl\": \"string\",\n          \"deactivated\": true,\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        },\n        \"description\": \"string\",\n        \"entryTypeHierarchy\": [\n          {\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"instantiable\": false,\n            \"label\": \"string\",\n            \"pluralLabel\": \"string\",\n            \"requestable\": true,\n            \"type\": \"string\"\n          },\n          {\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"instantiable\": true,\n            \"label\": \"string\",\n            \"pluralLabel\": \"string\",\n            \"requestable\": false,\n            \"type\": \"string\"\n          }\n        ],\n        \"entryTypeLabel\": \"string\",\n        \"referent\": \"string\",\n        \"title\": \"string\",\n        \"type\": \"string\",\n        \"updated\": \"1998-07-03T05:31:03.079Z\"\n      },\n      \"key_3\": {\n        \"agentid\": \"string\",\n        \"assetStatus\": {\n          \"assetStatusLabel\": \"string\",\n          \"dispositionLabel\": \"string\"\n        },\n        \"columnid\": \"string\",\n        \"createdBy\": {\n          \"avatarUrl\": \"string\",\n          \"deactivated\": true,\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        },\n        \"description\": \"string\",\n        \"entryTypeHierarchy\": [\n          {\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"instantiable\": true,\n            \"label\": \"string\",\n            \"pluralLabel\": \"string\",\n            \"requestable\": true,\n            \"type\": \"string\"\n          },\n          {\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"instantiable\": true,\n            \"label\": \"string\",\n            \"pluralLabel\": \"string\",\n            \"requestable\": true,\n            \"type\": \"string\"\n          }\n        ],\n        \"entryTypeLabel\": \"string\",\n        \"referent\": \"string\",\n        \"title\": \"string\",\n        \"type\": \"string\",\n        \"updated\": \"1975-01-11T00:44:06.611Z\"\n      }\n    },\n    \"catalogConcepts\": {\n      \"key_0\": {\n        \"altLabel\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"prefLabel\": \"string\"\n      }\n    },\n    \"catalogDatabases\": {\n      \"key_0\": {\n        \"agentid\": \"string\",\n        \"assetStatus\": {\n          \"assetStatusLabel\": \"string\",\n          \"dispositionLabel\": \"string\"\n        },\n        \"catalogs\": [\n          {\n            \"collectionId\": \"string\",\n            \"owner\": \"string\",\n            \"referent\": \"string\"\n          },\n          {\n            \"collectionId\": \"string\",\n            \"owner\": \"string\",\n            \"referent\": \"string\"\n          }\n        ],\n        \"createdBy\": {\n          \"avatarUrl\": \"string\",\n          \"deactivated\": true,\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        },\n        \"description\": \"string\",\n        \"entryTypeHierarchy\": [\n          {\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"instantiable\": true,\n            \"label\": \"string\",\n            \"pluralLabel\": \"string\",\n            \"requestable\": false,\n            \"type\": \"string\"\n          },\n          {\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"instantiable\": false,\n            \"label\": \"string\",\n            \"pluralLabel\": \"string\",\n            \"requestable\": true,\n            \"type\": \"string\"\n          }\n        ],\n        \"entryTypeLabel\": \"string\",\n        \"identifier\": \"string\",\n        \"referent\": \"string\",\n        \"title\": \"string\",\n        \"type\": \"string\",\n        \"updated\": \"1966-01-14T18:55:44.827Z\"\n      },\n      \"key_1\": {\n        \"agentid\": \"string\",\n        \"assetStatus\": {\n          \"assetStatusLabel\": \"string\",\n          \"dispositionLabel\": \"string\"\n        },\n        \"catalogs\": [\n          {\n            \"collectionId\": \"string\",\n            \"owner\": \"string\",\n            \"referent\": \"string\"\n          },\n          {\n            \"collectionId\": \"string\",\n            \"owner\": \"string\",\n            \"referent\": \"string\"\n          }\n        ],\n        \"createdBy\": {\n          \"avatarUrl\": \"string\",\n          \"deactivated\": true,\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        },\n        \"description\": \"string\",\n        \"entryTypeHierarchy\": [\n          {\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"instantiable\": true,\n            \"label\": \"string\",\n            \"pluralLabel\": \"string\",\n            \"requestable\": false,\n            \"type\": \"string\"\n          },\n          {\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"instantiable\": false,\n            \"label\": \"string\",\n            \"pluralLabel\": \"string\",\n            \"requestable\": true,\n            \"type\": \"string\"\n          }\n        ],\n        \"entryTypeLabel\": \"string\",\n        \"identifier\": \"string\",\n        \"referent\": \"string\",\n        \"title\": \"string\",\n        \"type\": \"string\",\n        \"updated\": \"2015-08-19T21:13:52.905Z\"\n      }\n    },\n    \"catalogTables\": {\n      \"key_0\": {\n        \"agentid\": \"string\",\n        \"catalogs\": [\n          {\n            \"collectionId\": \"string\",\n            \"owner\": \"string\",\n            \"referent\": \"string\"\n          },\n          {\n            \"collectionId\": \"string\",\n            \"owner\": \"string\",\n            \"referent\": \"string\"\n          }\n        ],\n        \"createdBy\": {\n          \"avatarUrl\": \"string\",\n          \"deactivated\": true,\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        },\n        \"description\": \"string\",\n        \"entryTypeHierarchy\": [\n          {\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"instantiable\": true,\n            \"label\": \"string\",\n            \"pluralLabel\": \"string\",\n            \"requestable\": true,\n            \"type\": \"string\"\n          },\n          {\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"instantiable\": false,\n            \"label\": \"string\",\n            \"pluralLabel\": \"string\",\n            \"requestable\": false,\n            \"type\": \"string\"\n          }\n        ],\n        \"entryTypeLabel\": \"string\",\n        \"id\": \"string\",\n        \"referent\": \"string\",\n        \"source\": {\n          \"agentid\": \"string\",\n          \"sourceid\": \"string\"\n        },\n        \"sourceId\": {\n          \"agentid\": \"string\",\n          \"sourceid\": \"string\"\n        },\n        \"tableid\": \"string\",\n        \"title\": \"string\",\n        \"type\": \"string\",\n        \"updated\": \"1969-03-12T05:06:16.641Z\"\n      },\n      \"key_1\": {\n        \"agentid\": \"string\",\n        \"catalogs\": [\n          {\n            \"collectionId\": \"string\",\n            \"owner\": \"string\",\n            \"referent\": \"string\"\n          },\n          {\n            \"collectionId\": \"string\",\n            \"owner\": \"string\",\n            \"referent\": \"string\"\n          }\n        ],\n        \"createdBy\": {\n          \"avatarUrl\": \"string\",\n          \"deactivated\": true,\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        },\n        \"description\": \"string\",\n        \"entryTypeHierarchy\": [\n          {\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"instantiable\": false,\n            \"label\": \"string\",\n            \"pluralLabel\": \"string\",\n            \"requestable\": false,\n            \"type\": \"string\"\n          },\n          {\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"instantiable\": false,\n            \"label\": \"string\",\n            \"pluralLabel\": \"string\",\n            \"requestable\": false,\n            \"type\": \"string\"\n          }\n        ],\n        \"entryTypeLabel\": \"string\",\n        \"id\": \"string\",\n        \"referent\": \"string\",\n        \"source\": {\n          \"agentid\": \"string\",\n          \"sourceid\": \"string\"\n        },\n        \"sourceId\": {\n          \"agentid\": \"string\",\n          \"sourceid\": \"string\"\n        },\n        \"tableid\": \"string\",\n        \"title\": \"string\",\n        \"type\": \"string\",\n        \"updated\": \"1987-08-06T16:01:08.975Z\"\n      }\n    },\n    \"catalogs\": {\n      \"key_0\": {\n        \"agentid\": \"string\",\n        \"ancestors\": [\n          {\n            \"collectionId\": \"string\",\n            \"owner\": \"string\",\n            \"referent\": \"string\"\n          },\n          {\n            \"collectionId\": \"string\",\n            \"owner\": \"string\",\n            \"referent\": \"string\"\n          }\n        ],\n        \"catalogid\": \"string\",\n        \"createdBy\": {\n          \"avatarUrl\": \"string\",\n          \"deactivated\": true,\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        },\n        \"description\": \"string\",\n        \"entryTypeHierarchy\": [\n          {\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"instantiable\": true,\n            \"label\": \"string\",\n            \"pluralLabel\": \"string\",\n            \"requestable\": true,\n            \"type\": \"string\"\n          },\n          {\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"instantiable\": false,\n            \"label\": \"string\",\n            \"pluralLabel\": \"string\",\n            \"requestable\": false,\n            \"type\": \"string\"\n          }\n        ],\n        \"entryTypeLabel\": \"string\",\n        \"referent\": \"string\",\n        \"title\": \"string\",\n        \"type\": \"string\",\n        \"updated\": \"2017-11-09T09:24:42.292Z\"\n      },\n      \"key_1\": {\n        \"agentid\": \"string\",\n        \"ancestors\": [\n          {\n            \"collectionId\": \"string\",\n            \"owner\": \"string\",\n            \"referent\": \"string\"\n          },\n          {\n            \"collectionId\": \"string\",\n            \"owner\": \"string\",\n            \"referent\": \"string\"\n          }\n        ],\n        \"catalogid\": \"string\",\n        \"createdBy\": {\n          \"avatarUrl\": \"string\",\n          \"deactivated\": false,\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        },\n        \"description\": \"string\",\n        \"entryTypeHierarchy\": [\n          {\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"instantiable\": true,\n            \"label\": \"string\",\n            \"pluralLabel\": \"string\",\n            \"requestable\": true,\n            \"type\": \"string\"\n          },\n          {\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"instantiable\": true,\n            \"label\": \"string\",\n            \"pluralLabel\": \"string\",\n            \"requestable\": true,\n            \"type\": \"string\"\n          }\n        ],\n        \"entryTypeLabel\": \"string\",\n        \"referent\": \"string\",\n        \"title\": \"string\",\n        \"type\": \"string\",\n        \"updated\": \"1956-02-24T19:20:05.551Z\"\n      }\n    },\n    \"datasets\": {\n      \"key_0\": {\n        \"abstract\": \"string\",\n        \"agentid\": \"string\",\n        \"createdBy\": {\n          \"avatarUrl\": \"string\",\n          \"deactivated\": false,\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        },\n        \"datasetid\": \"string\",\n        \"headline\": \"string\",\n        \"name\": \"string\",\n        \"project\": false,\n        \"referent\": \"string\",\n        \"relationship\": {\n          \"contributor\": false,\n          \"liked\": true\n        },\n        \"type\": \"string\",\n        \"updated\": \"2022-08-08T02:24:31.829Z\",\n        \"userUpdated\": \"1957-12-21T15:26:30.936Z\"\n      },\n      \"key_1\": {\n        \"abstract\": \"string\",\n        \"agentid\": \"string\",\n        \"createdBy\": {\n          \"avatarUrl\": \"string\",\n          \"deactivated\": false,\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        },\n        \"datasetid\": \"string\",\n        \"headline\": \"string\",\n        \"name\": \"string\",\n        \"project\": false,\n        \"referent\": \"string\",\n        \"relationship\": {\n          \"contributor\": false,\n          \"liked\": true\n        },\n        \"type\": \"string\",\n        \"updated\": \"1973-03-17T07:24:29.824Z\",\n        \"userUpdated\": \"1981-03-18T18:05:39.788Z\"\n      },\n      \"key_2\": {\n        \"abstract\": \"string\",\n        \"agentid\": \"string\",\n        \"createdBy\": {\n          \"avatarUrl\": \"string\",\n          \"deactivated\": false,\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        },\n        \"datasetid\": \"string\",\n        \"headline\": \"string\",\n        \"name\": \"string\",\n        \"project\": false,\n        \"referent\": \"string\",\n        \"relationship\": {\n          \"contributor\": true,\n          \"liked\": true\n        },\n        \"type\": \"string\",\n        \"updated\": \"1967-04-02T19:16:12.541Z\",\n        \"userUpdated\": \"2002-01-12T20:00:46.940Z\"\n      }\n    },\n    \"groups\": {\n      \"key_0\": {\n        \"agentid\": \"string\",\n        \"description\": \"string\",\n        \"displayName\": \"string\",\n        \"groupid\": \"string\"\n      },\n      \"key_1\": {\n        \"agentid\": \"string\",\n        \"description\": \"string\",\n        \"displayName\": \"string\",\n        \"groupid\": \"string\"\n      },\n      \"key_2\": {\n        \"agentid\": \"string\",\n        \"description\": \"string\",\n        \"displayName\": \"string\",\n        \"groupid\": \"string\"\n      }\n    },\n    \"insights\": {\n      \"key_0\": {\n        \"body\": \"string\",\n        \"createdBy\": {\n          \"avatarUrl\": \"string\",\n          \"deactivated\": true,\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        },\n        \"dataSources\": [\n          \"https://cKtcDQJLOIqsku.mgj3Dxl0UirrbcoTTHPLyQNzPr\",\n          \"http://tVKKBqTswmQQHQlUUGdcWuWPxhVD.qrmA8oO8UZlQWkimnKq2bMoYWN0tuKdn.Wv\"\n        ],\n        \"dataset\": {\n          \"abstract\": \"string\",\n          \"agentid\": \"string\",\n          \"createdBy\": {\n            \"avatarUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deactivated\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"displayName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"datasetid\": \"string\",\n          \"headline\": \"string\",\n          \"name\": \"string\",\n          \"project\": true,\n          \"referent\": \"string\",\n          \"relationship\": {\n            \"contributor\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"liked\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"type\": \"string\",\n          \"updated\": \"2022-03-25T22:39:28.995Z\",\n          \"userUpdated\": \"2018-11-16T06:49:12.765Z\"\n        },\n        \"datasetid\": \"string\",\n        \"description\": \"string\",\n        \"insightid\": \"string\",\n        \"thumbnail\": \"http://iAGyspMVeQjyf.hxbTcc\",\n        \"title\": \"string\",\n        \"type\": \"string\",\n        \"updated\": \"1953-10-12T01:48:14.141Z\"\n      }\n    },\n    \"metadataResources\": {\n      \"key_0\": {\n        \"created\": \"1946-10-01T08:04:29.737Z\",\n        \"id\": \"string\",\n        \"owner\": \"string\",\n        \"visibility\": \"DISCOVERABLE\",\n        \"assetStatus\": {\n          \"assetStatusLabel\": \"string\",\n          \"dispositionLabel\": \"string\"\n        },\n        \"category\": \"string\",\n        \"collections\": [\n          {\n            \"collectionId\": \"string\",\n            \"owner\": \"string\",\n            \"referent\": \"string\"\n          },\n          {\n            \"collectionId\": \"string\",\n            \"owner\": \"string\",\n            \"referent\": \"string\"\n          }\n        ],\n        \"columnIndex\": 1191,\n        \"dataType\": \"string\",\n        \"description\": \"string\",\n        \"encodedIri\": \"string\",\n        \"externalUrls\": [\n          \"string\",\n          \"string\"\n        ],\n        \"iri\": \"string\",\n        \"properties\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"relationshipTypes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"rootParentTypeIri\": \"string\",\n        \"rootParentTypeLabel\": \"string\",\n        \"summary\": \"string\",\n        \"table\": {\n          \"owner\": \"string\",\n          \"tableId\": \"string\",\n          \"sourceId\": \"string\"\n        },\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ],\n        \"title\": \"string\",\n        \"typeIri\": \"string\",\n        \"typeLabel\": \"string\",\n        \"updated\": \"1972-04-14T13:10:42.778Z\",\n        \"url\": \"https://sLadBWuobkhAhrR.xdph9E\"\n      }\n    },\n    \"resourceHierarchy\": {\n      \"key_0\": {\n        \"key_0\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          }\n        ]\n      }\n    },\n    \"tasks\": {\n      \"key_0\": {\n        \"claimableBy\": [\n          \"string\"\n        ],\n        \"executionEngine\": \"AWS_SIMPLE_WORKFLOW\",\n        \"ownerAgentid\": \"string\",\n        \"resources\": [\n          \"string\"\n        ],\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ],\n        \"taskType\": \"string\",\n        \"type\": \"FORM\",\n        \"arguments\": {\n          \"key_0\": \"string\"\n        },\n        \"automationTaskDetails\": {\n          \"automationId\": \"7c4b8a30-f03a-e600-3f75-97e6de5ec3e8\",\n          \"submitterAgentId\": \"string\"\n        },\n        \"claimableByCurrentUser\": false,\n        \"claimedAt\": \"1988-06-27T04:52:10.880Z\",\n        \"claimedBy\": \"string\",\n        \"continuationId\": \"string\",\n        \"created\": \"1949-11-11T12:06:55.989Z\",\n        \"description\": \"string\",\n        \"endTime\": \"1966-11-18T00:25:12.705Z\",\n        \"externalFormId\": \"string\",\n        \"externalTaskId\": \"string\",\n        \"guidance\": \"string\",\n        \"jobId\": \"edc0ce40-b20f-9477-6556-483a303ad68a\",\n        \"name\": \"string\",\n        \"returnValueJson\": \"string\",\n        \"startTime\": \"2025-04-22T17:19:09.641Z\",\n        \"status\": \"CLAIMED\",\n        \"taskId\": \"35ea232a-97eb-57e9-904f-17a51238060f\",\n        \"updated\": \"2004-10-07T04:31:15.328Z\"\n      }\n    },\n    \"unknownCatalogEntry\": {\n      \"key_0\": {\n        \"agentid\": \"string\",\n        \"assetStatus\": {\n          \"assetStatusLabel\": \"string\",\n          \"dispositionLabel\": \"string\"\n        },\n        \"catalogs\": [\n          {\n            \"collectionId\": \"string\",\n            \"owner\": \"string\",\n            \"referent\": \"string\"\n          },\n          {\n            \"collectionId\": \"string\",\n            \"owner\": \"string\",\n            \"referent\": \"string\"\n          }\n        ],\n        \"createdBy\": {\n          \"avatarUrl\": \"string\",\n          \"deactivated\": false,\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        },\n        \"description\": \"string\",\n        \"entryTypeHierarchy\": [\n          {\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"instantiable\": false,\n            \"label\": \"string\",\n            \"pluralLabel\": \"string\",\n            \"requestable\": true,\n            \"type\": \"string\"\n          },\n          {\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"instantiable\": false,\n            \"label\": \"string\",\n            \"pluralLabel\": \"string\",\n            \"requestable\": false,\n            \"type\": \"string\"\n          }\n        ],\n        \"entryTypeLabel\": \"string\",\n        \"identifier\": \"string\",\n        \"referent\": \"string\",\n        \"title\": \"string\",\n        \"type\": \"string\",\n        \"updated\": \"1996-12-25T20:25:43.182Z\"\n      },\n      \"key_1\": {\n        \"agentid\": \"string\",\n        \"assetStatus\": {\n          \"assetStatusLabel\": \"string\",\n          \"dispositionLabel\": \"string\"\n        },\n        \"catalogs\": [\n          {\n            \"collectionId\": \"string\",\n            \"owner\": \"string\",\n            \"referent\": \"string\"\n          },\n          {\n            \"collectionId\": \"string\",\n            \"owner\": \"string\",\n            \"referent\": \"string\"\n          }\n        ],\n        \"createdBy\": {\n          \"avatarUrl\": \"string\",\n          \"deactivated\": false,\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        },\n        \"description\": \"string\",\n        \"entryTypeHierarchy\": [\n          {\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"instantiable\": false,\n            \"label\": \"string\",\n            \"pluralLabel\": \"string\",\n            \"requestable\": false,\n            \"type\": \"string\"\n          },\n          {\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"instantiable\": false,\n            \"label\": \"string\",\n            \"pluralLabel\": \"string\",\n            \"requestable\": true,\n            \"type\": \"string\"\n          }\n        ],\n        \"entryTypeLabel\": \"string\",\n        \"identifier\": \"string\",\n        \"referent\": \"string\",\n        \"title\": \"string\",\n        \"type\": \"string\",\n        \"updated\": \"1953-11-10T08:02:26.888Z\"\n      }\n    }\n  },\n  \"next\": \"string\",\n  \"records\": [\n    {\n      \"created\": \"1973-08-13T21:26:44.083Z\",\n      \"id\": \"string\",\n      \"owner\": \"string\",\n      \"visibility\": \"PRIVATE\",\n      \"assetStatus\": {\n        \"assetStatusLabel\": \"string\",\n        \"dispositionLabel\": \"string\"\n      },\n      \"category\": \"string\",\n      \"collections\": [\n        {\n          \"collectionId\": \"string\",\n          \"owner\": \"string\",\n          \"referent\": \"string\"\n        },\n        {\n          \"collectionId\": \"string\",\n          \"owner\": \"string\",\n          \"referent\": \"string\"\n        }\n      ],\n      \"columnIndex\": 1627,\n      \"dataType\": \"string\",\n      \"description\": \"string\",\n      \"encodedIri\": \"string\",\n      \"externalUrls\": [\n        \"string\",\n        \"string\"\n      ],\n      \"iri\": \"string\",\n      \"properties\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"relationshipTypes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"rootParentTypeIri\": \"string\",\n      \"rootParentTypeLabel\": \"string\",\n      \"summary\": \"string\",\n      \"table\": {\n        \"owner\": \"string\",\n        \"tableId\": \"string\",\n        \"sourceId\": \"string\"\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"title\": \"string\",\n      \"typeIri\": \"string\",\n      \"typeLabel\": \"string\",\n      \"updated\": \"1950-01-12T03:45:33.799Z\",\n      \"url\": \"https://GVpSqAnVrmeNHtDx.ejQM4tL-7Oi9Vf0mNsg4MaRftR5ggoj4pb9Bmvr-RwJ1Q\"\n    },\n    {\n      \"created\": \"1985-03-27T02:40:19.749Z\",\n      \"id\": \"string\",\n      \"owner\": \"string\",\n      \"visibility\": \"OPEN\",\n      \"assetStatus\": {\n        \"assetStatusLabel\": \"string\",\n        \"dispositionLabel\": \"string\"\n      },\n      \"category\": \"string\",\n      \"collections\": [\n        {\n          \"collectionId\": \"string\",\n          \"owner\": \"string\",\n          \"referent\": \"string\"\n        },\n        {\n          \"collectionId\": \"string\",\n          \"owner\": \"string\",\n          \"referent\": \"string\"\n        }\n      ],\n      \"columnIndex\": 8303,\n      \"dataType\": \"string\",\n      \"description\": \"string\",\n      \"encodedIri\": \"string\",\n      \"externalUrls\": [\n        \"string\",\n        \"string\"\n      ],\n      \"iri\": \"string\",\n      \"properties\": {\n        \"key_0\": \"string\"\n      },\n      \"relationshipTypes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"rootParentTypeIri\": \"string\",\n      \"rootParentTypeLabel\": \"string\",\n      \"summary\": \"string\",\n      \"table\": {\n        \"owner\": \"string\",\n        \"tableId\": \"string\",\n        \"sourceId\": \"string\"\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"title\": \"string\",\n      \"typeIri\": \"string\",\n      \"typeLabel\": \"string\",\n      \"updated\": \"1973-03-19T06:52:13.201Z\",\n      \"url\": \"https://oppyubMRCONBgDUe.esckYF,D65KTQMzzaQbY5Pb1X5yUoM7U7SegS3MkYboYuXXIxbINqGKBYxSEYqGJ\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "66d0a893-e077-4cab-b862-551d9e6c77be",
+          "name": "Creates a new collection",
+          "request": {
+            "name": "Creates a new collection",
+            "description": {
+              "content": "Please refer to the updated IRI-based resource endpoints.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metadata",
+                "collections",
+                ":owner"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"assetStatusIri\": \"<string>\",\n  \"description\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b27a92ef-793b-49fe-9dff-23a4122cf290",
+              "name": "Collection created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "collections",
+                    ":owner"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assetStatusIri\": \"<string>\",\n  \"description\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"uri\": \"https://ozVcqnR.drIvTwyCUmID,xAzcCj\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6e68000a-cf60-4911-a667-e0f2f7e4cb73",
+          "name": "Deletes a collection",
+          "request": {
+            "name": "Deletes a collection",
+            "description": {
+              "content": "Please refer to the updated IRI-based resource endpoints.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metadata",
+                "collections",
+                ":owner",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "edbd25ee-d99e-4909-9d97-2a84d74106aa",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "collections",
+                    ":owner",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2d38bd31-cb29-483c-bf3d-4e79cf0c18fe",
+          "name": "Gets a collection by ID",
+          "request": {
+            "name": "Gets a collection by ID",
+            "description": {
+              "content": "Please refer to the updated IRI-based resource endpoints.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metadata",
+                "collections",
+                ":owner",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "72763064-3208-4020-8792-d13d779229ab",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "collections",
+                    ":owner",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created\": \"1988-06-25T22:59:27.823Z\",\n  \"id\": \"string\",\n  \"owner\": \"string\",\n  \"visibility\": \"DISCOVERABLE\",\n  \"assetStatus\": {\n    \"assetStatusLabel\": \"string\",\n    \"dispositionLabel\": \"string\"\n  },\n  \"category\": \"string\",\n  \"collections\": [\n    {\n      \"collectionId\": \"string\",\n      \"owner\": \"string\",\n      \"referent\": \"string\"\n    },\n    {\n      \"collectionId\": \"string\",\n      \"owner\": \"string\",\n      \"referent\": \"string\"\n    }\n  ],\n  \"columnIndex\": 3792,\n  \"dataType\": \"string\",\n  \"description\": \"string\",\n  \"encodedIri\": \"string\",\n  \"externalUrls\": [\n    \"string\",\n    \"string\"\n  ],\n  \"iri\": \"string\",\n  \"properties\": {\n    \"key_0\": \"string\"\n  },\n  \"relationshipTypes\": [\n    \"string\",\n    \"string\"\n  ],\n  \"rootParentTypeIri\": \"string\",\n  \"rootParentTypeLabel\": \"string\",\n  \"summary\": \"string\",\n  \"table\": {\n    \"owner\": \"string\",\n    \"tableId\": \"string\",\n    \"sourceId\": \"string\"\n  },\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ],\n  \"title\": \"string\",\n  \"typeIri\": \"string\",\n  \"typeLabel\": \"string\",\n  \"updated\": \"1975-04-19T13:02:40.596Z\",\n  \"url\": \"https://fpwQwfVVw.doQzbOkAFtiprdnhb9Qd9cqZ,I356cHxQY60IfnSfD\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c71ef4f9-9e3a-4188-b777-51474a821f22",
+          "name": "Updates a collection",
+          "request": {
+            "name": "Updates a collection",
+            "description": {
+              "content": "Please refer to the updated IRI-based resource endpoints.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metadata",
+                "collections",
+                ":owner",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"assetStatusIri\": \"<string>\",\n  \"description\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "06a08faa-defb-464f-8cf2-6aa02a49e7e2",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "collections",
+                    ":owner",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assetStatusIri\": \"<string>\",\n  \"description\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7032babb-b6ed-445d-8497-5e3634fcf905",
+          "name": "Replaces a collection",
+          "request": {
+            "name": "Replaces a collection",
+            "description": {
+              "content": "Please refer to the updated IRI-based resource endpoints.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metadata",
+                "collections",
+                ":owner",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"assetStatusIri\": \"<string>\",\n  \"description\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0f025191-6c6e-4ef9-980f-fd9cdc665ba9",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "collections",
+                    ":owner",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assetStatusIri\": \"<string>\",\n  \"description\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a6910cff-eac4-4867-9a00-52592e6a18fc",
+    "name": "data.world Public catalog relationships legacy catalog - collections API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Manage relationships between catalog resources\n\nContact Support:\n Name: Contact Us",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "data.world Public catalog relationships users API",
+    "version": "0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve a user's profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/users/:account",
+            "params": [
+              {
+                "name": "account",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve user profile information for the specified account."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

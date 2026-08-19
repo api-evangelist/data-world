@@ -1,0 +1,685 @@
+{
+  "item": [
+    {
+      "id": "ea3a4d0d-725c-4a24-92f7-1bc0b53043e4",
+      "name": "requests - resource",
+      "description": {
+        "content": "Manage resource requests",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "21d952ab-ea74-496b-98a4-1f61019ccf5e",
+          "name": "Accept a resource request",
+          "request": {
+            "name": "Accept a resource request",
+            "description": {
+              "content": "Accept a resource request. The defined contribution or transfer will happen. For more details on resource requests, see \"Get a resource request\".",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "requests",
+                "accept"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requestid\": \"<uuid>\",\n  \"collectionIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e7db249b-365b-41a0-b1c1-7454b16fb503",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "requests",
+                    "accept"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requestid\": \"<uuid>\",\n  \"collectionIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "912a52ca-cd49-4d3c-a19c-23c0e3e3edc3",
+          "name": "Get all resource requests in an organization",
+          "request": {
+            "name": "Get all resource requests in an organization",
+            "description": {
+              "content": "Get all resource requests done to resources in an organization. For more details on resource requests, see \"Get a resource request\".",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "requests",
+                "owner",
+                ":agentid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Number of results to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "next",
+                  "value": "<string>",
+                  "description": "A token supplied by the previous response to retrieve the next page of results"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sort results by fields"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sort results by fields"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeTaskLinkedRequests",
+                  "value": "true"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "agentid",
+                  "description": "(Required) organization ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "54b9d084-2043-4945-9485-63d0b3adab22",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "requests",
+                    "owner",
+                    ":agentid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "next",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeTaskLinkedRequests",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "agentid",
+                      "description": "(Required) organization ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"consistent\": false,\n  \"count\": 9432,\n  \"hydrations\": {\n    \"agents\": {\n      \"key_0\": {\n        \"avatarUrl\": \"string\",\n        \"deactivated\": false,\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      },\n      \"key_1\": {\n        \"avatarUrl\": \"string\",\n        \"deactivated\": false,\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      },\n      \"key_2\": {\n        \"avatarUrl\": \"string\",\n        \"deactivated\": true,\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      },\n      \"key_3\": {\n        \"avatarUrl\": \"string\",\n        \"deactivated\": true,\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      }\n    },\n    \"catalogConcepts\": {\n      \"key_0\": {\n        \"altLabel\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"prefLabel\": \"string\"\n      },\n      \"key_1\": {\n        \"altLabel\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"prefLabel\": \"string\"\n      }\n    },\n    \"collections\": {\n      \"key_0\": {\n        \"description\": \"string\",\n        \"id\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"title\": \"string\"\n      }\n    },\n    \"properties\": {\n      \"key_0\": {\n        \"label\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    },\n    \"relationships\": {\n      \"key_0\": {\n        \"labels\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"key_1\": {\n        \"labels\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"key_2\": {\n        \"labels\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    },\n    \"resourceHierarchy\": {\n      \"key_0\": {\n        \"key_0\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          }\n        ],\n        \"key_1\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          }\n        ]\n      },\n      \"key_1\": {\n        \"key_0\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          }\n        ]\n      }\n    }\n  },\n  \"next\": \"string\",\n  \"records\": [\n    {\n      \"resource\": {\n        \"id\": \"string\",\n        \"owner\": \"string\",\n        \"type\": \"DATASET_INSIGHT\"\n      },\n      \"resourceRequestType\": \"TRANSFER\",\n      \"approverParty\": {\n        \"id\": \"string\"\n      },\n      \"contribution\": {\n        \"activities\": [\n          {\n            \"type\": \"AddUsesDataset\",\n            \"contributionHydratables\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"type\": \"CreateCatalogResource\",\n            \"contributionHydratables\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"activityType\": \"RELATIONSHIP\",\n        \"type\": \"METADATA\"\n      },\n      \"created\": \"2015-04-09T08:47:54.926Z\",\n      \"granteeOwner\": \"string\",\n      \"message\": \"string\",\n      \"requestId\": \"2a329395-d088-1785-bedc-56b3359516cc\",\n      \"requesterParty\": {\n        \"id\": \"string\"\n      },\n      \"transferAsset\": {\n        \"entityType\": \"string\",\n        \"iri\": \"string\",\n        \"identifier\": \"string\"\n      },\n      \"updated\": \"2016-06-07T21:18:33.501Z\"\n    },\n    {\n      \"resource\": {\n        \"id\": \"string\",\n        \"owner\": \"string\",\n        \"type\": \"METADATA_RESOURCE\"\n      },\n      \"resourceRequestType\": \"TRANSFER\",\n      \"approverParty\": {\n        \"id\": \"string\"\n      },\n      \"contribution\": {\n        \"activities\": [\n          {\n            \"type\": \"RemoveUsesDataFrom\",\n            \"contributionHydratables\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"type\": \"CreateExternalResource\",\n            \"contributionHydratables\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"activityType\": \"RELATIONSHIP\",\n        \"type\": \"METADATA\"\n      },\n      \"created\": \"2025-01-11T15:54:46.272Z\",\n      \"granteeOwner\": \"string\",\n      \"message\": \"string\",\n      \"requestId\": \"826717e2-0175-ac46-d8f5-34a640e7dff7\",\n      \"requesterParty\": {\n        \"id\": \"string\"\n      },\n      \"transferAsset\": {\n        \"entityType\": \"string\",\n        \"iri\": \"string\",\n        \"identifier\": \"string\"\n      },\n      \"updated\": \"1990-01-26T07:07:01.375Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e96d7bed-956f-49de-8b4f-52eb1af94ebb",
+          "name": "Reject a resource request",
+          "request": {
+            "name": "Reject a resource request",
+            "description": {
+              "content": "Reject a resource request. This deletes the request. For more details on resource requests, see \"Get a resource request\".",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "requests",
+                "reject"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requestid\": \"<uuid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "090a74f5-a2c1-4083-93db-77f8fcbb8220",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "requests",
+                    "reject"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requestid\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "df957cbf-f54c-4891-b6d9-97f022efe09a",
+          "name": "Create a resource request",
+          "request": {
+            "name": "Create a resource request",
+            "description": {
+              "content": "This API allows users to submit requests for modifications or contributions to dataset or metadata resources. Users can propose changes or transfers within an organization's collections, specifying details about the resource and type of request through structured parameters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "requests",
+                "suggest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"resource\": \"<object>\",\n  \"resourceRequestType\": \"<string>\",\n  \"approverParty\": {\n    \"id\": \"<string>\"\n  },\n  \"contribution\": {\n    \"activities\": [\n      {\n        \"type\": \"<string>\",\n        \"contributionHydratables\": [\n          {\n            \"entityType\": \"<string>\",\n            \"identifier\": \"<string>\",\n            \"agentId\": \"<string>\"\n          },\n          {\n            \"entityType\": \"<string>\",\n            \"identifier\": \"<string>\",\n            \"agentId\": \"<string>\"\n          }\n        ]\n      },\n      {\n        \"type\": \"<string>\",\n        \"contributionHydratables\": [\n          {\n            \"entityType\": \"<string>\",\n            \"identifier\": \"<string>\",\n            \"agentId\": \"<string>\"\n          },\n          {\n            \"entityType\": \"<string>\",\n            \"identifier\": \"<string>\",\n            \"agentId\": \"<string>\"\n          }\n        ]\n      }\n    ],\n    \"activityType\": \"<string>\",\n    \"type\": \"<string>\"\n  },\n  \"created\": \"<dateTime>\",\n  \"granteeOwner\": \"<string>\",\n  \"message\": \"<string>\",\n  \"requestId\": \"<uuid>\",\n  \"requesterParty\": {\n    \"id\": \"<string>\"\n  },\n  \"transferAsset\": {\n    \"entityType\": \"<string>\",\n    \"iri\": \"<string>\",\n    \"identifier\": \"<string>\"\n  },\n  \"updated\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "15b4ff76-90dc-4994-8ecd-c724d15c292a",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "requests",
+                    "suggest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resource\": {\n    \"id\": \"string\",\n    \"owner\": \"string\",\n    \"type\": \"COLUMN\"\n  },\n  \"resourceRequestType\": \"<string>\",\n  \"approverParty\": {\n    \"id\": \"string\"\n  },\n  \"contribution\": {\n    \"activities\": [\n      {\n        \"type\": \"SetSummary\",\n        \"contributionHydratables\": [\n          {\n            \"entityType\": \"string\",\n            \"identifier\": \"string\",\n            \"agentId\": \"string\"\n          },\n          {\n            \"entityType\": \"string\",\n            \"identifier\": \"string\",\n            \"agentId\": \"string\"\n          }\n        ]\n      },\n      {\n        \"type\": \"SetCustomStringProperty\",\n        \"contributionHydratables\": [\n          {\n            \"entityType\": \"string\",\n            \"identifier\": \"string\",\n            \"agentId\": \"string\"\n          },\n          {\n            \"entityType\": \"string\",\n            \"identifier\": \"string\",\n            \"agentId\": \"string\"\n          }\n        ]\n      }\n    ],\n    \"activityType\": \"RELATIONSHIP\",\n    \"type\": \"DATASET\"\n  },\n  \"created\": \"<dateTime>\",\n  \"granteeOwner\": \"<string>\",\n  \"message\": \"<string>\",\n  \"requestId\": \"<uuid>\",\n  \"requesterParty\": {\n    \"id\": \"string\"\n  },\n  \"transferAsset\": {\n    \"entityType\": \"string\",\n    \"iri\": \"string\",\n    \"identifier\": \"string\"\n  },\n  \"updated\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"resource\": {\n    \"id\": \"string\",\n    \"owner\": \"string\",\n    \"type\": \"METADATA_RESOURCE\"\n  },\n  \"resourceRequestType\": \"TRANSFER\",\n  \"approverParty\": {\n    \"id\": \"string\"\n  },\n  \"contribution\": {\n    \"activities\": [\n      {\n        \"type\": \"AddCustomLiteralProperty\",\n        \"contributionHydratables\": [\n          {\n            \"entityType\": \"string\",\n            \"identifier\": \"string\",\n            \"agentId\": \"string\"\n          },\n          {\n            \"entityType\": \"string\",\n            \"identifier\": \"string\",\n            \"agentId\": \"string\"\n          }\n        ]\n      },\n      {\n        \"type\": \"AddUsesDataFrom\",\n        \"contributionHydratables\": [\n          {\n            \"entityType\": \"string\",\n            \"identifier\": \"string\",\n            \"agentId\": \"string\"\n          },\n          {\n            \"entityType\": \"string\",\n            \"identifier\": \"string\",\n            \"agentId\": \"string\"\n          }\n        ]\n      }\n    ],\n    \"activityType\": \"METADATA_EDIT\",\n    \"type\": \"METADATA\"\n  },\n  \"created\": \"1995-10-18T15:11:04.281Z\",\n  \"granteeOwner\": \"string\",\n  \"message\": \"string\",\n  \"requestId\": \"298d2347-975f-0884-fca2-81bd40c35241\",\n  \"requesterParty\": {\n    \"id\": \"string\"\n  },\n  \"transferAsset\": {\n    \"entityType\": \"string\",\n    \"iri\": \"string\",\n    \"identifier\": \"string\"\n  },\n  \"updated\": \"2000-05-08T10:14:13.081Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "64969376-8291-4f32-8807-2378060a4a13",
+          "name": "Delete a resource request",
+          "request": {
+            "name": "Delete a resource request",
+            "description": {
+              "content": "Delete a resource request. For more details on resource requests, see \"Get a resource request\".",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "requests",
+                ":requestid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "requestid",
+                  "description": "(Required) ID of the request to delete."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "337ac0bc-4592-4a40-8661-aadbfa2d380c",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "requests",
+                    ":requestid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "requestid",
+                      "description": "(Required) ID of the request to delete."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3e779063-0fd7-490f-8d09-4f980f4aca5f",
+          "name": "Get a resource request",
+          "request": {
+            "name": "Get a resource request",
+            "description": {
+              "content": "Get a resource request. Request can be a contribution on a metadata resource or transfer of a metadata resource into an organization's collections.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "requests",
+                ":requestid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "requestid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3e0e3e65-f602-4147-9f8c-f40573b55b0a",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "requests",
+                    ":requestid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "requestid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"resource\": {\n    \"id\": \"string\",\n    \"owner\": \"string\",\n    \"type\": \"METADATA_RESOURCE\"\n  },\n  \"resourceRequestType\": \"TRANSFER\",\n  \"approverParty\": {\n    \"id\": \"string\"\n  },\n  \"contribution\": {\n    \"activities\": [\n      {\n        \"type\": \"AddCustomLiteralProperty\",\n        \"contributionHydratables\": [\n          {\n            \"entityType\": \"string\",\n            \"identifier\": \"string\",\n            \"agentId\": \"string\"\n          },\n          {\n            \"entityType\": \"string\",\n            \"identifier\": \"string\",\n            \"agentId\": \"string\"\n          }\n        ]\n      },\n      {\n        \"type\": \"AddUsesDataFrom\",\n        \"contributionHydratables\": [\n          {\n            \"entityType\": \"string\",\n            \"identifier\": \"string\",\n            \"agentId\": \"string\"\n          },\n          {\n            \"entityType\": \"string\",\n            \"identifier\": \"string\",\n            \"agentId\": \"string\"\n          }\n        ]\n      }\n    ],\n    \"activityType\": \"METADATA_EDIT\",\n    \"type\": \"METADATA\"\n  },\n  \"created\": \"1995-10-18T15:11:04.281Z\",\n  \"granteeOwner\": \"string\",\n  \"message\": \"string\",\n  \"requestId\": \"298d2347-975f-0884-fca2-81bd40c35241\",\n  \"requesterParty\": {\n    \"id\": \"string\"\n  },\n  \"transferAsset\": {\n    \"entityType\": \"string\",\n    \"iri\": \"string\",\n    \"identifier\": \"string\"\n  },\n  \"updated\": \"2000-05-08T10:14:13.081Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9c3895eb-db74-4c1c-8b6f-0aaacddebef5",
+    "name": "data.world Public catalog relationships requests - resource API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Manage relationships between catalog resources\n\nContact Support:\n Name: Contact Us",
+      "type": "text/plain"
+    }
+  }
+}

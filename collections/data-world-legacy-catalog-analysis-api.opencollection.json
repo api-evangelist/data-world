@@ -1,0 +1,216 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "data.world Public catalog relationships legacy catalog - analysis API",
+    "version": "0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "legacy catalog - analysis",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "suggest for an existing analysis",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/metadata/analysis/suggest/:owner/:id",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Please refer to the updated IRI-based resource endpoints."
+        },
+        {
+          "info": {
+            "name": "Gets metadata analysis by owner.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/metadata/analysis/:owner",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "typelabel",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "typeiri",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Please refer to the updated IRI-based resource endpoints."
+        },
+        {
+          "info": {
+            "name": "Create a new analysis metadata.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/metadata/analysis/:owner",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Please refer to the updated IRI-based resource endpoints."
+        },
+        {
+          "info": {
+            "name": "Get an individual metadata analysis",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/metadata/analysis/:owner/:id",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Please refer to the updated IRI-based resource endpoints."
+        },
+        {
+          "info": {
+            "name": "Replace an existing analysis",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/v0/metadata/analysis/:owner/:id",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Please refer to the updated IRI-based resource endpoints."
+        },
+        {
+          "info": {
+            "name": "Update an existing analysis.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/metadata/analysis/:owner/:id",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Please refer to the updated IRI-based resource endpoints."
+        },
+        {
+          "info": {
+            "name": "Delete an Analysis.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/metadata/analysis/:owner/:id",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Please refer to the updated IRI-based resource endpoints."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

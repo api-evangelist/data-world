@@ -1,0 +1,288 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "data.world Public catalog relationships datasets API",
+    "version": "0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "datasets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List datasets for a specified owner",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/datasets/:owner",
+            "params": [
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return"
+              },
+              {
+                "name": "next",
+                "value": "",
+                "type": "query",
+                "description": "A token supplied by the previous response to retrieve the next page of results"
+              }
+            ]
+          },
+          "docs": "List datasets that the currently authenticated user has access to, for the specified owner; when the\ndataset is open, private (but discoverable by the authenticated user) or the authenticated user is a\ncontributor with discover visibility"
+        },
+        {
+          "info": {
+            "name": "Create a dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/datasets/:owner",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new dataset."
+        },
+        {
+          "info": {
+            "name": "Retrieve a dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/datasets/:owner/:id",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a dataset. The definition of the dataset will be returned, not its data. Use\n`GET:/download/{owner}/{id}` or `GET:/file_download/{owner}/{id}/{file}` to retrieve the original files\ncontent, or `POST:/sql/{owner}/{id}` or `POST:/sparql/{owner}/{id}` to query the data."
+        },
+        {
+          "info": {
+            "name": "Create / Replace a dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/v0/datasets/:owner/:id",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or replace a dataset with a given id. If a dataset exists with the same id, this call will reset\nsuch dataset and all the data contained in it."
+        },
+        {
+          "info": {
+            "name": "Update a dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/datasets/:owner/:id",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing dataset. Only elements included in the request will be updated. All omitted elements\nwill remain untouched. Requesting change in a list replaces the entire list. Requesting an element to be\nnull deletes all values on the element."
+        },
+        {
+          "info": {
+            "name": "Delete a dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/datasets/:owner/:id",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a dataset and associated data. This operation cannot be undone, but you may recreate the dataset\nusing the same id."
+        },
+        {
+          "info": {
+            "name": "Fetch latest file from source and update dataset — via GET, for convenience.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/datasets/:owner/:id/sync/:filename",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "filename",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Fetch latest file from source and update dataset — via GET, for convenience."
+        },
+        {
+          "info": {
+            "name": "Fetch latest file from source and update dataset.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/datasets/:owner/:id/sync/:filename",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "filename",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Fetch latest file from source and update dataset."
+        },
+        {
+          "info": {
+            "name": "Retrieve a dataset version",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/datasets/:owner/:id/v/:versionId",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "versionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a version of a dataset. The definition of the dataset will be returned, not its data."
+        },
+        {
+          "info": {
+            "name": "Download a dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/download/:owner/:id",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Download a .zip file containing all files within a dataset as originally uploaded. Prefer `POST:/sql` or\n`POST:/sparql` for retrieving clean and structured data."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

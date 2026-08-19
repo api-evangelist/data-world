@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "data.world Public catalog relationships organizations API",
+    "version": "0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "organizations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Authorize a Team to access an organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/organizations/:agentid/authorizations/:teamid",
+            "params": [
+              {
+                "name": "agentid",
+                "value": "",
+                "type": "path",
+                "description": "organization agent ID"
+              },
+              {
+                "name": "teamid",
+                "value": "",
+                "type": "path",
+                "description": "team agent ID"
+              }
+            ]
+          },
+          "docs": "Authorize a Team to access an organization"
+        },
+        {
+          "info": {
+            "name": "Get organization details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/organizations/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID."
+              }
+            ]
+          },
+          "docs": "Get organization details"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

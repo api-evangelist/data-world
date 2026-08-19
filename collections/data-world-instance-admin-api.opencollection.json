@@ -1,0 +1,85 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "data.world Public catalog relationships instance admin API",
+    "version": "0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "instance admin",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a new user or update existing one",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/v0/instanceAdmin/agents/:agentid",
+            "params": [
+              {
+                "name": "agentid",
+                "value": "",
+                "type": "path",
+                "description": "agent id or username"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This operation is only usable in Private Instances and requires the instance admin role permission. See the\n[Get API Tokens](https://developer.data.world/docs/api-getting-started#/step-2-get-the-tokens) documentation\nfor more information."
+        },
+        {
+          "info": {
+            "name": "Deactivate specified agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/instanceAdmin/agents/:agentid/deactivate",
+            "params": [
+              {
+                "name": "agentid",
+                "value": "",
+                "type": "path",
+                "description": "agent id or username"
+              }
+            ]
+          },
+          "docs": "This operation is only usable in Private Instances and requires the instance admin role permission. See the\n[Get API Tokens](https://developer.data.world/docs/api-getting-started#/step-2-get-the-tokens) documentation\nfor more information."
+        },
+        {
+          "info": {
+            "name": "Reactivate specified agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/instanceAdmin/agents/:agentid/reactivate",
+            "params": [
+              {
+                "name": "agentid",
+                "value": "",
+                "type": "path",
+                "description": "agent id or username"
+              }
+            ]
+          },
+          "docs": "This operation is only usable in Private Instances and requires the instance admin role permission. See the\n[Get API Tokens](https://developer.data.world/docs/api-getting-started#/step-2-get-the-tokens) documentation\nfor more information."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

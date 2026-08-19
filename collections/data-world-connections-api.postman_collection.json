@@ -1,0 +1,941 @@
+{
+  "item": [
+    {
+      "id": "2c07d229-bf63-4306-98ee-1417bd1b9f5d",
+      "name": "connections",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "aaad54d1-253d-4f5c-b90e-82178d238241",
+          "name": "Test a connection",
+          "request": {
+            "name": "Test a connection",
+            "description": {
+              "content": "Test a virtual connection. For increased security, connection endpoints require an Enterprise Admin\nToken. This token can be found under [Advanced Settings](https://data.world/settings/advanced).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "connections",
+                "test"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"advancedProperties\": {\n    \"key_0\": \"<string>\"\n  },\n  \"credentials\": {\n    \"user\": \"<string>\",\n    \"password\": \"<string>\"\n  },\n  \"database\": \"<string>\",\n  \"host\": \"<string>\",\n  \"name\": \"<string>\",\n  \"port\": \"<integer>\",\n  \"properties\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"sshTunnel\": {\n    \"host\": \"<string>\",\n    \"user\": \"<string>\",\n    \"userKeyPair\": \"<boolean>\",\n    \"port\": \"<integer>\"\n  },\n  \"sslRequired\": \"<boolean>\",\n  \"trustedServerCertificates\": \"<string>\",\n  \"type\": \"<string>\",\n  \"usePrivateKey\": \"<boolean>\",\n  \"verifyServerCertificate\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dc47e47a-5ba1-4135-92b6-53a534a4e490",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "connections",
+                    "test"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"advancedProperties\": {\n    \"key_0\": \"<string>\"\n  },\n  \"credentials\": {\n    \"user\": \"johnsmith\",\n    \"password\": \"!AdHJfGgd@3#\"\n  },\n  \"database\": \"schemadw\",\n  \"host\": \"dwserver.thinktank.com\",\n  \"name\": \"Humanitarian_Aid\",\n  \"port\": 5432,\n  \"properties\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"sshTunnel\": {\n    \"host\": \"passthru.tunnel.ca\",\n    \"user\": \"johnsmith\",\n    \"userKeyPair\": true,\n    \"port\": 3454\n  },\n  \"sslRequired\": true,\n  \"trustedServerCertificates\": \"<string>\",\n  \"type\": \"ATHENA\",\n  \"usePrivateKey\": \"<boolean>\",\n  \"verifyServerCertificate\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cleanupStarted\": true,\n  \"cleanupSuccess\": true,\n  \"configureStarted\": false,\n  \"configureSuccess\": false,\n  \"connectHost\": \"string\",\n  \"connectStarted\": true,\n  \"connectSuccess\": true,\n  \"done\": false,\n  \"elapsed\": 37.48062295946375,\n  \"errorMessage\": \"string\",\n  \"internalError\": false,\n  \"queryStarted\": true,\n  \"querySuccess\": false,\n  \"queryText\": \"string\",\n  \"serverDescription\": \"string\",\n  \"serverType\": \"SNOWFLAKE\",\n  \"sslCertificateChain\": [\n    \"string\",\n    \"string\"\n  ],\n  \"sslCertificateNameProblem\": false,\n  \"sslCertificateTrustPathProblem\": false,\n  \"sslNotSupported\": false,\n  \"success\": true,\n  \"tunnelHost\": \"string\",\n  \"tunnelStarted\": true,\n  \"tunnelSuccess\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6cd1d97e-28d1-4912-a5b7-602a38287ace",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "connections",
+                    "test"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"advancedProperties\": {\n    \"key_0\": \"<string>\"\n  },\n  \"credentials\": {\n    \"user\": \"johnsmith\",\n    \"password\": \"!AdHJfGgd@3#\"\n  },\n  \"database\": \"schemadw\",\n  \"host\": \"dwserver.thinktank.com\",\n  \"name\": \"Humanitarian_Aid\",\n  \"port\": 5432,\n  \"properties\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"sshTunnel\": {\n    \"host\": \"passthru.tunnel.ca\",\n    \"user\": \"johnsmith\",\n    \"userKeyPair\": true,\n    \"port\": 3454\n  },\n  \"sslRequired\": true,\n  \"trustedServerCertificates\": \"<string>\",\n  \"type\": \"ATHENA\",\n  \"usePrivateKey\": \"<boolean>\",\n  \"verifyServerCertificate\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5483,\n  \"details\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "350a53d9-a32b-444b-b44f-eb3e15731d15",
+              "name": "User is unauthorized to perform action",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "connections",
+                    "test"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"advancedProperties\": {\n    \"key_0\": \"<string>\"\n  },\n  \"credentials\": {\n    \"user\": \"johnsmith\",\n    \"password\": \"!AdHJfGgd@3#\"\n  },\n  \"database\": \"schemadw\",\n  \"host\": \"dwserver.thinktank.com\",\n  \"name\": \"Humanitarian_Aid\",\n  \"port\": 5432,\n  \"properties\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"sshTunnel\": {\n    \"host\": \"passthru.tunnel.ca\",\n    \"user\": \"johnsmith\",\n    \"userKeyPair\": true,\n    \"port\": 3454\n  },\n  \"sslRequired\": true,\n  \"trustedServerCertificates\": \"<string>\",\n  \"type\": \"ATHENA\",\n  \"usePrivateKey\": \"<boolean>\",\n  \"verifyServerCertificate\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5483,\n  \"details\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0d7381ab-b05a-4337-b096-fbdc21938515",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "connections",
+                    "test"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"advancedProperties\": {\n    \"key_0\": \"<string>\"\n  },\n  \"credentials\": {\n    \"user\": \"johnsmith\",\n    \"password\": \"!AdHJfGgd@3#\"\n  },\n  \"database\": \"schemadw\",\n  \"host\": \"dwserver.thinktank.com\",\n  \"name\": \"Humanitarian_Aid\",\n  \"port\": 5432,\n  \"properties\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"sshTunnel\": {\n    \"host\": \"passthru.tunnel.ca\",\n    \"user\": \"johnsmith\",\n    \"userKeyPair\": true,\n    \"port\": 3454\n  },\n  \"sslRequired\": true,\n  \"trustedServerCertificates\": \"<string>\",\n  \"type\": \"ATHENA\",\n  \"usePrivateKey\": \"<boolean>\",\n  \"verifyServerCertificate\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5483,\n  \"details\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f0fd7f48-8480-47ab-a751-2d8169f006ea",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "connections",
+                    "test"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"advancedProperties\": {\n    \"key_0\": \"<string>\"\n  },\n  \"credentials\": {\n    \"user\": \"johnsmith\",\n    \"password\": \"!AdHJfGgd@3#\"\n  },\n  \"database\": \"schemadw\",\n  \"host\": \"dwserver.thinktank.com\",\n  \"name\": \"Humanitarian_Aid\",\n  \"port\": 5432,\n  \"properties\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"sshTunnel\": {\n    \"host\": \"passthru.tunnel.ca\",\n    \"user\": \"johnsmith\",\n    \"userKeyPair\": true,\n    \"port\": 3454\n  },\n  \"sslRequired\": true,\n  \"trustedServerCertificates\": \"<string>\",\n  \"type\": \"ATHENA\",\n  \"usePrivateKey\": \"<boolean>\",\n  \"verifyServerCertificate\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5483,\n  \"details\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "23722ed3-06e4-4b38-9862-c5b4c3ac7b74",
+              "name": "Unable to parse request. URLs provided must be fully-formed http or https URLs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "connections",
+                    "test"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"advancedProperties\": {\n    \"key_0\": \"<string>\"\n  },\n  \"credentials\": {\n    \"user\": \"johnsmith\",\n    \"password\": \"!AdHJfGgd@3#\"\n  },\n  \"database\": \"schemadw\",\n  \"host\": \"dwserver.thinktank.com\",\n  \"name\": \"Humanitarian_Aid\",\n  \"port\": 5432,\n  \"properties\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"sshTunnel\": {\n    \"host\": \"passthru.tunnel.ca\",\n    \"user\": \"johnsmith\",\n    \"userKeyPair\": true,\n    \"port\": 3454\n  },\n  \"sslRequired\": true,\n  \"trustedServerCertificates\": \"<string>\",\n  \"type\": \"ATHENA\",\n  \"usePrivateKey\": \"<boolean>\",\n  \"verifyServerCertificate\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5483,\n  \"details\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8a9561f8-78d2-4f91-a675-63ae0b0cace1",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "connections",
+                    "test"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"advancedProperties\": {\n    \"key_0\": \"<string>\"\n  },\n  \"credentials\": {\n    \"user\": \"johnsmith\",\n    \"password\": \"!AdHJfGgd@3#\"\n  },\n  \"database\": \"schemadw\",\n  \"host\": \"dwserver.thinktank.com\",\n  \"name\": \"Humanitarian_Aid\",\n  \"port\": 5432,\n  \"properties\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"sshTunnel\": {\n    \"host\": \"passthru.tunnel.ca\",\n    \"user\": \"johnsmith\",\n    \"userKeyPair\": true,\n    \"port\": 3454\n  },\n  \"sslRequired\": true,\n  \"trustedServerCertificates\": \"<string>\",\n  \"type\": \"ATHENA\",\n  \"usePrivateKey\": \"<boolean>\",\n  \"verifyServerCertificate\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5483,\n  \"details\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "59ff6453-2ab9-4af8-ba32-6d379e3f00a4",
+          "name": "Get connections by owner",
+          "request": {
+            "name": "Get connections by owner",
+            "description": {
+              "content": "Get a list of configured virtual connections by owner. For increased security, connection\nendpoints require an Enterprise Admin Token. This token can be found under\n[Advanced Settings](https://data.world/settings/advanced).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "connections",
+                ":owner"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "0"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d005d0e8-b877-49ea-a0df-7df75468a509",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "connections",
+                    ":owner"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "10"
+                    },
+                    {
+                      "key": "from",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 2762,\n  \"records\": [\n    {\n      \"advancedProperties\": {\n        \"key_0\": \"string\"\n      },\n      \"credentials\": {\n        \"user\": \"johnsmith\",\n        \"password\": \"!AdHJfGgd@3#\"\n      },\n      \"database\": \"schemadw\",\n      \"host\": \"dwserver.thinktank.com\",\n      \"name\": \"Humanitarian_Aid\",\n      \"port\": 5432,\n      \"properties\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"sshTunnel\": {\n        \"host\": \"passthru.tunnel.ca\",\n        \"user\": \"johnsmith\",\n        \"userKeyPair\": true,\n        \"port\": 3454\n      },\n      \"sslRequired\": true,\n      \"trustedServerCertificates\": \"string\",\n      \"type\": \"ATHENA\",\n      \"usePrivateKey\": true,\n      \"verifyServerCertificate\": true\n    },\n    {\n      \"advancedProperties\": {\n        \"key_0\": \"string\"\n      },\n      \"credentials\": {\n        \"user\": \"johnsmith\",\n        \"password\": \"!AdHJfGgd@3#\"\n      },\n      \"database\": \"schemadw\",\n      \"host\": \"dwserver.thinktank.com\",\n      \"name\": \"Humanitarian_Aid\",\n      \"port\": 5432,\n      \"properties\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"sshTunnel\": {\n        \"host\": \"passthru.tunnel.ca\",\n        \"user\": \"johnsmith\",\n        \"userKeyPair\": true,\n        \"port\": 3454\n      },\n      \"sslRequired\": true,\n      \"trustedServerCertificates\": \"string\",\n      \"type\": \"ATHENA\",\n      \"usePrivateKey\": false,\n      \"verifyServerCertificate\": true\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "107e2aa2-0f0f-46eb-8306-dc244db289bd",
+          "name": "Create a new connection",
+          "request": {
+            "name": "Create a new connection",
+            "description": {
+              "content": "Create a new virtual connection. For increased security, connection endpoints require an Enterprise Admin\nToken. This token can be found under [Advanced Settings](https://data.world/settings/advanced).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "connections",
+                ":owner"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "validate",
+                  "value": "true",
+                  "description": "Validate connection before save"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"advancedProperties\": {\n    \"key_0\": \"<string>\"\n  },\n  \"credentials\": {\n    \"user\": \"<string>\",\n    \"password\": \"<string>\"\n  },\n  \"database\": \"<string>\",\n  \"host\": \"<string>\",\n  \"name\": \"<string>\",\n  \"port\": \"<integer>\",\n  \"properties\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"sshTunnel\": {\n    \"host\": \"<string>\",\n    \"user\": \"<string>\",\n    \"userKeyPair\": \"<boolean>\",\n    \"port\": \"<integer>\"\n  },\n  \"sslRequired\": \"<boolean>\",\n  \"trustedServerCertificates\": \"<string>\",\n  \"type\": \"<string>\",\n  \"usePrivateKey\": \"<boolean>\",\n  \"verifyServerCertificate\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3fe16e2c-5460-4355-990f-17e2e52d6cf2",
+              "name": "Connection created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "connections",
+                    ":owner"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "validate",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"advancedProperties\": {\n    \"key_0\": \"<string>\"\n  },\n  \"credentials\": {\n    \"user\": \"johnsmith\",\n    \"password\": \"!AdHJfGgd@3#\"\n  },\n  \"database\": \"schemadw\",\n  \"host\": \"dwserver.thinktank.com\",\n  \"name\": \"Humanitarian_Aid\",\n  \"port\": 5432,\n  \"properties\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"sshTunnel\": {\n    \"host\": \"passthru.tunnel.ca\",\n    \"user\": \"johnsmith\",\n    \"userKeyPair\": true,\n    \"port\": 3454\n  },\n  \"sslRequired\": true,\n  \"trustedServerCertificates\": \"<string>\",\n  \"type\": \"ATHENA\",\n  \"usePrivateKey\": \"<boolean>\",\n  \"verifyServerCertificate\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"uri\": \"http://ZBiQaGsCob.yqbxKfUx5EBTCuSj7DvLcBdKnPdL6XpNIBeLUczfZvHpzURRT5k\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "46a275b0-369d-4129-a5e2-dd47e113575f",
+          "name": "Delete a Connection",
+          "request": {
+            "name": "Delete a Connection",
+            "description": {
+              "content": "Delete a Connection. For increased security, connection endpoints require an Enterprise Admin Token. This\ntoken can be found under [Advanced Settings](https://data.world/settings/advanced).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "connections",
+                ":owner",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7dd487ac-32e6-4485-8bce-3297545c65a9",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "connections",
+                    ":owner",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "32b51c02-d694-4603-8ed7-2a49042763a3",
+          "name": "Get an individual connection",
+          "request": {
+            "name": "Get an individual connection",
+            "description": {
+              "content": "Get details for an individual virtual connection. For increased security, connection endpoints require an\nEnterprise Admin Token. This token can be found under\n[Advanced Settings](https://data.world/settings/advanced).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "connections",
+                ":owner",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8ae76aa0-dd33-490f-9d17-daf57dd87760",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "connections",
+                    ":owner",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"advancedProperties\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"credentials\": {\n    \"user\": \"johnsmith\",\n    \"password\": \"!AdHJfGgd@3#\"\n  },\n  \"database\": \"schemadw\",\n  \"host\": \"dwserver.thinktank.com\",\n  \"name\": \"Humanitarian_Aid\",\n  \"port\": 5432,\n  \"properties\": {\n    \"key_0\": \"string\"\n  },\n  \"sshTunnel\": {\n    \"host\": \"passthru.tunnel.ca\",\n    \"user\": \"johnsmith\",\n    \"userKeyPair\": true,\n    \"port\": 3454\n  },\n  \"sslRequired\": true,\n  \"trustedServerCertificates\": \"string\",\n  \"type\": \"ATHENA\",\n  \"usePrivateKey\": false,\n  \"verifyServerCertificate\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "26802109-b7f8-4b7a-9ed6-2edafcc4d96b",
+    "name": "data.world Public catalog relationships connections API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Manage relationships between catalog resources\n\nContact Support:\n Name: Contact Us",
+      "type": "text/plain"
+    }
+  }
+}

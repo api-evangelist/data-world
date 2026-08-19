@@ -1,0 +1,52 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "data.world Public catalog relationships telemetry API",
+    "version": "0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "telemetry",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get governance billing query result",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/telemetry/governanceBilling",
+            "params": [
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sampleData",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "catalog",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "This endpoint executes query against ddw-catalogs to get data from governance billing."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

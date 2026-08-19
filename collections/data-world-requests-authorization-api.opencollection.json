@@ -1,0 +1,109 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "data.world Public catalog relationships requests - authorization API",
+    "version": "0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "requests - authorization",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create an authorization request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/requests/auth",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a request asking for access against a dataset. A request can ask the resource admin for permission to access a resource. It may also be an invitation from the resource admin to give others access to a resource."
+        },
+        {
+          "info": {
+            "name": "Accept an authorization request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/requests/auth/accept",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Accept an authorization request. This will give the grantee access to the resource. For more details about authorization request, see \"Create an authorization request\"."
+        },
+        {
+          "info": {
+            "name": "Get authorization requests that can be approved/rejected",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/requests/auth/approver",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return"
+              },
+              {
+                "name": "next",
+                "value": "",
+                "type": "query",
+                "description": "A token supplied by the previous response to retrieve the next page of results"
+              }
+            ]
+          },
+          "docs": "Get a list of authorization requests that can be approved or rejected by the user. For more details about authorization request, see \"Create an authorization request\"."
+        },
+        {
+          "info": {
+            "name": "Delete an authorization request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/requests/auth/delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Delete an authorization request. This will delete the request. The grantee will not receive any access to the resource. For more details about authorization request, see \"Create an authorization request\"."
+        },
+        {
+          "info": {
+            "name": "Reject an authorization request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/requests/auth/reject",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Reject an authorization request. This will delete the request. The grantee will not receive any access to the resource. For more details about authorization request, see \"Create an authorization request\"."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

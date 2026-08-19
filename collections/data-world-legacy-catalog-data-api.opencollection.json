@@ -1,0 +1,595 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "data.world Public catalog relationships legacy catalog - data API",
+    "version": "0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "legacy catalog - data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "suggest for an existing table.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/metadata/data/sources/suggest/:owner/:sourceid/tables/:tableid",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path",
+                "description": "id of the user or organization"
+              },
+              {
+                "name": "sourceid",
+                "value": "",
+                "type": "path",
+                "description": "database source id"
+              },
+              {
+                "name": "tableid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Please refer to the updated IRI-based resource endpoints."
+        },
+        {
+          "info": {
+            "name": "Gets datasources by owner.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/metadata/data/sources/:owner",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path",
+                "description": "id of the user or organization"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Please refer to the updated IRI-based resource endpoints."
+        },
+        {
+          "info": {
+            "name": "Get an individual datasource metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/metadata/data/sources/:owner/:sourceid",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path",
+                "description": "id of the user or organization"
+              },
+              {
+                "name": "sourceid",
+                "value": "",
+                "type": "path",
+                "description": "database source id"
+              }
+            ]
+          },
+          "docs": "Please refer to the updated IRI-based resource endpoints."
+        },
+        {
+          "info": {
+            "name": "Get tables for a data source",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/metadata/data/sources/:owner/:sourceid/tables",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path",
+                "description": "id of the user or organization"
+              },
+              {
+                "name": "sourceid",
+                "value": "",
+                "type": "path",
+                "description": "database source id"
+              },
+              {
+                "name": "typelabel",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "typeiri",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Please refer to the updated IRI-based resource endpoints."
+        },
+        {
+          "info": {
+            "name": "Create a new table metadata.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/metadata/data/sources/:owner/:sourceid/tables",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path",
+                "description": "id of the user or organization"
+              },
+              {
+                "name": "sourceid",
+                "value": "",
+                "type": "path",
+                "description": "database source id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Please refer to the updated IRI-based resource endpoints."
+        },
+        {
+          "info": {
+            "name": "Update an existing table identified by IRI.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/metadata/data/sources/:owner/:sourceid/tables/iri/:tableiri",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path",
+                "description": "id of the user or organization"
+              },
+              {
+                "name": "sourceid",
+                "value": "",
+                "type": "path",
+                "description": "database source id"
+              },
+              {
+                "name": "tableiri",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Please refer to the updated IRI-based resource endpoints."
+        },
+        {
+          "info": {
+            "name": "Get an individual table metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/metadata/data/sources/:owner/:sourceid/tables/:tableid",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path",
+                "description": "id of the user or organization"
+              },
+              {
+                "name": "sourceid",
+                "value": "",
+                "type": "path",
+                "description": "database source id"
+              },
+              {
+                "name": "tableid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "schema",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Please refer to the updated IRI-based resource endpoints."
+        },
+        {
+          "info": {
+            "name": "Replace an existing table",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/v0/metadata/data/sources/:owner/:sourceid/tables/:tableid",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path",
+                "description": "id of the user or organization"
+              },
+              {
+                "name": "sourceid",
+                "value": "",
+                "type": "path",
+                "description": "database source id"
+              },
+              {
+                "name": "tableid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Please refer to the updated IRI-based resource endpoints."
+        },
+        {
+          "info": {
+            "name": "Update an existing table.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/metadata/data/sources/:owner/:sourceid/tables/:tableid",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path",
+                "description": "id of the user or organization"
+              },
+              {
+                "name": "sourceid",
+                "value": "",
+                "type": "path",
+                "description": "database source id"
+              },
+              {
+                "name": "tableid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "schema",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Please refer to the updated IRI-based resource endpoints."
+        },
+        {
+          "info": {
+            "name": "Delete a table.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/metadata/data/sources/:owner/:sourceid/tables/:tableid",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path",
+                "description": "id of the user or organization"
+              },
+              {
+                "name": "sourceid",
+                "value": "",
+                "type": "path",
+                "description": "database source id"
+              },
+              {
+                "name": "tableid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Please refer to the updated IRI-based resource endpoints."
+        },
+        {
+          "info": {
+            "name": "Get columns for a given table",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/metadata/data/sources/:owner/:sourceid/tables/:tableid/columns",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path",
+                "description": "id of the user or organization"
+              },
+              {
+                "name": "sourceid",
+                "value": "",
+                "type": "path",
+                "description": "database source id"
+              },
+              {
+                "name": "tableid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Please refer to the updated IRI-based resource endpoints."
+        },
+        {
+          "info": {
+            "name": "Create a Column.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/metadata/data/sources/:owner/:sourceid/tables/:tableid/columns",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path",
+                "description": "id of the user or organization"
+              },
+              {
+                "name": "sourceid",
+                "value": "",
+                "type": "path",
+                "description": "database source id"
+              },
+              {
+                "name": "tableid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Please refer to the updated IRI-based resource endpoints."
+        },
+        {
+          "info": {
+            "name": "Get an individual column metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/metadata/data/sources/:owner/:sourceid/tables/:tableid/columns/:columnid",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path",
+                "description": "id of the user or organization"
+              },
+              {
+                "name": "sourceid",
+                "value": "",
+                "type": "path",
+                "description": "database source id"
+              },
+              {
+                "name": "tableid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "columnid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Please refer to the updated IRI-based resource endpoints."
+        },
+        {
+          "info": {
+            "name": "Replace an existing column",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/v0/metadata/data/sources/:owner/:sourceid/tables/:tableid/columns/:columnid",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path",
+                "description": "id of the user or organization"
+              },
+              {
+                "name": "sourceid",
+                "value": "",
+                "type": "path",
+                "description": "database source id"
+              },
+              {
+                "name": "tableid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "columnid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Please refer to the updated IRI-based resource endpoints."
+        },
+        {
+          "info": {
+            "name": "Update an existing Column.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/metadata/data/sources/:owner/:sourceid/tables/:tableid/columns/:columnid",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path",
+                "description": "id of the user or organization"
+              },
+              {
+                "name": "sourceid",
+                "value": "",
+                "type": "path",
+                "description": "database source id"
+              },
+              {
+                "name": "tableid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "columnid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Please refer to the updated IRI-based resource endpoints."
+        },
+        {
+          "info": {
+            "name": "Delete a Column.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/metadata/data/sources/:owner/:sourceid/tables/:tableid/columns/:columnid",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path",
+                "description": "id of the user or organization"
+              },
+              {
+                "name": "sourceid",
+                "value": "",
+                "type": "path",
+                "description": "database source id"
+              },
+              {
+                "name": "tableid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "columnid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Please refer to the updated IRI-based resource endpoints."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

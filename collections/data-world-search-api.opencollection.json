@@ -1,0 +1,98 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "data.world Public catalog relationships search API",
+    "version": "0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Advanced search on resources",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/search",
+            "params": [
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "hydration",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Advanced search on resources"
+        },
+        {
+          "info": {
+            "name": "Simple search on resources",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/search/resources",
+            "params": [
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "hydration",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Simple search is a light weight API implementation exposing similar search capabilities as our main\nplatform search UI.\n\nBy default, the search response will return mixed result types including metadata resources, datasets,\nprojects, queries, insights, tables, and comments.\n\nA free-text search term is required. Simple search does not support complex keyword or logical operator\ngrammar.  Light weight filters for resource owner and resource category are supported. You may optionally\nspecify the in"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

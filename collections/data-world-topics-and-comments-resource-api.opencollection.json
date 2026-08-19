@@ -1,0 +1,364 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "data.world Public catalog relationships topics and comments - resource API",
+    "version": "0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "topics and comments - resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a new topic",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/topics",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This API allows users to initiate a new topic for discussions and comments. To create a topic, the user must have access to the resource."
+        },
+        {
+          "info": {
+            "name": "Get recently updated comments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/topics/comments/recent",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to reduce the result set by owner who created it"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to return number of matched comments with limit of 100 and default size of 5"
+              }
+            ]
+          },
+          "docs": "This API retrieves recently updated comments that are open and discoverable. Users can filter results by the owner's ID and specify the number of comments to fetch, with a limit of 100 and a default of 5."
+        },
+        {
+          "info": {
+            "name": "Get active topics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/topics/hot",
+            "params": [
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to return number of found hot topics with limit of 100 and default size of 5"
+              }
+            ]
+          },
+          "docs": "This API allows users to access trending topics determined by their level of activity. Users can specify the number of topics to retrieve per request, with a maximum limit of 1000 topics. If the number is not specified, it defaults to 10."
+        },
+        {
+          "info": {
+            "name": "Get topics for an owner and optional resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/topics/:owner",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "insightUuid",
+                "value": "",
+                "type": "query",
+                "description": "The parameter requires datasetId to be provided."
+              },
+              {
+                "name": "iri",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Size of page to fetch"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Result number to start fetch from (not the page number to start from)"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort results by fields"
+              }
+            ]
+          },
+          "docs": "Retrieve open and discoverable topics associated with a specific owner. If an optional resource is provided in the query parameter, this will retrieve topics for the resource that is owned by the owner. To reference a dataset insight, both `datasetId` and `insightUuid` should be provided. To reference a metadata resource, `iri` should be provided.\"\n"
+        },
+        {
+          "info": {
+            "name": "Get a topic",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/topics/:owner/:topicUuid",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "topicUuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Access an individual topic using this API by providing the owner's identifier and the unique topic UUID. This API ensures user permissions are validated for visibility and access to the specified topic."
+        },
+        {
+          "info": {
+            "name": "Update an existing topic",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/v0/topics/:owner/:topicUuid",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "topicUuid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This API enables users to modify details of a topic they have access to, identified by the owner's ID and the topic's UUID. This PUT request ensures that all changes comply with the required access permissions and topic visibility settings."
+        },
+        {
+          "info": {
+            "name": "Delete an existing topic",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/topics/:owner/:topicUuid",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "topicUuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "This API allows users to remove a topic they have permission to access, specified by the owner's ID and the topic's UUID. This DELETE request ensures the topic is successfully deleted if access criteria are met."
+        },
+        {
+          "info": {
+            "name": "Get comments for a topic",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/topics/:owner/:topicUuid/comments",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "topicUuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Size of page to fetch"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Result number to start fetch from (not the page number to start from)"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort results by fields"
+              }
+            ]
+          },
+          "docs": "This API allows users to retrieve comments for a specific topic they have access to, identified by the owner's ID and the topic's UUID. Users can control the number of comments returned, with options to sort and paginate results."
+        },
+        {
+          "info": {
+            "name": "Create a comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/topics/:owner/:topicUuid/comments",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "topicUuid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This API enables users to add a comment to a specific topic, provided they have access permissions. This POST request requires the owner's ID and the topic's UUID, along with the comment content, to successfully create and store the comment."
+        },
+        {
+          "info": {
+            "name": "Get a comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/topics/:owner/:topicUuid/comments/:commentid",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "topicUuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "commentid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "This API allows users to access a specific comment within a topic, provided they have the necessary access permissions. This GET request requires the owner's ID and the topic's UUID to retrieve the comment details."
+        },
+        {
+          "info": {
+            "name": "Update an existing comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/v0/topics/:owner/:topicUuid/comments/:commentid",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "topicUuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "commentid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This API allows users to modify the content of a comment within a topic, provided they have the necessary permissions. By using a PUT request with the owner's ID, topic's UUID, and comment ID, users can update the comment's details effectively."
+        },
+        {
+          "info": {
+            "name": "Delete an existing comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/topics/:owner/:topicUuid/comments/:commentid",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "topicUuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "commentid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "This API allows users to remove a comment from a topic, provided they have access rights. This DELETE request requires the owner's ID, topic's UUID, and the comment ID to successfully execute the deletion."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

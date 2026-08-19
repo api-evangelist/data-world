@@ -1,0 +1,52 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "data.world Public catalog relationships legacy catalog - properties API",
+    "version": "0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "legacy catalog - properties",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get supported metadata properties by owner",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/properties/:owner",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "categorylabel",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "typelabel",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get supported metadata properties by owner.\n\nThis endpoint can be used to obtain a reference list of supported custom metadata properties for your\norganization's catalog. Custom properties for resources in your catalog require an ApiBinding to be\nconfigured for use in the public API. For more information about how to correctly configure ApiBindings,\nplease reach out to your data.world support representative or message help@data.world."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

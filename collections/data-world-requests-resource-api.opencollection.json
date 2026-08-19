@@ -1,0 +1,148 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "data.world Public catalog relationships requests - resource API",
+    "version": "0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "requests - resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Accept a resource request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/requests/accept",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Accept a resource request. The defined contribution or transfer will happen. For more details on resource requests, see \"Get a resource request\"."
+        },
+        {
+          "info": {
+            "name": "Get all resource requests in an organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/requests/owner/:agentid",
+            "params": [
+              {
+                "name": "agentid",
+                "value": "",
+                "type": "path",
+                "description": "organization ID"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return"
+              },
+              {
+                "name": "next",
+                "value": "",
+                "type": "query",
+                "description": "A token supplied by the previous response to retrieve the next page of results"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort results by fields"
+              },
+              {
+                "name": "includeTaskLinkedRequests",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get all resource requests done to resources in an organization. For more details on resource requests, see \"Get a resource request\"."
+        },
+        {
+          "info": {
+            "name": "Reject a resource request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/requests/reject",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Reject a resource request. This deletes the request. For more details on resource requests, see \"Get a resource request\"."
+        },
+        {
+          "info": {
+            "name": "Create a resource request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/requests/suggest",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This API allows users to submit requests for modifications or contributions to dataset or metadata resources. Users can propose changes or transfers within an organization's collections, specifying details about the resource and type of request through structured parameters."
+        },
+        {
+          "info": {
+            "name": "Get a resource request",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/requests/:requestid",
+            "params": [
+              {
+                "name": "requestid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a resource request. Request can be a contribution on a metadata resource or transfer of a metadata resource into an organization's collections."
+        },
+        {
+          "info": {
+            "name": "Delete a resource request",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/requests/:requestid",
+            "params": [
+              {
+                "name": "requestid",
+                "value": "",
+                "type": "path",
+                "description": "ID of the request to delete."
+              }
+            ]
+          },
+          "docs": "Delete a resource request. For more details on resource requests, see \"Get a resource request\"."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

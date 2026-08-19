@@ -1,0 +1,270 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "data.world Public catalog relationships projects API",
+    "version": "0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "projects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List projects for a specified owner",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/projects/:owner",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return"
+              },
+              {
+                "name": "next",
+                "value": "",
+                "type": "query",
+                "description": "A token supplied by the previous response to retrieve the next page of results"
+              }
+            ]
+          },
+          "docs": "List projects that the currently authenticated user has access to, for the specified owner; when the\nproject is open, or when project is private but has view/edit/manage permissions for the authenticated user"
+        },
+        {
+          "info": {
+            "name": "Create a data project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/projects/:owner",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new project."
+        },
+        {
+          "info": {
+            "name": "Retrieve a data project",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/projects/:owner/:id",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a project. The definition of the project will be returned, not the associated data. Use\n`POST:/sql/{owner}/{id}` or `POST:/sparql/{owner}/{id}` to query the data or use dataset APIs to retrieve\ndata from linked datasets."
+        },
+        {
+          "info": {
+            "name": "Create / Replace a data project",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/v0/projects/:owner/:id",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or replace a project with a given id. If a project exists with the same id, this call will reset\nsuch project redefining all its attributes."
+        },
+        {
+          "info": {
+            "name": "Update a data project",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/projects/:owner/:id",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing project. Only elements included in the request will be updated. All omitted elements\nwill remain untouched. Requesting change in a list replaces the entire list. Requesting an element to be\nnull deletes all values on the element."
+        },
+        {
+          "info": {
+            "name": "Delete a data project",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/projects/:owner/:id",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a project and associated data. This operation cannot be undone, but you may recreate the project\nusing the same id."
+        },
+        {
+          "info": {
+            "name": "Link dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/v0/projects/:owner/:id/linkedDatasets/:linkedDatasetOwner/:linkedDatasetId",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "linkedDatasetOwner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "linkedDatasetId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Add a linked dataset to a project."
+        },
+        {
+          "info": {
+            "name": "Unlink dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/projects/:owner/:id/linkedDatasets/:linkedDatasetOwner/:linkedDatasetId",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "linkedDatasetOwner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "linkedDatasetId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Remove a linked dataset from a project."
+        },
+        {
+          "info": {
+            "name": "Retrieve a data project version",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/projects/:owner/:id/v/:versionId",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "versionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a project version. The definition of the project will be returned."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,179 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "data.world Public catalog relationships legacy catalog - collections API",
+    "version": "0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "legacy catalog - collections",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Gets collections owned by specified owner",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/metadata/collections/:owner",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Please refer to the updated IRI-based resource endpoints."
+        },
+        {
+          "info": {
+            "name": "Creates a new collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/metadata/collections/:owner",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Please refer to the updated IRI-based resource endpoints."
+        },
+        {
+          "info": {
+            "name": "Gets a collection by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/metadata/collections/:owner/:id",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Please refer to the updated IRI-based resource endpoints."
+        },
+        {
+          "info": {
+            "name": "Replaces a collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/v0/metadata/collections/:owner/:id",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Please refer to the updated IRI-based resource endpoints."
+        },
+        {
+          "info": {
+            "name": "Updates a collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/metadata/collections/:owner/:id",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Please refer to the updated IRI-based resource endpoints."
+        },
+        {
+          "info": {
+            "name": "Deletes a collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/metadata/collections/:owner/:id",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Please refer to the updated IRI-based resource endpoints."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

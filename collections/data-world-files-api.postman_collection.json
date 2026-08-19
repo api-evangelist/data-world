@@ -1,0 +1,1540 @@
+{
+  "item": [
+    {
+      "id": "e80d5ed9-8502-4ed6-b71c-c244d87e0160",
+      "name": "files",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b5785704-79d9-4887-88cd-06cd1b7715bc",
+          "name": "Delete files",
+          "request": {
+            "name": "Delete files",
+            "description": {
+              "content": "Delete one or more files from a dataset.\n\n**Batching**\nNote that the `name` parameter can be include multiple times in the query string, once for each file that is to be deleted together in a single request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "datasets",
+                ":owner",
+                ":id",
+                "files"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "79c623c9-535a-4a8c-ae35-9f7040091885",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets",
+                    ":owner",
+                    ":id",
+                    "files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1644ade2-25c2-4c8a-82e8-7531210dcd9a",
+          "name": "Add files from URLs",
+          "request": {
+            "name": "Add files from URLs",
+            "description": {
+              "content": "Add files from URLs to a dataset. This method allows files published on the web to be added to a\ndata.world dataset via their URL. This method can also be used to retrieve data via web APIs, with\nadvanced options for http method, request payload and authentication.\n\nThe source URL will be stored so you can easily update your file anytime it changes via the *fetch latest*\nlink on the [data.world](https://data.world/) dataset page or by triggering the `GET:/sync` endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "datasets",
+                ":owner",
+                ":id",
+                "files"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"files\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mediaType\": \"<string>\",\n      \"mediaTypeLocked\": \"<boolean>\",\n      \"source\": {\n        \"authorization\": {\n          \"type\": \"<string>\",\n          \"credentials\": \"<string>\"\n        },\n        \"credentials\": {\n          \"user\": \"<string>\",\n          \"password\": \"<string>\"\n        },\n        \"dataTables\": {\n          \"key_0\": {\n            \"query\": \"<string>\"\n          }\n        },\n        \"databaseMetadataSpec\": {\n          \"tableSpecs\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"databaseSource\": {\n          \"id\": \"<uuid>\",\n          \"owner\": \"<string>\"\n        },\n        \"dwccSpec\": {\n          \"databaseId\": \"<string>\",\n          \"metadataToExclude\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sourceDatabase\": \"<string>\",\n          \"sourceSchemas\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"targetCatalog\": \"<string>\"\n        },\n        \"expandArchive\": \"<boolean>\",\n        \"method\": \"<string>\",\n        \"oauthToken\": {\n          \"id\": \"<uuid>\",\n          \"owner\": \"<string>\",\n          \"site\": \"<string>\"\n        },\n        \"requestEntity\": \"<string>\",\n        \"requestHeaders\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        },\n        \"tableSpec\": {\n          \"database\": \"<string>\",\n          \"schema\": \"<string>\",\n          \"table\": \"<string>\",\n          \"tableType\": \"<string>\"\n        },\n        \"url\": \"<uri>\",\n        \"useDwCredentials\": \"<boolean>\",\n        \"viewRequest\": {\n          \"baseAgentId\": \"<string>\",\n          \"baseDatasetId\": \"<string>\",\n          \"queryName\": \"<string>\",\n          \"queryType\": \"<string>\",\n          \"runAsAgentId\": \"<string>\",\n          \"targetAgentId\": \"<string>\",\n          \"targetDatasetId\": \"<string>\",\n          \"queryId\": \"<uuid>\",\n          \"queryText\": \"<string>\"\n        }\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mediaType\": \"<string>\",\n      \"mediaTypeLocked\": \"<boolean>\",\n      \"source\": {\n        \"authorization\": {\n          \"type\": \"<string>\",\n          \"credentials\": \"<string>\"\n        },\n        \"credentials\": {\n          \"user\": \"<string>\",\n          \"password\": \"<string>\"\n        },\n        \"dataTables\": {\n          \"key_0\": {\n            \"query\": \"<string>\"\n          },\n          \"key_1\": {\n            \"query\": \"<string>\"\n          }\n        },\n        \"databaseMetadataSpec\": {\n          \"tableSpecs\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"databaseSource\": {\n          \"id\": \"<uuid>\",\n          \"owner\": \"<string>\"\n        },\n        \"dwccSpec\": {\n          \"databaseId\": \"<string>\",\n          \"metadataToExclude\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sourceDatabase\": \"<string>\",\n          \"sourceSchemas\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"targetCatalog\": \"<string>\"\n        },\n        \"expandArchive\": \"<boolean>\",\n        \"method\": \"<string>\",\n        \"oauthToken\": {\n          \"id\": \"<uuid>\",\n          \"owner\": \"<string>\",\n          \"site\": \"<string>\"\n        },\n        \"requestEntity\": \"<string>\",\n        \"requestHeaders\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        },\n        \"tableSpec\": {\n          \"database\": \"<string>\",\n          \"schema\": \"<string>\",\n          \"table\": \"<string>\",\n          \"tableType\": \"<string>\"\n        },\n        \"url\": \"<uri>\",\n        \"useDwCredentials\": \"<boolean>\",\n        \"viewRequest\": {\n          \"baseAgentId\": \"<string>\",\n          \"baseDatasetId\": \"<string>\",\n          \"queryName\": \"<string>\",\n          \"queryType\": \"<string>\",\n          \"runAsAgentId\": \"<string>\",\n          \"targetAgentId\": \"<string>\",\n          \"targetDatasetId\": \"<string>\",\n          \"queryId\": \"<uuid>\",\n          \"queryText\": \"<string>\"\n        }\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "91c4ddaf-ddad-4f9e-9038-b8d5affd2574",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets",
+                    ":owner",
+                    ":id",
+                    "files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"files\": [\n    {\n      \"name\": \"2\",\n      \"description\": \"string\",\n      \"labels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mediaType\": \"string\",\n      \"mediaTypeLocked\": true,\n      \"source\": {\n        \"authorization\": {\n          \"type\": \"string\",\n          \"credentials\": \"string\"\n        },\n        \"credentials\": {\n          \"user\": \"string\",\n          \"password\": \"string\"\n        },\n        \"dataTables\": {\n          \"key_0\": {\n            \"query\": \"string\"\n          },\n          \"key_1\": {\n            \"query\": \"string\"\n          }\n        },\n        \"databaseMetadataSpec\": {\n          \"tableSpecs\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"databaseSource\": {\n          \"id\": \"955c136c-e947-c36e-f5d1-9e95c78d8144\",\n          \"owner\": \"string\"\n        },\n        \"dwccSpec\": {\n          \"databaseId\": \"string\",\n          \"metadataToExclude\": [\n            \"string\",\n            \"string\"\n          ],\n          \"sourceDatabase\": \"string\",\n          \"sourceSchemas\": [\n            \"string\",\n            \"string\"\n          ],\n          \"targetCatalog\": \"string\"\n        },\n        \"expandArchive\": false,\n        \"method\": \"POST\",\n        \"oauthToken\": {\n          \"id\": \"f4a375e8-4e92-8ce8-f30d-f3f484c8e16a\",\n          \"owner\": \"string\",\n          \"site\": \"string\"\n        },\n        \"requestEntity\": \"string\",\n        \"requestHeaders\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\"\n        },\n        \"tableSpec\": {\n          \"database\": \"string\",\n          \"schema\": \"string\",\n          \"table\": \"string\",\n          \"tableType\": \"VIRTUAL\"\n        },\n        \"url\": \"https://jOBPTClxga.jxZxoPpjwUZGs4lTaDLL0x8ekjjlJYggIU5ttfbrJXFAVfcWX6q6qd\",\n        \"useDwCredentials\": false,\n        \"viewRequest\": {\n          \"baseAgentId\": \"string\",\n          \"baseDatasetId\": \"string\",\n          \"queryName\": \"string\",\n          \"queryType\": \"SQL\",\n          \"runAsAgentId\": \"string\",\n          \"targetAgentId\": \"string\",\n          \"targetDatasetId\": \"string\",\n          \"queryId\": \"501fe946-d88a-d912-5cdf-ec91ce7ee4d7\",\n          \"queryText\": \"string\"\n        }\n      }\n    },\n    {\n      \"name\": \"+B._;Y;Y_6\",\n      \"description\": \"string\",\n      \"labels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mediaType\": \"string\",\n      \"mediaTypeLocked\": true,\n      \"source\": {\n        \"authorization\": {\n          \"type\": \"string\",\n          \"credentials\": \"stri\"\n        },\n        \"credentials\": {\n          \"user\": \"string\",\n          \"password\": \"string\"\n        },\n        \"dataTables\": {\n          \"key_0\": {\n            \"query\": \"string\"\n          },\n          \"key_1\": {\n            \"query\": \"string\"\n          }\n        },\n        \"databaseMetadataSpec\": {\n          \"tableSpecs\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"databaseSource\": {\n          \"id\": \"54e2724f-10f3-ecc8-4b1c-6e82124644f3\",\n          \"owner\": \"string\"\n        },\n        \"dwccSpec\": {\n          \"databaseId\": \"string\",\n          \"metadataToExclude\": [\n            \"string\",\n            \"string\"\n          ],\n          \"sourceDatabase\": \"string\",\n          \"sourceSchemas\": [\n            \"string\",\n            \"string\"\n          ],\n          \"targetCatalog\": \"string\"\n        },\n        \"expandArchive\": false,\n        \"method\": \"GET\",\n        \"oauthToken\": {\n          \"id\": \"79e434ee-e563-becb-f541-a57e513a7c30\",\n          \"owner\": \"string\",\n          \"site\": \"string\"\n        },\n        \"requestEntity\": \"string\",\n        \"requestHeaders\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"tableSpec\": {\n          \"database\": \"string\",\n          \"schema\": \"string\",\n          \"table\": \"string\",\n          \"tableType\": \"VIRTUAL\"\n        },\n        \"url\": \"http://eiXmUJgMbhPFKblkt.iiciSwI0m,LNgIyGwAI,UJq.,i1QTumRbMTTEU12tbtHC0.9yCX.ayQt\",\n        \"useDwCredentials\": false,\n        \"viewRequest\": {\n          \"baseAgentId\": \"string\",\n          \"baseDatasetId\": \"string\",\n          \"queryName\": \"string\",\n          \"queryType\": \"SQL\",\n          \"runAsAgentId\": \"string\",\n          \"targetAgentId\": \"string\",\n          \"targetDatasetId\": \"string\",\n          \"queryId\": \"63be1f70-2156-64e6-530a-e62b7b254b62\",\n          \"queryText\": \"string\"\n        }\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d849c089-de67-4747-bb99-63619547fafd",
+          "name": "Delete a file",
+          "request": {
+            "name": "Delete a file",
+            "description": {
+              "content": "Delete a single file from a dataset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "datasets",
+                ":owner",
+                ":id",
+                "files",
+                ":file"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "file",
+                  "description": "(Required) Filename"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9f60659f-3002-4ead-9c9a-6493c408331b",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets",
+                    ":owner",
+                    ":id",
+                    "files",
+                    ":file"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "file",
+                      "description": "(Required) Filename"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "17521950-15af-42b8-bb4e-bbf242bdab7b",
+          "name": "Get file description and labels",
+          "request": {
+            "name": "Get file description and labels",
+            "description": {
+              "content": "Get file description and labels",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "datasets",
+                ":owner",
+                ":id",
+                "files",
+                ":file",
+                "metadata"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "file",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "14c30d27-678d-4cd1-85cb-2bb7ed30a8d5",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets",
+                    ":owner",
+                    ":id",
+                    "files",
+                    ":file",
+                    "metadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "file",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created\": \"1995-01-08T00:40:36.122Z\",\n  \"name\": \"ohCeKe0C}a9\",\n  \"updated\": \"1952-03-29T04:33:08.687Z\",\n  \"createdBy\": \"string\",\n  \"description\": \"string\",\n  \"labels\": [\n    \"string\",\n    \"string\"\n  ],\n  \"sizeInBytes\": 1459,\n  \"updatedBy\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4ea9a49d-ca6a-4eb4-994f-bd0ff970ce53",
+          "name": "Update file description and labels",
+          "request": {
+            "name": "Update file description and labels",
+            "description": {
+              "content": "Update file description and labels. Only elements included in the request will be updated. All omitted\nelements will remain untouched. Requesting change in a list replaces the entire list. Requesting an element\nto be null deletes all values on the element.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "datasets",
+                ":owner",
+                ":id",
+                "files",
+                ":file",
+                "metadata"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "file",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b658d044-23e1-4d2a-9f44-c62fb71f328c",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets",
+                    ":owner",
+                    ":id",
+                    "files",
+                    ":file",
+                    "metadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "file",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"description\": \"<string>\",\n  \"labels\": [\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6986ffee-a84d-4497-b72c-1823c31a84a3",
+          "name": "Replace file description and labels",
+          "request": {
+            "name": "Replace file description and labels",
+            "description": {
+              "content": "Replace file description and labels",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "datasets",
+                ":owner",
+                ":id",
+                "files",
+                ":file",
+                "metadata"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "file",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "98e1b7bc-3ce9-47dd-8cfb-ed1da5abae47",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets",
+                    ":owner",
+                    ":id",
+                    "files",
+                    ":file",
+                    "metadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "file",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"description\": \"<string>\",\n  \"labels\": [\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4d0dc331-3c90-41a4-a3c7-6ec7e9cde84c",
+          "name": "Sync files (via GET)",
+          "request": {
+            "name": "Sync files (via GET)",
+            "description": {
+              "content": "Same as `POST:/dataset/{owner}/{id}/sync`. The id parameter can either be a dataset id or project id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "datasets",
+                ":owner",
+                ":id",
+                "sync"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c7f3e10b-41f2-4b03-aa71-45de9676f77c",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets",
+                    ":owner",
+                    ":id",
+                    "sync"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b1f091d9-29d9-45f5-906a-adc4438fa0bb",
+          "name": "Sync files",
+          "request": {
+            "name": "Sync files",
+            "description": {
+              "content": "Sync files within a dataset or project. This method will process the latest data available for files added\nfrom URLs or via streams. The id parameter can either be a dataset id or project id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "datasets",
+                ":owner",
+                ":id",
+                "sync"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "717c02fc-4755-4ee3-8798-96d4e7d5978d",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets",
+                    ":owner",
+                    ":id",
+                    "sync"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "45575aee-69f2-4640-bcfc-0cdd396bb666",
+          "name": "Download a file",
+          "request": {
+            "name": "Download a file",
+            "description": {
+              "content": "Download a file within the dataset as originally uploaded. Prefer `POST:/sql` or `POST:/sparql` for\nretrieving clean and structured data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "file_download",
+                ":owner",
+                ":id",
+                ":file"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "file",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7fa09236-10b8-4594-999b-2ed3013bcd48",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "file_download",
+                    ":owner",
+                    ":id",
+                    ":file"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "file",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a9c3364b-cda0-4080-8523-f05c15ab91ee",
+          "name": "Upload files",
+          "request": {
+            "name": "Upload files",
+            "description": {
+              "content": "\"Upload multiple files at once to a dataset.\n\nThis endpoint expects requests of type `multipart/form-data` and you can include one or more parts named\n`file`, each containing a different file to be uploaded.\n\nFor example, assuming that you want to upload two local files named `file1.csv` and `file2.csv` to a\nhypothetical dataset `https://data.world/awesome-user/awesome-dataset`, this is what the cURL command\nwould look like.\n\n```bash\ncurl \\\n  -H \"Authorization: Bearer <YOUR_API_TOKEN>\" \\\n  -F \"file=@file1.csv\" \\\n  -F \"file=@file2.csv\" \\\n  https://api.data.world/v0/uploads/awesome-user/awesome-dataset/files\n```\n\nSwagger clients may limit this method of upload to one file at a time. Other HTTP clients capable of\nmaking multipart/form-data requests can be used to upload multiple files in a single request.\"\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "uploads",
+                ":owner",
+                ":id",
+                "files"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "expandArchives",
+                  "value": "false"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": "(Required) Multipart-encoded file contents"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7e0a8327-3133-434f-8e27-6e7c786d9b7d",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "uploads",
+                    ":owner",
+                    ":id",
+                    "files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expandArchives",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) Multipart-encoded file contents",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d870b4f6-2ade-406b-8293-17fa890d5058",
+          "name": "Upload a file",
+          "request": {
+            "name": "Upload a file",
+            "description": {
+              "content": "Upload one file at a time to a dataset.\n\nThis endpoint expects requests of type `application/octet-stream`.\n\nFor example, assuming that you want to upload a local file named `file1.csv` to a hypothetical dataset\n`https://data.world/awesome-user/awesome-dataset` and choose its name on data.world to be\n`better-name.csv`, this is what the cURL command would look like.\n\n```bash\ncurl \\\n  -H \"Authorization: Bearer <YOUR_API_TOKEN>\" \\\n  -X PUT -H \"Content-Type: application/octet-stream\" \\\n  --data-binary @file1.csv \\\n  https://api.data.world/v0/uploads/awesome-user/awesome-dataset/files/better-name.csv\n```\n\nThis method of upload is typically not supported by Swagger clients. Other HTTP clients can be used to\nsupply the contents of the file directly in the body of the request.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "uploads",
+                ":owner",
+                ":id",
+                "files",
+                ":file"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "expandArchive",
+                  "value": "false"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "file",
+                  "description": "(Required) Filename"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "*/*"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<binary>"
+            }
+          },
+          "response": [
+            {
+              "id": "15c25bb1-f60a-4b5a-a762-5ca0b8725956",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "uploads",
+                    ":owner",
+                    ":id",
+                    "files",
+                    ":file"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expandArchive",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "file",
+                      "description": "(Required) Filename"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<binary>"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "369901ff-e738-402e-b730-87df39a7b21f",
+    "name": "data.world Public catalog relationships files API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Manage relationships between catalog resources\n\nContact Support:\n Name: Contact Us",
+      "type": "text/plain"
+    }
+  }
+}

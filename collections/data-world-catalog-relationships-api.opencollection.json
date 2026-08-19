@@ -1,0 +1,117 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "data.world Public catalog relationships API",
+    "version": "0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "catalog relationships",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get resources that are related to a resource identified by IRI",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/metadata/relationships/:owner/iri",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path",
+                "description": "User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
+              },
+              {
+                "name": "iri",
+                "value": "",
+                "type": "query",
+                "description": "Internationalized Resource Identifier (IRI) of the resource. You can find the IRI in the Technical Reference section under the Settings tab on the resource’s catalog page."
+              },
+              {
+                "name": "hydrations",
+                "value": "",
+                "type": "query",
+                "description": "Return additional information about the resource. For example, if the resource is in a collection, the collection IRI will be returned by default. If hydration is enabled, the collection's title and description will also be returned."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return"
+              },
+              {
+                "name": "next",
+                "value": "",
+                "type": "query",
+                "description": "A token supplied by the previous response to retrieve the next page of results"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "If a resource A is related to resource B and C, this endpoint will return B and C. See request body for further filtering options."
+        },
+        {
+          "info": {
+            "name": "Creates a relationship between two catalog resources identified by IRI",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/metadata/relationships/:owner/iri/create",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path",
+                "description": "User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a directed relationship between two catalog resources with one being the source and the other being the target."
+        },
+        {
+          "info": {
+            "name": "Deletes a relationship between two catalog resources identified by IRI",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/metadata/relationships/:owner/iri/delete",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path",
+                "description": "User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deletes a directed relationship between two catalog resources with one being the source and the other being the target."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
