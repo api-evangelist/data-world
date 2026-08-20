@@ -38,6 +38,11 @@ apis:
   baseURL: https://api.data.world/v0
   tags:
   - Datasets
+  - File
+  - Upload
+  - Downloads
+  tags_raw:
+  - Datasets
   - Files
   - Upload
   - Download
@@ -54,6 +59,9 @@ apis:
   humanURL: https://developer.data.world/reference
   baseURL: https://api.data.world/v0
   tags:
+  - Project
+  - Collaboration
+  tags_raw:
   - Projects
   - Collaboration
   properties:
@@ -67,6 +75,10 @@ apis:
   humanURL: https://developer.data.world/reference
   baseURL: https://api.data.world/v0
   tags:
+  - SQL
+  - Query
+  - Analytics
+  tags_raw:
   - SQL
   - Queries
   - Analytics
@@ -111,6 +123,10 @@ apis:
   humanURL: https://developer.data.world/reference
   baseURL: https://api.data.world/v0
   tags:
+  - Webhook
+  - Event
+  - Automation
+  tags_raw:
   - Webhooks
   - Events
   - Automation
@@ -125,6 +141,10 @@ apis:
   humanURL: https://developer.data.world/reference
   baseURL: https://api.data.world/v0
   tags:
+  - Artificial Intelligence
+  - Natural-Language
+  - Question Answering
+  tags_raw:
   - AI
   - Natural Language
   - Question Answering
@@ -172,6 +192,8 @@ apis:
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
   tags:
+  - Catalog Resources
+  tags_raw:
   - catalog resources
   properties:
   - type: OpenAPI
@@ -207,6 +229,8 @@ apis:
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
   tags:
+  - Connections
+  tags_raw:
   - connections
   properties:
   - type: OpenAPI
@@ -242,6 +266,8 @@ apis:
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
   tags:
+  - Data Quality
+  tags_raw:
   - data quality
   properties:
   - type: OpenAPI
@@ -277,6 +303,8 @@ apis:
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
   tags:
+  - Datasets
+  tags_raw:
   - datasets
   properties:
   - type: OpenAPI
@@ -348,6 +376,8 @@ apis:
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
   tags:
+  - Experimental
+  tags_raw:
   - experimental
   properties:
   - type: OpenAPI
@@ -383,6 +413,8 @@ apis:
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
   tags:
+  - File
+  tags_raw:
   - files
   properties:
   - type: OpenAPI
@@ -418,6 +450,8 @@ apis:
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
   tags:
+  - Insights
+  tags_raw:
   - insights
   properties:
   - type: OpenAPI
@@ -453,6 +487,8 @@ apis:
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
   tags:
+  - Instance Admin
+  tags_raw:
   - instance admin
   properties:
   - type: OpenAPI
@@ -704,6 +740,8 @@ apis:
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
   tags:
+  - Organization
+  tags_raw:
   - organizations
   properties:
   - type: OpenAPI
@@ -739,6 +777,8 @@ apis:
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
   tags:
+  - Project
+  tags_raw:
   - projects
   properties:
   - type: OpenAPI
@@ -774,6 +814,8 @@ apis:
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
   tags:
+  - Query
+  tags_raw:
   - queries
   properties:
   - type: OpenAPI
@@ -879,6 +921,8 @@ apis:
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
   tags:
+  - Search
+  tags_raw:
   - search
   properties:
   - type: OpenAPI
@@ -914,6 +958,8 @@ apis:
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
   tags:
+  - ServiceAccount
+  tags_raw:
   - serviceaccount
   properties:
   - type: OpenAPI
@@ -949,6 +995,8 @@ apis:
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
   tags:
+  - Streams
+  tags_raw:
   - streams
   properties:
   - type: OpenAPI
@@ -984,6 +1032,8 @@ apis:
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
   tags:
+  - Tables
+  tags_raw:
   - tables
   properties:
   - type: OpenAPI
@@ -1019,6 +1069,8 @@ apis:
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
   tags:
+  - Telemetry
+  tags_raw:
   - telemetry
   properties:
   - type: OpenAPI
@@ -1091,6 +1143,8 @@ apis:
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
   tags:
+  - User
+  tags_raw:
   - user
   properties:
   - type: OpenAPI
@@ -1126,6 +1180,8 @@ apis:
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
   tags:
+  - User
+  tags_raw:
   - users
   properties:
   - type: OpenAPI
@@ -1161,6 +1217,8 @@ apis:
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
   tags:
+  - Webhook
+  tags_raw:
   - webhooks
   properties:
   - type: OpenAPI
