@@ -1,5 +1,17 @@
 name: data.world
 description: Collaborative data catalog platform with REST APIs for accessing public and private datasets, running SQL and SPARQL queries, managing metadata, and integrating data across projects and organizations. Provides enterprise data governance, lineage, and business glossary capabilities.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: self-serve
