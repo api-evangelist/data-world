@@ -154,7 +154,7 @@ apis:
   baseURL: https://api.data.world/v0
   tags:
   - Artificial Intelligence
-  - Natural Language
+  - Natural-Language
   - Question Answering
   tags_raw:
   - AI
@@ -204,7 +204,7 @@ apis:
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
   tags:
-  - catalog resources
+  - Catalog Resources
   tags_raw:
   - catalog resources
   properties:
@@ -278,7 +278,7 @@ apis:
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
   tags:
-  - data quality
+  - Data Quality
   tags_raw:
   - data quality
   properties:
@@ -499,7 +499,7 @@ apis:
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
   tags:
-  - instance admin
+  - Instance Admin
   tags_raw:
   - instance admin
   properties:
@@ -826,7 +826,7 @@ apis:
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
   tags:
-  - queries
+  - Query
   tags_raw:
   - queries
   properties:
@@ -970,7 +970,7 @@ apis:
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
   tags:
-  - serviceaccount
+  - ServiceAccount
   tags_raw:
   - serviceaccount
   properties:
