@@ -1261,6 +1261,9 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/finops/finops.yml
 common:
+  - type: CapabilityMap
+    url: capabilities/data-world-capability-edges.yml
+    name: data.world Business Capability Map
   - type: AgenticAccess
     url: agentic-access/data-world-agentic-access.yml
   - type: TrustCenter
