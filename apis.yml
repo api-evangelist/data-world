@@ -346,41 +346,6 @@ apis:
   - type: FinOps
     url: >-
       https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/finops/finops.yml
-- aid: data-world:data-world-dois-api
-  name: data.world DOIs API
-  description: The DOIs API from data.world — 2 operation(s) for dois.
-  humanURL: https://developer.data.world/docs/api-overview
-  baseURL: https://api.data.world/v0
-  tags:
-  - DOIs
-  properties:
-  - type: OpenAPI
-    url: openapi/data-world-dois-api-openapi.yml
-  - type: Documentation
-    url: https://developer.data.world/docs/api-overview
-  - type: GettingStarted
-    url: https://developer.data.world/docs/api-getting-started
-  - type: Reference
-    url: https://developer.data.world/reference
-  - type: Authentication
-    url: https://developer.data.world/docs/api-getting-started
-  - type: SDKs
-    url: https://developer.data.world/docs/data-world-for-developers
-  - type: Webhooks
-    url: https://developer.data.world/docs/data-world-for-developers
-  - type: ChangeLog
-    url: https://whatsnew.data.world/
-  - type: Status
-    url: https://status.data.world
-  - type: Plans
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/plans/plans.yml
-  - type: RateLimits
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/rate-limits/rate-limits.yml
-  - type: FinOps
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/finops/finops.yml
 - aid: data-world:data-world-experimental-api
   name: data.world experimental API
   description: >-
@@ -964,43 +929,6 @@ apis:
   - type: FinOps
     url: >-
       https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/finops/finops.yml
-- aid: data-world:data-world-serviceaccount-api
-  name: data.world serviceaccount API
-  description: The serviceaccount API from data.world — 3 operation(s) for serviceaccount.
-  humanURL: https://developer.data.world/docs/api-overview
-  baseURL: https://api.data.world/v0
-  tags:
-  - ServiceAccount
-  tags_raw:
-  - serviceaccount
-  properties:
-  - type: OpenAPI
-    url: openapi/data-world-serviceaccount-api-openapi.yml
-  - type: Documentation
-    url: https://developer.data.world/docs/api-overview
-  - type: GettingStarted
-    url: https://developer.data.world/docs/api-getting-started
-  - type: Reference
-    url: https://developer.data.world/reference
-  - type: Authentication
-    url: https://developer.data.world/docs/api-getting-started
-  - type: SDKs
-    url: https://developer.data.world/docs/data-world-for-developers
-  - type: Webhooks
-    url: https://developer.data.world/docs/data-world-for-developers
-  - type: ChangeLog
-    url: https://whatsnew.data.world/
-  - type: Status
-    url: https://status.data.world
-  - type: Plans
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/plans/plans.yml
-  - type: RateLimits
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/rate-limits/rate-limits.yml
-  - type: FinOps
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/finops/finops.yml
 - aid: data-world:data-world-streams-api
   name: data.world streams API
   description: The streams API from data.world — 3 operation(s) for streams.
@@ -1235,6 +1163,76 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/data-world-webhooks-api-openapi.yml
+  - type: Documentation
+    url: https://developer.data.world/docs/api-overview
+  - type: GettingStarted
+    url: https://developer.data.world/docs/api-getting-started
+  - type: Reference
+    url: https://developer.data.world/reference
+  - type: Authentication
+    url: https://developer.data.world/docs/api-getting-started
+  - type: SDKs
+    url: https://developer.data.world/docs/data-world-for-developers
+  - type: Webhooks
+    url: https://developer.data.world/docs/data-world-for-developers
+  - type: ChangeLog
+    url: https://whatsnew.data.world/
+  - type: Status
+    url: https://status.data.world
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/plans/plans.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/rate-limits/rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/finops/finops.yml
+- aid: data-world:data-world-dois-api
+  name: data.world DO Is API
+  description: The DOIs API from data.world — 2 operation(s) for dois.
+  humanURL: https://developer.data.world/reference
+  baseURL: https://api.data.world/v0
+  tags:
+  - DOIs
+  properties:
+  - type: OpenAPI
+    url: openapi/data-world-dois-api-openapi.yml
+  - type: Documentation
+    url: https://developer.data.world/docs/api-overview
+  - type: GettingStarted
+    url: https://developer.data.world/docs/api-getting-started
+  - type: Reference
+    url: https://developer.data.world/reference
+  - type: Authentication
+    url: https://developer.data.world/docs/api-getting-started
+  - type: SDKs
+    url: https://developer.data.world/docs/data-world-for-developers
+  - type: Webhooks
+    url: https://developer.data.world/docs/data-world-for-developers
+  - type: ChangeLog
+    url: https://whatsnew.data.world/
+  - type: Status
+    url: https://status.data.world
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/plans/plans.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/rate-limits/rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/finops/finops.yml
+- aid: data-world:data-world-service-account-api
+  name: data.world Service Account API
+  description: The Service Account API from data.world — 3 operation(s) for service account.
+  humanURL: https://developer.data.world/reference
+  baseURL: https://api.data.world/v0
+  tags:
+  - Service Account
+  properties:
+  - type: OpenAPI
+    url: openapi/data-world-service-account-api-openapi.yml
   - type: Documentation
     url: https://developer.data.world/docs/api-overview
   - type: GettingStarted
