@@ -1,12 +1,12 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   contact:
     name: Contact Us
     url: https://data.world/company/contact-us
   termsOfService: https://data.world/terms-policies
-  title: data.world Public catalog relationships requests - resource API
+  title: data.world Public requests - resource API
   version: '0'
-  description: Manage relationships between catalog resources
+  description: Manage resource requests
 servers:
 - url: /v0
 security:
@@ -167,23 +167,6 @@ paths:
       - requests - resource
 components:
   schemas:
-    TransferAssetDto:
-      type: object
-      properties:
-        entityType:
-          type: string
-          description: The type of resource being transferred
-          minLength: 1
-        identifier:
-          type: string
-          description: The dct:identifier of resource being transferred
-        iri:
-          type: string
-          description: The IRI of resource being transferred
-          minLength: 1
-      required:
-      - entityType
-      - iri
     ImageIcon:
       allOf:
       - $ref: '#/components/schemas/Icon'
@@ -207,75 +190,24 @@ components:
           type:
             type: string
             const: image
-    PubSearchHydrations:
+    RelationshipHydrationDto:
       type: object
       properties:
-        agents:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/AgentHydrationDto'
-        catalogConcepts:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/CatalogConceptHydrationDto'
-        collections:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/CollectionHydrationDto'
-        properties:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/PropertyHydrationDto'
-        relationships:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/RelationshipHydrationDto'
-        resourceHierarchy:
-          type: object
-          additionalProperties:
-            type: object
-            additionalProperties:
-              type: array
-              items:
-                $ref: '#/components/schemas/ResourceHierarchyDto'
-    AcceptRequestDto:
-      type: object
-      properties:
-        collectionIds:
+        labels:
           type: array
-          description: Only required for transfer requests. A list of collection identifiers (not IRI) that the resource should be transferred into. These collections must be in the organization noted as the "granteeParty" in the request.
+          description: Label of the relationship presentation associated with the relationship
           items:
             type: string
-        requestid:
-          type: string
-          format: uuid
-          description: ID of the request to accept.
-      required:
-      - requestid
-    ContributionDto:
-      type: object
-      properties:
-        activities:
-          type: array
-          description: Details about the contribution
-          items:
-            $ref: '#/components/schemas/ContributionActivity'
-        activityType:
-          type: string
-          description: The type of contribution that is being made
-          enum:
-          - METADATA_EDIT
-          - RELATIONSHIP
-        type:
-          type: string
-          description: The type of resource that this contribution is done on
-          enum:
-          - METADATA
-          - DATASET
-      required:
-      - activities
-      - activityType
-      - type
+    ProvidedImage:
+      allOf:
+      - $ref: '#/components/schemas/Image'
+      - type: object
+        properties:
+          slug:
+            type: string
+          type:
+            type: string
+            const: provided
     PublicResource:
       type: object
       discriminator:
@@ -312,75 +244,57 @@ components:
       required:
       - owner
       - type
-    PublicGroupParty:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/PublicParty'
-      - type: object
-        properties:
-          id:
-            type: string
-            description: ID of a group
-          owner:
-            type: string
-            description: ID of an organization that owns the resource
-            title: organization id
-          type:
-            type: string
-            const: GROUP
-      - $ref: '#/components/schemas/PublicResource'
-      required:
-      - id
-      - owner
-      title: Group Identifier
-    PublicUserParty:
+    PublicResourceRequestDto:
       type: object
       properties:
-        id:
+        approverParty:
+          $ref: '#/components/schemas/PublicParty'
+          description: The organization that can approve the request. Ignored in create request.
+          oneOf:
+          - $ref: '#/components/schemas/PublicUserParty'
+          - $ref: '#/components/schemas/PublicGroupParty'
+        contribution:
+          $ref: '#/components/schemas/ContributionDto'
+          description: Provides details on the contribution, if this is a contribution request.
+        created:
           type: string
-          description: ID of the user
+          format: date-time
+        granteeOwner:
+          type: string
+          description: If this is a transfer request, this is the organization that will receive the resource. Otherwise, this is the same as approverParty.
+        message:
+          type: string
+        requestId:
+          type: string
+          format: uuid
+          description: A unique id of the request assigned by the service and returned in response thus must not be provided in create request.
+        requesterParty:
+          $ref: '#/components/schemas/PublicParty'
+          description: The user that created this request. Ignored in create request.
+          oneOf:
+          - $ref: '#/components/schemas/PublicUserParty'
+          - $ref: '#/components/schemas/PublicGroupParty'
+        resource:
+          $ref: '#/components/schemas/PublicResource'
+          description: The resource that the request is created for. Only DATASET and METADATA_RESOURCE are allowed.
+          oneOf:
+          - $ref: '#/components/schemas/PublicDatasetResource'
+          - $ref: '#/components/schemas/PublicMetadataResource'
+        resourceRequestType:
+          type: string
+          description: The type of request
+          enum:
+          - CONTRIBUTION
+          - TRANSFER
+        transferAsset:
+          $ref: '#/components/schemas/TransferAssetDto'
+          description: Provides details on the transfer, if this is a transfer request.
+        updated:
+          type: string
+          format: date-time
       required:
-      - id
-      title: User Identifier
-    PublicMetadataResource:
-      allOf:
-      - $ref: '#/components/schemas/PublicResource'
-      - type: object
-        properties:
-          referent:
-            type: string
-            description: A metadata resource referent
-          type:
-            type: string
-            const: METADATA_RESOURCE
-      required:
-      - owner
-      - referent
-      title: Metadata Resource
-    PublicDatasetResource:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/PublicResource'
-      - $ref: '#/components/schemas/DatasetIdentifier'
-      - type: object
-        properties:
-          id:
-            type: string
-            description: ID of a dataset
-      required:
-      - id
-      - owner
-      title: Dataset Resource
-    EmojiIcon:
-      allOf:
-      - $ref: '#/components/schemas/Icon'
-      - type: object
-        properties:
-          type:
-            type: string
-            const: emoji
-          value:
-            type: string
+      - resource
+      - resourceRequestType
     DatasetIdentifier:
       type: object
       properties:
@@ -391,117 +305,16 @@ components:
       required:
       - id
       - owner
-    AgentHydrationDto:
-      type: object
-      properties:
-        avatarUrl:
-          type: string
-        deactivated:
-          type: boolean
-        displayName:
-          type: string
-        id:
-          type: string
-    Image:
-      type: object
-      discriminator:
-        mapping:
-          hosted: '#/components/schemas/HostedImage'
-          provided: '#/components/schemas/ProvidedImage'
-        propertyName: type
-      properties:
-        type:
-          type: string
-          enum:
-          - hosted
-          - provided
-    RelationshipHydrationDto:
-      type: object
-      properties:
-        labels:
-          type: array
-          description: Label of the relationship presentation associated with the relationship
-          items:
+    EmojiIcon:
+      allOf:
+      - $ref: '#/components/schemas/Icon'
+      - type: object
+        properties:
+          type:
             type: string
-    PropertyHydrationDto:
-      type: object
-      properties:
-        label:
-          type: array
-          description: Label of the metadata presentation associated with the property
-          items:
+            const: emoji
+          value:
             type: string
-    ResourceHierarchyDto:
-      type: object
-      properties:
-        assetStatus:
-          $ref: '#/components/schemas/AssetStatus'
-          description: 'Resource status: Pending, Approved etc.'
-        hierarchy:
-          type: array
-          description: Parent types of this resource's type. Returns the most specific type followed by its parent. The first item is the same as type. The last item is the root type.
-          items:
-            $ref: '#/components/schemas/EntryType'
-        icon:
-          $ref: '#/components/schemas/Icon'
-          description: Resource icon details.
-          oneOf:
-          - $ref: '#/components/schemas/EmojiIcon'
-          - $ref: '#/components/schemas/ImageIcon'
-          - $ref: '#/components/schemas/SvgIcon'
-        iri:
-          type: string
-          description: Resource IRI.
-        owner:
-          type: string
-          description: The ID of the organization that this resource belongs to
-        title:
-          type: string
-          description: Resource title
-        type:
-          type: string
-          description: Resource simple type name, e.g. catalogDatabase, catalogEntry etc.
-        typeLabel:
-          type: string
-          description: Resource type label.
-    AssetStatus:
-      type: object
-      properties:
-        assetStatusLabel:
-          type: string
-        dispositionLabel:
-          type: string
-    PaginatedGenericResultsPublicResourceRequestDto:
-      type: object
-      properties:
-        consistent:
-          type: boolean
-        count:
-          type: integer
-          format: int32
-          minimum: 0
-        hydrations:
-          $ref: '#/components/schemas/PubSearchHydrations'
-        next:
-          type: string
-        records:
-          type: array
-          items:
-            $ref: '#/components/schemas/PublicResourceRequestDto'
-    PublicParty:
-      discriminator:
-        mapping:
-          GROUP: '#/components/schemas/PublicGroupParty'
-          USER: '#/components/schemas/PublicUserParty'
-        propertyName: type
-      properties:
-        type:
-          type: string
-          enum:
-          - USER
-          - GROUP
-      required:
-      - type
     SvgIcon:
       allOf:
       - $ref: '#/components/schemas/Icon'
@@ -540,39 +353,48 @@ components:
           - emoji
           - image
           - svg-image
-    HostedImage:
-      allOf:
-      - $ref: '#/components/schemas/Image'
-      - type: object
-        properties:
-          type:
-            type: string
-            const: hosted
-          url:
-            type: string
-    RejectRequestDto:
+    AssetStatus:
       type: object
       properties:
-        requestid:
+        assetStatusLabel:
           type: string
-          format: uuid
-          description: ID of the request to reject.
-      required:
-      - requestid
-    ContributionHydratable:
+        dispositionLabel:
+          type: string
+    ContributionDto:
       type: object
       properties:
-        agentId:
+        activities:
+          type: array
+          description: Details about the contribution
+          items:
+            $ref: '#/components/schemas/ContributionActivity'
+        activityType:
           type: string
-        entityType:
+          description: The type of contribution that is being made
+          enum:
+          - METADATA_EDIT
+          - RELATIONSHIP
+        type:
           type: string
-          minLength: 1
-        identifier:
-          type: string
-          minLength: 1
+          description: The type of resource that this contribution is done on
+          enum:
+          - METADATA
+          - DATASET
       required:
-      - entityType
-      - identifier
+      - activities
+      - activityType
+      - type
+    AgentHydrationDto:
+      type: object
+      properties:
+        avatarUrl:
+          type: string
+        deactivated:
+          type: boolean
+        displayName:
+          type: string
+        id:
+          type: string
     EntryType:
       type: object
       properties:
@@ -593,6 +415,94 @@ components:
         type:
           type: string
           description: Entry type IRI
+    AcceptRequestDto:
+      type: object
+      properties:
+        collectionIds:
+          type: array
+          description: Only required for transfer requests. A list of collection identifiers (not IRI) that the resource should be transferred into. These collections must be in the organization noted as the "granteeParty" in the request.
+          items:
+            type: string
+        requestid:
+          type: string
+          format: uuid
+          description: ID of the request to accept.
+      required:
+      - requestid
+    Image:
+      type: object
+      discriminator:
+        mapping:
+          hosted: '#/components/schemas/HostedImage'
+          provided: '#/components/schemas/ProvidedImage'
+        propertyName: type
+      properties:
+        type:
+          type: string
+          enum:
+          - hosted
+          - provided
+    RejectRequestDto:
+      type: object
+      properties:
+        requestid:
+          type: string
+          format: uuid
+          description: ID of the request to reject.
+      required:
+      - requestid
+    PublicParty:
+      discriminator:
+        mapping:
+          GROUP: '#/components/schemas/PublicGroupParty'
+          USER: '#/components/schemas/PublicUserParty'
+        propertyName: type
+      properties:
+        type:
+          type: string
+          enum:
+          - USER
+          - GROUP
+      required:
+      - type
+    ContributionHydratable:
+      type: object
+      properties:
+        agentId:
+          type: string
+        entityType:
+          type: string
+          minLength: 1
+        identifier:
+          type: string
+          minLength: 1
+      required:
+      - entityType
+      - identifier
+    PublicDatasetResource:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/PublicResource'
+      - $ref: '#/components/schemas/DatasetIdentifier'
+      - type: object
+        properties:
+          id:
+            type: string
+            description: ID of a dataset
+      required:
+      - id
+      - owner
+      title: Dataset Resource
+    HostedImage:
+      allOf:
+      - $ref: '#/components/schemas/Image'
+      - type: object
+        properties:
+          type:
+            type: string
+            const: hosted
+          url:
+            type: string
     CollectionHydrationDto:
       type: object
       properties:
@@ -607,6 +517,60 @@ components:
           type: string
         title:
           type: string
+    PublicMetadataResource:
+      allOf:
+      - $ref: '#/components/schemas/PublicResource'
+      - type: object
+        properties:
+          referent:
+            type: string
+            description: A metadata resource referent
+          type:
+            type: string
+            const: METADATA_RESOURCE
+      required:
+      - owner
+      - referent
+      title: Metadata Resource
+    PubSearchHydrations:
+      type: object
+      properties:
+        agents:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/AgentHydrationDto'
+        catalogConcepts:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/CatalogConceptHydrationDto'
+        collections:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/CollectionHydrationDto'
+        properties:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/PropertyHydrationDto'
+        relationships:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/RelationshipHydrationDto'
+        resourceHierarchy:
+          type: object
+          additionalProperties:
+            type: object
+            additionalProperties:
+              type: array
+              items:
+                $ref: '#/components/schemas/ResourceHierarchyDto'
+    PropertyHydrationDto:
+      type: object
+      properties:
+        label:
+          type: array
+          description: Label of the metadata presentation associated with the property
+          items:
+            type: string
     SuccessMessageDto:
       type: object
       properties:
@@ -614,16 +578,50 @@ components:
           type: string
           maxLength: 256
           minLength: 0
-    ProvidedImage:
-      allOf:
-      - $ref: '#/components/schemas/Image'
-      - type: object
-        properties:
-          slug:
-            type: string
-          type:
-            type: string
-            const: provided
+    CatalogConceptHydrationDto:
+      type: object
+      properties:
+        altLabel:
+          type: string
+        iri:
+          type: string
+        owner:
+          type: string
+        prefLabel:
+          type: string
+    ResourceHierarchyDto:
+      type: object
+      properties:
+        assetStatus:
+          $ref: '#/components/schemas/AssetStatus'
+          description: 'Resource status: Pending, Approved etc.'
+        hierarchy:
+          type: array
+          description: Parent types of this resource's type. Returns the most specific type followed by its parent. The first item is the same as type. The last item is the root type.
+          items:
+            $ref: '#/components/schemas/EntryType'
+        icon:
+          $ref: '#/components/schemas/Icon'
+          description: Resource icon details.
+          oneOf:
+          - $ref: '#/components/schemas/EmojiIcon'
+          - $ref: '#/components/schemas/ImageIcon'
+          - $ref: '#/components/schemas/SvgIcon'
+        iri:
+          type: string
+          description: Resource IRI.
+        owner:
+          type: string
+          description: The ID of the organization that this resource belongs to
+        title:
+          type: string
+          description: Resource title
+        type:
+          type: string
+          description: Resource simple type name, e.g. catalogDatabase, catalogEntry etc.
+        typeLabel:
+          type: string
+          description: Resource type label.
     ContributionActivity:
       type: object
       discriminator:
@@ -699,68 +697,70 @@ components:
           - UnreferenceBusinessTerm
       required:
       - type
-    CatalogConceptHydrationDto:
+    PaginatedGenericResultsPublicResourceRequestDto:
       type: object
       properties:
-        altLabel:
+        consistent:
+          type: boolean
+        count:
+          type: integer
+          format: int32
+          minimum: 0
+        hydrations:
+          $ref: '#/components/schemas/PubSearchHydrations'
+        next:
           type: string
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/PublicResourceRequestDto'
+    PublicGroupParty:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/PublicParty'
+      - type: object
+        properties:
+          id:
+            type: string
+            description: ID of a group
+          owner:
+            type: string
+            description: ID of an organization that owns the resource
+            title: organization id
+          type:
+            type: string
+            const: GROUP
+      - $ref: '#/components/schemas/PublicResource'
+      required:
+      - id
+      - owner
+      title: Group Identifier
+    TransferAssetDto:
+      type: object
+      properties:
+        entityType:
+          type: string
+          description: The type of resource being transferred
+          minLength: 1
+        identifier:
+          type: string
+          description: The dct:identifier of resource being transferred
         iri:
           type: string
-        owner:
-          type: string
-        prefLabel:
-          type: string
-    PublicResourceRequestDto:
+          description: The IRI of resource being transferred
+          minLength: 1
+      required:
+      - entityType
+      - iri
+    PublicUserParty:
       type: object
       properties:
-        approverParty:
-          $ref: '#/components/schemas/PublicParty'
-          description: The organization that can approve the request. Ignored in create request.
-          oneOf:
-          - $ref: '#/components/schemas/PublicUserParty'
-          - $ref: '#/components/schemas/PublicGroupParty'
-        contribution:
-          $ref: '#/components/schemas/ContributionDto'
-          description: Provides details on the contribution, if this is a contribution request.
-        created:
+        id:
           type: string
-          format: date-time
-        granteeOwner:
-          type: string
-          description: If this is a transfer request, this is the organization that will receive the resource. Otherwise, this is the same as approverParty.
-        message:
-          type: string
-        requestId:
-          type: string
-          format: uuid
-          description: A unique id of the request assigned by the service and returned in response thus must not be provided in create request.
-        requesterParty:
-          $ref: '#/components/schemas/PublicParty'
-          description: The user that created this request. Ignored in create request.
-          oneOf:
-          - $ref: '#/components/schemas/PublicUserParty'
-          - $ref: '#/components/schemas/PublicGroupParty'
-        resource:
-          $ref: '#/components/schemas/PublicResource'
-          description: The resource that the request is created for. Only DATASET and METADATA_RESOURCE are allowed.
-          oneOf:
-          - $ref: '#/components/schemas/PublicDatasetResource'
-          - $ref: '#/components/schemas/PublicMetadataResource'
-        resourceRequestType:
-          type: string
-          description: The type of request
-          enum:
-          - CONTRIBUTION
-          - TRANSFER
-        transferAsset:
-          $ref: '#/components/schemas/TransferAssetDto'
-          description: Provides details on the transfer, if this is a transfer request.
-        updated:
-          type: string
-          format: date-time
+          description: ID of the user
       required:
-      - resource
-      - resourceRequestType
+      - id
+      title: User Identifier
   securitySchemes:
     bearerAuth:
       bearerFormat: JWT

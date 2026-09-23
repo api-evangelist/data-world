@@ -1,22 +1,51 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   contact:
     name: Contact Us
     url: https://data.world/company/contact-us
   termsOfService: https://data.world/terms-policies
-  title: data.world Public catalog relationships streams API
+  title: data.world Public Streams API
   version: '0'
-  description: Manage relationships between catalog resources
 servers:
 - url: /v0
 security:
 - bearerAuth: []
 tags:
-- name: streams
+- name: Streams
 paths:
   /streams/{owner}/{id}/{streamId}:
     post:
-      description: "Append JSON data to a stream associated with a dataset.\n\ndata.world streams are append-only by default. Alternatively, if a primary key is specified (see:\n`POST:/streams/{owner}/{id}/{streamId}/schema`), data.world will replace records with the same primary\nkey value.\n\n**Streams don't need to be created before you can append data to them**. They will be created on-demand,\n when the first record is appended or by defining its schema.\n\nMultiple records can be appended at once by using JSON-L (`application/json-l`) as the request content type.\n\n**IMPORTANT**\n\nData uploaded to a dataset via a stream is not immediatelly processed. Instead, it is processed\nautomatically in accordance with the dataset settings (default: daily) or as a result of calling\n`POST:/datasets/{owner}/{id}/sync`.\n\nOnce processed, the contents of a stream will appear as part of the respective dataset as a `.jsonl`\nfile (e.g. `my-stream` will produce a file named `my-stream.jsonl`).\n"
+      description: 'Append JSON data to a stream associated with a dataset.
+
+
+        data.world streams are append-only by default. Alternatively, if a primary key is specified (see:
+
+        `POST:/streams/{owner}/{id}/{streamId}/schema`), data.world will replace records with the same primary
+
+        key value.
+
+
+        **Streams don''t need to be created before you can append data to them**. They will be created on-demand,
+
+        when the first record is appended or by defining its schema.
+
+
+        Multiple records can be appended at once by using JSON-L (`application/json-l`) as the request content type.
+
+
+        **IMPORTANT**
+
+
+        Data uploaded to a dataset via a stream is not immediatelly processed. Instead, it is processed
+
+        automatically in accordance with the dataset settings (default: daily) or as a result of calling
+
+        `POST:/datasets/{owner}/{id}/sync`.
+
+
+        Once processed, the contents of a stream will appear as part of the respective dataset as a `.jsonl`
+
+        file (e.g. `my-stream` will produce a file named `my-stream.jsonl`).'
       operationId: appendRecords
       parameters:
       - in: path
@@ -50,12 +79,10 @@ paths:
           description: default response
       summary: Append record(s)
       tags:
-      - streams
+      - Streams
   /streams/{owner}/{id}/{streamId}/records:
     delete:
-      description: ' Delete all records previously appended to stream.
-
-        '
+      description: Delete all records previously appended to stream.
       operationId: deleteRecords
       parameters:
       - in: path
@@ -82,12 +109,10 @@ paths:
           description: default response
       summary: Delete all records
       tags:
-      - streams
+      - Streams
   /streams/{owner}/{id}/{streamId}/schema:
     get:
-      description: 'Retrieve stream schema.
-
-        '
+      description: Retrieve stream schema.
       operationId: getStreamSchema
       parameters:
       - in: path
@@ -114,7 +139,7 @@ paths:
           description: default response
       summary: Retrieve stream schema
       tags:
-      - streams
+      - Streams
     patch:
       description: '"Set or update a stream''s schema.
 
@@ -133,9 +158,7 @@ paths:
 
         updated. Currently, the only `updateMethod` supported is `TRUNCATED`. data.world will discard all
 
-        records when the schema is updated."
-
-        '
+        records when the schema is updated."'
       operationId: patchStreamSchema
       parameters:
       - in: path
@@ -168,16 +191,9 @@ paths:
           description: default response
       summary: Set / Update stream schema
       tags:
-      - streams
+      - Streams
 components:
   schemas:
-    SuccessMessage:
-      type: object
-      properties:
-        message:
-          type: string
-          maxLength: 256
-          minLength: 0
     StreamSchemaPatchRequest:
       type: object
       properties:
@@ -204,6 +220,13 @@ components:
           minItems: 1
         sequenceField:
           type: string
+    SuccessMessage:
+      type: object
+      properties:
+        message:
+          type: string
+          maxLength: 256
+          minLength: 0
   securitySchemes:
     bearerAuth:
       bearerFormat: JWT

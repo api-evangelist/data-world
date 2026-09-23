@@ -1,18 +1,17 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   contact:
     name: Contact Us
     url: https://data.world/company/contact-us
   termsOfService: https://data.world/terms-policies
-  title: data.world Public catalog relationships queries API
+  title: data.world Public Queries API
   version: '0'
-  description: Manage relationships between catalog resources
 servers:
 - url: /v0
 security:
 - bearerAuth: []
 tags:
-- name: queries
+- name: Queries
 paths:
   /cancel:
     post:
@@ -32,7 +31,7 @@ paths:
           description: default response
       summary: Cancel a query
       tags:
-      - queries
+      - Queries
   /datasets/{owner}/{id}/queries:
     get:
       description: 'List published saved queries associated with a dataset. Query definitions will be returned, not the query results.
@@ -73,7 +72,7 @@ paths:
           description: default response
       summary: List published queries
       tags:
-      - queries
+      - Queries
     post:
       description: Create a saved query in a specified dataset.
       operationId: createSavedQuery
@@ -105,7 +104,7 @@ paths:
           description: default response
       summary: Create a saved query in a specified dataset
       tags:
-      - queries
+      - Queries
   /datasets/{owner}/{id}/queries/{queryId}:
     delete:
       description: Delete a saved query in a specified dataset.
@@ -138,7 +137,7 @@ paths:
           description: default response
       summary: Delete a saved query in a specified dataset
       tags:
-      - queries
+      - Queries
     put:
       description: Update a saved query in a specified dataset.
       operationId: updateSavedQuery
@@ -176,7 +175,7 @@ paths:
           description: default response
       summary: Update a saved query in a specified dataset
       tags:
-      - queries
+      - Queries
   /datasets/{owner}/{id}/userQueries:
     get:
       description: 'List user saved queries associated with a dataset. Query definitions will be returned, not the query results.
@@ -217,7 +216,7 @@ paths:
           description: default response
       summary: List user saved queries
       tags:
-      - queries
+      - Queries
   /projects/{owner}/{id}/queries:
     get:
       description: List published saved queries associated with a project.
@@ -256,7 +255,7 @@ paths:
           description: default response
       summary: List published queries
       tags:
-      - queries
+      - Queries
     post:
       description: Create a saved query in a specified project.
       operationId: createSavedQuery_1
@@ -288,7 +287,7 @@ paths:
           description: default response
       summary: Create a saved query
       tags:
-      - queries
+      - Queries
   /projects/{owner}/{id}/queries/{queryId}:
     delete:
       description: Delete a saved query in a specified project.
@@ -321,7 +320,7 @@ paths:
           description: default response
       summary: Delete a saved query
       tags:
-      - queries
+      - Queries
     put:
       description: Update a saved query in a specified project.
       operationId: updateSavedQuery_1
@@ -359,7 +358,7 @@ paths:
           description: default response
       summary: Update a saved query
       tags:
-      - queries
+      - Queries
   /projects/{owner}/{id}/userQueries:
     get:
       description: List user saved queries associated with a project.
@@ -398,7 +397,7 @@ paths:
           description: default response
       summary: List saved queries
       tags:
-      - queries
+      - Queries
   /queries/{id}:
     get:
       description: 'Retrieve a saved query. Query definitions will be returned, not query results. To retrieve query results
@@ -421,7 +420,7 @@ paths:
           description: default response
       summary: Retrieve a saved query
       tags:
-      - queries
+      - Queries
   /queries/{id}/results:
     get:
       description: 'Execute a saved query.
@@ -494,7 +493,7 @@ paths:
           description: default response
       summary: Execute a saved query
       tags:
-      - queries
+      - Queries
     post:
       description: 'Execute a saved query (same as GET:/queries/{id}/results) with the option to specify named query
 
@@ -534,7 +533,7 @@ paths:
           description: default response
       summary: Execute a saved query (with parameters)
       tags:
-      - queries
+      - Queries
   /queries/{id}/v/{versionId}:
     get:
       description: Retrieve a version of a saved query. Query definitions will be returned, not query results.
@@ -561,7 +560,7 @@ paths:
           description: default response
       summary: Retrieve a saved query version
       tags:
-      - queries
+      - Queries
   /sparql/{owner}:
     get:
       description: 'Execute a SPARQL query. The query will default to using the :current graph if the query contains no FROM
@@ -593,7 +592,7 @@ paths:
         - `text/turtle`
 
 
-        New to SPARQL? Check out data.world''s [SPARQL tutorial](https://docs.data.world/tutorials/sparql/).'
+        New to SPARQL? Check out data.world''s SPARQL tutorial.'
       operationId: queryViaGetWithDefaultGraph
       parameters:
       - in: path
@@ -644,7 +643,7 @@ paths:
           description: default response
       summary: Execute SPARQL query via GET with the default graph
       tags:
-      - queries
+      - Queries
     post:
       description: 'Execute a SPARQL query. The query will default to using the :current graph if the query contains no FROM
 
@@ -675,7 +674,7 @@ paths:
         - `text/turtle`
 
 
-        New to SPARQL? Check out data.world''s [SPARQL tutorial](https://docs.data.world/tutorials/sparql/).'
+        New to SPARQL? Check out data.world''s SPARQL tutorial.'
       operationId: queryWithJsonRequestWithDefaultGraph
       parameters:
       - in: path
@@ -702,7 +701,7 @@ paths:
           description: default response
       summary: Execute SPARQL query via POST with the default graph
       tags:
-      - queries
+      - Queries
   /sparql/{owner}/{id}:
     get:
       description: 'Execute a SPARQL query against a dataset or data project.
@@ -730,7 +729,7 @@ paths:
         - `text/turtle`
 
 
-        New to SPARQL? Check out data.world''s [SPARQL tutorial](https://docs.data.world/tutorials/sparql/).'
+        New to SPARQL? Check out data.world''s SPARQL tutorial.'
       operationId: queryViaGet
       parameters:
       - in: path
@@ -787,7 +786,7 @@ paths:
           description: default response
       summary: Execute SPARQL query via GET
       tags:
-      - queries
+      - Queries
     post:
       description: 'Execute a SPARQL query against a dataset or data project.
 
@@ -814,7 +813,7 @@ paths:
         - `text/turtle`
 
 
-        New to SPARQL? Check out data.world''s [SPARQL tutorial](https://docs.data.world/tutorials/sparql/).'
+        New to SPARQL? Check out data.world''s SPARQL tutorial.'
       operationId: queryWithJsonRequest
       parameters:
       - in: path
@@ -847,7 +846,7 @@ paths:
           description: default response
       summary: Execute SPARQL query via POST
       tags:
-      - queries
+      - Queries
   /sql/{owner}/{id}:
     get:
       description: Same as `POST:/sql/{owner}/{id}`
@@ -902,7 +901,7 @@ paths:
           description: default response
       summary: SQL query (via GET)
       tags:
-      - queries
+      - Queries
     post:
       description: 'Execute a SQL query against a dataset or data project.
 
@@ -921,7 +920,7 @@ paths:
         * `application/x-ndjson`
 
 
-        New to SQL? Check out data.world''s [SQL manual](https://docs.data.world/tutorials/dwsql/) .'
+        New to SQL? Check out data.world''s SQL manual .'
       operationId: sqlPostWithJsonRequest
       parameters:
       - in: path
@@ -963,12 +962,12 @@ paths:
           description: default response
       summary: SQL query
       tags:
-      - queries
+      - Queries
   /sql/{owner}/{id}/describe:
     post:
       description: 'This endpoint describes what columns will be included if the given SQL query is performed against the specified dataset.
 
-        New to SQL? Check out data.world''s [SQL manual](https://docs.data.world/tutorials/dwsql/) .'
+        New to SQL? Check out data.world''s SQL manual .'
       operationId: sqlDescribe
       parameters:
       - in: path
@@ -1005,51 +1004,29 @@ paths:
           description: default response
       summary: Describe a SQL query
       tags:
-      - queries
+      - Queries
 components:
   schemas:
-    SavedQueryExecutionRequest:
+    SqlQueryRequest:
       type: object
       properties:
         datasetVersions:
           type: string
-        defaultGraphUris:
-          type: array
-          items:
-            type: string
         includeTableSchema:
           type: boolean
-        maxRows:
-          type: integer
-          format: int64
-        namedGraphUris:
-          type: array
-          items:
-            type: string
-        parameters:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/RdfTerm'
+        query:
+          type: string
         queryRunToken:
           type: string
-    QueryPutRequest:
+      required:
+      - query
+    QueryParameter:
       type: object
       properties:
-        content:
+        datatype:
           type: string
-        description:
+        type:
           type: string
-          maxLength: 1000
-          minLength: 0
-        name:
-          type: string
-          maxLength: 128
-          minLength: 0
-        published:
-          type: boolean
-      required:
-      - content
-      - name
     CreateQueryRequest:
       type: object
       properties:
@@ -1074,6 +1051,40 @@ components:
       - content
       - language
       - name
+    PaginatedQueryResults:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+          minimum: 0
+        nextPageToken:
+          type: string
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/QuerySummaryResponse'
+      required:
+      - count
+      - records
+    QueryPutRequest:
+      type: object
+      properties:
+        content:
+          type: string
+        description:
+          type: string
+          maxLength: 1000
+          minLength: 0
+        name:
+          type: string
+          maxLength: 128
+          minLength: 0
+        published:
+          type: boolean
+      required:
+      - content
+      - name
     SparqlQueryRequest:
       type: object
       properties:
@@ -1095,22 +1106,6 @@ components:
           type: string
       required:
       - query
-    PaginatedQueryResults:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-          minimum: 0
-        nextPageToken:
-          type: string
-        records:
-          type: array
-          items:
-            $ref: '#/components/schemas/QuerySummaryResponse'
-      required:
-      - count
-      - records
     QuerySummaryResponse:
       type: object
       properties:
@@ -1160,12 +1155,29 @@ components:
       required:
       - type
       - value
-    QueryParameter:
+    SavedQueryExecutionRequest:
       type: object
       properties:
-        datatype:
+        datasetVersions:
           type: string
-        type:
+        defaultGraphUris:
+          type: array
+          items:
+            type: string
+        includeTableSchema:
+          type: boolean
+        maxRows:
+          type: integer
+          format: int64
+        namedGraphUris:
+          type: array
+          items:
+            type: string
+        parameters:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/RdfTerm'
+        queryRunToken:
           type: string
     SuccessMessage:
       type: object
@@ -1174,19 +1186,6 @@ components:
           type: string
           maxLength: 256
           minLength: 0
-    SqlQueryRequest:
-      type: object
-      properties:
-        datasetVersions:
-          type: string
-        includeTableSchema:
-          type: boolean
-        query:
-          type: string
-        queryRunToken:
-          type: string
-      required:
-      - query
   securitySchemes:
     bearerAuth:
       bearerFormat: JWT

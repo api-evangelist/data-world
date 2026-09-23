@@ -1,12 +1,12 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   contact:
     name: Contact Us
     url: https://data.world/company/contact-us
   termsOfService: https://data.world/terms-policies
-  title: data.world Public catalog relationships requests - authorization API
+  title: data.world Public requests - authorization API
   version: '0'
-  description: Manage relationships between catalog resources
+  description: Manage authorization requests
 servers:
 - url: /v0
 security:
@@ -126,47 +126,6 @@ paths:
       - requests - authorization
 components:
   schemas:
-    AuthRequestCreateDto:
-      type: object
-      properties:
-        dataset:
-          $ref: '#/components/schemas/DatasetIdentifierRequest'
-          description: The dataset that grantee will receive access to
-        granteeId:
-          type: string
-          description: ID of the user that will be granted access
-        level:
-          type: string
-          description: Level of access the grantee will receive
-          enum:
-          - DISCOVER
-          - READ
-          - WRITE
-          - ADMIN
-      required:
-      - dataset
-      - granteeId
-      - level
-    PublicDatasetInsightResource:
-      allOf:
-      - $ref: '#/components/schemas/PublicResource'
-      - type: object
-        properties:
-          datasetId:
-            type: string
-            description: ID of a dataset
-          insightUuid:
-            type: string
-            format: uuid
-            description: ID of a dataset insight
-          type:
-            type: string
-            const: DATASET_INSIGHT
-      required:
-      - datasetId
-      - insightUuid
-      - owner
-      title: Dataset Insight Resource
     PublicResource:
       type: object
       discriminator:
@@ -203,80 +162,27 @@ components:
       required:
       - owner
       - type
-    PublicGroupParty:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/PublicParty'
-      - type: object
-        properties:
-          id:
-            type: string
-            description: ID of a group
-          owner:
-            type: string
-            description: ID of an organization that owns the resource
-            title: organization id
-          type:
-            type: string
-            const: GROUP
-      - $ref: '#/components/schemas/PublicResource'
-      required:
-      - id
-      - owner
-      title: Group Identifier
-    PublicAnalysisResource:
-      allOf:
-      - $ref: '#/components/schemas/PublicResource'
-      - type: object
-        properties:
-          referent:
-            type: string
-            description: An analysis referent
-          type:
-            type: string
-            const: ANALYSIS
-      required:
-      - owner
-      - referent
-      title: Analysis Resource
-    PublicUserParty:
+    AuthRequestCreateDto:
       type: object
       properties:
-        id:
+        dataset:
+          $ref: '#/components/schemas/DatasetIdentifierRequest'
+          description: The dataset that grantee will receive access to
+        granteeId:
           type: string
-          description: ID of the user
+          description: ID of the user that will be granted access
+        level:
+          type: string
+          description: Level of access the grantee will receive
+          enum:
+          - DISCOVER
+          - READ
+          - WRITE
+          - ADMIN
       required:
-      - id
-      title: User Identifier
-    PublicMetadataResource:
-      allOf:
-      - $ref: '#/components/schemas/PublicResource'
-      - type: object
-        properties:
-          referent:
-            type: string
-            description: A metadata resource referent
-          type:
-            type: string
-            const: METADATA_RESOURCE
-      required:
-      - owner
-      - referent
-      title: Metadata Resource
-    PublicDatasetResource:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/PublicResource'
-      - $ref: '#/components/schemas/DatasetIdentifier'
-      - type: object
-        properties:
-          id:
-            type: string
-            description: ID of a dataset
-      required:
-      - id
-      - owner
-      title: Dataset Resource
+      - dataset
+      - granteeId
+      - level
     DatasetIdentifier:
       type: object
       properties:
@@ -287,6 +193,34 @@ components:
       required:
       - id
       - owner
+    AuthRequestRespondDto:
+      type: object
+      properties:
+        dataset:
+          $ref: '#/components/schemas/DatasetIdentifierRequest'
+          description: The dataset that this request is for
+        requestId:
+          type: string
+          format: uuid
+          description: ID of the request to accept
+      required:
+      - dataset
+      - requestId
+    PublicTableResource:
+      allOf:
+      - $ref: '#/components/schemas/PublicResource'
+      - type: object
+        properties:
+          referent:
+            type: string
+            description: Resource referent
+          type:
+            type: string
+            const: TABLE
+      required:
+      - owner
+      - referent
+      title: Table Metadata Resource
     PublicGlossaryResource:
       allOf:
       - $ref: '#/components/schemas/PublicResource'
@@ -302,21 +236,33 @@ components:
       - owner
       - referent
       title: Glossary Metadata Resource
-    PublicCollectionResource:
+    PublicColumnResource:
       allOf:
       - $ref: '#/components/schemas/PublicResource'
       - type: object
         properties:
           referent:
             type: string
-            description: A collection referent
+            description: A column referent
           type:
             type: string
-            const: CATALOG
+            const: COLUMN
       required:
       - owner
       - referent
-      title: Collection Metadata Resource
+      title: Column Metadata Resource
+    DatasetIdentifierRequest:
+      type: object
+      properties:
+        id:
+          type: string
+          description: ID of dataset
+        owner:
+          type: string
+          description: ID of user or organization that owns the dataset
+      required:
+      - id
+      - owner
     AuthRequestDto:
       type: object
       properties:
@@ -379,18 +325,6 @@ components:
           enum:
           - PRIVATE
           - PUBLIC
-    DatasetIdentifierRequest:
-      type: object
-      properties:
-        id:
-          type: string
-          description: ID of dataset
-        owner:
-          type: string
-          description: ID of user or organization that owns the dataset
-      required:
-      - id
-      - owner
     PublicParty:
       discriminator:
         mapping:
@@ -405,21 +339,80 @@ components:
           - GROUP
       required:
       - type
-    PublicColumnResource:
+    PublicCollectionResource:
       allOf:
       - $ref: '#/components/schemas/PublicResource'
       - type: object
         properties:
           referent:
             type: string
-            description: A column referent
+            description: A collection referent
           type:
             type: string
-            const: COLUMN
+            const: CATALOG
       required:
       - owner
       - referent
-      title: Column Metadata Resource
+      title: Collection Metadata Resource
+    PaginatedResultsDtoAuthRequestDto:
+      type: object
+      properties:
+        consistent:
+          type: boolean
+        count:
+          type: integer
+          format: int32
+          minimum: 0
+        next:
+          type: string
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/AuthRequestDto'
+    PublicDatasetResource:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/PublicResource'
+      - $ref: '#/components/schemas/DatasetIdentifier'
+      - type: object
+        properties:
+          id:
+            type: string
+            description: ID of a dataset
+      required:
+      - id
+      - owner
+      title: Dataset Resource
+    PublicAnalysisResource:
+      allOf:
+      - $ref: '#/components/schemas/PublicResource'
+      - type: object
+        properties:
+          referent:
+            type: string
+            description: An analysis referent
+          type:
+            type: string
+            const: ANALYSIS
+      required:
+      - owner
+      - referent
+      title: Analysis Resource
+    PublicMetadataResource:
+      allOf:
+      - $ref: '#/components/schemas/PublicResource'
+      - type: object
+        properties:
+          referent:
+            type: string
+            description: A metadata resource referent
+          type:
+            type: string
+            const: METADATA_RESOURCE
+      required:
+      - owner
+      - referent
+      title: Metadata Resource
     SuccessMessageDto:
       type: object
       properties:
@@ -442,49 +435,56 @@ components:
       - owner
       - referent
       title: Database Metadata Resource
-    PublicTableResource:
+    PublicDatasetInsightResource:
       allOf:
       - $ref: '#/components/schemas/PublicResource'
       - type: object
         properties:
-          referent:
+          datasetId:
             type: string
-            description: Resource referent
+            description: ID of a dataset
+          insightUuid:
+            type: string
+            format: uuid
+            description: ID of a dataset insight
           type:
             type: string
-            const: TABLE
+            const: DATASET_INSIGHT
       required:
+      - datasetId
+      - insightUuid
       - owner
-      - referent
-      title: Table Metadata Resource
-    PaginatedResultsDtoAuthRequestDto:
+      title: Dataset Insight Resource
+    PublicGroupParty:
       type: object
-      properties:
-        consistent:
-          type: boolean
-        count:
-          type: integer
-          format: int32
-          minimum: 0
-        next:
-          type: string
-        records:
-          type: array
-          items:
-            $ref: '#/components/schemas/AuthRequestDto'
-    AuthRequestRespondDto:
-      type: object
-      properties:
-        dataset:
-          $ref: '#/components/schemas/DatasetIdentifierRequest'
-          description: The dataset that this request is for
-        requestId:
-          type: string
-          format: uuid
-          description: ID of the request to accept
+      allOf:
+      - $ref: '#/components/schemas/PublicParty'
+      - type: object
+        properties:
+          id:
+            type: string
+            description: ID of a group
+          owner:
+            type: string
+            description: ID of an organization that owns the resource
+            title: organization id
+          type:
+            type: string
+            const: GROUP
+      - $ref: '#/components/schemas/PublicResource'
       required:
-      - dataset
-      - requestId
+      - id
+      - owner
+      title: Group Identifier
+    PublicUserParty:
+      type: object
+      properties:
+        id:
+          type: string
+          description: ID of the user
+      required:
+      - id
+      title: User Identifier
   securitySchemes:
     bearerAuth:
       bearerFormat: JWT

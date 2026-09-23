@@ -1,18 +1,17 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   contact:
     name: Contact Us
     url: https://data.world/company/contact-us
   termsOfService: https://data.world/terms-policies
-  title: data.world Public catalog relationships insights API
+  title: data.world Public Insights API
   version: '0'
-  description: Manage relationships between catalog resources
 servers:
 - url: /v0
 security:
 - bearerAuth: []
 tags:
-- name: insights
+- name: Insights
 paths:
   /insights/{projectOwner}/{projectId}:
     get:
@@ -52,7 +51,7 @@ paths:
           description: default response
       summary: List insights
       tags:
-      - insights
+      - Insights
     post:
       description: Create a new insight.
       operationId: createInsight
@@ -82,7 +81,7 @@ paths:
           description: Insight created successfully.
       summary: Create an insight
       tags:
-      - insights
+      - Insights
   /insights/{projectOwner}/{projectId}/{id}:
     delete:
       description: Delete an insight.
@@ -113,7 +112,7 @@ paths:
           description: default response
       summary: Delete an insight
       tags:
-      - insights
+      - Insights
     get:
       description: Retrieve an insight.
       operationId: getInsight
@@ -143,7 +142,7 @@ paths:
           description: default response
       summary: Retrieve an insight
       tags:
-      - insights
+      - Insights
     patch:
       description: 'Update an insight. Note that only elements included in the request will be updated. All omitted elements
 
@@ -181,7 +180,7 @@ paths:
           description: default response
       summary: Update an insight
       tags:
-      - insights
+      - Insights
     put:
       description: Replace an insight.
       operationId: replaceInsight
@@ -217,7 +216,7 @@ paths:
           description: default response
       summary: Replace an insight
       tags:
-      - insights
+      - Insights
   /insights/{projectOwner}/{projectId}/{id}/v/{versionId}:
     get:
       description: Retrieve an insight version.
@@ -253,23 +252,22 @@ paths:
           description: default response
       summary: Retrieve an insight version
       tags:
-      - insights
+      - Insights
 components:
   schemas:
-    InsightPutRequest:
+    InsightPatchRequest:
       type: object
       properties:
         body:
           $ref: '#/components/schemas/InsightBody'
         dataSourceLinks:
           type: array
+          description: Data source links included in a PATCH request will replace existing data source links.
           items:
             type: string
             format: uri
         description:
           type: string
-          maxLength: 25000
-          minLength: 0
         sourceLink:
           type: string
           format: uri
@@ -280,9 +278,6 @@ components:
           type: string
           maxLength: 128
           minLength: 1
-      required:
-      - body
-      - title
     InsightSummaryResponse:
       type: object
       properties:
@@ -328,18 +323,33 @@ components:
       - title
       - updated
       - version
-    CreateInsightResponse:
+    InsightPutRequest:
       type: object
       properties:
-        message:
+        body:
+          $ref: '#/components/schemas/InsightBody'
+        dataSourceLinks:
+          type: array
+          items:
+            type: string
+            format: uri
+        description:
           type: string
-          maxLength: 256
+          maxLength: 25000
           minLength: 0
-        uri:
+        sourceLink:
           type: string
           format: uri
+        thumbnail:
+          type: string
+          format: uri
+        title:
+          type: string
+          maxLength: 128
+          minLength: 1
       required:
-      - uri
+      - body
+      - title
     InsightBody:
       type: object
       properties:
@@ -353,29 +363,22 @@ components:
           type: string
           maxLength: 25000
           minLength: 0
-    InsightPatchRequest:
+    PaginatedInsightResults:
       type: object
       properties:
-        body:
-          $ref: '#/components/schemas/InsightBody'
-        dataSourceLinks:
+        count:
+          type: integer
+          format: int32
+          minimum: 0
+        nextPageToken:
+          type: string
+        records:
           type: array
-          description: Data source links included in a PATCH request will replace existing data source links.
           items:
-            type: string
-            format: uri
-        description:
-          type: string
-        sourceLink:
-          type: string
-          format: uri
-        thumbnail:
-          type: string
-          format: uri
-        title:
-          type: string
-          maxLength: 128
-          minLength: 1
+            $ref: '#/components/schemas/InsightSummaryResponse'
+      required:
+      - count
+      - records
     InsightCreateRequest:
       type: object
       properties:
@@ -403,22 +406,18 @@ components:
       required:
       - body
       - title
-    PaginatedInsightResults:
+    CreateInsightResponse:
       type: object
       properties:
-        count:
-          type: integer
-          format: int32
-          minimum: 0
-        nextPageToken:
+        message:
           type: string
-        records:
-          type: array
-          items:
-            $ref: '#/components/schemas/InsightSummaryResponse'
+          maxLength: 256
+          minLength: 0
+        uri:
+          type: string
+          format: uri
       required:
-      - count
-      - records
+      - uri
     SuccessMessage:
       type: object
       properties:

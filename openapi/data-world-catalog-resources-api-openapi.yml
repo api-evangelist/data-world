@@ -1,18 +1,17 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   contact:
     name: Contact Us
     url: https://data.world/company/contact-us
   termsOfService: https://data.world/terms-policies
-  title: data.world Public catalog relationships catalog resources API
+  title: data.world Public catalog resources API
   version: '0'
-  description: Manage relationships between catalog resources
 servers:
 - url: /v0
 security:
 - bearerAuth: []
 tags:
-- name: catalog resources
+- name: Catalog Resources
 paths:
   /metadata/resources/bulk/property/{owner}:
     patch:
@@ -44,7 +43,7 @@ paths:
           description: default response
       summary: 'Bulk: delete properties from resources'
       tags:
-      - catalog resources
+      - Catalog Resources
   /metadata/resources/bulk/{owner}:
     patch:
       description: Update a maximum of 25 resources of any type in the organization at once. To create one resource at a time, use "Create a new resource". Also, see the aforementioned endpoint for further update behaviors.
@@ -86,7 +85,7 @@ paths:
           description: default response
       summary: 'Bulk: update multiple resources at once'
       tags:
-      - catalog resources
+      - Catalog Resources
     post:
       description: Create a maximum of 25 resources of any type in the organization at once. The resources are created with the provided properties. To create one resource at a time, use "Create a new resource".
       operationId: bulkCreate
@@ -116,7 +115,7 @@ paths:
           description: default response
       summary: 'Bulk: create multiple resources at once'
       tags:
-      - catalog resources
+      - Catalog Resources
   /metadata/resources/property/{owner}:
     delete:
       description: 'Delete properties from a resource of any type in the organization. To update properties, use "Update a resource". To delete properties from multiple resources at once, use "Bulk: delete properties from resources".'
@@ -155,7 +154,7 @@ paths:
           description: default response
       summary: Delete properties from a resource
       tags:
-      - catalog resources
+      - Catalog Resources
   /metadata/resources/search:
     post:
       description: Search for resources in the organization. See request body for filtering options. To paginate through results, use "from" and "size" query parameters. To return more details about the resources, see "hydration" query parameter.
@@ -212,7 +211,7 @@ paths:
           description: default response
       summary: Search for resources
       tags:
-      - catalog resources
+      - Catalog Resources
   /metadata/resources/{owner}:
     delete:
       description: Delete a resource of any type in the organization.
@@ -243,7 +242,7 @@ paths:
           description: default response
       summary: Delete a resource
       tags:
-      - catalog resources
+      - Catalog Resources
     get:
       description: Return details about a resource of any type in the organization. See "hydrations" query parameter for options to return even more details.
       operationId: getResourceByIRI
@@ -279,7 +278,7 @@ paths:
           description: default response
       summary: Get a resource
       tags:
-      - catalog resources
+      - Catalog Resources
     patch:
       description: 'Update a resource of any type in the organization. Properties that are not defined in the request are not updated. When updating properties that have a single value, the old value is replaced by the new value in the request. When updating properties that have a list of values, see "updateListBy" query parameter for more granular controls. To delete properties, use "Delete properties from a resource". To update multiple resources at once, use "Bulk: update multiple resources at once".'
       operationId: update
@@ -326,7 +325,7 @@ paths:
           description: default response
       summary: Update a resource
       tags:
-      - catalog resources
+      - Catalog Resources
     post:
       description: 'Create a new resource of any type in the organization. The resource is created with the provided properties. To create multiple resources at once, use "Bulk: create multiple resources at once".'
       operationId: create
@@ -356,7 +355,7 @@ paths:
           description: default response
       summary: Create a new resource
       tags:
-      - catalog resources
+      - Catalog Resources
   /metadata/{owner}/resources/clear:
     post:
       description: This is an advanced operation and should be used with caution. The data.world catalog graph relies on a layered model that keeps the content from collected source systems separate from edits made by end users on the platform. This allows the collected source system data to update regularly withoutoverwriting enrichment and curation efforts that are authored on data.world. Sometimes, however, it is desirable to overwrite the end user edits or let the source system metadata replace user edits. This endpoint can be used to clear all end user edits for a given metadata resource or list of resources, restoring the source system values.
@@ -382,7 +381,7 @@ paths:
           description: default response
       summary: Clear all user edits from a resource
       tags:
-      - catalog resources
+      - Catalog Resources
   /metadata/{owner}/resources/properties/clear:
     put:
       description: This is an advanced operation and should be used with caution. The data.world catalog graph relies on a layered model that keeps the content from collected source systems separate from edits made by end users on the platform. This allows the collected source system data to update regularly without overwriting enrichment and curation efforts that are authored on data.world. Sometimes, however, it is desirable to overwrite the end user edits or let the source system metadata replace user edits. This endpoint can be used to clear a specific user-edited metadata field, restoring the source system values.
@@ -408,7 +407,7 @@ paths:
           description: default response
       summary: Clear all user edits on specified properties from a resource
       tags:
-      - catalog resources
+      - Catalog Resources
 components:
   schemas:
     ImageIcon:
@@ -434,174 +433,12 @@ components:
           type:
             type: string
             const: image
-    PaginatedGenericResultsOrgScopedSearchedResourceDto:
-      type: object
-      properties:
-        consistent:
-          type: boolean
-        count:
-          type: integer
-          format: int32
-          minimum: 0
-        hydrations:
-          $ref: '#/components/schemas/PubSearchHydrations'
-        next:
-          type: string
-        records:
-          type: array
-          items:
-            $ref: '#/components/schemas/OrgScopedSearchedResourceDto'
-    PubSearchHydrations:
-      type: object
-      properties:
-        agents:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/AgentHydrationDto'
-        catalogConcepts:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/CatalogConceptHydrationDto'
-        collections:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/CollectionHydrationDto'
-        properties:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/PropertyHydrationDto'
-        relationships:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/RelationshipHydrationDto'
-        resourceHierarchy:
-          type: object
-          additionalProperties:
-            type: object
-            additionalProperties:
-              type: array
-              items:
-                $ref: '#/components/schemas/ResourceHierarchyDto'
-    ResourceDetails:
-      type: object
-      properties:
-        typeDetails:
-          $ref: '#/components/schemas/TypeDetails'
-    CatalogResourceBulkCreateRequest:
-      type: object
-      properties:
-        resources:
-          type: array
-          description: A list of resources to create
-          items:
-            $ref: '#/components/schemas/CatalogResourceCreateRequest'
-          maxItems: 25
-          minItems: 1
-    CatalogResourceRequest:
-      type: object
-      properties:
-        collections:
-          type: array
-          description: Collections, identified by IRI, that this resource is added into. Required when creating a resource. Available collections can be discovered using "Search for resources" endpoint.
-          items:
-            type: string
-        properties:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/StringOrArray'
-          description: Create/update any property that is associated with a metadata presentation. Key is the IRI of the property. Value is the intended value of the property.
-          example: "\"{\n  \"https://democorpprofile.linked.data.world/d/ddw-catalogs/domain_expert\": \"Sample Name\",\n  \"https://democorpprofile.linked.data.world/d/ddw-catalogs/geographies_available\": [\n    \"https://democorpprofile.linked.data.world/d/ddw-catalogs/geography_europe\",\n    \"https://democorpprofile.linked.data.world/d/ddw-catalogs/geography_asia\" ]\n}\"\n"
-        title:
-          type: string
-          description: Title of the resource. Required when creating a resource.
-          maxLength: 120
-          minLength: 1
-    CatalogResourceBulkRequest:
-      type: object
-      properties:
-        resources:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/CatalogResourceRequest'
-          description: A map of resource IRI to properties to update
-    CatalogResourceGetResponse:
-      type: object
-      properties:
-        hydrations:
-          $ref: '#/components/schemas/PubSearchHydrations'
-        resource:
-          $ref: '#/components/schemas/CatalogResourceResponse'
-    EmojiIcon:
-      allOf:
-      - $ref: '#/components/schemas/Icon'
-      - type: object
-        properties:
-          type:
-            type: string
-            const: emoji
-          value:
-            type: string
-    AgentHydrationDto:
-      type: object
-      properties:
-        avatarUrl:
-          type: string
-        deactivated:
-          type: boolean
-        displayName:
-          type: string
-        id:
-          type: string
-    BasicResource:
-      type: object
-      properties:
-        iri:
-          type: string
-          format: uri
-          description: IRI of the resource
-        url:
-          type: string
-          format: uri
-          description: A URL that redirects to the resource's page on data.world
-      required:
-      - iri
-      - url
-    Image:
-      type: object
-      discriminator:
-        mapping:
-          hosted: '#/components/schemas/HostedImage'
-          provided: '#/components/schemas/ProvidedImage'
-        propertyName: type
-      properties:
-        type:
-          type: string
-          enum:
-          - hosted
-          - provided
-    Range:
-      type: object
-      properties:
-        endDate:
-          type: string
-          description: Inclusive. Format is YYYY-MM-DD in UTC. If inputted by itself (without startDate), it will match all dates before this date and this date.
-        startDate:
-          type: string
-          description: Inclusive. Format is YYYY-MM-DD in UTC. If inputted by itself (without endDate),it will match all dates after this date and this date.
     RelationshipHydrationDto:
       type: object
       properties:
         labels:
           type: array
           description: Label of the relationship presentation associated with the relationship
-          items:
-            type: string
-    PropertyHydrationDto:
-      type: object
-      properties:
-        label:
-          type: array
-          description: Label of the metadata presentation associated with the property
           items:
             type: string
     ClearResourcesRequest:
@@ -620,75 +457,26 @@ components:
       required:
       - resourceType
       - resources
-    ResourceHierarchyDto:
-      type: object
-      properties:
-        assetStatus:
-          $ref: '#/components/schemas/AssetStatus'
-          description: 'Resource status: Pending, Approved etc.'
-        hierarchy:
-          type: array
-          description: Parent types of this resource's type. Returns the most specific type followed by its parent. The first item is the same as type. The last item is the root type.
-          items:
-            $ref: '#/components/schemas/EntryType'
-        icon:
-          $ref: '#/components/schemas/Icon'
-          description: Resource icon details.
-          oneOf:
-          - $ref: '#/components/schemas/EmojiIcon'
-          - $ref: '#/components/schemas/ImageIcon'
-          - $ref: '#/components/schemas/SvgIcon'
-        iri:
-          type: string
-          description: Resource IRI.
-        owner:
-          type: string
-          description: The ID of the organization that this resource belongs to
-        title:
-          type: string
-          description: Resource title
-        type:
-          type: string
-          description: Resource simple type name, e.g. catalogDatabase, catalogEntry etc.
-        typeLabel:
-          type: string
-          description: Resource type label.
-    AssetStatus:
-      type: object
-      properties:
-        assetStatusLabel:
-          type: string
-        dispositionLabel:
-          type: string
-    ClearResourcePropertiesRequest:
-      type: object
-      properties:
+    ProvidedImage:
+      allOf:
+      - $ref: '#/components/schemas/Image'
+      - type: object
         properties:
-          type: array
-          description: Properties of the specified metadata resource
-          items:
+          slug:
             type: string
-          minItems: 1
-        resource:
-          type: string
-          description: A metadata resource
-          minLength: 1
-        resourceType:
-          type: string
-          description: Type iri of specified metadata resource
-          minLength: 1
-      required:
-      - properties
-      - resource
-      - resourceType
-    CatalogResourceBulkResponse:
-      type: object
-      properties:
-        resources:
-          type: array
-          description: Resources that were updated
-          items:
-            $ref: '#/components/schemas/BasicResource'
+          type:
+            type: string
+            const: provided
+    EmojiIcon:
+      allOf:
+      - $ref: '#/components/schemas/Icon'
+      - type: object
+        properties:
+          type:
+            type: string
+            const: emoji
+          value:
+            type: string
     SvgIcon:
       allOf:
       - $ref: '#/components/schemas/Icon'
@@ -712,6 +500,54 @@ components:
           type:
             type: string
             const: svg-image
+    CatalogResourceBulkResponse:
+      type: object
+      properties:
+        resources:
+          type: array
+          description: Resources that were updated
+          items:
+            $ref: '#/components/schemas/BasicResource'
+    CatalogResourceResponse:
+      type: object
+      properties:
+        collections:
+          type: array
+          description: Collections that the resource is a part of
+          items:
+            type: string
+            format: uri
+        iri:
+          type: string
+          format: uri
+          description: IRI of the resource
+        properties:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/StringOrArray'
+          description: All properties of the resource that are associated with a metadata presentation. Key is the IRI of the property. Value is the value of the property.
+        sourceId:
+          type: string
+          description: Database of the resource (applies only to tables and columns)
+        tableId:
+          type: string
+          description: Table id of the resource (applies only to columns)
+        tableIri:
+          type: string
+          description: Table IRI of the resource (applies only to columns)
+        title:
+          type: string
+          description: Title of the resource
+        types:
+          type: array
+          description: Type of the resource
+          items:
+            type: string
+            format: uri
+        url:
+          type: string
+          format: uri
+          description: A URL that redirects to the resource's page on data.world
     Icon:
       type: object
       discriminator:
@@ -727,112 +563,64 @@ components:
           - emoji
           - image
           - svg-image
-    StringOrArray:
-      oneOf:
-      - type: string
-      - type: array
-        items:
-          type: string
-    HostedImage:
-      allOf:
-      - $ref: '#/components/schemas/Image'
-      - type: object
-        properties:
-          type:
-            type: string
-            const: hosted
-          url:
-            type: string
-    BulkDeletePropertyRequest:
+    AssetStatus:
       type: object
       properties:
-        resources:
+        assetStatusLabel:
+          type: string
+        dispositionLabel:
+          type: string
+    AgentHydrationDto:
+      type: object
+      properties:
+        avatarUrl:
+          type: string
+        deactivated:
+          type: boolean
+        displayName:
+          type: string
+        id:
+          type: string
+    ClearResourcePropertiesRequest:
+      type: object
+      properties:
+        properties:
+          type: array
+          description: Properties of the specified metadata resource
+          items:
+            type: string
+          minItems: 1
+        resource:
+          type: string
+          description: A metadata resource
+          minLength: 1
+        resourceType:
+          type: string
+          description: Type iri of specified metadata resource
+          minLength: 1
+      required:
+      - properties
+      - resource
+      - resourceType
+    CatalogResourceRequest:
+      type: object
+      properties:
+        collections:
+          type: array
+          description: Collections, identified by IRI, that this resource is added into. Required when creating a resource. Available collections can be discovered using "Search for resources" endpoint.
+          items:
+            type: string
+        properties:
           type: object
           additionalProperties:
-            type: array
-            items:
-              type: string
-          description: A map of resource IRI to property IRIs to delete
-    EntryType:
-      type: object
-      properties:
-        icon:
-          $ref: '#/components/schemas/Icon'
-          oneOf:
-          - $ref: '#/components/schemas/EmojiIcon'
-          - $ref: '#/components/schemas/ImageIcon'
-          - $ref: '#/components/schemas/SvgIcon'
-        instantiable:
-          type: boolean
-        label:
-          type: string
-        pluralLabel:
-          type: string
-        requestable:
-          type: boolean
-        type:
-          type: string
-          description: Entry type IRI
-    CollectionHydrationDto:
-      type: object
-      properties:
-        description:
-          type: string
-        id:
-          type: string
-          description: dct:identifier of the collection
-        iri:
-          type: string
-        owner:
-          type: string
+            $ref: '#/components/schemas/StringOrArray'
+          description: Create/update any property that is associated with a metadata presentation. Key is the IRI of the property. Value is the intended value of the property.
+          example: "\"{\n  \"https://democorpprofile.linked.data.world/d/ddw-catalogs/domain_expert\": \"Sample Name\",\n  \"https://democorpprofile.linked.data.world/d/ddw-catalogs/geographies_available\": [\n    \"https://democorpprofile.linked.data.world/d/ddw-catalogs/geography_europe\",\n    \"https://democorpprofile.linked.data.world/d/ddw-catalogs/geography_asia\" ]\n}\"\n"
         title:
           type: string
-    OrgScopedSearchedResourceDto:
-      type: object
-      properties:
-        category:
-          type: string
-        created:
-          type: string
-          format: date-time
-        creator:
-          type: string
-        id:
-          type: string
-        iri:
-          type: string
-        numLikes:
-          type: integer
-          format: int32
-        owner:
-          type: string
-        properties:
-          type: object
-          additionalProperties: {}
-        resourceDetails:
-          $ref: '#/components/schemas/ResourceDetails'
-        resourceLink:
-          type: string
-          format: uri
-        sourceId:
-          type: string
-        sourceOfRecord:
-          type: string
-        tableId:
-          type: string
-        tableIri:
-          type: string
-        title:
-          type: string
-        updated:
-          type: string
-          format: date-time
-        updatedBy:
-          type: string
-      required:
-      - category
-      - id
-      - owner
+          description: Title of the resource. Required when creating a resource.
+          maxLength: 120
+          minLength: 1
     OrgScopedSearchRequest:
       type: object
       properties:
@@ -890,16 +678,238 @@ components:
           description: Filter by range of date that the resource was updated.
       required:
       - owner
-    ProvidedImage:
+    BulkDeletePropertyRequest:
+      type: object
+      properties:
+        resources:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+          description: A map of resource IRI to property IRIs to delete
+    EntryType:
+      type: object
+      properties:
+        icon:
+          $ref: '#/components/schemas/Icon'
+          oneOf:
+          - $ref: '#/components/schemas/EmojiIcon'
+          - $ref: '#/components/schemas/ImageIcon'
+          - $ref: '#/components/schemas/SvgIcon'
+        instantiable:
+          type: boolean
+        label:
+          type: string
+        pluralLabel:
+          type: string
+        requestable:
+          type: boolean
+        type:
+          type: string
+          description: Entry type IRI
+    CatalogResourceGetResponse:
+      type: object
+      properties:
+        hydrations:
+          $ref: '#/components/schemas/PubSearchHydrations'
+        resource:
+          $ref: '#/components/schemas/CatalogResourceResponse'
+    StringOrArray:
+      oneOf:
+      - type: string
+      - type: array
+        items:
+          type: string
+    Image:
+      type: object
+      discriminator:
+        mapping:
+          hosted: '#/components/schemas/HostedImage'
+          provided: '#/components/schemas/ProvidedImage'
+        propertyName: type
+      properties:
+        type:
+          type: string
+          enum:
+          - hosted
+          - provided
+    BasicResource:
+      type: object
+      properties:
+        iri:
+          type: string
+          format: uri
+          description: IRI of the resource
+        url:
+          type: string
+          format: uri
+          description: A URL that redirects to the resource's page on data.world
+      required:
+      - iri
+      - url
+    CatalogResourceBulkCreateRequest:
+      type: object
+      properties:
+        resources:
+          type: array
+          description: A list of resources to create
+          items:
+            $ref: '#/components/schemas/CatalogResourceCreateRequest'
+          maxItems: 25
+          minItems: 1
+    PaginatedGenericResultsOrgScopedSearchedResourceDto:
+      type: object
+      properties:
+        consistent:
+          type: boolean
+        count:
+          type: integer
+          format: int32
+          minimum: 0
+        hydrations:
+          $ref: '#/components/schemas/PubSearchHydrations'
+        next:
+          type: string
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrgScopedSearchedResourceDto'
+    HostedImage:
       allOf:
       - $ref: '#/components/schemas/Image'
       - type: object
         properties:
-          slug:
-            type: string
           type:
             type: string
-            const: provided
+            const: hosted
+          url:
+            type: string
+    CollectionHydrationDto:
+      type: object
+      properties:
+        description:
+          type: string
+        id:
+          type: string
+          description: dct:identifier of the collection
+        iri:
+          type: string
+        owner:
+          type: string
+        title:
+          type: string
+    Range:
+      type: object
+      properties:
+        endDate:
+          type: string
+          description: Inclusive. Format is YYYY-MM-DD in UTC. If inputted by itself (without startDate), it will match all dates before this date and this date.
+        startDate:
+          type: string
+          description: Inclusive. Format is YYYY-MM-DD in UTC. If inputted by itself (without endDate),it will match all dates after this date and this date.
+    TypeDetails:
+      type: object
+      properties:
+        id:
+          type: string
+        label:
+          type: string
+        subtypeOf:
+          type: string
+    PubSearchHydrations:
+      type: object
+      properties:
+        agents:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/AgentHydrationDto'
+        catalogConcepts:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/CatalogConceptHydrationDto'
+        collections:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/CollectionHydrationDto'
+        properties:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/PropertyHydrationDto'
+        relationships:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/RelationshipHydrationDto'
+        resourceHierarchy:
+          type: object
+          additionalProperties:
+            type: object
+            additionalProperties:
+              type: array
+              items:
+                $ref: '#/components/schemas/ResourceHierarchyDto'
+    PropertyHydrationDto:
+      type: object
+      properties:
+        label:
+          type: array
+          description: Label of the metadata presentation associated with the property
+          items:
+            type: string
+    CatalogResourceBulkRequest:
+      type: object
+      properties:
+        resources:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/CatalogResourceRequest'
+          description: A map of resource IRI to properties to update
+    OrgScopedSearchedResourceDto:
+      type: object
+      properties:
+        category:
+          type: string
+        created:
+          type: string
+          format: date-time
+        creator:
+          type: string
+        id:
+          type: string
+        iri:
+          type: string
+        numLikes:
+          type: integer
+          format: int32
+        owner:
+          type: string
+        properties:
+          type: object
+          additionalProperties: {}
+        resourceDetails:
+          $ref: '#/components/schemas/ResourceDetails'
+        resourceLink:
+          type: string
+          format: uri
+        sourceId:
+          type: string
+        sourceOfRecord:
+          type: string
+        tableId:
+          type: string
+        tableIri:
+          type: string
+        title:
+          type: string
+        updated:
+          type: string
+          format: date-time
+        updatedBy:
+          type: string
+      required:
+      - category
+      - id
+      - owner
     CatalogConceptHydrationDto:
       type: object
       properties:
@@ -911,62 +921,6 @@ components:
           type: string
         prefLabel:
           type: string
-    TypeDetails:
-      type: object
-      properties:
-        id:
-          type: string
-        label:
-          type: string
-        subtypeOf:
-          type: string
-    SuccessMessage:
-      type: object
-      properties:
-        message:
-          type: string
-          maxLength: 256
-          minLength: 0
-    CatalogResourceResponse:
-      type: object
-      properties:
-        collections:
-          type: array
-          description: Collections that the resource is a part of
-          items:
-            type: string
-            format: uri
-        iri:
-          type: string
-          format: uri
-          description: IRI of the resource
-        properties:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/StringOrArray'
-          description: All properties of the resource that are associated with a metadata presentation. Key is the IRI of the property. Value is the value of the property.
-        sourceId:
-          type: string
-          description: Database of the resource (applies only to tables and columns)
-        tableId:
-          type: string
-          description: Table id of the resource (applies only to columns)
-        tableIri:
-          type: string
-          description: Table IRI of the resource (applies only to columns)
-        title:
-          type: string
-          description: Title of the resource
-        types:
-          type: array
-          description: Type of the resource
-          items:
-            type: string
-            format: uri
-        url:
-          type: string
-          format: uri
-          description: A URL that redirects to the resource's page on data.world
     CatalogResourceCreateRequest:
       type: object
       properties:
@@ -994,6 +948,51 @@ components:
           description: IRI of the type of the resource
       required:
       - type
+    ResourceHierarchyDto:
+      type: object
+      properties:
+        assetStatus:
+          $ref: '#/components/schemas/AssetStatus'
+          description: 'Resource status: Pending, Approved etc.'
+        hierarchy:
+          type: array
+          description: Parent types of this resource's type. Returns the most specific type followed by its parent. The first item is the same as type. The last item is the root type.
+          items:
+            $ref: '#/components/schemas/EntryType'
+        icon:
+          $ref: '#/components/schemas/Icon'
+          description: Resource icon details.
+          oneOf:
+          - $ref: '#/components/schemas/EmojiIcon'
+          - $ref: '#/components/schemas/ImageIcon'
+          - $ref: '#/components/schemas/SvgIcon'
+        iri:
+          type: string
+          description: Resource IRI.
+        owner:
+          type: string
+          description: The ID of the organization that this resource belongs to
+        title:
+          type: string
+          description: Resource title
+        type:
+          type: string
+          description: Resource simple type name, e.g. catalogDatabase, catalogEntry etc.
+        typeLabel:
+          type: string
+          description: Resource type label.
+    ResourceDetails:
+      type: object
+      properties:
+        typeDetails:
+          $ref: '#/components/schemas/TypeDetails'
+    SuccessMessage:
+      type: object
+      properties:
+        message:
+          type: string
+          maxLength: 256
+          minLength: 0
   securitySchemes:
     bearerAuth:
       bearerFormat: JWT

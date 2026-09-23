@@ -1,24 +1,23 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   contact:
     name: Contact Us
     url: https://data.world/company/contact-us
   termsOfService: https://data.world/terms-policies
-  title: data.world Public catalog relationships instance admin API
+  title: data.world Public instance admin API
   version: '0'
-  description: Manage relationships between catalog resources
 servers:
 - url: /v0
 security:
 - bearerAuth: []
 tags:
-- name: instance admin
+- name: Instance Admin
 paths:
   /instanceAdmin/agents/{agentid}:
     put:
       description: 'This operation is only usable in Private Instances and requires the instance admin role permission. See the
 
-        [Get API Tokens](https://developer.data.world/docs/api-getting-started#/step-2-get-the-tokens) documentation
+        Get API Tokens documentation
 
         for more information.'
       operationId: createOrUpdateAgent
@@ -45,12 +44,12 @@ paths:
           description: default response
       summary: Create a new user or update existing one
       tags:
-      - instance admin
+      - Instance Admin
   /instanceAdmin/agents/{agentid}/deactivate:
     post:
       description: 'This operation is only usable in Private Instances and requires the instance admin role permission. See the
 
-        [Get API Tokens](https://developer.data.world/docs/api-getting-started#/step-2-get-the-tokens) documentation
+        Get API Tokens documentation
 
         for more information.'
       operationId: deactivateAgent
@@ -71,12 +70,12 @@ paths:
           description: default response
       summary: Deactivate specified agent
       tags:
-      - instance admin
+      - Instance Admin
   /instanceAdmin/agents/{agentid}/reactivate:
     post:
       description: 'This operation is only usable in Private Instances and requires the instance admin role permission. See the
 
-        [Get API Tokens](https://developer.data.world/docs/api-getting-started#/step-2-get-the-tokens) documentation
+        Get API Tokens documentation
 
         for more information.'
       operationId: activateAgent
@@ -97,9 +96,26 @@ paths:
           description: default response
       summary: Reactivate specified agent
       tags:
-      - instance admin
+      - Instance Admin
 components:
   schemas:
+    UserAssignment:
+      type: object
+      properties:
+        groups:
+          type: array
+          description: Groups in the organization that user should be assigned to
+          items:
+            type: string
+            minLength: 1
+          maxItems: 30
+          minItems: 0
+          uniqueItems: true
+        orgAgentId:
+          type: string
+          description: Organization that user should be assigned to
+      required:
+      - orgAgentId
     CreateOrUpdateUserRequest:
       type: object
       properties:
@@ -127,23 +143,6 @@ components:
       - credentials
       - displayName
       - email
-    UserAssignment:
-      type: object
-      properties:
-        groups:
-          type: array
-          description: Groups in the organization that user should be assigned to
-          items:
-            type: string
-            minLength: 1
-          maxItems: 30
-          minItems: 0
-          uniqueItems: true
-        orgAgentId:
-          type: string
-          description: Organization that user should be assigned to
-      required:
-      - orgAgentId
     SuccessMessageDto:
       type: object
       properties:

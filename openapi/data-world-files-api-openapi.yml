@@ -1,18 +1,17 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   contact:
     name: Contact Us
     url: https://data.world/company/contact-us
   termsOfService: https://data.world/terms-policies
-  title: data.world Public catalog relationships files API
+  title: data.world Public Files API
   version: '0'
-  description: Manage relationships between catalog resources
 servers:
 - url: /v0
 security:
 - bearerAuth: []
 tags:
-- name: files
+- name: Files
 paths:
   /datasets/{owner}/{id}/files:
     delete:
@@ -52,7 +51,7 @@ paths:
           description: default response
       summary: Delete files
       tags:
-      - files
+      - Files
     post:
       description: 'Add files from URLs to a dataset. This method allows files published on the web to be added to a
 
@@ -63,7 +62,7 @@ paths:
 
         The source URL will be stored so you can easily update your file anytime it changes via the *fetch latest*
 
-        link on the [data.world](https://data.world/) dataset page or by triggering the `GET:/sync` endpoint.'
+        link on the data.world dataset page or by triggering the `GET:/sync` endpoint.'
       operationId: addFilesBySource
       parameters:
       - in: path
@@ -93,7 +92,7 @@ paths:
           description: default response
       summary: Add files from URLs
       tags:
-      - files
+      - Files
   /datasets/{owner}/{id}/files/{file}:
     delete:
       description: Delete a single file from a dataset.
@@ -128,10 +127,9 @@ paths:
           description: default response
       summary: Delete a file
       tags:
-      - files
+      - Files
   /datasets/{owner}/{id}/files/{file}/metadata:
     get:
-      description: Get file description and labels
       operationId: getFileMetadata
       parameters:
       - in: path
@@ -161,7 +159,7 @@ paths:
           description: default response
       summary: Get file description and labels
       tags:
-      - files
+      - Files
     patch:
       description: 'Update file description and labels. Only elements included in the request will be updated. All omitted
 
@@ -203,9 +201,8 @@ paths:
           description: default response
       summary: Update file description and labels
       tags:
-      - files
+      - Files
     put:
-      description: Replace file description and labels
       operationId: putFileMetadata
       parameters:
       - in: path
@@ -241,7 +238,7 @@ paths:
           description: default response
       summary: Replace file description and labels
       tags:
-      - files
+      - Files
   /datasets/{owner}/{id}/sync:
     get:
       description: Same as `POST:/dataset/{owner}/{id}/sync`. The id parameter can either be a dataset id or project id.
@@ -268,7 +265,7 @@ paths:
           description: default response
       summary: Sync files (via GET)
       tags:
-      - files
+      - Files
     post:
       description: 'Sync files within a dataset or project. This method will process the latest data available for files added
 
@@ -296,7 +293,7 @@ paths:
           description: default response
       summary: Sync files
       tags:
-      - files
+      - Files
   /file_download/{owner}/{id}/{file}:
     get:
       description: 'Download a file within the dataset as originally uploaded. Prefer `POST:/sql` or `POST:/sparql` for
@@ -326,10 +323,42 @@ paths:
           description: default response
       summary: Download a file
       tags:
-      - files
+      - Files
   /uploads/{owner}/{id}/files:
     post:
-      description: "\"Upload multiple files at once to a dataset.\n\nThis endpoint expects requests of type `multipart/form-data` and you can include one or more parts named\n`file`, each containing a different file to be uploaded.\n\nFor example, assuming that you want to upload two local files named `file1.csv` and `file2.csv` to a\nhypothetical dataset `https://data.world/awesome-user/awesome-dataset`, this is what the cURL command\nwould look like.\n\n```bash\ncurl \\\n  -H \"Authorization: Bearer <YOUR_API_TOKEN>\" \\\n  -F \"file=@file1.csv\" \\\n  -F \"file=@file2.csv\" \\\n  https://api.data.world/v0/uploads/awesome-user/awesome-dataset/files\n```\n\nSwagger clients may limit this method of upload to one file at a time. Other HTTP clients capable of\nmaking multipart/form-data requests can be used to upload multiple files in a single request.\"\n"
+      description: '"Upload multiple files at once to a dataset.
+
+
+        This endpoint expects requests of type `multipart/form-data` and you can include one or more parts named
+
+        `file`, each containing a different file to be uploaded.
+
+
+        For example, assuming that you want to upload two local files named `file1.csv` and `file2.csv` to a
+
+        hypothetical dataset `https://data.world/awesome-user/awesome-dataset`, this is what the cURL command
+
+        would look like.
+
+
+        ```bash
+
+        curl \
+
+        -H "Authorization: Bearer " \
+
+        -F "file=@file1.csv" \
+
+        -F "file=@file2.csv" \
+
+        https://api.data.world/v0/uploads/awesome-user/awesome-dataset/files
+
+        ```
+
+
+        Swagger clients may limit this method of upload to one file at a time. Other HTTP clients capable of
+
+        making multipart/form-data requests can be used to upload multiple files in a single request."'
       operationId: uploadFiles
       parameters:
       - in: path
@@ -371,10 +400,40 @@ paths:
           description: default response
       summary: Upload files
       tags:
-      - files
+      - Files
   /uploads/{owner}/{id}/files/{file}:
     put:
-      description: "Upload one file at a time to a dataset.\n\nThis endpoint expects requests of type `application/octet-stream`.\n\nFor example, assuming that you want to upload a local file named `file1.csv` to a hypothetical dataset\n`https://data.world/awesome-user/awesome-dataset` and choose its name on data.world to be\n`better-name.csv`, this is what the cURL command would look like.\n\n```bash\ncurl \\\n  -H \"Authorization: Bearer <YOUR_API_TOKEN>\" \\\n  -X PUT -H \"Content-Type: application/octet-stream\" \\\n  --data-binary @file1.csv \\\n  https://api.data.world/v0/uploads/awesome-user/awesome-dataset/files/better-name.csv\n```\n\nThis method of upload is typically not supported by Swagger clients. Other HTTP clients can be used to\nsupply the contents of the file directly in the body of the request.\n"
+      description: 'Upload one file at a time to a dataset.
+
+
+        This endpoint expects requests of type `application/octet-stream`.
+
+
+        For example, assuming that you want to upload a local file named `file1.csv` to a hypothetical dataset
+
+        `https://data.world/awesome-user/awesome-dataset` and choose its name on data.world to be
+
+        `better-name.csv`, this is what the cURL command would look like.
+
+
+        ```bash
+
+        curl \
+
+        -H "Authorization: Bearer " \
+
+        -X PUT -H "Content-Type: application/octet-stream" \
+
+        --data-binary @file1.csv \
+
+        https://api.data.world/v0/uploads/awesome-user/awesome-dataset/files/better-name.csv
+
+        ```
+
+
+        This method of upload is typically not supported by Swagger clients. Other HTTP clients can be used to
+
+        supply the contents of the file directly in the body of the request.'
       operationId: uploadFile
       parameters:
       - in: path
@@ -422,28 +481,66 @@ paths:
           description: default response
       summary: Upload a file
       tags:
-      - files
+      - Files
 components:
   schemas:
-    QueryExecutionDto:
-      type: object
-      properties:
-        query:
-          type: string
-          maxLength: 10000
-          minLength: 1
-      required:
-      - query
-    FileMetadataUpdateRequest:
+    FileCreateOrUpdateRequest:
       type: object
       properties:
         description:
           type: string
+          maxLength: 120
+          minLength: 1
         labels:
           type: array
           items:
             type: string
-          uniqueItems: true
+        mediaType:
+          type: string
+        mediaTypeLocked:
+          type: boolean
+        name:
+          type: string
+          maxLength: 128
+          minLength: 1
+          pattern: ^[^/]+$
+        source:
+          $ref: '#/components/schemas/FileSourceCreateOrUpdateRequest'
+      required:
+      - name
+    FileMetadataResponse:
+      type: object
+      properties:
+        created:
+          type: string
+          format: date-time
+        createdBy:
+          type: string
+        description:
+          type: string
+          maxLength: 120
+          minLength: 1
+        labels:
+          type: array
+          items:
+            type: string
+        name:
+          type: string
+          maxLength: 128
+          minLength: 1
+          pattern: ^[^/]+$
+        sizeInBytes:
+          type: integer
+          format: int64
+        updated:
+          type: string
+          format: date-time
+        updatedBy:
+          type: string
+      required:
+      - created
+      - name
+      - updated
     DatabaseMetadataSpecDto:
       type: object
       properties:
@@ -453,29 +550,37 @@ components:
             $ref: '#/components/schemas/TableMetadataSpecDto'
           maxItems: 100
           minItems: 0
-    TableMetadataSpecDto:
+    OauthTokenReference:
       type: object
       properties:
-        database:
+        id:
           type: string
-        schema:
+          format: uuid
+        owner:
           type: string
-        tablePrefixes:
+        site:
+          type: string
+      required:
+      - id
+      - owner
+      - site
+    DwccSpecDto:
+      type: object
+      properties:
+        databaseId:
+          type: string
+        metadataToExclude:
           type: array
           items:
             type: string
-        tableTypes:
+        sourceDatabase:
+          type: string
+        sourceSchemas:
           type: array
           items:
             type: string
-            enum:
-            - TABLE
-            - EXTERNAL_TABLE
-            - VIEW
-        tables:
-          type: array
-          items:
-            type: string
+        targetCatalog:
+          type: string
     SingleTableMetadataSpecDto:
       type: object
       properties:
@@ -503,65 +608,6 @@ components:
           minLength: 0
       required:
       - user
-    FileCreateOrUpdateRequest:
-      type: object
-      properties:
-        description:
-          type: string
-          maxLength: 120
-          minLength: 1
-        labels:
-          type: array
-          items:
-            type: string
-        mediaType:
-          type: string
-        mediaTypeLocked:
-          type: boolean
-        name:
-          type: string
-          maxLength: 128
-          minLength: 1
-          pattern: ^[^/]+$
-        source:
-          $ref: '#/components/schemas/FileSourceCreateOrUpdateRequest'
-      required:
-      - name
-    ViewRequestDto:
-      type: object
-      properties:
-        baseAgentId:
-          type: string
-        baseDatasetId:
-          type: string
-        queryId:
-          type: string
-          format: uuid
-        queryName:
-          type: string
-        queryText:
-          type: string
-          maxLength: 10000
-          minLength: 1
-        queryType:
-          type: string
-          enum:
-          - SPARQL
-          - SQL
-        runAsAgentId:
-          type: string
-        targetAgentId:
-          type: string
-        targetDatasetId:
-          type: string
-      required:
-      - baseAgentId
-      - baseDatasetId
-      - queryName
-      - queryType
-      - runAsAgentId
-      - targetAgentId
-      - targetDatasetId
     FileSourceCreateOrUpdateRequest:
       type: object
       properties:
@@ -605,44 +651,15 @@ components:
           type: boolean
         viewRequest:
           $ref: '#/components/schemas/ViewRequestDto'
-    OauthTokenReference:
+    QueryExecutionDto:
       type: object
       properties:
-        id:
+        query:
           type: string
-          format: uuid
-        owner:
-          type: string
-        site:
-          type: string
+          maxLength: 10000
+          minLength: 1
       required:
-      - id
-      - owner
-      - site
-    DwccSpecDto:
-      type: object
-      properties:
-        databaseId:
-          type: string
-        metadataToExclude:
-          type: array
-          items:
-            type: string
-        sourceDatabase:
-          type: string
-        sourceSchemas:
-          type: array
-          items:
-            type: string
-        targetCatalog:
-          type: string
-    SuccessMessage:
-      type: object
-      properties:
-        message:
-          type: string
-          maxLength: 256
-          minLength: 0
+      - query
     DatabaseSourceReference:
       type: object
       properties:
@@ -654,6 +671,29 @@ components:
       required:
       - id
       - owner
+    TableMetadataSpecDto:
+      type: object
+      properties:
+        database:
+          type: string
+        schema:
+          type: string
+        tablePrefixes:
+          type: array
+          items:
+            type: string
+        tableTypes:
+          type: array
+          items:
+            type: string
+            enum:
+            - TABLE
+            - EXTERNAL_TABLE
+            - VIEW
+        tables:
+          type: array
+          items:
+            type: string
     WebAuthorization:
       type: object
       properties:
@@ -667,39 +707,51 @@ components:
           minLength: 0
       required:
       - type
-    FileMetadataResponse:
+    ViewRequestDto:
       type: object
       properties:
-        created:
+        baseAgentId:
           type: string
-          format: date-time
-        createdBy:
+        baseDatasetId:
           type: string
+        queryId:
+          type: string
+          format: uuid
+        queryName:
+          type: string
+        queryText:
+          type: string
+          maxLength: 10000
+          minLength: 1
+        queryType:
+          type: string
+          enum:
+          - SPARQL
+          - SQL
+        runAsAgentId:
+          type: string
+        targetAgentId:
+          type: string
+        targetDatasetId:
+          type: string
+      required:
+      - baseAgentId
+      - baseDatasetId
+      - queryName
+      - queryType
+      - runAsAgentId
+      - targetAgentId
+      - targetDatasetId
+    FileMetadataUpdateRequest:
+      type: object
+      properties:
         description:
           type: string
-          maxLength: 120
-          minLength: 1
         labels:
           type: array
           items:
             type: string
-        name:
-          type: string
-          maxLength: 128
-          minLength: 1
-          pattern: ^[^/]+$
-        sizeInBytes:
-          type: integer
-          format: int64
-        updated:
-          type: string
-          format: date-time
-        updatedBy:
-          type: string
-      required:
-      - created
-      - name
-      - updated
+          uniqueItems: true
     FileBatchUpdateRequest:
       type: object
       properties:
@@ -707,6 +759,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/FileCreateOrUpdateRequest'
+    SuccessMessage:
+      type: object
+      properties:
+        message:
+          type: string
+          maxLength: 256
+          minLength: 0
   securitySchemes:
     bearerAuth:
       bearerFormat: JWT

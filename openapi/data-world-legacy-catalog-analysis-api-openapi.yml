@@ -1,12 +1,11 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   contact:
     name: Contact Us
     url: https://data.world/company/contact-us
   termsOfService: https://data.world/terms-policies
-  title: data.world Public catalog relationships legacy catalog - analysis API
+  title: data.world Public legacy catalog - analysis API
   version: '0'
-  description: Manage relationships between catalog resources
 servers:
 - url: /v0
 security:
@@ -88,7 +87,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PaginatedGenericResultsMetadataResourceDto'
           description: default response
-      summary: Gets metadata analysis by owner.
+      summary: Gets metadata analysis by owner
       tags:
       - legacy catalog - analysis
     post:
@@ -113,7 +112,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/CreateResponse'
           description: Analysis Metadata created successfully.
-      summary: Create a new analysis metadata.
+      summary: Create a new analysis metadata
       tags:
       - legacy catalog - analysis
   /metadata/analysis/{owner}/{id}:
@@ -138,7 +137,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SuccessMessage'
           description: default response
-      summary: Delete an Analysis.
+      summary: Delete an Analysis
       tags:
       - legacy catalog - analysis
     get:
@@ -194,7 +193,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SuccessMessage'
           description: default response
-      summary: Update an existing analysis.
+      summary: Update an existing analysis
       tags:
       - legacy catalog - analysis
     put:
@@ -252,37 +251,24 @@ components:
           type:
             type: string
             const: image
-    PubSearchHydrations:
+    RelationshipHydrationDto:
       type: object
       properties:
-        agents:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/AgentHydrationDto'
-        catalogConcepts:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/CatalogConceptHydrationDto'
-        collections:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/CollectionHydrationDto'
+        labels:
+          type: array
+          description: Label of the relationship presentation associated with the relationship
+          items:
+            type: string
+    ProvidedImage:
+      allOf:
+      - $ref: '#/components/schemas/Image'
+      - type: object
         properties:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/PropertyHydrationDto'
-        relationships:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/RelationshipHydrationDto'
-        resourceHierarchy:
-          type: object
-          additionalProperties:
-            type: object
-            additionalProperties:
-              type: array
-              items:
-                $ref: '#/components/schemas/ResourceHierarchyDto'
+          slug:
+            type: string
+          type:
+            type: string
+            const: provided
     EmojiIcon:
       allOf:
       - $ref: '#/components/schemas/Icon'
@@ -293,150 +279,6 @@ components:
             const: emoji
           value:
             type: string
-    AgentHydrationDto:
-      type: object
-      properties:
-        avatarUrl:
-          type: string
-        deactivated:
-          type: boolean
-        displayName:
-          type: string
-        id:
-          type: string
-    MetadataRequest:
-      type: object
-      properties:
-        assetStatusIri:
-          type: string
-          maxLength: 5000
-          minLength: 0
-        collections:
-          type: array
-          description: Catalog Collection to which this metadata resource is added. Required for POST and PUT.Available catalog collection can be discovered via appropriate discovery endpoints.
-          example:
-          - Aid Option
-          items:
-            type: string
-            description: Catalog Collection to which this metadata resource is added. Required for POST and PUT.Available catalog collection can be discovered via appropriate discovery endpoints.
-            example:
-            - Aid Option
-        description:
-          type: string
-          description: A short, but descriptive statement about the metadata resource.
-          example: Aid given to charity is an option that can be exercised by individuals and corporations
-          maxLength: 5000
-          minLength: 0
-        properties:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/StringOrArray'
-          description: Custom properties for the metadata resource mapped to API Bindings. Can be simple name-value string pairs or nested values for a string name. See examples for details.
-        summary:
-          type: string
-          maxLength: 25000
-          minLength: 0
-        tags:
-          type: array
-          description: A collection of tags to identify the relevance of metadata resource. Tags with no spaces is defacto standard
-          example:
-          - HumanitarianAid
-          items:
-            type: string
-            description: A collection of tags to identify the relevance of metadata resource. Tags with no spaces is defacto standard
-            example:
-            - HumanitarianAid
-        title:
-          type: string
-          description: Title of the metadata resource. Required for POST and PUT.
-          example: crypto.snowflake
-          maxLength: 120
-          minLength: 1
-        typeLabel:
-          type: string
-          description: 'Indicates the type of metadata resource. Some examples of valid values are Report, Tableau dashboard, Glossary, Table, Database view etc. Default values will be assumed if not provided. Defaults to Report for analysis resources, Glossary for Glossary resources, Table for Table resources and Column for Column resources. Once specified during creation, this cannot be changed via PATCH. Only a PUT can change the type '
-          example: Tableau dashboard
-    Image:
-      type: object
-      discriminator:
-        mapping:
-          hosted: '#/components/schemas/HostedImage'
-          provided: '#/components/schemas/ProvidedImage'
-        propertyName: type
-      properties:
-        type:
-          type: string
-          enum:
-          - hosted
-          - provided
-    RelationshipHydrationDto:
-      type: object
-      properties:
-        labels:
-          type: array
-          description: Label of the relationship presentation associated with the relationship
-          items:
-            type: string
-    PropertyHydrationDto:
-      type: object
-      properties:
-        label:
-          type: array
-          description: Label of the metadata presentation associated with the property
-          items:
-            type: string
-    ResourceHierarchyDto:
-      type: object
-      properties:
-        assetStatus:
-          $ref: '#/components/schemas/AssetStatus'
-          description: 'Resource status: Pending, Approved etc.'
-        hierarchy:
-          type: array
-          description: Parent types of this resource's type. Returns the most specific type followed by its parent. The first item is the same as type. The last item is the root type.
-          items:
-            $ref: '#/components/schemas/EntryType'
-        icon:
-          $ref: '#/components/schemas/Icon'
-          description: Resource icon details.
-          oneOf:
-          - $ref: '#/components/schemas/EmojiIcon'
-          - $ref: '#/components/schemas/ImageIcon'
-          - $ref: '#/components/schemas/SvgIcon'
-        iri:
-          type: string
-          description: Resource IRI.
-        owner:
-          type: string
-          description: The ID of the organization that this resource belongs to
-        title:
-          type: string
-          description: Resource title
-        type:
-          type: string
-          description: Resource simple type name, e.g. catalogDatabase, catalogEntry etc.
-        typeLabel:
-          type: string
-          description: Resource type label.
-    AssetStatus:
-      type: object
-      properties:
-        assetStatusLabel:
-          type: string
-        dispositionLabel:
-          type: string
-    TableId:
-      type: object
-      properties:
-        owner:
-          type: string
-        sourceId:
-          type: string
-        tableId:
-          type: string
-      required:
-      - owner
-      - tableId
     CreateResponse:
       type: object
       properties:
@@ -472,158 +314,6 @@ components:
           type:
             type: string
             const: svg-image
-    Icon:
-      type: object
-      discriminator:
-        mapping:
-          emoji: '#/components/schemas/EmojiIcon'
-          image: '#/components/schemas/ImageIcon'
-          svg-image: '#/components/schemas/SvgIcon'
-        propertyName: type
-      properties:
-        type:
-          type: string
-          enum:
-          - emoji
-          - image
-          - svg-image
-    StringOrArray:
-      oneOf:
-      - type: string
-      - type: array
-        items:
-          type: string
-    HostedImage:
-      allOf:
-      - $ref: '#/components/schemas/Image'
-      - type: object
-        properties:
-          type:
-            type: string
-            const: hosted
-          url:
-            type: string
-    CatalogId:
-      type: object
-      properties:
-        collectionId:
-          type: string
-        owner:
-          type: string
-        referent:
-          type: string
-      required:
-      - collectionId
-      - owner
-      - referent
-    MetadataSuggestRequest:
-      type: object
-      properties:
-        collectionsToAdd:
-          type: array
-          description: Catalog Collection to which this metadata resource is added. Required for POST and PUT.Available catalog collection can be discovered via appropriate discovery endpoints.
-          example:
-          - Aid Option
-          items:
-            type: string
-            description: Catalog Collection to which this metadata resource is added. Required for POST and PUT.Available catalog collection can be discovered via appropriate discovery endpoints.
-            example:
-            - Aid Option
-        collectionsToRemove:
-          type: array
-          description: Catalog Collection to which this metadata resource is added. Required for POST and PUT.Available catalog collection can be discovered via appropriate discovery endpoints.
-          example:
-          - Aid Option
-          items:
-            type: string
-            description: Catalog Collection to which this metadata resource is added. Required for POST and PUT.Available catalog collection can be discovered via appropriate discovery endpoints.
-            example:
-            - Aid Option
-        description:
-          type: string
-          description: A short, but descriptive statement about the metadata resource.
-          example: Aid given to charity is an option that can be exercised by individuals and corporations
-          maxLength: 5000
-          minLength: 0
-        message:
-          type: string
-          description: Message for the suggestion
-          example: I strongly suggest
-          maxLength: 250
-          minLength: 1
-        properties:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/StringOrArray'
-          description: Custom properties for the metadata resource mapped to API BindingsCan be simple name-value string pairs or nested values for a string name. See examples for details.
-        summary:
-          type: string
-          maxLength: 25000
-          minLength: 0
-        tagsToAdd:
-          type: array
-          description: A collection of tags to identify the relevance of metadata resource. Tags with no spaces is defacto standard
-          example:
-          - HumanitarianAid
-          items:
-            type: string
-            description: A collection of tags to identify the relevance of metadata resource. Tags with no spaces is defacto standard
-            example:
-            - HumanitarianAid
-        tagsToRemove:
-          type: array
-          description: A collection of tags to identify the relevance of metadata resource. Tags with no spaces is defacto standard
-          example:
-          - HumanitarianAid
-          items:
-            type: string
-            description: A collection of tags to identify the relevance of metadata resource. Tags with no spaces is defacto standard
-            example:
-            - HumanitarianAid
-        title:
-          type: string
-          description: Title of the metadata resource. Required for POST and PUT.
-          example: crypto.snowflake
-          maxLength: 120
-          minLength: 1
-        typeLabel:
-          type: string
-          description: 'Indicates the type of metadata resource. Some examples of valid values are Report, Tableau dashboard, Glossary, Table, Database view etc. Default values will be assumed if not provided. Defaults to Report for analysis resources, Glossary for Glossary resources, Table for Table resources and Column for Column resources. Once specified during creation, this cannot be changed via PATCH. Only a PUT can change the type '
-          example: Tableau dashboard
-    EntryType:
-      type: object
-      properties:
-        icon:
-          $ref: '#/components/schemas/Icon'
-          oneOf:
-          - $ref: '#/components/schemas/EmojiIcon'
-          - $ref: '#/components/schemas/ImageIcon'
-          - $ref: '#/components/schemas/SvgIcon'
-        instantiable:
-          type: boolean
-        label:
-          type: string
-        pluralLabel:
-          type: string
-        requestable:
-          type: boolean
-        type:
-          type: string
-          description: Entry type IRI
-    CollectionHydrationDto:
-      type: object
-      properties:
-        description:
-          type: string
-        id:
-          type: string
-          description: dct:identifier of the collection
-        iri:
-          type: string
-        owner:
-          type: string
-        title:
-          type: string
     MetadataResourceDto:
       type: object
       properties:
@@ -718,16 +408,205 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/MetadataResourceDto'
-    ProvidedImage:
+    Icon:
+      type: object
+      discriminator:
+        mapping:
+          emoji: '#/components/schemas/EmojiIcon'
+          image: '#/components/schemas/ImageIcon'
+          svg-image: '#/components/schemas/SvgIcon'
+        propertyName: type
+      properties:
+        type:
+          type: string
+          enum:
+          - emoji
+          - image
+          - svg-image
+    AssetStatus:
+      type: object
+      properties:
+        assetStatusLabel:
+          type: string
+        dispositionLabel:
+          type: string
+    AgentHydrationDto:
+      type: object
+      properties:
+        avatarUrl:
+          type: string
+        deactivated:
+          type: boolean
+        displayName:
+          type: string
+        id:
+          type: string
+    EntryType:
+      type: object
+      properties:
+        icon:
+          $ref: '#/components/schemas/Icon'
+          oneOf:
+          - $ref: '#/components/schemas/EmojiIcon'
+          - $ref: '#/components/schemas/ImageIcon'
+          - $ref: '#/components/schemas/SvgIcon'
+        instantiable:
+          type: boolean
+        label:
+          type: string
+        pluralLabel:
+          type: string
+        requestable:
+          type: boolean
+        type:
+          type: string
+          description: Entry type IRI
+    StringOrArray:
+      oneOf:
+      - type: string
+      - type: array
+        items:
+          type: string
+    Image:
+      type: object
+      discriminator:
+        mapping:
+          hosted: '#/components/schemas/HostedImage'
+          provided: '#/components/schemas/ProvidedImage'
+        propertyName: type
+      properties:
+        type:
+          type: string
+          enum:
+          - hosted
+          - provided
+    HostedImage:
       allOf:
       - $ref: '#/components/schemas/Image'
       - type: object
         properties:
-          slug:
-            type: string
           type:
             type: string
-            const: provided
+            const: hosted
+          url:
+            type: string
+    CollectionHydrationDto:
+      type: object
+      properties:
+        description:
+          type: string
+        id:
+          type: string
+          description: dct:identifier of the collection
+        iri:
+          type: string
+        owner:
+          type: string
+        title:
+          type: string
+    TableId:
+      type: object
+      properties:
+        owner:
+          type: string
+        sourceId:
+          type: string
+        tableId:
+          type: string
+      required:
+      - owner
+      - tableId
+    PubSearchHydrations:
+      type: object
+      properties:
+        agents:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/AgentHydrationDto'
+        catalogConcepts:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/CatalogConceptHydrationDto'
+        collections:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/CollectionHydrationDto'
+        properties:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/PropertyHydrationDto'
+        relationships:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/RelationshipHydrationDto'
+        resourceHierarchy:
+          type: object
+          additionalProperties:
+            type: object
+            additionalProperties:
+              type: array
+              items:
+                $ref: '#/components/schemas/ResourceHierarchyDto'
+    MetadataRequest:
+      type: object
+      properties:
+        assetStatusIri:
+          type: string
+          maxLength: 5000
+          minLength: 0
+        collections:
+          type: array
+          description: Catalog Collection to which this metadata resource is added. Required for POST and PUT.Available catalog collection can be discovered via appropriate discovery endpoints.
+          example:
+          - Aid Option
+          items:
+            type: string
+            description: Catalog Collection to which this metadata resource is added. Required for POST and PUT.Available catalog collection can be discovered via appropriate discovery endpoints.
+            example:
+            - Aid Option
+        description:
+          type: string
+          description: A short, but descriptive statement about the metadata resource.
+          example: Aid given to charity is an option that can be exercised by individuals and corporations
+          maxLength: 5000
+          minLength: 0
+        properties:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/StringOrArray'
+          description: Custom properties for the metadata resource mapped to API Bindings. Can be simple name-value string pairs or nested values for a string name. See examples for details.
+        summary:
+          type: string
+          maxLength: 25000
+          minLength: 0
+        tags:
+          type: array
+          description: A collection of tags to identify the relevance of metadata resource. Tags with no spaces is defacto standard
+          example:
+          - HumanitarianAid
+          items:
+            type: string
+            description: A collection of tags to identify the relevance of metadata resource. Tags with no spaces is defacto standard
+            example:
+            - HumanitarianAid
+        title:
+          type: string
+          description: Title of the metadata resource. Required for POST and PUT.
+          example: crypto.snowflake
+          maxLength: 120
+          minLength: 1
+        typeLabel:
+          type: string
+          description: 'Indicates the type of metadata resource. Some examples of valid values are Report, Tableau dashboard, Glossary, Table, Database view etc. Default values will be assumed if not provided. Defaults to Report for analysis resources, Glossary for Glossary resources, Table for Table resources and Column for Column resources. Once specified during creation, this cannot be changed via PATCH. Only a PUT can change the type '
+          example: Tableau dashboard
+    PropertyHydrationDto:
+      type: object
+      properties:
+        label:
+          type: array
+          description: Label of the metadata presentation associated with the property
+          items:
+            type: string
     CatalogConceptHydrationDto:
       type: object
       properties:
@@ -739,6 +618,126 @@ components:
           type: string
         prefLabel:
           type: string
+    ResourceHierarchyDto:
+      type: object
+      properties:
+        assetStatus:
+          $ref: '#/components/schemas/AssetStatus'
+          description: 'Resource status: Pending, Approved etc.'
+        hierarchy:
+          type: array
+          description: Parent types of this resource's type. Returns the most specific type followed by its parent. The first item is the same as type. The last item is the root type.
+          items:
+            $ref: '#/components/schemas/EntryType'
+        icon:
+          $ref: '#/components/schemas/Icon'
+          description: Resource icon details.
+          oneOf:
+          - $ref: '#/components/schemas/EmojiIcon'
+          - $ref: '#/components/schemas/ImageIcon'
+          - $ref: '#/components/schemas/SvgIcon'
+        iri:
+          type: string
+          description: Resource IRI.
+        owner:
+          type: string
+          description: The ID of the organization that this resource belongs to
+        title:
+          type: string
+          description: Resource title
+        type:
+          type: string
+          description: Resource simple type name, e.g. catalogDatabase, catalogEntry etc.
+        typeLabel:
+          type: string
+          description: Resource type label.
+    CatalogId:
+      type: object
+      properties:
+        collectionId:
+          type: string
+        owner:
+          type: string
+        referent:
+          type: string
+      required:
+      - collectionId
+      - owner
+      - referent
+    MetadataSuggestRequest:
+      type: object
+      properties:
+        collectionsToAdd:
+          type: array
+          description: Catalog Collection to which this metadata resource is added. Required for POST and PUT.Available catalog collection can be discovered via appropriate discovery endpoints.
+          example:
+          - Aid Option
+          items:
+            type: string
+            description: Catalog Collection to which this metadata resource is added. Required for POST and PUT.Available catalog collection can be discovered via appropriate discovery endpoints.
+            example:
+            - Aid Option
+        collectionsToRemove:
+          type: array
+          description: Catalog Collection to which this metadata resource is added. Required for POST and PUT.Available catalog collection can be discovered via appropriate discovery endpoints.
+          example:
+          - Aid Option
+          items:
+            type: string
+            description: Catalog Collection to which this metadata resource is added. Required for POST and PUT.Available catalog collection can be discovered via appropriate discovery endpoints.
+            example:
+            - Aid Option
+        description:
+          type: string
+          description: A short, but descriptive statement about the metadata resource.
+          example: Aid given to charity is an option that can be exercised by individuals and corporations
+          maxLength: 5000
+          minLength: 0
+        message:
+          type: string
+          description: Message for the suggestion
+          example: I strongly suggest
+          maxLength: 250
+          minLength: 1
+        properties:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/StringOrArray'
+          description: Custom properties for the metadata resource mapped to API BindingsCan be simple name-value string pairs or nested values for a string name. See examples for details.
+        summary:
+          type: string
+          maxLength: 25000
+          minLength: 0
+        tagsToAdd:
+          type: array
+          description: A collection of tags to identify the relevance of metadata resource. Tags with no spaces is defacto standard
+          example:
+          - HumanitarianAid
+          items:
+            type: string
+            description: A collection of tags to identify the relevance of metadata resource. Tags with no spaces is defacto standard
+            example:
+            - HumanitarianAid
+        tagsToRemove:
+          type: array
+          description: A collection of tags to identify the relevance of metadata resource. Tags with no spaces is defacto standard
+          example:
+          - HumanitarianAid
+          items:
+            type: string
+            description: A collection of tags to identify the relevance of metadata resource. Tags with no spaces is defacto standard
+            example:
+            - HumanitarianAid
+        title:
+          type: string
+          description: Title of the metadata resource. Required for POST and PUT.
+          example: crypto.snowflake
+          maxLength: 120
+          minLength: 1
+        typeLabel:
+          type: string
+          description: 'Indicates the type of metadata resource. Some examples of valid values are Report, Tableau dashboard, Glossary, Table, Database view etc. Default values will be assumed if not provided. Defaults to Report for analysis resources, Glossary for Glossary resources, Table for Table resources and Column for Column resources. Once specified during creation, this cannot be changed via PATCH. Only a PUT can change the type '
+          example: Tableau dashboard
     SuccessMessage:
       type: object
       properties:

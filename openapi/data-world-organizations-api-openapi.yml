@@ -1,22 +1,20 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   contact:
     name: Contact Us
     url: https://data.world/company/contact-us
   termsOfService: https://data.world/terms-policies
-  title: data.world Public catalog relationships organizations API
+  title: data.world Public Organizations API
   version: '0'
-  description: Manage relationships between catalog resources
 servers:
 - url: /v0
 security:
 - bearerAuth: []
 tags:
-- name: organizations
+- name: Organizations
 paths:
   /organizations/{agentid}/authorizations/{teamid}:
     post:
-      description: Authorize a Team to access an organization
       operationId: authorizeOrgAccess
       parameters:
       - description: organization agent ID
@@ -42,10 +40,9 @@ paths:
           description: default response
       summary: Authorize a Team to access an organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{id}:
     get:
-      description: Get organization details
       operationId: getOrganizationDetails
       parameters:
       - description: Organization ID.
@@ -64,7 +61,7 @@ paths:
           description: default response
       summary: Get organization details
       tags:
-      - organizations
+      - Organizations
 components:
   schemas:
     OrgDetailsResponse:

@@ -1,19 +1,19 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   contact:
     name: Contact Us
     url: https://data.world/company/contact-us
   termsOfService: https://data.world/terms-policies
-  title: data.world Public catalog relationships data quality API
+  title: data.world Public data quality API
   version: '0'
-  description: Manage relationships between catalog resources
+  description: Manage data quality of metadata resources
 servers:
 - url: /v0
 security:
 - bearerAuth: []
 tags:
 - description: Manage data quality of metadata resources
-  name: data quality
+  name: Data Quality
 paths:
   /dataquality/audits/{orgAgentId}:
     get:
@@ -80,7 +80,7 @@ paths:
           description: Server error
       summary: Show data quality audits
       tags:
-      - data quality
+      - Data Quality
   /dataquality/badges/{orgAgentId}:
     post:
       description: 'Associate a metadata resource with a Badge that describes its overall data quality status.
@@ -143,7 +143,7 @@ paths:
           description: Server error
       summary: Add Badges
       tags:
-      - data quality
+      - Data Quality
   /dataquality/checkruns/{orgAgentId}:
     post:
       description: 'Add executions of a check against a metadata resource.
@@ -212,7 +212,7 @@ paths:
           description: Server error
       summary: Add Check Runs
       tags:
-      - data quality
+      - Data Quality
   /dataquality/checks/delete/{orgAgentId}:
     post:
       description: 'Asynchronously delete data quality Checks and all associated Check Versions and Check Runs.
@@ -283,24 +283,116 @@ paths:
           description: Server error
       summary: Delete data quality checks
       tags:
-      - data quality
+      - Data Quality
 components:
   schemas:
-    IRIResource:
+    CheckDto:
+      type: object
+      description: Check definition
+      properties:
+        description:
+          type: string
+          description: Description of the check
+        dimension:
+          type: string
+          description: The dimension of the check, e.g. 'validation', 'data freshness', 'anomalies', etc.
+        id:
+          type: string
+          description: Unique identifier of the check
+          minLength: 1
+        lastUpdated:
+          type: string
+          format: date-time
+          description: The time when the check was created or last updated.
+        priorityLevel:
+          type: string
+          description: Priority level
+        query:
+          type: string
+          description: SQL query of the check. Or the name of an internal function like "TableExistsBasic"
+          minLength: 1
+        resource:
+          $ref: '#/components/schemas/DatabaseResource'
+          description: Corresponding resource of the check
+          oneOf:
+          - $ref: '#/components/schemas/IRIResource'
+          - $ref: '#/components/schemas/Database'
+          - $ref: '#/components/schemas/DatabaseTable'
+          - $ref: '#/components/schemas/DatabaseColumn'
+        source:
+          type: string
+          description: Data quality provider where this Check came from
+        title:
+          type: string
+          description: Title of the check
+          minLength: 1
+        url:
+          type: string
+          format: uri
+          description: Check URL
+        weight:
+          type: number
+          format: double
+          default: 1
+          description: 'A multiplier to the score of a Check Run. If a Check Run results in a score of 10 and the Check has
+
+            a weight of 1.5, the overall score for the resource will be interpreted as 15.'
+      required:
+      - id
+      - lastUpdated
+      - query
+      - resource
+      - source
+      - title
+    ErrorMessage:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        details:
+          type: string
+        message:
+          type: string
+    Database:
       allOf:
       - $ref: '#/components/schemas/DatabaseResource'
       - type: object
         properties:
-          iri:
+          context:
             type: string
-            format: uri
-            description: Internationalized Resource Identifier (IRI) of the resource. You can find the IRI in the Technical Reference section under the Settings tab on the resource’s catalog page.
+            description: 'The original organization agent ID that the resource was collected into. This can be found in the RDF
+
+              file outputted by the collector. In the RDF, there is a resource of type "dwec:CatalogCuration" containing
+
+              many configuration properties. The "context" property is this field.
+
+              '
+            minLength: 1
+          database:
+            type: string
+            description: The Database
+            minLength: 1
+          databaseLocation:
+            type: string
+            description: 'Database server host and port, formatted as "host:port". This can be found in the RDF file outputted by the
+
+              collector. In the RDF, there is a resource of type "dwec:CatalogCuration" containing many configuration
+
+              properties. The "host" property is part of this field. Port can be found under any "dwec:Database"
+
+              resource under the predicate "dwec:databasePort".
+
+              '
+            minLength: 1
           type:
             type: string
-            const: IRI
-      description: A metadata resource represented by an IRI
+            const: DATABASE
+      description: A database
       required:
-      - iri
+      - context
+      - database
+      - databaseLocation
     DataQualityAuditRecord:
       type: object
       properties:
@@ -367,107 +459,32 @@ components:
       - database
       - databaseLocation
       - table
-    Database:
-      allOf:
-      - $ref: '#/components/schemas/DatabaseResource'
-      - type: object
-        properties:
-          context:
-            type: string
-            description: 'The original organization agent ID that the resource was collected into. This can be found in the RDF
-
-              file outputted by the collector. In the RDF, there is a resource of type "dwec:CatalogCuration" containing
-
-              many configuration properties. The "context" property is this field.
-
-              '
-            minLength: 1
-          database:
-            type: string
-            description: The Database
-            minLength: 1
-          databaseLocation:
-            type: string
-            description: 'Database server host and port, formatted as "host:port". This can be found in the RDF file outputted by the
-
-              collector. In the RDF, there is a resource of type "dwec:CatalogCuration" containing many configuration
-
-              properties. The "host" property is part of this field. Port can be found under any "dwec:Database"
-
-              resource under the predicate "dwec:databasePort".
-
-              '
-            minLength: 1
-          type:
-            type: string
-            const: DATABASE
-      description: A database
-      required:
-      - context
-      - database
-      - databaseLocation
-    BadgeDto:
+    DeleteCheckDto:
       type: object
-      description: Check definition
+      description: A data quality check to delete
       properties:
-        badgeIri:
+        checkId:
           type: string
-          format: uri
-          description: "Badge's IRI defined in the metadata profile.\n The default Badges included in every metadata profile are:\n https://dwec.data.world/v0/default-profile/GoodBadge,\n https://dwec.data.world/v0/default-profile/PoorBadge, and\n https://dwec.data.world/v0/default-profile/ModerateBadge."
-        resource:
-          $ref: '#/components/schemas/DatabaseResource'
-          description: Metadata resource associated with the Badge
-          oneOf:
-          - $ref: '#/components/schemas/IRIResource'
-          - $ref: '#/components/schemas/Database'
-          - $ref: '#/components/schemas/DatabaseTable'
-          - $ref: '#/components/schemas/DatabaseColumn'
-      required:
-      - badgeIri
-      - resource
-    DeleteChecksDto:
-      type: object
-      description: A list of data quality checks to delete
-      properties:
-        checks:
-          type: array
-          description: The list of checks to delete
-          items:
-            $ref: '#/components/schemas/DeleteCheckDto'
-          maxItems: 100
-          minItems: 1
-      required:
-      - checks
-    DatabaseResource:
-      discriminator:
-        mapping:
-          COLUMN: '#/components/schemas/DatabaseColumn'
-          DATABASE: '#/components/schemas/Database'
-          IRI: '#/components/schemas/IRIResource'
-          TABLE: '#/components/schemas/DatabaseTable'
-        propertyName: type
-      properties:
-        type:
+          description: Check identifier as provided by the data quality provider
+          example: freshness-check-001
+          minLength: 1
+        source:
           type: string
-          enum:
-          - IRI
-          - DATABASE
-          - TABLE
-          - COLUMN
+          description: Data quality provider name as given at resource creation
+          example: anamalo
+          minLength: 1
       required:
-      - type
-    BadgesDto:
+      - checkId
+      - source
+    DataQualityAuditsDto:
       type: object
-      description: Pairs of metadata resources and their data quality Badge
+      description: Audits of the Data Quality
       properties:
-        badges:
+        audits:
           type: array
+          description: The list of audits
           items:
-            $ref: '#/components/schemas/BadgeDto'
-          maxItems: 100
-          minItems: 1
-      required:
-      - badges
+            $ref: '#/components/schemas/DataQualityAuditRecord'
     DatabaseTable:
       allOf:
       - $ref: '#/components/schemas/DatabaseResource'
@@ -515,55 +532,6 @@ components:
       - database
       - databaseLocation
       - table
-    CheckRunsDto:
-      type: object
-      description: Executions of a check against a metadata resource
-      properties:
-        checkRuns:
-          type: array
-          description: The list of executions
-          items:
-            $ref: '#/components/schemas/CheckRunDto'
-          maxItems: 100
-          minItems: 1
-      required:
-      - checkRuns
-    DataQualityAuditsDto:
-      type: object
-      description: Audits of the Data Quality
-      properties:
-        audits:
-          type: array
-          description: The list of audits
-          items:
-            $ref: '#/components/schemas/DataQualityAuditRecord'
-    DeleteCheckDto:
-      type: object
-      description: A data quality check to delete
-      properties:
-        checkId:
-          type: string
-          description: Check identifier as provided by the data quality provider
-          example: freshness-check-001
-          minLength: 1
-        source:
-          type: string
-          description: Data quality provider name as given at resource creation
-          example: anamalo
-          minLength: 1
-      required:
-      - checkId
-      - source
-    ErrorMessage:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        details:
-          type: string
-        message:
-          type: string
     SuccessMessage:
       type: object
       properties:
@@ -571,6 +539,50 @@ components:
           type: string
           maxLength: 256
           minLength: 0
+    BadgeDto:
+      type: object
+      description: Check definition
+      properties:
+        badgeIri:
+          type: string
+          format: uri
+          description: "Badge's IRI defined in the metadata profile.\n The default Badges included in every metadata profile are:\n https://dwec.data.world/v0/default-profile/GoodBadge,\n https://dwec.data.world/v0/default-profile/PoorBadge, and\n https://dwec.data.world/v0/default-profile/ModerateBadge."
+        resource:
+          $ref: '#/components/schemas/DatabaseResource'
+          description: Metadata resource associated with the Badge
+          oneOf:
+          - $ref: '#/components/schemas/IRIResource'
+          - $ref: '#/components/schemas/Database'
+          - $ref: '#/components/schemas/DatabaseTable'
+          - $ref: '#/components/schemas/DatabaseColumn'
+      required:
+      - badgeIri
+      - resource
+    BadgesDto:
+      type: object
+      description: Pairs of metadata resources and their data quality Badge
+      properties:
+        badges:
+          type: array
+          items:
+            $ref: '#/components/schemas/BadgeDto'
+          maxItems: 100
+          minItems: 1
+      required:
+      - badges
+    DeleteChecksDto:
+      type: object
+      description: A list of data quality checks to delete
+      properties:
+        checks:
+          type: array
+          description: The list of checks to delete
+          items:
+            $ref: '#/components/schemas/DeleteCheckDto'
+          maxItems: 100
+          minItems: 1
+      required:
+      - checks
     CheckRunDto:
       type: object
       description: Execution of a check against a metadata resource
@@ -616,64 +628,52 @@ components:
       - result
       - runSuccessful
       - start
-    CheckDto:
+    CheckRunsDto:
       type: object
-      description: Check definition
+      description: Executions of a check against a metadata resource
       properties:
-        description:
-          type: string
-          description: Description of the check
-        dimension:
-          type: string
-          description: The dimension of the check, e.g. 'validation', 'data freshness', 'anomalies', etc.
-        id:
-          type: string
-          description: Unique identifier of the check
-          minLength: 1
-        lastUpdated:
-          type: string
-          format: date-time
-          description: The time when the check was created or last updated.
-        priorityLevel:
-          type: string
-          description: Priority level
-        query:
-          type: string
-          description: SQL query of the check. Or the name of an internal function like "TableExistsBasic"
-          minLength: 1
-        resource:
-          $ref: '#/components/schemas/DatabaseResource'
-          description: Corresponding resource of the check
-          oneOf:
-          - $ref: '#/components/schemas/IRIResource'
-          - $ref: '#/components/schemas/Database'
-          - $ref: '#/components/schemas/DatabaseTable'
-          - $ref: '#/components/schemas/DatabaseColumn'
-        source:
-          type: string
-          description: Data quality provider where this Check came from
-        title:
-          type: string
-          description: Title of the check
-          minLength: 1
-        url:
-          type: string
-          format: uri
-          description: Check URL
-        weight:
-          type: number
-          format: double
-          default: 1
-          description: 'A multiplier to the score of a Check Run. If a Check Run results in a score of 10 and the Check has
-
-            a weight of 1.5, the overall score for the resource will be interpreted as 15.'
+        checkRuns:
+          type: array
+          description: The list of executions
+          items:
+            $ref: '#/components/schemas/CheckRunDto'
+          maxItems: 100
+          minItems: 1
       required:
-      - id
-      - lastUpdated
-      - query
-      - resource
-      - source
-      - title
+      - checkRuns
+    DatabaseResource:
+      discriminator:
+        mapping:
+          COLUMN: '#/components/schemas/DatabaseColumn'
+          DATABASE: '#/components/schemas/Database'
+          IRI: '#/components/schemas/IRIResource'
+          TABLE: '#/components/schemas/DatabaseTable'
+        propertyName: type
+      properties:
+        type:
+          type: string
+          enum:
+          - IRI
+          - DATABASE
+          - TABLE
+          - COLUMN
+      required:
+      - type
+    IRIResource:
+      allOf:
+      - $ref: '#/components/schemas/DatabaseResource'
+      - type: object
+        properties:
+          iri:
+            type: string
+            format: uri
+            description: Internationalized Resource Identifier (IRI) of the resource. You can find the IRI in the Technical Reference section under the Settings tab on the resource’s catalog page.
+          type:
+            type: string
+            const: IRI
+      description: A metadata resource represented by an IRI
+      required:
+      - iri
   securitySchemes:
     bearerAuth:
       bearerFormat: JWT
