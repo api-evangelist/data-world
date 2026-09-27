@@ -36,15 +36,15 @@
     "data-world-webhooks-api-openapi.yml"
   ],
   "archived": [
-    "deleted 2 superseded output(s) from the previous generation"
+    "deleted 1 superseded output(s) from the previous generation"
   ],
   "errors": [],
   "warnings": [],
   "notes": [
     "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
     "openapi.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "superseded outputs removed: data-world-do-is-api-openapi.yml, data-world-service-account-api-openapi.yml",
-    "apis.yml register: written (+2 apis, 37 total)"
+    "superseded outputs removed: data-world-service-account-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 37 total)"
   ],
   "skipped": [
     "data-world-catalog-relationships-api-openapi.yml: previously refined output, superseded by openapi/_original/",
@@ -52,7 +52,7 @@
     "data-world-connections-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "data-world-data-quality-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "data-world-datasets-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "data-world-do-is-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "data-world-dois-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "data-world-experimental-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "data-world-files-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "data-world-insights-api-openapi.yml: previously refined output, superseded by openapi/_original/",

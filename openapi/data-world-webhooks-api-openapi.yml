@@ -281,6 +281,72 @@ paths:
       - Webhooks
 components:
   schemas:
+    SubscriptionLinks:
+      type: object
+      properties:
+        api:
+          $ref: '#/components/schemas/SubscriptionApiLinks'
+      required:
+      - api
+    Subscription:
+      type: object
+      properties:
+        dataset:
+          $ref: '#/components/schemas/DatasetIdentifier'
+        events:
+          type: array
+          items:
+            type: string
+            enum:
+            - ALL
+        project:
+          $ref: '#/components/schemas/DatasetIdentifier'
+        user:
+          $ref: '#/components/schemas/UserIdentifier'
+      required:
+      - events
+    SuccessMessage:
+      type: object
+      properties:
+        message:
+          type: string
+          maxLength: 256
+          minLength: 0
+    SubscriptionResponse:
+      type: object
+      properties:
+        dataset:
+          $ref: '#/components/schemas/PublicDatasetResource'
+        events:
+          type: array
+          items:
+            type: string
+            enum:
+            - ALL
+        links:
+          $ref: '#/components/schemas/SubscriptionLinks'
+        project:
+          $ref: '#/components/schemas/PublicDatasetResource'
+        user:
+          $ref: '#/components/schemas/PublicUserParty'
+      required:
+      - events
+    PaginatedSubscriptionResults:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+          minimum: 0
+        nextPageToken:
+          type: string
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubscriptionResponse'
+      required:
+      - count
+      - records
     SubscriptionApiLinks:
       type: object
       properties:
@@ -296,6 +362,29 @@ components:
           type: string
       required:
       - id
+    PublicDatasetResource:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/PublicResource'
+      - $ref: '#/components/schemas/DatasetIdentifier'
+      - type: object
+        properties:
+          id:
+            type: string
+            description: ID of a dataset
+      required:
+      - id
+      - owner
+      title: Dataset Resource
+    PublicUserParty:
+      type: object
+      properties:
+        id:
+          type: string
+          description: ID of the user
+      required:
+      - id
+      title: User Identifier
     PublicResource:
       type: object
       discriminator:
@@ -332,58 +421,6 @@ components:
       required:
       - owner
       - type
-    Subscription:
-      type: object
-      properties:
-        dataset:
-          $ref: '#/components/schemas/DatasetIdentifier'
-        events:
-          type: array
-          items:
-            type: string
-            enum:
-            - ALL
-        project:
-          $ref: '#/components/schemas/DatasetIdentifier'
-        user:
-          $ref: '#/components/schemas/UserIdentifier'
-      required:
-      - events
-    SubscriptionResponse:
-      type: object
-      properties:
-        dataset:
-          $ref: '#/components/schemas/PublicDatasetResource'
-        events:
-          type: array
-          items:
-            type: string
-            enum:
-            - ALL
-        links:
-          $ref: '#/components/schemas/SubscriptionLinks'
-        project:
-          $ref: '#/components/schemas/PublicDatasetResource'
-        user:
-          $ref: '#/components/schemas/PublicUserParty'
-      required:
-      - events
-    PaginatedSubscriptionResults:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-          minimum: 0
-        nextPageToken:
-          type: string
-        records:
-          type: array
-          items:
-            $ref: '#/components/schemas/SubscriptionResponse'
-      required:
-      - count
-      - records
     DatasetIdentifier:
       type: object
       properties:
@@ -394,20 +431,6 @@ components:
       required:
       - id
       - owner
-    PublicDatasetResource:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/PublicResource'
-      - $ref: '#/components/schemas/DatasetIdentifier'
-      - type: object
-        properties:
-          id:
-            type: string
-            description: ID of a dataset
-      required:
-      - id
-      - owner
-      title: Dataset Resource
     SubscriptionCreateRequest:
       type: object
       properties:
@@ -421,29 +444,6 @@ components:
           minItems: 1
       required:
       - events
-    SubscriptionLinks:
-      type: object
-      properties:
-        api:
-          $ref: '#/components/schemas/SubscriptionApiLinks'
-      required:
-      - api
-    SuccessMessage:
-      type: object
-      properties:
-        message:
-          type: string
-          maxLength: 256
-          minLength: 0
-    PublicUserParty:
-      type: object
-      properties:
-        id:
-          type: string
-          description: ID of the user
-      required:
-      - id
-      title: User Identifier
   securitySchemes:
     bearerAuth:
       bearerFormat: JWT

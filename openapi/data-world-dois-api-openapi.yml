@@ -4,7 +4,7 @@ info:
     name: Contact Us
     url: https://data.world/company/contact-us
   termsOfService: https://data.world/terms-policies
-  title: data.world Public DO Is API
+  title: data.world Public DOIs API
   version: '0'
 servers:
 - url: /v0

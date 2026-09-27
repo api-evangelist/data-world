@@ -194,6 +194,24 @@ paths:
       - Streams
 components:
   schemas:
+    SuccessMessage:
+      type: object
+      properties:
+        message:
+          type: string
+          maxLength: 256
+          minLength: 0
+    StreamSchema:
+      type: object
+      properties:
+        primaryKeyFields:
+          type: array
+          items:
+            type: string
+          maxItems: 10
+          minItems: 1
+        sequenceField:
+          type: string
     StreamSchemaPatchRequest:
       type: object
       properties:
@@ -209,24 +227,6 @@ components:
           - TRUNCATE
       required:
       - updateMethod
-    StreamSchema:
-      type: object
-      properties:
-        primaryKeyFields:
-          type: array
-          items:
-            type: string
-          maxItems: 10
-          minItems: 1
-        sequenceField:
-          type: string
-    SuccessMessage:
-      type: object
-      properties:
-        message:
-          type: string
-          maxLength: 256
-          minLength: 0
   securitySchemes:
     bearerAuth:
       bearerFormat: JWT

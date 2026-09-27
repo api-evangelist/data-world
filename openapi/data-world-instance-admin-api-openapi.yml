@@ -99,6 +99,13 @@ paths:
       - Instance Admin
 components:
   schemas:
+    SuccessMessageDto:
+      type: object
+      properties:
+        message:
+          type: string
+          maxLength: 256
+          minLength: 0
     UserAssignment:
       type: object
       properties:
@@ -143,13 +150,6 @@ components:
       - credentials
       - displayName
       - email
-    SuccessMessageDto:
-      type: object
-      properties:
-        message:
-          type: string
-          maxLength: 256
-          minLength: 0
   securitySchemes:
     bearerAuth:
       bearerFormat: JWT

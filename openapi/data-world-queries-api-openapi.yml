@@ -1020,71 +1020,31 @@ components:
           type: string
       required:
       - query
-    QueryParameter:
+    RdfTerm:
       type: object
       properties:
         datatype:
           type: string
         type:
           type: string
-    CreateQueryRequest:
-      type: object
-      properties:
-        content:
-          type: string
-        description:
-          type: string
-          maxLength: 1000
-          minLength: 0
-        language:
-          type: string
           enum:
-          - SPARQL
-          - SQL
-        name:
+          - literal
+          - uri
+          - bnode
+        value:
           type: string
-          maxLength: 128
-          minLength: 0
-        published:
-          type: boolean
+        xml:lang:
+          type: string
       required:
-      - content
-      - language
-      - name
-    PaginatedQueryResults:
+      - type
+      - value
+    SuccessMessage:
       type: object
       properties:
-        count:
-          type: integer
-          format: int32
-          minimum: 0
-        nextPageToken:
+        message:
           type: string
-        records:
-          type: array
-          items:
-            $ref: '#/components/schemas/QuerySummaryResponse'
-      required:
-      - count
-      - records
-    QueryPutRequest:
-      type: object
-      properties:
-        content:
-          type: string
-        description:
-          type: string
-          maxLength: 1000
+          maxLength: 256
           minLength: 0
-        name:
-          type: string
-          maxLength: 128
-          minLength: 0
-        published:
-          type: boolean
-      required:
-      - content
-      - name
     SparqlQueryRequest:
       type: object
       properties:
@@ -1106,6 +1066,40 @@ components:
           type: string
       required:
       - query
+    QueryPutRequest:
+      type: object
+      properties:
+        content:
+          type: string
+        description:
+          type: string
+          maxLength: 1000
+          minLength: 0
+        name:
+          type: string
+          maxLength: 128
+          minLength: 0
+        published:
+          type: boolean
+      required:
+      - content
+      - name
+    PaginatedQueryResults:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+          minimum: 0
+        nextPageToken:
+          type: string
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/QuerySummaryResponse'
+      required:
+      - count
+      - records
     QuerySummaryResponse:
       type: object
       properties:
@@ -1137,24 +1131,37 @@ components:
           format: date-time
         version:
           type: string
-    RdfTerm:
+    CreateQueryRequest:
+      type: object
+      properties:
+        content:
+          type: string
+        description:
+          type: string
+          maxLength: 1000
+          minLength: 0
+        language:
+          type: string
+          enum:
+          - SPARQL
+          - SQL
+        name:
+          type: string
+          maxLength: 128
+          minLength: 0
+        published:
+          type: boolean
+      required:
+      - content
+      - language
+      - name
+    QueryParameter:
       type: object
       properties:
         datatype:
           type: string
         type:
           type: string
-          enum:
-          - literal
-          - uri
-          - bnode
-        value:
-          type: string
-        xml:lang:
-          type: string
-      required:
-      - type
-      - value
     SavedQueryExecutionRequest:
       type: object
       properties:
@@ -1179,13 +1186,6 @@ components:
             $ref: '#/components/schemas/RdfTerm'
         queryRunToken:
           type: string
-    SuccessMessage:
-      type: object
-      properties:
-        message:
-          type: string
-          maxLength: 256
-          minLength: 0
   securitySchemes:
     bearerAuth:
       bearerFormat: JWT

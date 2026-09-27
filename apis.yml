@@ -28,6 +28,9 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/data-world.png
 url: https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/apis.yml
 version: "0.19"
+x-docs-platform: readme
+x-docs-platform-confidence: high
+x-docs-platform-checked: 2026-09-25
 tags:
   - Data Catalog
   - Data Governance
@@ -236,7 +239,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/finops/finops.yml
 - aid: data-world:data-world-connections-api
-  name: data.world connections API
+  name: data.world Connections API
   description: The connections API from data.world — 3 operation(s) for connections.
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
@@ -310,7 +313,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/finops/finops.yml
 - aid: data-world:data-world-datasets-api
-  name: data.world datasets API
+  name: data.world Datasets API
   description: The datasets API from data.world — 5 operation(s) for datasets.
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
@@ -347,7 +350,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/finops/finops.yml
 - aid: data-world:data-world-experimental-api
-  name: data.world experimental API
+  name: data.world Experimental API
   description: >-
     This API is in active development. Its definition may change frequently and without notice.
   humanURL: https://developer.data.world/docs/api-overview
@@ -385,7 +388,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/finops/finops.yml
 - aid: data-world:data-world-files-api
-  name: data.world files API
+  name: data.world Files API
   description: The files API from data.world — 7 operation(s) for files.
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
@@ -422,7 +425,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/finops/finops.yml
 - aid: data-world:data-world-insights-api
-  name: data.world insights API
+  name: data.world Insights API
   description: The insights API from data.world — 3 operation(s) for insights.
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
@@ -712,7 +715,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/finops/finops.yml
 - aid: data-world:data-world-organizations-api
-  name: data.world organizations API
+  name: data.world Organizations API
   description: The organizations API from data.world — 2 operation(s) for organizations.
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
@@ -749,7 +752,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/finops/finops.yml
 - aid: data-world:data-world-projects-api
-  name: data.world projects API
+  name: data.world Projects API
   description: The projects API from data.world — 4 operation(s) for projects.
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
@@ -786,7 +789,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/finops/finops.yml
 - aid: data-world:data-world-queries-api
-  name: data.world queries API
+  name: data.world Queries API
   description: The queries API from data.world — 14 operation(s) for queries.
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
@@ -893,7 +896,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/finops/finops.yml
 - aid: data-world:data-world-search-api
-  name: data.world search API
+  name: data.world Search API
   description: The search API from data.world — 2 operation(s) for search.
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
@@ -930,7 +933,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/finops/finops.yml
 - aid: data-world:data-world-streams-api
-  name: data.world streams API
+  name: data.world Streams API
   description: The streams API from data.world — 3 operation(s) for streams.
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
@@ -967,7 +970,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/finops/finops.yml
 - aid: data-world:data-world-tables-api
-  name: data.world tables API
+  name: data.world Tables API
   description: The tables API from data.world — 1 operation(s) for tables.
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
@@ -1004,7 +1007,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/finops/finops.yml
 - aid: data-world:data-world-telemetry-api
-  name: data.world telemetry API
+  name: data.world Telemetry API
   description: The telemetry API from data.world — 1 operation(s) for telemetry.
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
@@ -1078,7 +1081,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/finops/finops.yml
 - aid: data-world:data-world-user-api
-  name: data.world user API
+  name: data.world User API
   description: The user API from data.world — 8 operation(s) for user.
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
@@ -1115,7 +1118,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/finops/finops.yml
 - aid: data-world:data-world-users-api
-  name: data.world users API
+  name: data.world Users API
   description: The users API from data.world — 1 operation(s) for users.
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
@@ -1152,7 +1155,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/finops/finops.yml
 - aid: data-world:data-world-webhooks-api
-  name: data.world webhooks API
+  name: data.world Webhooks API
   description: The webhooks API from data.world — 4 operation(s) for webhooks.
   humanURL: https://developer.data.world/docs/api-overview
   baseURL: https://api.data.world/v0
@@ -1229,8 +1232,6 @@ apis:
   humanURL: https://developer.data.world/reference
   baseURL: https://api.data.world/v0
   tags:
-  - ServiceAccount
-  tags_raw:
   - Service Account
   properties:
   - type: OpenAPI

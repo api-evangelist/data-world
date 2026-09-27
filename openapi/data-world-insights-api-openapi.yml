@@ -255,6 +255,13 @@ paths:
       - Insights
 components:
   schemas:
+    SuccessMessage:
+      type: object
+      properties:
+        message:
+          type: string
+          maxLength: 256
+          minLength: 0
     InsightPatchRequest:
       type: object
       properties:
@@ -278,6 +285,101 @@ components:
           type: string
           maxLength: 128
           minLength: 1
+    InsightBody:
+      type: object
+      properties:
+        embedUrl:
+          type: string
+          format: uri
+        imageUrl:
+          type: string
+          format: uri
+        markdownBody:
+          type: string
+          maxLength: 25000
+          minLength: 0
+    InsightCreateRequest:
+      type: object
+      properties:
+        body:
+          $ref: '#/components/schemas/InsightBody'
+        dataSourceLinks:
+          type: array
+          items:
+            type: string
+            format: uri
+        description:
+          type: string
+          maxLength: 25000
+          minLength: 0
+        sourceLink:
+          type: string
+          format: uri
+        thumbnail:
+          type: string
+          format: uri
+        title:
+          type: string
+          maxLength: 128
+          minLength: 1
+      required:
+      - body
+      - title
+    InsightPutRequest:
+      type: object
+      properties:
+        body:
+          $ref: '#/components/schemas/InsightBody'
+        dataSourceLinks:
+          type: array
+          items:
+            type: string
+            format: uri
+        description:
+          type: string
+          maxLength: 25000
+          minLength: 0
+        sourceLink:
+          type: string
+          format: uri
+        thumbnail:
+          type: string
+          format: uri
+        title:
+          type: string
+          maxLength: 128
+          minLength: 1
+      required:
+      - body
+      - title
+    PaginatedInsightResults:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+          minimum: 0
+        nextPageToken:
+          type: string
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/InsightSummaryResponse'
+      required:
+      - count
+      - records
+    CreateInsightResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          maxLength: 256
+          minLength: 0
+        uri:
+          type: string
+          format: uri
+      required:
+      - uri
     InsightSummaryResponse:
       type: object
       properties:
@@ -323,108 +425,6 @@ components:
       - title
       - updated
       - version
-    InsightPutRequest:
-      type: object
-      properties:
-        body:
-          $ref: '#/components/schemas/InsightBody'
-        dataSourceLinks:
-          type: array
-          items:
-            type: string
-            format: uri
-        description:
-          type: string
-          maxLength: 25000
-          minLength: 0
-        sourceLink:
-          type: string
-          format: uri
-        thumbnail:
-          type: string
-          format: uri
-        title:
-          type: string
-          maxLength: 128
-          minLength: 1
-      required:
-      - body
-      - title
-    InsightBody:
-      type: object
-      properties:
-        embedUrl:
-          type: string
-          format: uri
-        imageUrl:
-          type: string
-          format: uri
-        markdownBody:
-          type: string
-          maxLength: 25000
-          minLength: 0
-    PaginatedInsightResults:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-          minimum: 0
-        nextPageToken:
-          type: string
-        records:
-          type: array
-          items:
-            $ref: '#/components/schemas/InsightSummaryResponse'
-      required:
-      - count
-      - records
-    InsightCreateRequest:
-      type: object
-      properties:
-        body:
-          $ref: '#/components/schemas/InsightBody'
-        dataSourceLinks:
-          type: array
-          items:
-            type: string
-            format: uri
-        description:
-          type: string
-          maxLength: 25000
-          minLength: 0
-        sourceLink:
-          type: string
-          format: uri
-        thumbnail:
-          type: string
-          format: uri
-        title:
-          type: string
-          maxLength: 128
-          minLength: 1
-      required:
-      - body
-      - title
-    CreateInsightResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          maxLength: 256
-          minLength: 0
-        uri:
-          type: string
-          format: uri
-      required:
-      - uri
-    SuccessMessage:
-      type: object
-      properties:
-        message:
-          type: string
-          maxLength: 256
-          minLength: 0
   securitySchemes:
     bearerAuth:
       bearerFormat: JWT

@@ -395,7 +395,162 @@ paths:
       - topics and comments - resource
 components:
   schemas:
-    ImageIcon:
+    CollectionHydrationDto:
+      type: object
+      properties:
+        description:
+          type: string
+        id:
+          type: string
+          description: dct:identifier of the collection
+        iri:
+          type: string
+        owner:
+          type: string
+        title:
+          type: string
+    HostedImage:
+      allOf:
+      - $ref: '#/components/schemas/Image'
+      - type: object
+        properties:
+          type:
+            type: string
+            const: hosted
+          url:
+            type: string
+    PaginatedGenericResultsPublicCommentDto:
+      type: object
+      properties:
+        consistent:
+          type: boolean
+        count:
+          type: integer
+          format: int32
+          minimum: 0
+        hydrations:
+          $ref: '#/components/schemas/PubSearchHydrations'
+        next:
+          type: string
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/PublicCommentDto'
+    PublicDatasetResource:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/PublicResource'
+      - $ref: '#/components/schemas/DatasetIdentifier'
+      - type: object
+        properties:
+          id:
+            type: string
+            description: ID of a dataset
+      required:
+      - id
+      - owner
+      title: Dataset Resource
+    PublicCommentDto:
+      type: object
+      properties:
+        body:
+          type: string
+          description: Body content of the comment.
+        commentid:
+          type: string
+          description: Comment id generated while creating a comment. Returned for reference but must be provided through URL only.
+        owner:
+          type: string
+          description: An organization owning a comment. Returned for reference but must be provided through URL only.
+        topicUuid:
+          type: string
+          format: uuid
+          description: Topic unique id stored along comments. Returned for reference but must be provided through URL only.
+    PropertyHydrationDto:
+      type: object
+      properties:
+        label:
+          type: array
+          description: Label of the metadata presentation associated with the property
+          items:
+            type: string
+    PubSearchHydrations:
+      type: object
+      properties:
+        agents:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/AgentHydrationDto'
+        catalogConcepts:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/CatalogConceptHydrationDto'
+        collections:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/CollectionHydrationDto'
+        properties:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/PropertyHydrationDto'
+        relationships:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/RelationshipHydrationDto'
+        resourceHierarchy:
+          type: object
+          additionalProperties:
+            type: object
+            additionalProperties:
+              type: array
+              items:
+                $ref: '#/components/schemas/ResourceHierarchyDto'
+    AssetStatus:
+      type: object
+      properties:
+        assetStatusLabel:
+          type: string
+        dispositionLabel:
+          type: string
+    RelationshipHydrationDto:
+      type: object
+      properties:
+        labels:
+          type: array
+          description: Label of the relationship presentation associated with the relationship
+          items:
+            type: string
+    PublicDatasetInsightResource:
+      allOf:
+      - $ref: '#/components/schemas/PublicResource'
+      - type: object
+        properties:
+          datasetId:
+            type: string
+            description: ID of a dataset
+          insightUuid:
+            type: string
+            format: uuid
+            description: ID of a dataset insight
+          type:
+            type: string
+            const: DATASET_INSIGHT
+      required:
+      - datasetId
+      - insightUuid
+      - owner
+      title: Dataset Insight Resource
+    ProvidedImage:
+      allOf:
+      - $ref: '#/components/schemas/Image'
+      - type: object
+        properties:
+          slug:
+            type: string
+          type:
+            type: string
+            const: provided
+    SvgIcon:
       allOf:
       - $ref: '#/components/schemas/Icon'
       - type: object
@@ -417,25 +572,7 @@ components:
             - $ref: '#/components/schemas/ProvidedImage'
           type:
             type: string
-            const: image
-    RelationshipHydrationDto:
-      type: object
-      properties:
-        labels:
-          type: array
-          description: Label of the relationship presentation associated with the relationship
-          items:
-            type: string
-    ProvidedImage:
-      allOf:
-      - $ref: '#/components/schemas/Image'
-      - type: object
-        properties:
-          slug:
-            type: string
-          type:
-            type: string
-            const: provided
+            const: svg-image
     PublicResource:
       type: object
       discriminator:
@@ -472,27 +609,70 @@ components:
       required:
       - owner
       - type
-    EmojiIcon:
+    PublicMetadataResource:
       allOf:
-      - $ref: '#/components/schemas/Icon'
+      - $ref: '#/components/schemas/PublicResource'
       - type: object
         properties:
+          referent:
+            type: string
+            description: A metadata resource referent
           type:
             type: string
-            const: emoji
-          value:
-            type: string
-    DatasetIdentifier:
+            const: METADATA_RESOURCE
+      required:
+      - owner
+      - referent
+      title: Metadata Resource
+    AgentHydrationDto:
       type: object
       properties:
+        avatarUrl:
+          type: string
+        deactivated:
+          type: boolean
+        displayName:
+          type: string
         id:
           type: string
-        owner:
+    PaginatedGenericResultsPublicTopicDto:
+      type: object
+      properties:
+        consistent:
+          type: boolean
+        count:
+          type: integer
+          format: int32
+          minimum: 0
+        hydrations:
+          $ref: '#/components/schemas/PubSearchHydrations'
+        next:
           type: string
-      required:
-      - id
-      - owner
-    SvgIcon:
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/PublicTopicDto'
+    EntryType:
+      type: object
+      properties:
+        icon:
+          $ref: '#/components/schemas/Icon'
+          oneOf:
+          - $ref: '#/components/schemas/EmojiIcon'
+          - $ref: '#/components/schemas/ImageIcon'
+          - $ref: '#/components/schemas/SvgIcon'
+        instantiable:
+          type: boolean
+        label:
+          type: string
+        pluralLabel:
+          type: string
+        requestable:
+          type: boolean
+        type:
+          type: string
+          description: Entry type IRI
+    ImageIcon:
       allOf:
       - $ref: '#/components/schemas/Icon'
       - type: object
@@ -514,7 +694,63 @@ components:
             - $ref: '#/components/schemas/ProvidedImage'
           type:
             type: string
-            const: svg-image
+            const: image
+    Image:
+      type: object
+      discriminator:
+        mapping:
+          hosted: '#/components/schemas/HostedImage'
+          provided: '#/components/schemas/ProvidedImage'
+        propertyName: type
+      properties:
+        type:
+          type: string
+          enum:
+          - hosted
+          - provided
+    CatalogConceptHydrationDto:
+      type: object
+      properties:
+        altLabel:
+          type: string
+        iri:
+          type: string
+        owner:
+          type: string
+        prefLabel:
+          type: string
+    PublicTopicDto:
+      type: object
+      properties:
+        defaultTopic:
+          type: boolean
+          description: True if this is the default topic for the specified resource. There should only be 1 topic with this field set per resource. Must be provided while creating a topic only.
+        resource:
+          $ref: '#/components/schemas/PublicResource'
+          description: A resource for which the topic is created.
+          oneOf:
+          - $ref: '#/components/schemas/PublicDatasetResource'
+          - $ref: '#/components/schemas/PublicDatasetInsightResource'
+          - $ref: '#/components/schemas/PublicMetadataResource'
+        title:
+          type: string
+        topicId:
+          type: string
+          description: Short friendly form of a topic id that uniquely identifies the topic within a resource.
+        topicSlug:
+          type: string
+          description: Short friendly form of a topic title.
+        topicUuid:
+          type: string
+          format: uuid
+          description: Unique id of the topic generated while create new one. Returned for reference but must be provided through URL only.
+        visibility:
+          type: string
+          description: Topic visibility. The field is required.
+          enum:
+          - DISCOVERABLE
+          - OPEN
+          - PRIVATE
     Icon:
       type: object
       discriminator:
@@ -530,194 +766,6 @@ components:
           - emoji
           - image
           - svg-image
-    AssetStatus:
-      type: object
-      properties:
-        assetStatusLabel:
-          type: string
-        dispositionLabel:
-          type: string
-    PaginatedGenericResultsPublicTopicDto:
-      type: object
-      properties:
-        consistent:
-          type: boolean
-        count:
-          type: integer
-          format: int32
-          minimum: 0
-        hydrations:
-          $ref: '#/components/schemas/PubSearchHydrations'
-        next:
-          type: string
-        records:
-          type: array
-          items:
-            $ref: '#/components/schemas/PublicTopicDto'
-    AgentHydrationDto:
-      type: object
-      properties:
-        avatarUrl:
-          type: string
-        deactivated:
-          type: boolean
-        displayName:
-          type: string
-        id:
-          type: string
-    EntryType:
-      type: object
-      properties:
-        icon:
-          $ref: '#/components/schemas/Icon'
-          oneOf:
-          - $ref: '#/components/schemas/EmojiIcon'
-          - $ref: '#/components/schemas/ImageIcon'
-          - $ref: '#/components/schemas/SvgIcon'
-        instantiable:
-          type: boolean
-        label:
-          type: string
-        pluralLabel:
-          type: string
-        requestable:
-          type: boolean
-        type:
-          type: string
-          description: Entry type IRI
-    Image:
-      type: object
-      discriminator:
-        mapping:
-          hosted: '#/components/schemas/HostedImage'
-          provided: '#/components/schemas/ProvidedImage'
-        propertyName: type
-      properties:
-        type:
-          type: string
-          enum:
-          - hosted
-          - provided
-    PublicDatasetResource:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/PublicResource'
-      - $ref: '#/components/schemas/DatasetIdentifier'
-      - type: object
-        properties:
-          id:
-            type: string
-            description: ID of a dataset
-      required:
-      - id
-      - owner
-      title: Dataset Resource
-    HostedImage:
-      allOf:
-      - $ref: '#/components/schemas/Image'
-      - type: object
-        properties:
-          type:
-            type: string
-            const: hosted
-          url:
-            type: string
-    CollectionHydrationDto:
-      type: object
-      properties:
-        description:
-          type: string
-        id:
-          type: string
-          description: dct:identifier of the collection
-        iri:
-          type: string
-        owner:
-          type: string
-        title:
-          type: string
-    PublicMetadataResource:
-      allOf:
-      - $ref: '#/components/schemas/PublicResource'
-      - type: object
-        properties:
-          referent:
-            type: string
-            description: A metadata resource referent
-          type:
-            type: string
-            const: METADATA_RESOURCE
-      required:
-      - owner
-      - referent
-      title: Metadata Resource
-    PubSearchHydrations:
-      type: object
-      properties:
-        agents:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/AgentHydrationDto'
-        catalogConcepts:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/CatalogConceptHydrationDto'
-        collections:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/CollectionHydrationDto'
-        properties:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/PropertyHydrationDto'
-        relationships:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/RelationshipHydrationDto'
-        resourceHierarchy:
-          type: object
-          additionalProperties:
-            type: object
-            additionalProperties:
-              type: array
-              items:
-                $ref: '#/components/schemas/ResourceHierarchyDto'
-    PropertyHydrationDto:
-      type: object
-      properties:
-        label:
-          type: array
-          description: Label of the metadata presentation associated with the property
-          items:
-            type: string
-    CatalogConceptHydrationDto:
-      type: object
-      properties:
-        altLabel:
-          type: string
-        iri:
-          type: string
-        owner:
-          type: string
-        prefLabel:
-          type: string
-    PaginatedGenericResultsPublicCommentDto:
-      type: object
-      properties:
-        consistent:
-          type: boolean
-        count:
-          type: integer
-          format: int32
-          minimum: 0
-        hydrations:
-          $ref: '#/components/schemas/PubSearchHydrations'
-        next:
-          type: string
-        records:
-          type: array
-          items:
-            $ref: '#/components/schemas/PublicCommentDto'
     ResourceHierarchyDto:
       type: object
       properties:
@@ -751,74 +799,26 @@ components:
         typeLabel:
           type: string
           description: Resource type label.
-    PublicTopicDto:
+    DatasetIdentifier:
       type: object
       properties:
-        defaultTopic:
-          type: boolean
-          description: True if this is the default topic for the specified resource. There should only be 1 topic with this field set per resource. Must be provided while creating a topic only.
-        resource:
-          $ref: '#/components/schemas/PublicResource'
-          description: A resource for which the topic is created.
-          oneOf:
-          - $ref: '#/components/schemas/PublicDatasetResource'
-          - $ref: '#/components/schemas/PublicDatasetInsightResource'
-          - $ref: '#/components/schemas/PublicMetadataResource'
-        title:
+        id:
           type: string
-        topicId:
-          type: string
-          description: Short friendly form of a topic id that uniquely identifies the topic within a resource.
-        topicSlug:
-          type: string
-          description: Short friendly form of a topic title.
-        topicUuid:
-          type: string
-          format: uuid
-          description: Unique id of the topic generated while create new one. Returned for reference but must be provided through URL only.
-        visibility:
-          type: string
-          description: Topic visibility. The field is required.
-          enum:
-          - DISCOVERABLE
-          - OPEN
-          - PRIVATE
-    PublicDatasetInsightResource:
-      allOf:
-      - $ref: '#/components/schemas/PublicResource'
-      - type: object
-        properties:
-          datasetId:
-            type: string
-            description: ID of a dataset
-          insightUuid:
-            type: string
-            format: uuid
-            description: ID of a dataset insight
-          type:
-            type: string
-            const: DATASET_INSIGHT
-      required:
-      - datasetId
-      - insightUuid
-      - owner
-      title: Dataset Insight Resource
-    PublicCommentDto:
-      type: object
-      properties:
-        body:
-          type: string
-          description: Body content of the comment.
-        commentid:
-          type: string
-          description: Comment id generated while creating a comment. Returned for reference but must be provided through URL only.
         owner:
           type: string
-          description: An organization owning a comment. Returned for reference but must be provided through URL only.
-        topicUuid:
-          type: string
-          format: uuid
-          description: Topic unique id stored along comments. Returned for reference but must be provided through URL only.
+      required:
+      - id
+      - owner
+    EmojiIcon:
+      allOf:
+      - $ref: '#/components/schemas/Icon'
+      - type: object
+        properties:
+          type:
+            type: string
+            const: emoji
+          value:
+            type: string
   securitySchemes:
     bearerAuth:
       bearerFormat: JWT
