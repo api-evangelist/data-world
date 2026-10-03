@@ -1007,19 +1007,24 @@ paths:
       - Queries
 components:
   schemas:
-    SqlQueryRequest:
+    QueryPutRequest:
       type: object
       properties:
-        datasetVersions:
+        content:
           type: string
-        includeTableSchema:
+        description:
+          type: string
+          maxLength: 1000
+          minLength: 0
+        name:
+          type: string
+          maxLength: 128
+          minLength: 0
+        published:
           type: boolean
-        query:
-          type: string
-        queryRunToken:
-          type: string
       required:
-      - query
+      - content
+      - name
     RdfTerm:
       type: object
       properties:
@@ -1038,6 +1043,37 @@ components:
       required:
       - type
       - value
+    QueryParameter:
+      type: object
+      properties:
+        datatype:
+          type: string
+        type:
+          type: string
+    CreateQueryRequest:
+      type: object
+      properties:
+        content:
+          type: string
+        description:
+          type: string
+          maxLength: 1000
+          minLength: 0
+        language:
+          type: string
+          enum:
+          - SPARQL
+          - SQL
+        name:
+          type: string
+          maxLength: 128
+          minLength: 0
+        published:
+          type: boolean
+      required:
+      - content
+      - language
+      - name
     SuccessMessage:
       type: object
       properties:
@@ -1045,6 +1081,30 @@ components:
           type: string
           maxLength: 256
           minLength: 0
+    SavedQueryExecutionRequest:
+      type: object
+      properties:
+        datasetVersions:
+          type: string
+        defaultGraphUris:
+          type: array
+          items:
+            type: string
+        includeTableSchema:
+          type: boolean
+        maxRows:
+          type: integer
+          format: int64
+        namedGraphUris:
+          type: array
+          items:
+            type: string
+        parameters:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/RdfTerm'
+        queryRunToken:
+          type: string
     SparqlQueryRequest:
       type: object
       properties:
@@ -1066,24 +1126,19 @@ components:
           type: string
       required:
       - query
-    QueryPutRequest:
+    SqlQueryRequest:
       type: object
       properties:
-        content:
+        datasetVersions:
           type: string
-        description:
-          type: string
-          maxLength: 1000
-          minLength: 0
-        name:
-          type: string
-          maxLength: 128
-          minLength: 0
-        published:
+        includeTableSchema:
           type: boolean
+        query:
+          type: string
+        queryRunToken:
+          type: string
       required:
-      - content
-      - name
+      - query
     PaginatedQueryResults:
       type: object
       properties:
@@ -1130,61 +1185,6 @@ components:
           type: string
           format: date-time
         version:
-          type: string
-    CreateQueryRequest:
-      type: object
-      properties:
-        content:
-          type: string
-        description:
-          type: string
-          maxLength: 1000
-          minLength: 0
-        language:
-          type: string
-          enum:
-          - SPARQL
-          - SQL
-        name:
-          type: string
-          maxLength: 128
-          minLength: 0
-        published:
-          type: boolean
-      required:
-      - content
-      - language
-      - name
-    QueryParameter:
-      type: object
-      properties:
-        datatype:
-          type: string
-        type:
-          type: string
-    SavedQueryExecutionRequest:
-      type: object
-      properties:
-        datasetVersions:
-          type: string
-        defaultGraphUris:
-          type: array
-          items:
-            type: string
-        includeTableSchema:
-          type: boolean
-        maxRows:
-          type: integer
-          format: int64
-        namedGraphUris:
-          type: array
-          items:
-            type: string
-        parameters:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/RdfTerm'
-        queryRunToken:
           type: string
   securitySchemes:
     bearerAuth:

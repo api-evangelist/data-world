@@ -194,13 +194,6 @@ paths:
       - Streams
 components:
   schemas:
-    SuccessMessage:
-      type: object
-      properties:
-        message:
-          type: string
-          maxLength: 256
-          minLength: 0
     StreamSchema:
       type: object
       properties:
@@ -212,6 +205,13 @@ components:
           minItems: 1
         sequenceField:
           type: string
+    SuccessMessage:
+      type: object
+      properties:
+        message:
+          type: string
+          maxLength: 256
+          minLength: 0
     StreamSchemaPatchRequest:
       type: object
       properties:

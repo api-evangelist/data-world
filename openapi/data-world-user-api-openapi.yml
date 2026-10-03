@@ -244,73 +244,387 @@ paths:
       - User
 components:
   schemas:
-    FileSourceSummaryResponse:
+    PaginatedDatasetResults:
       type: object
       properties:
-        authorization:
-          $ref: '#/components/schemas/WebAuthorization'
-        credentials:
-          $ref: '#/components/schemas/WebCredentials'
-        dataTables:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/QueryExecutionDto'
-        databaseMetadataSpec:
-          $ref: '#/components/schemas/DatabaseMetadataSpecDto'
-        databaseSource:
-          $ref: '#/components/schemas/DatabaseSourceReference'
-        dwccSpec:
-          $ref: '#/components/schemas/DwccSpecDto'
-        expandArchive:
-          type: boolean
-        lastSyncFailure:
+        count:
+          type: integer
+          format: int32
+          minimum: 0
+        nextPageToken:
+          type: string
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/DatasetSummaryResponse'
+      required:
+      - count
+      - records
+    WebCredentials:
+      type: object
+      properties:
+        password:
+          type: string
+          maxLength: 2048
+          minLength: 0
+        user:
+          type: string
+          maxLength: 2048
+          minLength: 0
+      required:
+      - user
+    Doi:
+      type: object
+      properties:
+        created:
           type: string
           format: date-time
-        lastSyncStart:
+        doi:
           type: string
-          format: date-time
-        lastSyncSuccess:
+      required:
+      - created
+      - doi
+    OauthTokenReference:
+      type: object
+      properties:
+        id:
           type: string
-          format: date-time
-        mediaType:
+          format: uuid
+        owner:
           type: string
-        mediaTypeLocked:
-          type: boolean
-        method:
+        site:
+          type: string
+      required:
+      - id
+      - owner
+      - site
+    LinkedDatasetSummaryResponse:
+      type: object
+      properties:
+        accessLevel:
           type: string
           enum:
-          - GET
-          - POST
-        oauthToken:
-          $ref: '#/components/schemas/OauthTokenReference'
-        requestEntity:
+          - NONE, DISCOVER, READ, WRITE, ADMIN
+        created:
+          type: string
+          format: date-time
+        description:
+          type: string
+          maxLength: 120
+          minLength: 0
+        id:
+          type: string
+        license:
+          type: string
+          enum:
+          - Public Domain, PDDL, CC-0, CC-BY, CDLA-Permissive-1.0, CC-BY-IGO, CC-BY 3.0, CC-BY 3.0 AU, CC-BY 3.0 IGO, CC-BY-SA, CC-BY-SA 3.0, CDLA-Sharing-1.0, CC BY-NC, CC BY-ND, CC BY-ND 3.0, CC-BY 3.0 NZ, CC-BY-NC 3.0, CC BY-NC-ND, CC-BY-NC-SA 3.0, CC-BY-SA 3.0 NZ, CC-BY-NC-SA 3.0 NZ, CC-BY-NC 3.0 NZ, CC-BY-NC-ND-NZ-3.0, CC BY-NC-SA, Italian-ODL, MIT License, OGL, OGL-Canada, OGL-Nova Scotia, OGL-UK, OSODL, ODC-BY, ODC-ODbL, Other
+        owner:
+          type: string
+        summary:
+          type: string
+          maxLength: 25000
+          minLength: 0
+        tags:
+          type: array
+          items:
+            type: string
+        title:
+          type: string
+          maxLength: 60
+          minLength: 1
+        updated:
+          type: string
+          format: date-time
+        version:
+          type: string
+        visibility:
+          type: string
+          enum:
+          - OPEN, PRIVATE
+      required:
+      - accessLevel
+      - created
+      - id
+      - owner
+      - title
+      - updated
+      - visibility
+    QueryExecutionDto:
+      type: object
+      properties:
+        query:
           type: string
           maxLength: 10000
+          minLength: 1
+      required:
+      - query
+    StringOrArray:
+      oneOf:
+      - type: string
+      - type: array
+        items:
+          type: string
+    UserDataResponse:
+      type: object
+      properties:
+        avatarUrl:
+          type: string
+          maxLength: 256
           minLength: 0
-        requestHeaders:
-          type: object
-          additionalProperties:
+        baseUrl:
+          type: string
+        created:
+          type: string
+          format: date-time
+        displayName:
+          type: string
+          maxLength: 128
+          minLength: 0
+        id:
+          type: string
+        updated:
+          type: string
+          format: date-time
+      required:
+      - created
+      - id
+      - updated
+    DatabaseSourceReference:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        owner:
+          type: string
+      required:
+      - id
+      - owner
+    SimpleDataset:
+      allOf:
+      - $ref: '#/components/schemas/SimpleResource'
+      - type: object
+        properties:
+          description:
             type: string
-        syncStatus:
+            maxLength: 120
+            minLength: 0
+          id:
+            type: string
+          license:
+            type: string
+            enum:
+            - Public Domain, PDDL, CC-0, CC-BY, CDLA-Permissive-1.0, CC-BY-IGO, CC-BY 3.0, CC-BY 3.0 AU, CC-BY 3.0 IGO, CC-BY-SA, CC-BY-SA 3.0, CDLA-Sharing-1.0, CC BY-NC, CC BY-ND, CC BY-ND 3.0, CC-BY 3.0 NZ, CC-BY-NC 3.0, CC BY-NC-ND, CC-BY-NC-SA 3.0, CC-BY-SA 3.0 NZ, CC-BY-NC-SA 3.0 NZ, CC-BY-NC 3.0 NZ, CC-BY-NC-ND-NZ-3.0, CC BY-NC-SA, Italian-ODL, MIT License, OGL, OGL-Canada, OGL-Nova Scotia, OGL-UK, OSODL, ODC-BY, ODC-ODbL, Other
+          owner:
+            type: string
+          summary:
+            type: string
+            maxLength: 25000
+            minLength: 0
+          tags:
+            type: array
+            items:
+              type: string
+          title:
+            type: string
+            maxLength: 60
+            minLength: 1
+          type:
+            type: string
+            enum:
+            - dataset
+            - project
+          visibility:
+            type: string
+            enum:
+            - OPEN, PRIVATE
+      required:
+      - id
+      - owner
+    ViewRequestDto:
+      type: object
+      properties:
+        baseAgentId:
+          type: string
+        baseDatasetId:
+          type: string
+        queryId:
+          type: string
+          format: uuid
+        queryName:
+          type: string
+        queryText:
+          type: string
+          maxLength: 10000
+          minLength: 1
+        queryType:
           type: string
           enum:
-          - NEW
-          - INPROGRESS
-          - OK
-          - SYSTEMERROR
-        syncSummary:
+          - SPARQL
+          - SQL
+        runAsAgentId:
           type: string
-        tableSpec:
-          $ref: '#/components/schemas/SingleTableMetadataSpecDto'
-        url:
+        targetAgentId:
           type: string
-          format: uri
-        useDwCredentials:
-          type: boolean
-        viewRequest:
-          $ref: '#/components/schemas/ViewRequestDto'
+        targetDatasetId:
+          type: string
       required:
-      - syncStatus
+      - baseAgentId
+      - baseDatasetId
+      - queryName
+      - queryType
+      - runAsAgentId
+      - targetAgentId
+      - targetDatasetId
+    ProjectSummaryResponse:
+      type: object
+      properties:
+        accessLevel:
+          type: string
+          enum:
+          - NONE, DISCOVER, READ, WRITE, ADMIN
+        assetStatus:
+          $ref: '#/components/schemas/AssetStatus'
+        created:
+          type: string
+          format: date-time
+        datasetStatistics:
+          $ref: '#/components/schemas/DatasetStatistics'
+          description: Describes number of files, tables, and columns in the project
+        dois:
+          type: array
+          items:
+            $ref: '#/components/schemas/Doi'
+          writeOnly: true
+        files:
+          type: array
+          items:
+            $ref: '#/components/schemas/FileSummaryResponse'
+        id:
+          type: string
+        license:
+          type: string
+          enum:
+          - Public Domain, PDDL, CC-0, CC-BY, CDLA-Permissive-1.0, CC-BY-IGO, CC-BY 3.0, CC-BY 3.0 AU, CC-BY 3.0 IGO, CC-BY-SA, CC-BY-SA 3.0, CDLA-Sharing-1.0, CC BY-NC, CC BY-ND, CC BY-ND 3.0, CC-BY 3.0 NZ, CC-BY-NC 3.0, CC BY-NC-ND, CC-BY-NC-SA 3.0, CC-BY-SA 3.0 NZ, CC-BY-NC-SA 3.0 NZ, CC-BY-NC 3.0 NZ, CC-BY-NC-ND-NZ-3.0, CC BY-NC-SA, Italian-ODL, MIT License, OGL, OGL-Canada, OGL-Nova Scotia, OGL-UK, OSODL, ODC-BY, ODC-ODbL, Other
+        linkedDatasets:
+          type: array
+          items:
+            $ref: '#/components/schemas/LinkedDatasetSummaryResponse'
+        objective:
+          type: string
+          maxLength: 120
+          minLength: 0
+        owner:
+          type: string
+        properties:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/StringOrArray'
+          description: All properties of the resource that are associated with a metadata presentation. Key is the IRI of the property. Value is the value of the property.
+        similarResources:
+          type: array
+          description: Similar projects with the same owner
+          items:
+            oneOf:
+            - $ref: '#/components/schemas/SimpleDataset'
+        status:
+          type: string
+          enum:
+          - NEW, INPROGRESS, LOADED, SYSTEMERROR
+        summary:
+          type: string
+          maxLength: 25000
+          minLength: 0
+        tags:
+          type: array
+          items:
+            type: string
+        title:
+          type: string
+          maxLength: 60
+          minLength: 1
+        updated:
+          type: string
+          format: date-time
+        version:
+          type: string
+        versionDois:
+          type: array
+          items:
+            $ref: '#/components/schemas/Doi'
+          writeOnly: true
+        visibility:
+          type: string
+          enum:
+          - OPEN, PRIVATE
+      required:
+      - accessLevel
+      - created
+      - id
+      - owner
+      - status
+      - title
+      - updated
+      - version
+      - visibility
+    FileSummaryResponse:
+      type: object
+      properties:
+        created:
+          type: string
+          format: date-time
+        createdBy:
+          type: string
+        description:
+          type: string
+          maxLength: 120
+          minLength: 1
+        labels:
+          type: array
+          items:
+            type: string
+        name:
+          type: string
+          maxLength: 128
+          minLength: 1
+          pattern: ^[^/]+$
+        sizeInBytes:
+          type: integer
+          format: int64
+        source:
+          $ref: '#/components/schemas/FileSourceSummaryResponse'
+        updated:
+          type: string
+          format: date-time
+        updatedBy:
+          type: string
+      required:
+      - created
+      - name
+      - updated
+    TableMetadataSpecDto:
+      type: object
+      properties:
+        database:
+          type: string
+        schema:
+          type: string
+        tablePrefixes:
+          type: array
+          items:
+            type: string
+        tableTypes:
+          type: array
+          items:
+            type: string
+            enum:
+            - TABLE
+            - EXTERNAL_TABLE
+            - VIEW
+        tables:
+          type: array
+          items:
+            type: string
     OrganizationDataResponse:
       type: object
       properties:
@@ -442,31 +756,6 @@ components:
       - updated
       - version
       - visibility
-    UserDataResponse:
-      type: object
-      properties:
-        avatarUrl:
-          type: string
-          maxLength: 256
-          minLength: 0
-        baseUrl:
-          type: string
-        created:
-          type: string
-          format: date-time
-        displayName:
-          type: string
-          maxLength: 128
-          minLength: 0
-        id:
-          type: string
-        updated:
-          type: string
-          format: date-time
-      required:
-      - created
-      - id
-      - updated
     PaginatedOrganizationResults:
       type: object
       properties:
@@ -483,6 +772,137 @@ components:
       required:
       - count
       - records
+    PaginatedProjectResults:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+          minimum: 0
+        nextPageToken:
+          type: string
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectSummaryResponse'
+      required:
+      - count
+      - records
+    DatabaseMetadataSpecDto:
+      type: object
+      properties:
+        tableSpecs:
+          type: array
+          items:
+            $ref: '#/components/schemas/TableMetadataSpecDto'
+          maxItems: 100
+          minItems: 0
+    FileSourceSummaryResponse:
+      type: object
+      properties:
+        authorization:
+          $ref: '#/components/schemas/WebAuthorization'
+        credentials:
+          $ref: '#/components/schemas/WebCredentials'
+        dataTables:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/QueryExecutionDto'
+        databaseMetadataSpec:
+          $ref: '#/components/schemas/DatabaseMetadataSpecDto'
+        databaseSource:
+          $ref: '#/components/schemas/DatabaseSourceReference'
+        dwccSpec:
+          $ref: '#/components/schemas/DwccSpecDto'
+        expandArchive:
+          type: boolean
+        lastSyncFailure:
+          type: string
+          format: date-time
+        lastSyncStart:
+          type: string
+          format: date-time
+        lastSyncSuccess:
+          type: string
+          format: date-time
+        mediaType:
+          type: string
+        mediaTypeLocked:
+          type: boolean
+        method:
+          type: string
+          enum:
+          - GET
+          - POST
+        oauthToken:
+          $ref: '#/components/schemas/OauthTokenReference'
+        requestEntity:
+          type: string
+          maxLength: 10000
+          minLength: 0
+        requestHeaders:
+          type: object
+          additionalProperties:
+            type: string
+        syncStatus:
+          type: string
+          enum:
+          - NEW
+          - INPROGRESS
+          - OK
+          - SYSTEMERROR
+        syncSummary:
+          type: string
+        tableSpec:
+          $ref: '#/components/schemas/SingleTableMetadataSpecDto'
+        url:
+          type: string
+          format: uri
+        useDwCredentials:
+          type: boolean
+        viewRequest:
+          $ref: '#/components/schemas/ViewRequestDto'
+      required:
+      - syncStatus
+    DatasetStatistics:
+      type: object
+      properties:
+        columnCount:
+          type: integer
+          format: int32
+        fileCount:
+          type: integer
+          format: int32
+        tableCount:
+          type: integer
+          format: int32
+    WebAuthorization:
+      type: object
+      properties:
+        credentials:
+          type: string
+          maxLength: 2048
+          minLength: 1
+        type:
+          type: string
+          maxLength: 50
+          minLength: 0
+      required:
+      - type
+    SimpleResource:
+      type: object
+      discriminator:
+        mapping:
+          dataset: '#/components/schemas/SimpleDataset'
+          project: '#/components/schemas/SimpleDataset'
+        propertyName: type
+      properties:
+        type:
+          type: string
+          description: The type of the resource
+          enum:
+          - dataset
+          - project
     SingleTableMetadataSpecDto:
       type: object
       properties:
@@ -497,25 +917,6 @@ components:
           enum:
           - EXTRACT
           - VIRTUAL
-    StringOrArray:
-      oneOf:
-      - type: string
-      - type: array
-        items:
-          type: string
-    WebAuthorization:
-      type: object
-      properties:
-        credentials:
-          type: string
-          maxLength: 2048
-          minLength: 1
-        type:
-          type: string
-          maxLength: 50
-          minLength: 0
-      required:
-      - type
     AssetStatus:
       type: object
       properties:
@@ -523,62 +924,6 @@ components:
           type: string
         dispositionLabel:
           type: string
-    ViewRequestDto:
-      type: object
-      properties:
-        baseAgentId:
-          type: string
-        baseDatasetId:
-          type: string
-        queryId:
-          type: string
-          format: uuid
-        queryName:
-          type: string
-        queryText:
-          type: string
-          maxLength: 10000
-          minLength: 1
-        queryType:
-          type: string
-          enum:
-          - SPARQL
-          - SQL
-        runAsAgentId:
-          type: string
-        targetAgentId:
-          type: string
-        targetDatasetId:
-          type: string
-      required:
-      - baseAgentId
-      - baseDatasetId
-      - queryName
-      - queryType
-      - runAsAgentId
-      - targetAgentId
-      - targetDatasetId
-    QueryExecutionDto:
-      type: object
-      properties:
-        query:
-          type: string
-          maxLength: 10000
-          minLength: 1
-      required:
-      - query
-    DatasetStatistics:
-      type: object
-      properties:
-        columnCount:
-          type: integer
-          format: int32
-        fileCount:
-          type: integer
-          format: int32
-        tableCount:
-          type: integer
-          format: int32
     DwccSpecDto:
       type: object
       properties:
@@ -596,351 +941,6 @@ components:
             type: string
         targetCatalog:
           type: string
-    PaginatedDatasetResults:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-          minimum: 0
-        nextPageToken:
-          type: string
-        records:
-          type: array
-          items:
-            $ref: '#/components/schemas/DatasetSummaryResponse'
-      required:
-      - count
-      - records
-    OauthTokenReference:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        owner:
-          type: string
-        site:
-          type: string
-      required:
-      - id
-      - owner
-      - site
-    SimpleResource:
-      type: object
-      discriminator:
-        mapping:
-          dataset: '#/components/schemas/SimpleDataset'
-          project: '#/components/schemas/SimpleDataset'
-        propertyName: type
-      properties:
-        type:
-          type: string
-          description: The type of the resource
-          enum:
-          - dataset
-          - project
-    Doi:
-      type: object
-      properties:
-        created:
-          type: string
-          format: date-time
-        doi:
-          type: string
-      required:
-      - created
-      - doi
-    SimpleDataset:
-      allOf:
-      - $ref: '#/components/schemas/SimpleResource'
-      - type: object
-        properties:
-          description:
-            type: string
-            maxLength: 120
-            minLength: 0
-          id:
-            type: string
-          license:
-            type: string
-            enum:
-            - Public Domain, PDDL, CC-0, CC-BY, CDLA-Permissive-1.0, CC-BY-IGO, CC-BY 3.0, CC-BY 3.0 AU, CC-BY 3.0 IGO, CC-BY-SA, CC-BY-SA 3.0, CDLA-Sharing-1.0, CC BY-NC, CC BY-ND, CC BY-ND 3.0, CC-BY 3.0 NZ, CC-BY-NC 3.0, CC BY-NC-ND, CC-BY-NC-SA 3.0, CC-BY-SA 3.0 NZ, CC-BY-NC-SA 3.0 NZ, CC-BY-NC 3.0 NZ, CC-BY-NC-ND-NZ-3.0, CC BY-NC-SA, Italian-ODL, MIT License, OGL, OGL-Canada, OGL-Nova Scotia, OGL-UK, OSODL, ODC-BY, ODC-ODbL, Other
-          owner:
-            type: string
-          summary:
-            type: string
-            maxLength: 25000
-            minLength: 0
-          tags:
-            type: array
-            items:
-              type: string
-          title:
-            type: string
-            maxLength: 60
-            minLength: 1
-          type:
-            type: string
-            enum:
-            - dataset
-            - project
-          visibility:
-            type: string
-            enum:
-            - OPEN, PRIVATE
-      required:
-      - id
-      - owner
-    DatabaseMetadataSpecDto:
-      type: object
-      properties:
-        tableSpecs:
-          type: array
-          items:
-            $ref: '#/components/schemas/TableMetadataSpecDto'
-          maxItems: 100
-          minItems: 0
-    DatabaseSourceReference:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        owner:
-          type: string
-      required:
-      - id
-      - owner
-    LinkedDatasetSummaryResponse:
-      type: object
-      properties:
-        accessLevel:
-          type: string
-          enum:
-          - NONE, DISCOVER, READ, WRITE, ADMIN
-        created:
-          type: string
-          format: date-time
-        description:
-          type: string
-          maxLength: 120
-          minLength: 0
-        id:
-          type: string
-        license:
-          type: string
-          enum:
-          - Public Domain, PDDL, CC-0, CC-BY, CDLA-Permissive-1.0, CC-BY-IGO, CC-BY 3.0, CC-BY 3.0 AU, CC-BY 3.0 IGO, CC-BY-SA, CC-BY-SA 3.0, CDLA-Sharing-1.0, CC BY-NC, CC BY-ND, CC BY-ND 3.0, CC-BY 3.0 NZ, CC-BY-NC 3.0, CC BY-NC-ND, CC-BY-NC-SA 3.0, CC-BY-SA 3.0 NZ, CC-BY-NC-SA 3.0 NZ, CC-BY-NC 3.0 NZ, CC-BY-NC-ND-NZ-3.0, CC BY-NC-SA, Italian-ODL, MIT License, OGL, OGL-Canada, OGL-Nova Scotia, OGL-UK, OSODL, ODC-BY, ODC-ODbL, Other
-        owner:
-          type: string
-        summary:
-          type: string
-          maxLength: 25000
-          minLength: 0
-        tags:
-          type: array
-          items:
-            type: string
-        title:
-          type: string
-          maxLength: 60
-          minLength: 1
-        updated:
-          type: string
-          format: date-time
-        version:
-          type: string
-        visibility:
-          type: string
-          enum:
-          - OPEN, PRIVATE
-      required:
-      - accessLevel
-      - created
-      - id
-      - owner
-      - title
-      - updated
-      - visibility
-    PaginatedProjectResults:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-          minimum: 0
-        nextPageToken:
-          type: string
-        records:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProjectSummaryResponse'
-      required:
-      - count
-      - records
-    WebCredentials:
-      type: object
-      properties:
-        password:
-          type: string
-          maxLength: 2048
-          minLength: 0
-        user:
-          type: string
-          maxLength: 2048
-          minLength: 0
-      required:
-      - user
-    TableMetadataSpecDto:
-      type: object
-      properties:
-        database:
-          type: string
-        schema:
-          type: string
-        tablePrefixes:
-          type: array
-          items:
-            type: string
-        tableTypes:
-          type: array
-          items:
-            type: string
-            enum:
-            - TABLE
-            - EXTERNAL_TABLE
-            - VIEW
-        tables:
-          type: array
-          items:
-            type: string
-    FileSummaryResponse:
-      type: object
-      properties:
-        created:
-          type: string
-          format: date-time
-        createdBy:
-          type: string
-        description:
-          type: string
-          maxLength: 120
-          minLength: 1
-        labels:
-          type: array
-          items:
-            type: string
-        name:
-          type: string
-          maxLength: 128
-          minLength: 1
-          pattern: ^[^/]+$
-        sizeInBytes:
-          type: integer
-          format: int64
-        source:
-          $ref: '#/components/schemas/FileSourceSummaryResponse'
-        updated:
-          type: string
-          format: date-time
-        updatedBy:
-          type: string
-      required:
-      - created
-      - name
-      - updated
-    ProjectSummaryResponse:
-      type: object
-      properties:
-        accessLevel:
-          type: string
-          enum:
-          - NONE, DISCOVER, READ, WRITE, ADMIN
-        assetStatus:
-          $ref: '#/components/schemas/AssetStatus'
-        created:
-          type: string
-          format: date-time
-        datasetStatistics:
-          $ref: '#/components/schemas/DatasetStatistics'
-          description: Describes number of files, tables, and columns in the project
-        dois:
-          type: array
-          items:
-            $ref: '#/components/schemas/Doi'
-          writeOnly: true
-        files:
-          type: array
-          items:
-            $ref: '#/components/schemas/FileSummaryResponse'
-        id:
-          type: string
-        license:
-          type: string
-          enum:
-          - Public Domain, PDDL, CC-0, CC-BY, CDLA-Permissive-1.0, CC-BY-IGO, CC-BY 3.0, CC-BY 3.0 AU, CC-BY 3.0 IGO, CC-BY-SA, CC-BY-SA 3.0, CDLA-Sharing-1.0, CC BY-NC, CC BY-ND, CC BY-ND 3.0, CC-BY 3.0 NZ, CC-BY-NC 3.0, CC BY-NC-ND, CC-BY-NC-SA 3.0, CC-BY-SA 3.0 NZ, CC-BY-NC-SA 3.0 NZ, CC-BY-NC 3.0 NZ, CC-BY-NC-ND-NZ-3.0, CC BY-NC-SA, Italian-ODL, MIT License, OGL, OGL-Canada, OGL-Nova Scotia, OGL-UK, OSODL, ODC-BY, ODC-ODbL, Other
-        linkedDatasets:
-          type: array
-          items:
-            $ref: '#/components/schemas/LinkedDatasetSummaryResponse'
-        objective:
-          type: string
-          maxLength: 120
-          minLength: 0
-        owner:
-          type: string
-        properties:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/StringOrArray'
-          description: All properties of the resource that are associated with a metadata presentation. Key is the IRI of the property. Value is the value of the property.
-        similarResources:
-          type: array
-          description: Similar projects with the same owner
-          items:
-            oneOf:
-            - $ref: '#/components/schemas/SimpleDataset'
-        status:
-          type: string
-          enum:
-          - NEW, INPROGRESS, LOADED, SYSTEMERROR
-        summary:
-          type: string
-          maxLength: 25000
-          minLength: 0
-        tags:
-          type: array
-          items:
-            type: string
-        title:
-          type: string
-          maxLength: 60
-          minLength: 1
-        updated:
-          type: string
-          format: date-time
-        version:
-          type: string
-        versionDois:
-          type: array
-          items:
-            $ref: '#/components/schemas/Doi'
-          writeOnly: true
-        visibility:
-          type: string
-          enum:
-          - OPEN, PRIVATE
-      required:
-      - accessLevel
-      - created
-      - id
-      - owner
-      - status
-      - title
-      - updated
-      - version
-      - visibility
   securitySchemes:
     bearerAuth:
       bearerFormat: JWT

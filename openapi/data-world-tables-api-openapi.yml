@@ -56,6 +56,170 @@ paths:
       - Tables
 components:
   schemas:
+    DwccSpecDto:
+      type: object
+      properties:
+        databaseId:
+          type: string
+        metadataToExclude:
+          type: array
+          items:
+            type: string
+        sourceDatabase:
+          type: string
+        sourceSchemas:
+          type: array
+          items:
+            type: string
+        targetCatalog:
+          type: string
+    TableMetadataSpecDto:
+      type: object
+      properties:
+        database:
+          type: string
+        schema:
+          type: string
+        tablePrefixes:
+          type: array
+          items:
+            type: string
+        tableTypes:
+          type: array
+          items:
+            type: string
+            enum:
+            - TABLE
+            - EXTERNAL_TABLE
+            - VIEW
+        tables:
+          type: array
+          items:
+            type: string
+    DatabaseSourceReference:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        owner:
+          type: string
+      required:
+      - id
+      - owner
+    WebAuthorization:
+      type: object
+      properties:
+        credentials:
+          type: string
+          maxLength: 2048
+          minLength: 1
+        type:
+          type: string
+          maxLength: 50
+          minLength: 0
+      required:
+      - type
+    TableBatchUpdateRequest:
+      type: object
+      properties:
+        tables:
+          type: array
+          items:
+            $ref: '#/components/schemas/FileCreateOrUpdateRequest'
+    FileSourceCreateOrUpdateRequest:
+      type: object
+      properties:
+        authorization:
+          $ref: '#/components/schemas/WebAuthorization'
+        credentials:
+          $ref: '#/components/schemas/WebCredentials'
+        dataTables:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/QueryExecutionDto'
+        databaseMetadataSpec:
+          $ref: '#/components/schemas/DatabaseMetadataSpecDto'
+        databaseSource:
+          $ref: '#/components/schemas/DatabaseSourceReference'
+        dwccSpec:
+          $ref: '#/components/schemas/DwccSpecDto'
+        expandArchive:
+          type: boolean
+        method:
+          type: string
+          enum:
+          - GET
+          - POST
+        oauthToken:
+          $ref: '#/components/schemas/OauthTokenReference'
+        requestEntity:
+          type: string
+          maxLength: 10000
+          minLength: 0
+        requestHeaders:
+          type: object
+          additionalProperties:
+            type: string
+        tableSpec:
+          $ref: '#/components/schemas/SingleTableMetadataSpecDto'
+        url:
+          type: string
+          format: uri
+        useDwCredentials:
+          type: boolean
+        viewRequest:
+          $ref: '#/components/schemas/ViewRequestDto'
+    WebCredentials:
+      type: object
+      properties:
+        password:
+          type: string
+          maxLength: 2048
+          minLength: 0
+        user:
+          type: string
+          maxLength: 2048
+          minLength: 0
+      required:
+      - user
+    DatabaseMetadataSpecDto:
+      type: object
+      properties:
+        tableSpecs:
+          type: array
+          items:
+            $ref: '#/components/schemas/TableMetadataSpecDto'
+          maxItems: 100
+          minItems: 0
+    OauthTokenReference:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        owner:
+          type: string
+        site:
+          type: string
+      required:
+      - id
+      - owner
+      - site
+    SingleTableMetadataSpecDto:
+      type: object
+      properties:
+        database:
+          type: string
+        schema:
+          type: string
+        table:
+          type: string
+        tableType:
+          type: string
+          enum:
+          - EXTRACT
+          - VIRTUAL
     FileCreateOrUpdateRequest:
       type: object
       properties:
@@ -80,26 +244,6 @@ components:
           $ref: '#/components/schemas/FileSourceCreateOrUpdateRequest'
       required:
       - name
-    DatabaseMetadataSpecDto:
-      type: object
-      properties:
-        tableSpecs:
-          type: array
-          items:
-            $ref: '#/components/schemas/TableMetadataSpecDto'
-          maxItems: 100
-          minItems: 0
-    DatabaseSourceReference:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        owner:
-          type: string
-      required:
-      - id
-      - owner
     ViewRequestDto:
       type: object
       properties:
@@ -151,150 +295,6 @@ components:
           minLength: 1
       required:
       - query
-    FileSourceCreateOrUpdateRequest:
-      type: object
-      properties:
-        authorization:
-          $ref: '#/components/schemas/WebAuthorization'
-        credentials:
-          $ref: '#/components/schemas/WebCredentials'
-        dataTables:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/QueryExecutionDto'
-        databaseMetadataSpec:
-          $ref: '#/components/schemas/DatabaseMetadataSpecDto'
-        databaseSource:
-          $ref: '#/components/schemas/DatabaseSourceReference'
-        dwccSpec:
-          $ref: '#/components/schemas/DwccSpecDto'
-        expandArchive:
-          type: boolean
-        method:
-          type: string
-          enum:
-          - GET
-          - POST
-        oauthToken:
-          $ref: '#/components/schemas/OauthTokenReference'
-        requestEntity:
-          type: string
-          maxLength: 10000
-          minLength: 0
-        requestHeaders:
-          type: object
-          additionalProperties:
-            type: string
-        tableSpec:
-          $ref: '#/components/schemas/SingleTableMetadataSpecDto'
-        url:
-          type: string
-          format: uri
-        useDwCredentials:
-          type: boolean
-        viewRequest:
-          $ref: '#/components/schemas/ViewRequestDto'
-    SingleTableMetadataSpecDto:
-      type: object
-      properties:
-        database:
-          type: string
-        schema:
-          type: string
-        table:
-          type: string
-        tableType:
-          type: string
-          enum:
-          - EXTRACT
-          - VIRTUAL
-    DwccSpecDto:
-      type: object
-      properties:
-        databaseId:
-          type: string
-        metadataToExclude:
-          type: array
-          items:
-            type: string
-        sourceDatabase:
-          type: string
-        sourceSchemas:
-          type: array
-          items:
-            type: string
-        targetCatalog:
-          type: string
-    WebCredentials:
-      type: object
-      properties:
-        password:
-          type: string
-          maxLength: 2048
-          minLength: 0
-        user:
-          type: string
-          maxLength: 2048
-          minLength: 0
-      required:
-      - user
-    TableBatchUpdateRequest:
-      type: object
-      properties:
-        tables:
-          type: array
-          items:
-            $ref: '#/components/schemas/FileCreateOrUpdateRequest'
-    TableMetadataSpecDto:
-      type: object
-      properties:
-        database:
-          type: string
-        schema:
-          type: string
-        tablePrefixes:
-          type: array
-          items:
-            type: string
-        tableTypes:
-          type: array
-          items:
-            type: string
-            enum:
-            - TABLE
-            - EXTERNAL_TABLE
-            - VIEW
-        tables:
-          type: array
-          items:
-            type: string
-    OauthTokenReference:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        owner:
-          type: string
-        site:
-          type: string
-      required:
-      - id
-      - owner
-      - site
-    WebAuthorization:
-      type: object
-      properties:
-        credentials:
-          type: string
-          maxLength: 2048
-          minLength: 1
-        type:
-          type: string
-          maxLength: 50
-          minLength: 0
-      required:
-      - type
   securitySchemes:
     bearerAuth:
       bearerFormat: JWT

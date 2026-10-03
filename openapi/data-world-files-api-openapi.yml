@@ -484,67 +484,46 @@ paths:
       - Files
 components:
   schemas:
-    DatabaseMetadataSpecDto:
+    DwccSpecDto:
       type: object
       properties:
-        tableSpecs:
-          type: array
-          items:
-            $ref: '#/components/schemas/TableMetadataSpecDto'
-          maxItems: 100
-          minItems: 0
-    FileBatchUpdateRequest:
-      type: object
-      properties:
-        files:
-          type: array
-          items:
-            $ref: '#/components/schemas/FileCreateOrUpdateRequest'
-    FileMetadataUpdateRequest:
-      type: object
-      properties:
-        description:
+        databaseId:
           type: string
-        labels:
+        metadataToExclude:
           type: array
           items:
             type: string
-          uniqueItems: true
-    ViewRequestDto:
+        sourceDatabase:
+          type: string
+        sourceSchemas:
+          type: array
+          items:
+            type: string
+        targetCatalog:
+          type: string
+    TableMetadataSpecDto:
       type: object
       properties:
-        baseAgentId:
+        database:
           type: string
-        baseDatasetId:
+        schema:
           type: string
-        queryId:
-          type: string
-          format: uuid
-        queryName:
-          type: string
-        queryText:
-          type: string
-          maxLength: 10000
-          minLength: 1
-        queryType:
-          type: string
-          enum:
-          - SPARQL
-          - SQL
-        runAsAgentId:
-          type: string
-        targetAgentId:
-          type: string
-        targetDatasetId:
-          type: string
-      required:
-      - baseAgentId
-      - baseDatasetId
-      - queryName
-      - queryType
-      - runAsAgentId
-      - targetAgentId
-      - targetDatasetId
+        tablePrefixes:
+          type: array
+          items:
+            type: string
+        tableTypes:
+          type: array
+          items:
+            type: string
+            enum:
+            - TABLE
+            - EXTERNAL_TABLE
+            - VIEW
+        tables:
+          type: array
+          items:
+            type: string
     DatabaseSourceReference:
       type: object
       properties:
@@ -556,22 +535,29 @@ components:
       required:
       - id
       - owner
-    SuccessMessage:
+    FileMetadataUpdateRequest:
       type: object
       properties:
-        message:
+        description:
           type: string
-          maxLength: 256
-          minLength: 0
-    QueryExecutionDto:
+        labels:
+          type: array
+          items:
+            type: string
+          uniqueItems: true
+    WebAuthorization:
       type: object
       properties:
-        query:
+        credentials:
           type: string
-          maxLength: 10000
+          maxLength: 2048
           minLength: 1
+        type:
+          type: string
+          maxLength: 50
+          minLength: 0
       required:
-      - query
+      - type
     FileSourceCreateOrUpdateRequest:
       type: object
       properties:
@@ -615,6 +601,73 @@ components:
           type: boolean
         viewRequest:
           $ref: '#/components/schemas/ViewRequestDto'
+    WebCredentials:
+      type: object
+      properties:
+        password:
+          type: string
+          maxLength: 2048
+          minLength: 0
+        user:
+          type: string
+          maxLength: 2048
+          minLength: 0
+      required:
+      - user
+    FileBatchUpdateRequest:
+      type: object
+      properties:
+        files:
+          type: array
+          items:
+            $ref: '#/components/schemas/FileCreateOrUpdateRequest'
+    DatabaseMetadataSpecDto:
+      type: object
+      properties:
+        tableSpecs:
+          type: array
+          items:
+            $ref: '#/components/schemas/TableMetadataSpecDto'
+          maxItems: 100
+          minItems: 0
+    OauthTokenReference:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        owner:
+          type: string
+        site:
+          type: string
+      required:
+      - id
+      - owner
+      - site
+    FileCreateOrUpdateRequest:
+      type: object
+      properties:
+        description:
+          type: string
+          maxLength: 120
+          minLength: 1
+        labels:
+          type: array
+          items:
+            type: string
+        mediaType:
+          type: string
+        mediaTypeLocked:
+          type: boolean
+        name:
+          type: string
+          maxLength: 128
+          minLength: 1
+          pattern: ^[^/]+$
+        source:
+          $ref: '#/components/schemas/FileSourceCreateOrUpdateRequest'
+      required:
+      - name
     SingleTableMetadataSpecDto:
       type: object
       properties:
@@ -662,110 +715,57 @@ components:
       - created
       - name
       - updated
-    DwccSpecDto:
+    ViewRequestDto:
       type: object
       properties:
-        databaseId:
+        baseAgentId:
           type: string
-        metadataToExclude:
-          type: array
-          items:
-            type: string
-        sourceDatabase:
+        baseDatasetId:
           type: string
-        sourceSchemas:
-          type: array
-          items:
-            type: string
-        targetCatalog:
-          type: string
-    OauthTokenReference:
-      type: object
-      properties:
-        id:
+        queryId:
           type: string
           format: uuid
-        owner:
+        queryName:
           type: string
-        site:
+        queryText:
           type: string
-      required:
-      - id
-      - owner
-      - site
-    WebCredentials:
-      type: object
-      properties:
-        password:
-          type: string
-          maxLength: 2048
-          minLength: 0
-        user:
-          type: string
-          maxLength: 2048
-          minLength: 0
-      required:
-      - user
-    TableMetadataSpecDto:
-      type: object
-      properties:
-        database:
-          type: string
-        schema:
-          type: string
-        tablePrefixes:
-          type: array
-          items:
-            type: string
-        tableTypes:
-          type: array
-          items:
-            type: string
-            enum:
-            - TABLE
-            - EXTERNAL_TABLE
-            - VIEW
-        tables:
-          type: array
-          items:
-            type: string
-    FileCreateOrUpdateRequest:
-      type: object
-      properties:
-        description:
-          type: string
-          maxLength: 120
+          maxLength: 10000
           minLength: 1
-        labels:
-          type: array
-          items:
-            type: string
-        mediaType:
+        queryType:
           type: string
-        mediaTypeLocked:
-          type: boolean
-        name:
+          enum:
+          - SPARQL
+          - SQL
+        runAsAgentId:
           type: string
-          maxLength: 128
-          minLength: 1
-          pattern: ^[^/]+$
-        source:
-          $ref: '#/components/schemas/FileSourceCreateOrUpdateRequest'
+        targetAgentId:
+          type: string
+        targetDatasetId:
+          type: string
       required:
-      - name
-    WebAuthorization:
+      - baseAgentId
+      - baseDatasetId
+      - queryName
+      - queryType
+      - runAsAgentId
+      - targetAgentId
+      - targetDatasetId
+    SuccessMessage:
       type: object
       properties:
-        credentials:
+        message:
           type: string
-          maxLength: 2048
-          minLength: 1
-        type:
-          type: string
-          maxLength: 50
+          maxLength: 256
           minLength: 0
+    QueryExecutionDto:
+      type: object
+      properties:
+        query:
+          type: string
+          maxLength: 10000
+          minLength: 1
       required:
-      - type
+      - query
   securitySchemes:
     bearerAuth:
       bearerFormat: JWT

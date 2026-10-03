@@ -286,6 +286,187 @@ paths:
       - Experimental
 components:
   schemas:
+    CheckRunDto:
+      type: object
+      description: Execution of a check against a metadata resource
+      properties:
+        config:
+          $ref: '#/components/schemas/CheckDto'
+          description: Check configuration
+        end:
+          type: string
+          format: date-time
+          description: Time when execution was completed
+        evaluatedMessage:
+          type: string
+          description: Success or error message
+        historyMessage:
+          type: string
+          description: Message describing how many runs have passed/failed in the past
+        result:
+          type: string
+          description: Execution status
+          enum:
+          - PASS
+          - FAIL
+          - WARN
+        runSuccessful:
+          type: boolean
+          description: Indicates whether execution was completed successfully
+        score:
+          type: number
+          format: double
+          description: Evaluated score for the resource after this check run
+        start:
+          type: string
+          format: date-time
+          description: Time when execution was started
+        url:
+          type: string
+          format: uri
+          description: Check execution URL
+      required:
+      - config
+      - end
+      - result
+      - runSuccessful
+      - start
+    DatabaseTable:
+      allOf:
+      - $ref: '#/components/schemas/DatabaseResource'
+      - type: object
+        properties:
+          context:
+            type: string
+            description: 'The original organization agent ID that the resource was collected into. This can be found in the RDF
+
+              file outputted by the collector. In the RDF, there is a resource of type "dwec:CatalogCuration" containing
+
+              many configuration properties. The "context" property is this field.
+
+              '
+            minLength: 1
+          database:
+            type: string
+            description: The Database
+            minLength: 1
+          databaseLocation:
+            type: string
+            description: 'Database server host and port, formatted as "host:port". This can be found in the RDF file outputted by the
+
+              collector. In the RDF, there is a resource of type "dwec:CatalogCuration" containing many configuration
+
+              properties. The "host" property is part of this field. Port can be found under any "dwec:Database"
+
+              resource under the predicate "dwec:databasePort".
+
+              '
+            minLength: 1
+          schema:
+            type: string
+            description: The database schema
+          table:
+            type: string
+            description: The database table
+            minLength: 1
+          type:
+            type: string
+            const: TABLE
+      description: A table in a database
+      required:
+      - context
+      - database
+      - databaseLocation
+      - table
+    ErrorMessage:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        details:
+          type: string
+        message:
+          type: string
+    BadgesDto:
+      type: object
+      description: Pairs of metadata resources and their data quality Badge
+      properties:
+        badges:
+          type: array
+          items:
+            $ref: '#/components/schemas/BadgeDto'
+          maxItems: 100
+          minItems: 1
+      required:
+      - badges
+    DataQualityAuditRecord:
+      type: object
+      properties:
+        auditType:
+          type: string
+        executedAt:
+          type: string
+          format: date-time
+        message:
+          type: string
+        requestId:
+          type: string
+        resourceIri:
+          type: string
+    DataQualityAuditsDto:
+      type: object
+      description: Audits of the Data Quality
+      properties:
+        audits:
+          type: array
+          description: The list of audits
+          items:
+            $ref: '#/components/schemas/DataQualityAuditRecord'
+    DatabaseResource:
+      discriminator:
+        mapping:
+          COLUMN: '#/components/schemas/DatabaseColumn'
+          DATABASE: '#/components/schemas/Database'
+          IRI: '#/components/schemas/IRIResource'
+          TABLE: '#/components/schemas/DatabaseTable'
+        propertyName: type
+      properties:
+        type:
+          type: string
+          enum:
+          - IRI
+          - DATABASE
+          - TABLE
+          - COLUMN
+      required:
+      - type
+    DeleteChecksDto:
+      type: object
+      description: A list of data quality checks to delete
+      properties:
+        checks:
+          type: array
+          description: The list of checks to delete
+          items:
+            $ref: '#/components/schemas/DeleteCheckDto'
+          maxItems: 100
+          minItems: 1
+      required:
+      - checks
+    CheckRunsDto:
+      type: object
+      description: Executions of a check against a metadata resource
+      properties:
+        checkRuns:
+          type: array
+          description: The list of executions
+          items:
+            $ref: '#/components/schemas/CheckRunDto'
+          maxItems: 100
+          minItems: 1
+      required:
+      - checkRuns
     DeleteCheckDto:
       type: object
       description: A data quality check to delete
@@ -355,24 +536,6 @@ components:
       - database
       - databaseLocation
       - table
-    DatabaseResource:
-      discriminator:
-        mapping:
-          COLUMN: '#/components/schemas/DatabaseColumn'
-          DATABASE: '#/components/schemas/Database'
-          IRI: '#/components/schemas/IRIResource'
-          TABLE: '#/components/schemas/DatabaseTable'
-        propertyName: type
-      properties:
-        type:
-          type: string
-          enum:
-          - IRI
-          - DATABASE
-          - TABLE
-          - COLUMN
-      required:
-      - type
     IRIResource:
       allOf:
       - $ref: '#/components/schemas/DatabaseResource'
@@ -388,225 +551,6 @@ components:
       description: A metadata resource represented by an IRI
       required:
       - iri
-    SuccessMessage:
-      type: object
-      properties:
-        message:
-          type: string
-          maxLength: 256
-          minLength: 0
-    ErrorMessage:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        details:
-          type: string
-        message:
-          type: string
-    Database:
-      allOf:
-      - $ref: '#/components/schemas/DatabaseResource'
-      - type: object
-        properties:
-          context:
-            type: string
-            description: 'The original organization agent ID that the resource was collected into. This can be found in the RDF
-
-              file outputted by the collector. In the RDF, there is a resource of type "dwec:CatalogCuration" containing
-
-              many configuration properties. The "context" property is this field.
-
-              '
-            minLength: 1
-          database:
-            type: string
-            description: The Database
-            minLength: 1
-          databaseLocation:
-            type: string
-            description: 'Database server host and port, formatted as "host:port". This can be found in the RDF file outputted by the
-
-              collector. In the RDF, there is a resource of type "dwec:CatalogCuration" containing many configuration
-
-              properties. The "host" property is part of this field. Port can be found under any "dwec:Database"
-
-              resource under the predicate "dwec:databasePort".
-
-              '
-            minLength: 1
-          type:
-            type: string
-            const: DATABASE
-      description: A database
-      required:
-      - context
-      - database
-      - databaseLocation
-    DeleteChecksDto:
-      type: object
-      description: A list of data quality checks to delete
-      properties:
-        checks:
-          type: array
-          description: The list of checks to delete
-          items:
-            $ref: '#/components/schemas/DeleteCheckDto'
-          maxItems: 100
-          minItems: 1
-      required:
-      - checks
-    DatabaseTable:
-      allOf:
-      - $ref: '#/components/schemas/DatabaseResource'
-      - type: object
-        properties:
-          context:
-            type: string
-            description: 'The original organization agent ID that the resource was collected into. This can be found in the RDF
-
-              file outputted by the collector. In the RDF, there is a resource of type "dwec:CatalogCuration" containing
-
-              many configuration properties. The "context" property is this field.
-
-              '
-            minLength: 1
-          database:
-            type: string
-            description: The Database
-            minLength: 1
-          databaseLocation:
-            type: string
-            description: 'Database server host and port, formatted as "host:port". This can be found in the RDF file outputted by the
-
-              collector. In the RDF, there is a resource of type "dwec:CatalogCuration" containing many configuration
-
-              properties. The "host" property is part of this field. Port can be found under any "dwec:Database"
-
-              resource under the predicate "dwec:databasePort".
-
-              '
-            minLength: 1
-          schema:
-            type: string
-            description: The database schema
-          table:
-            type: string
-            description: The database table
-            minLength: 1
-          type:
-            type: string
-            const: TABLE
-      description: A table in a database
-      required:
-      - context
-      - database
-      - databaseLocation
-      - table
-    CheckRunsDto:
-      type: object
-      description: Executions of a check against a metadata resource
-      properties:
-        checkRuns:
-          type: array
-          description: The list of executions
-          items:
-            $ref: '#/components/schemas/CheckRunDto'
-          maxItems: 100
-          minItems: 1
-      required:
-      - checkRuns
-    BadgesDto:
-      type: object
-      description: Pairs of metadata resources and their data quality Badge
-      properties:
-        badges:
-          type: array
-          items:
-            $ref: '#/components/schemas/BadgeDto'
-          maxItems: 100
-          minItems: 1
-      required:
-      - badges
-    BadgeDto:
-      type: object
-      description: Check definition
-      properties:
-        badgeIri:
-          type: string
-          format: uri
-          description: "Badge's IRI defined in the metadata profile.\n The default Badges included in every metadata profile are:\n https://dwec.data.world/v0/default-profile/GoodBadge,\n https://dwec.data.world/v0/default-profile/PoorBadge, and\n https://dwec.data.world/v0/default-profile/ModerateBadge."
-        resource:
-          $ref: '#/components/schemas/DatabaseResource'
-          description: Metadata resource associated with the Badge
-          oneOf:
-          - $ref: '#/components/schemas/IRIResource'
-          - $ref: '#/components/schemas/Database'
-          - $ref: '#/components/schemas/DatabaseTable'
-          - $ref: '#/components/schemas/DatabaseColumn'
-      required:
-      - badgeIri
-      - resource
-    CheckRunDto:
-      type: object
-      description: Execution of a check against a metadata resource
-      properties:
-        config:
-          $ref: '#/components/schemas/CheckDto'
-          description: Check configuration
-        end:
-          type: string
-          format: date-time
-          description: Time when execution was completed
-        evaluatedMessage:
-          type: string
-          description: Success or error message
-        historyMessage:
-          type: string
-          description: Message describing how many runs have passed/failed in the past
-        result:
-          type: string
-          description: Execution status
-          enum:
-          - PASS
-          - FAIL
-          - WARN
-        runSuccessful:
-          type: boolean
-          description: Indicates whether execution was completed successfully
-        score:
-          type: number
-          format: double
-          description: Evaluated score for the resource after this check run
-        start:
-          type: string
-          format: date-time
-          description: Time when execution was started
-        url:
-          type: string
-          format: uri
-          description: Check execution URL
-      required:
-      - config
-      - end
-      - result
-      - runSuccessful
-      - start
-    DataQualityAuditRecord:
-      type: object
-      properties:
-        auditType:
-          type: string
-        executedAt:
-          type: string
-          format: date-time
-        message:
-          type: string
-        requestId:
-          type: string
-        resourceIri:
-          type: string
     CheckDto:
       type: object
       description: Check definition
@@ -665,15 +609,71 @@ components:
       - resource
       - source
       - title
-    DataQualityAuditsDto:
+    SuccessMessage:
       type: object
-      description: Audits of the Data Quality
       properties:
-        audits:
-          type: array
-          description: The list of audits
-          items:
-            $ref: '#/components/schemas/DataQualityAuditRecord'
+        message:
+          type: string
+          maxLength: 256
+          minLength: 0
+    BadgeDto:
+      type: object
+      description: Check definition
+      properties:
+        badgeIri:
+          type: string
+          format: uri
+          description: "Badge's IRI defined in the metadata profile.\n The default Badges included in every metadata profile are:\n https://dwec.data.world/v0/default-profile/GoodBadge,\n https://dwec.data.world/v0/default-profile/PoorBadge, and\n https://dwec.data.world/v0/default-profile/ModerateBadge."
+        resource:
+          $ref: '#/components/schemas/DatabaseResource'
+          description: Metadata resource associated with the Badge
+          oneOf:
+          - $ref: '#/components/schemas/IRIResource'
+          - $ref: '#/components/schemas/Database'
+          - $ref: '#/components/schemas/DatabaseTable'
+          - $ref: '#/components/schemas/DatabaseColumn'
+      required:
+      - badgeIri
+      - resource
+    Database:
+      allOf:
+      - $ref: '#/components/schemas/DatabaseResource'
+      - type: object
+        properties:
+          context:
+            type: string
+            description: 'The original organization agent ID that the resource was collected into. This can be found in the RDF
+
+              file outputted by the collector. In the RDF, there is a resource of type "dwec:CatalogCuration" containing
+
+              many configuration properties. The "context" property is this field.
+
+              '
+            minLength: 1
+          database:
+            type: string
+            description: The Database
+            minLength: 1
+          databaseLocation:
+            type: string
+            description: 'Database server host and port, formatted as "host:port". This can be found in the RDF file outputted by the
+
+              collector. In the RDF, there is a resource of type "dwec:CatalogCuration" containing many configuration
+
+              properties. The "host" property is part of this field. Port can be found under any "dwec:Database"
+
+              resource under the predicate "dwec:databasePort".
+
+              '
+            minLength: 1
+          type:
+            type: string
+            const: DATABASE
+      description: A database
+      required:
+      - context
+      - database
+      - databaseLocation
   securitySchemes:
     bearerAuth:
       bearerFormat: JWT
