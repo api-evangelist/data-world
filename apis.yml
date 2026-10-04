@@ -1232,6 +1232,8 @@ apis:
   humanURL: https://developer.data.world/reference
   baseURL: https://api.data.world/v0
   tags:
+  - ServiceAccount
+  tags_raw:
   - Service Account
   properties:
   - type: OpenAPI
