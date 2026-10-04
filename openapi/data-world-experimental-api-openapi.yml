@@ -286,143 +286,6 @@ paths:
       - Experimental
 components:
   schemas:
-    CheckRunDto:
-      type: object
-      description: Execution of a check against a metadata resource
-      properties:
-        config:
-          $ref: '#/components/schemas/CheckDto'
-          description: Check configuration
-        end:
-          type: string
-          format: date-time
-          description: Time when execution was completed
-        evaluatedMessage:
-          type: string
-          description: Success or error message
-        historyMessage:
-          type: string
-          description: Message describing how many runs have passed/failed in the past
-        result:
-          type: string
-          description: Execution status
-          enum:
-          - PASS
-          - FAIL
-          - WARN
-        runSuccessful:
-          type: boolean
-          description: Indicates whether execution was completed successfully
-        score:
-          type: number
-          format: double
-          description: Evaluated score for the resource after this check run
-        start:
-          type: string
-          format: date-time
-          description: Time when execution was started
-        url:
-          type: string
-          format: uri
-          description: Check execution URL
-      required:
-      - config
-      - end
-      - result
-      - runSuccessful
-      - start
-    DatabaseTable:
-      allOf:
-      - $ref: '#/components/schemas/DatabaseResource'
-      - type: object
-        properties:
-          context:
-            type: string
-            description: 'The original organization agent ID that the resource was collected into. This can be found in the RDF
-
-              file outputted by the collector. In the RDF, there is a resource of type "dwec:CatalogCuration" containing
-
-              many configuration properties. The "context" property is this field.
-
-              '
-            minLength: 1
-          database:
-            type: string
-            description: The Database
-            minLength: 1
-          databaseLocation:
-            type: string
-            description: 'Database server host and port, formatted as "host:port". This can be found in the RDF file outputted by the
-
-              collector. In the RDF, there is a resource of type "dwec:CatalogCuration" containing many configuration
-
-              properties. The "host" property is part of this field. Port can be found under any "dwec:Database"
-
-              resource under the predicate "dwec:databasePort".
-
-              '
-            minLength: 1
-          schema:
-            type: string
-            description: The database schema
-          table:
-            type: string
-            description: The database table
-            minLength: 1
-          type:
-            type: string
-            const: TABLE
-      description: A table in a database
-      required:
-      - context
-      - database
-      - databaseLocation
-      - table
-    ErrorMessage:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        details:
-          type: string
-        message:
-          type: string
-    BadgesDto:
-      type: object
-      description: Pairs of metadata resources and their data quality Badge
-      properties:
-        badges:
-          type: array
-          items:
-            $ref: '#/components/schemas/BadgeDto'
-          maxItems: 100
-          minItems: 1
-      required:
-      - badges
-    DataQualityAuditRecord:
-      type: object
-      properties:
-        auditType:
-          type: string
-        executedAt:
-          type: string
-          format: date-time
-        message:
-          type: string
-        requestId:
-          type: string
-        resourceIri:
-          type: string
-    DataQualityAuditsDto:
-      type: object
-      description: Audits of the Data Quality
-      properties:
-        audits:
-          type: array
-          description: The list of audits
-          items:
-            $ref: '#/components/schemas/DataQualityAuditRecord'
     DatabaseResource:
       discriminator:
         mapping:
@@ -441,101 +304,6 @@ components:
           - COLUMN
       required:
       - type
-    DeleteChecksDto:
-      type: object
-      description: A list of data quality checks to delete
-      properties:
-        checks:
-          type: array
-          description: The list of checks to delete
-          items:
-            $ref: '#/components/schemas/DeleteCheckDto'
-          maxItems: 100
-          minItems: 1
-      required:
-      - checks
-    CheckRunsDto:
-      type: object
-      description: Executions of a check against a metadata resource
-      properties:
-        checkRuns:
-          type: array
-          description: The list of executions
-          items:
-            $ref: '#/components/schemas/CheckRunDto'
-          maxItems: 100
-          minItems: 1
-      required:
-      - checkRuns
-    DeleteCheckDto:
-      type: object
-      description: A data quality check to delete
-      properties:
-        checkId:
-          type: string
-          description: Check identifier as provided by the data quality provider
-          example: freshness-check-001
-          minLength: 1
-        source:
-          type: string
-          description: Data quality provider name as given at resource creation
-          example: anamalo
-          minLength: 1
-      required:
-      - checkId
-      - source
-    DatabaseColumn:
-      allOf:
-      - $ref: '#/components/schemas/DatabaseResource'
-      - type: object
-        properties:
-          column:
-            type: string
-            description: The table column
-            minLength: 1
-          context:
-            type: string
-            description: 'The original organization agent ID that the resource was collected into. This can be found in the RDF
-
-              file outputted by the collector. In the RDF, there is a resource of type "dwec:CatalogCuration" containing
-
-              many configuration properties. The "context" property is this field.
-
-              '
-            minLength: 1
-          database:
-            type: string
-            description: The Database
-            minLength: 1
-          databaseLocation:
-            type: string
-            description: 'Database server host and port, formatted as "host:port". This can be found in the RDF file outputted by the
-
-              collector. In the RDF, there is a resource of type "dwec:CatalogCuration" containing many configuration
-
-              properties. The "host" property is part of this field. Port can be found under any "dwec:Database"
-
-              resource under the predicate "dwec:databasePort".
-
-              '
-            minLength: 1
-          schema:
-            type: string
-            description: The database schema
-          table:
-            type: string
-            description: The database table
-            minLength: 1
-          type:
-            type: string
-            const: COLUMN
-      description: A column in a database table
-      required:
-      - column
-      - context
-      - database
-      - databaseLocation
-      - table
     IRIResource:
       allOf:
       - $ref: '#/components/schemas/DatabaseResource'
@@ -609,6 +377,20 @@ components:
       - resource
       - source
       - title
+    DataQualityAuditRecord:
+      type: object
+      properties:
+        auditType:
+          type: string
+        executedAt:
+          type: string
+          format: date-time
+        message:
+          type: string
+        requestId:
+          type: string
+        resourceIri:
+          type: string
     SuccessMessage:
       type: object
       properties:
@@ -635,6 +417,58 @@ components:
       required:
       - badgeIri
       - resource
+    DatabaseColumn:
+      allOf:
+      - $ref: '#/components/schemas/DatabaseResource'
+      - type: object
+        properties:
+          column:
+            type: string
+            description: The table column
+            minLength: 1
+          context:
+            type: string
+            description: 'The original organization agent ID that the resource was collected into. This can be found in the RDF
+
+              file outputted by the collector. In the RDF, there is a resource of type "dwec:CatalogCuration" containing
+
+              many configuration properties. The "context" property is this field.
+
+              '
+            minLength: 1
+          database:
+            type: string
+            description: The Database
+            minLength: 1
+          databaseLocation:
+            type: string
+            description: 'Database server host and port, formatted as "host:port". This can be found in the RDF file outputted by the
+
+              collector. In the RDF, there is a resource of type "dwec:CatalogCuration" containing many configuration
+
+              properties. The "host" property is part of this field. Port can be found under any "dwec:Database"
+
+              resource under the predicate "dwec:databasePort".
+
+              '
+            minLength: 1
+          schema:
+            type: string
+            description: The database schema
+          table:
+            type: string
+            description: The database table
+            minLength: 1
+          type:
+            type: string
+            const: COLUMN
+      description: A column in a database table
+      required:
+      - column
+      - context
+      - database
+      - databaseLocation
+      - table
     Database:
       allOf:
       - $ref: '#/components/schemas/DatabaseResource'
@@ -674,6 +508,172 @@ components:
       - context
       - database
       - databaseLocation
+    ErrorMessage:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        details:
+          type: string
+        message:
+          type: string
+    CheckRunDto:
+      type: object
+      description: Execution of a check against a metadata resource
+      properties:
+        config:
+          $ref: '#/components/schemas/CheckDto'
+          description: Check configuration
+        end:
+          type: string
+          format: date-time
+          description: Time when execution was completed
+        evaluatedMessage:
+          type: string
+          description: Success or error message
+        historyMessage:
+          type: string
+          description: Message describing how many runs have passed/failed in the past
+        result:
+          type: string
+          description: Execution status
+          enum:
+          - PASS
+          - FAIL
+          - WARN
+        runSuccessful:
+          type: boolean
+          description: Indicates whether execution was completed successfully
+        score:
+          type: number
+          format: double
+          description: Evaluated score for the resource after this check run
+        start:
+          type: string
+          format: date-time
+          description: Time when execution was started
+        url:
+          type: string
+          format: uri
+          description: Check execution URL
+      required:
+      - config
+      - end
+      - result
+      - runSuccessful
+      - start
+    CheckRunsDto:
+      type: object
+      description: Executions of a check against a metadata resource
+      properties:
+        checkRuns:
+          type: array
+          description: The list of executions
+          items:
+            $ref: '#/components/schemas/CheckRunDto'
+          maxItems: 100
+          minItems: 1
+      required:
+      - checkRuns
+    DeleteChecksDto:
+      type: object
+      description: A list of data quality checks to delete
+      properties:
+        checks:
+          type: array
+          description: The list of checks to delete
+          items:
+            $ref: '#/components/schemas/DeleteCheckDto'
+          maxItems: 100
+          minItems: 1
+      required:
+      - checks
+    DeleteCheckDto:
+      type: object
+      description: A data quality check to delete
+      properties:
+        checkId:
+          type: string
+          description: Check identifier as provided by the data quality provider
+          example: freshness-check-001
+          minLength: 1
+        source:
+          type: string
+          description: Data quality provider name as given at resource creation
+          example: anamalo
+          minLength: 1
+      required:
+      - checkId
+      - source
+    BadgesDto:
+      type: object
+      description: Pairs of metadata resources and their data quality Badge
+      properties:
+        badges:
+          type: array
+          items:
+            $ref: '#/components/schemas/BadgeDto'
+          maxItems: 100
+          minItems: 1
+      required:
+      - badges
+    DataQualityAuditsDto:
+      type: object
+      description: Audits of the Data Quality
+      properties:
+        audits:
+          type: array
+          description: The list of audits
+          items:
+            $ref: '#/components/schemas/DataQualityAuditRecord'
+    DatabaseTable:
+      allOf:
+      - $ref: '#/components/schemas/DatabaseResource'
+      - type: object
+        properties:
+          context:
+            type: string
+            description: 'The original organization agent ID that the resource was collected into. This can be found in the RDF
+
+              file outputted by the collector. In the RDF, there is a resource of type "dwec:CatalogCuration" containing
+
+              many configuration properties. The "context" property is this field.
+
+              '
+            minLength: 1
+          database:
+            type: string
+            description: The Database
+            minLength: 1
+          databaseLocation:
+            type: string
+            description: 'Database server host and port, formatted as "host:port". This can be found in the RDF file outputted by the
+
+              collector. In the RDF, there is a resource of type "dwec:CatalogCuration" containing many configuration
+
+              properties. The "host" property is part of this field. Port can be found under any "dwec:Database"
+
+              resource under the predicate "dwec:databasePort".
+
+              '
+            minLength: 1
+          schema:
+            type: string
+            description: The database schema
+          table:
+            type: string
+            description: The database table
+            minLength: 1
+          type:
+            type: string
+            const: TABLE
+      description: A table in a database
+      required:
+      - context
+      - database
+      - databaseLocation
+      - table
   securitySchemes:
     bearerAuth:
       bearerFormat: JWT

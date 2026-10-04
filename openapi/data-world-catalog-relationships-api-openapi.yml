@@ -140,89 +140,80 @@ paths:
       - catalog relationships
 components:
   schemas:
-    RelationshipGetRequestByIri:
-      type: object
-      properties:
-        byRelationTypes:
-          type: array
-          description: Filter by these relation types. Relation types are identified by their IRI.
-          example: https://dwec.data.world/v0/usesDataFrom
-          items:
-            type: string
-        byResourceTypes:
-          type: array
-          description: Filter by these resource types. Resource types are identified by their IRI.
-          items:
-            type: string
-    SvgIcon:
-      allOf:
-      - $ref: '#/components/schemas/Icon'
-      - type: object
-        properties:
-          image:
-            $ref: '#/components/schemas/Image'
-            oneOf:
-            - $ref: '#/components/schemas/HostedImage'
-            - $ref: '#/components/schemas/ProvidedImage'
-          largeImage:
-            $ref: '#/components/schemas/Image'
-            oneOf:
-            - $ref: '#/components/schemas/HostedImage'
-            - $ref: '#/components/schemas/ProvidedImage'
-          selectedImage:
-            $ref: '#/components/schemas/Image'
-            oneOf:
-            - $ref: '#/components/schemas/HostedImage'
-            - $ref: '#/components/schemas/ProvidedImage'
-          type:
-            type: string
-            const: svg-image
-    ImageIcon:
-      allOf:
-      - $ref: '#/components/schemas/Icon'
-      - type: object
-        properties:
-          image:
-            $ref: '#/components/schemas/Image'
-            oneOf:
-            - $ref: '#/components/schemas/HostedImage'
-            - $ref: '#/components/schemas/ProvidedImage'
-          largeImage:
-            $ref: '#/components/schemas/Image'
-            oneOf:
-            - $ref: '#/components/schemas/HostedImage'
-            - $ref: '#/components/schemas/ProvidedImage'
-          selectedImage:
-            $ref: '#/components/schemas/Image'
-            oneOf:
-            - $ref: '#/components/schemas/HostedImage'
-            - $ref: '#/components/schemas/ProvidedImage'
-          type:
-            type: string
-            const: image
-    SuccessMessage:
-      type: object
-      properties:
-        message:
-          type: string
-          maxLength: 256
-          minLength: 0
     StringOrArray:
       oneOf:
       - type: string
       - type: array
         items:
           type: string
-    ProvidedImage:
+    AgentHydrationDto:
+      type: object
+      properties:
+        avatarUrl:
+          type: string
+        deactivated:
+          type: boolean
+        displayName:
+          type: string
+        id:
+          type: string
+    ResourceDetails:
+      type: object
+      properties:
+        typeDetails:
+          $ref: '#/components/schemas/TypeDetails'
+    TypeDetails:
+      type: object
+      properties:
+        id:
+          type: string
+        label:
+          type: string
+        subtypeOf:
+          type: string
+    HostedImage:
       allOf:
       - $ref: '#/components/schemas/Image'
       - type: object
         properties:
-          slug:
-            type: string
           type:
             type: string
-            const: provided
+            const: hosted
+          url:
+            type: string
+    EntryType:
+      type: object
+      properties:
+        icon:
+          $ref: '#/components/schemas/Icon'
+          oneOf:
+          - $ref: '#/components/schemas/EmojiIcon'
+          - $ref: '#/components/schemas/ImageIcon'
+          - $ref: '#/components/schemas/SvgIcon'
+        instantiable:
+          type: boolean
+        label:
+          type: string
+        pluralLabel:
+          type: string
+        requestable:
+          type: boolean
+        type:
+          type: string
+          description: Entry type IRI
+    Image:
+      type: object
+      discriminator:
+        mapping:
+          hosted: '#/components/schemas/HostedImage'
+          provided: '#/components/schemas/ProvidedImage'
+        propertyName: type
+      properties:
+        type:
+          type: string
+          enum:
+          - hosted
+          - provided
     Icon:
       type: object
       discriminator:
@@ -238,131 +229,6 @@ components:
           - emoji
           - image
           - svg-image
-    HostedImage:
-      allOf:
-      - $ref: '#/components/schemas/Image'
-      - type: object
-        properties:
-          type:
-            type: string
-            const: hosted
-          url:
-            type: string
-    PubSearchHydrations:
-      type: object
-      properties:
-        agents:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/AgentHydrationDto'
-        catalogConcepts:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/CatalogConceptHydrationDto'
-        collections:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/CollectionHydrationDto'
-        properties:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/PropertyHydrationDto'
-        relationships:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/RelationshipHydrationDto'
-        resourceHierarchy:
-          type: object
-          additionalProperties:
-            type: object
-            additionalProperties:
-              type: array
-              items:
-                $ref: '#/components/schemas/ResourceHierarchyDto'
-    AgentHydrationDto:
-      type: object
-      properties:
-        avatarUrl:
-          type: string
-        deactivated:
-          type: boolean
-        displayName:
-          type: string
-        id:
-          type: string
-    PropertyHydrationDto:
-      type: object
-      properties:
-        label:
-          type: array
-          description: Label of the metadata presentation associated with the property
-          items:
-            type: string
-    RelationshipHydrationDto:
-      type: object
-      properties:
-        labels:
-          type: array
-          description: Label of the relationship presentation associated with the relationship
-          items:
-            type: string
-    CollectionHydrationDto:
-      type: object
-      properties:
-        description:
-          type: string
-        id:
-          type: string
-          description: dct:identifier of the collection
-        iri:
-          type: string
-        owner:
-          type: string
-        title:
-          type: string
-    Image:
-      type: object
-      discriminator:
-        mapping:
-          hosted: '#/components/schemas/HostedImage'
-          provided: '#/components/schemas/ProvidedImage'
-        propertyName: type
-      properties:
-        type:
-          type: string
-          enum:
-          - hosted
-          - provided
-    EmojiIcon:
-      allOf:
-      - $ref: '#/components/schemas/Icon'
-      - type: object
-        properties:
-          type:
-            type: string
-            const: emoji
-          value:
-            type: string
-    RelationshipCreateOrDeleteRequestByIri:
-      type: object
-      properties:
-        iri:
-          type: string
-          description: IRI of the relationship type
-        sourceIri:
-          type: string
-          description: IRI of the source resource
-        sourceType:
-          type: string
-          description: IRI of source resource's type
-        targetIri:
-          type: string
-          description: IRI of the target resource
-      required:
-      - iri
-      - sourceIri
-      - sourceType
-      - targetIri
     MetadataResourceDtoV2:
       type: object
       properties:
@@ -403,26 +269,34 @@ components:
       required:
       - created
       - updated
-    EntryType:
+    EmojiIcon:
+      allOf:
+      - $ref: '#/components/schemas/Icon'
+      - type: object
+        properties:
+          type:
+            type: string
+            const: emoji
+          value:
+            type: string
+    RelationshipHydrationDto:
       type: object
       properties:
-        icon:
-          $ref: '#/components/schemas/Icon'
-          oneOf:
-          - $ref: '#/components/schemas/EmojiIcon'
-          - $ref: '#/components/schemas/ImageIcon'
-          - $ref: '#/components/schemas/SvgIcon'
-        instantiable:
-          type: boolean
-        label:
-          type: string
-        pluralLabel:
-          type: string
-        requestable:
-          type: boolean
-        type:
-          type: string
-          description: Entry type IRI
+        labels:
+          type: array
+          description: Label of the relationship presentation associated with the relationship
+          items:
+            type: string
+    ProvidedImage:
+      allOf:
+      - $ref: '#/components/schemas/Image'
+      - type: object
+        properties:
+          slug:
+            type: string
+          type:
+            type: string
+            const: provided
     PaginatedGenericResultsMetadataResourceDtoV2:
       type: object
       properties:
@@ -440,20 +314,26 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/MetadataResourceDtoV2'
-    TypeDetails:
+    RelationshipCreateOrDeleteRequestByIri:
       type: object
       properties:
-        id:
+        iri:
           type: string
-        label:
+          description: IRI of the relationship type
+        sourceIri:
           type: string
-        subtypeOf:
+          description: IRI of the source resource
+        sourceType:
           type: string
-    ResourceDetails:
-      type: object
-      properties:
-        typeDetails:
-          $ref: '#/components/schemas/TypeDetails'
+          description: IRI of source resource's type
+        targetIri:
+          type: string
+          description: IRI of the target resource
+      required:
+      - iri
+      - sourceIri
+      - sourceType
+      - targetIri
     ResourceHierarchyDto:
       type: object
       properties:
@@ -487,6 +367,119 @@ components:
         typeLabel:
           type: string
           description: Resource type label.
+    PubSearchHydrations:
+      type: object
+      properties:
+        agents:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/AgentHydrationDto'
+        catalogConcepts:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/CatalogConceptHydrationDto'
+        collections:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/CollectionHydrationDto'
+        properties:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/PropertyHydrationDto'
+        relationships:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/RelationshipHydrationDto'
+        resourceHierarchy:
+          type: object
+          additionalProperties:
+            type: object
+            additionalProperties:
+              type: array
+              items:
+                $ref: '#/components/schemas/ResourceHierarchyDto'
+    SvgIcon:
+      allOf:
+      - $ref: '#/components/schemas/Icon'
+      - type: object
+        properties:
+          image:
+            $ref: '#/components/schemas/Image'
+            oneOf:
+            - $ref: '#/components/schemas/HostedImage'
+            - $ref: '#/components/schemas/ProvidedImage'
+          largeImage:
+            $ref: '#/components/schemas/Image'
+            oneOf:
+            - $ref: '#/components/schemas/HostedImage'
+            - $ref: '#/components/schemas/ProvidedImage'
+          selectedImage:
+            $ref: '#/components/schemas/Image'
+            oneOf:
+            - $ref: '#/components/schemas/HostedImage'
+            - $ref: '#/components/schemas/ProvidedImage'
+          type:
+            type: string
+            const: svg-image
+    PropertyHydrationDto:
+      type: object
+      properties:
+        label:
+          type: array
+          description: Label of the metadata presentation associated with the property
+          items:
+            type: string
+    SuccessMessage:
+      type: object
+      properties:
+        message:
+          type: string
+          maxLength: 256
+          minLength: 0
+    ImageIcon:
+      allOf:
+      - $ref: '#/components/schemas/Icon'
+      - type: object
+        properties:
+          image:
+            $ref: '#/components/schemas/Image'
+            oneOf:
+            - $ref: '#/components/schemas/HostedImage'
+            - $ref: '#/components/schemas/ProvidedImage'
+          largeImage:
+            $ref: '#/components/schemas/Image'
+            oneOf:
+            - $ref: '#/components/schemas/HostedImage'
+            - $ref: '#/components/schemas/ProvidedImage'
+          selectedImage:
+            $ref: '#/components/schemas/Image'
+            oneOf:
+            - $ref: '#/components/schemas/HostedImage'
+            - $ref: '#/components/schemas/ProvidedImage'
+          type:
+            type: string
+            const: image
+    AssetStatus:
+      type: object
+      properties:
+        assetStatusLabel:
+          type: string
+        dispositionLabel:
+          type: string
+    RelationshipGetRequestByIri:
+      type: object
+      properties:
+        byRelationTypes:
+          type: array
+          description: Filter by these relation types. Relation types are identified by their IRI.
+          example: https://dwec.data.world/v0/usesDataFrom
+          items:
+            type: string
+        byResourceTypes:
+          type: array
+          description: Filter by these resource types. Resource types are identified by their IRI.
+          items:
+            type: string
     CatalogConceptHydrationDto:
       type: object
       properties:
@@ -498,12 +491,19 @@ components:
           type: string
         prefLabel:
           type: string
-    AssetStatus:
+    CollectionHydrationDto:
       type: object
       properties:
-        assetStatusLabel:
+        description:
           type: string
-        dispositionLabel:
+        id:
+          type: string
+          description: dct:identifier of the collection
+        iri:
+          type: string
+        owner:
+          type: string
+        title:
           type: string
   securitySchemes:
     bearerAuth:

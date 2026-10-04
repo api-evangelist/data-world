@@ -255,6 +255,79 @@ paths:
       - Insights
 components:
   schemas:
+    InsightPatchRequest:
+      type: object
+      properties:
+        body:
+          $ref: '#/components/schemas/InsightBody'
+        dataSourceLinks:
+          type: array
+          description: Data source links included in a PATCH request will replace existing data source links.
+          items:
+            type: string
+            format: uri
+        description:
+          type: string
+        sourceLink:
+          type: string
+          format: uri
+        thumbnail:
+          type: string
+          format: uri
+        title:
+          type: string
+          maxLength: 128
+          minLength: 1
+    InsightCreateRequest:
+      type: object
+      properties:
+        body:
+          $ref: '#/components/schemas/InsightBody'
+        dataSourceLinks:
+          type: array
+          items:
+            type: string
+            format: uri
+        description:
+          type: string
+          maxLength: 25000
+          minLength: 0
+        sourceLink:
+          type: string
+          format: uri
+        thumbnail:
+          type: string
+          format: uri
+        title:
+          type: string
+          maxLength: 128
+          minLength: 1
+      required:
+      - body
+      - title
+    PaginatedInsightResults:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+          minimum: 0
+        nextPageToken:
+          type: string
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/InsightSummaryResponse'
+      required:
+      - count
+      - records
+    SuccessMessage:
+      type: object
+      properties:
+        message:
+          type: string
+          maxLength: 256
+          minLength: 0
     InsightSummaryResponse:
       type: object
       properties:
@@ -300,29 +373,6 @@ components:
       - title
       - updated
       - version
-    InsightPatchRequest:
-      type: object
-      properties:
-        body:
-          $ref: '#/components/schemas/InsightBody'
-        dataSourceLinks:
-          type: array
-          description: Data source links included in a PATCH request will replace existing data source links.
-          items:
-            type: string
-            format: uri
-        description:
-          type: string
-        sourceLink:
-          type: string
-          format: uri
-        thumbnail:
-          type: string
-          format: uri
-        title:
-          type: string
-          maxLength: 128
-          minLength: 1
     CreateInsightResponse:
       type: object
       properties:
@@ -335,33 +385,19 @@ components:
           format: uri
       required:
       - uri
-    InsightCreateRequest:
+    InsightBody:
       type: object
       properties:
-        body:
-          $ref: '#/components/schemas/InsightBody'
-        dataSourceLinks:
-          type: array
-          items:
-            type: string
-            format: uri
-        description:
+        embedUrl:
+          type: string
+          format: uri
+        imageUrl:
+          type: string
+          format: uri
+        markdownBody:
           type: string
           maxLength: 25000
           minLength: 0
-        sourceLink:
-          type: string
-          format: uri
-        thumbnail:
-          type: string
-          format: uri
-        title:
-          type: string
-          maxLength: 128
-          minLength: 1
-      required:
-      - body
-      - title
     InsightPutRequest:
       type: object
       properties:
@@ -389,42 +425,6 @@ components:
       required:
       - body
       - title
-    InsightBody:
-      type: object
-      properties:
-        embedUrl:
-          type: string
-          format: uri
-        imageUrl:
-          type: string
-          format: uri
-        markdownBody:
-          type: string
-          maxLength: 25000
-          minLength: 0
-    SuccessMessage:
-      type: object
-      properties:
-        message:
-          type: string
-          maxLength: 256
-          minLength: 0
-    PaginatedInsightResults:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-          minimum: 0
-        nextPageToken:
-          type: string
-        records:
-          type: array
-          items:
-            $ref: '#/components/schemas/InsightSummaryResponse'
-      required:
-      - count
-      - records
   securitySchemes:
     bearerAuth:
       bearerFormat: JWT

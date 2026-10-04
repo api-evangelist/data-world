@@ -64,6 +64,13 @@ paths:
       - Organizations
 components:
   schemas:
+    SuccessMessageDto:
+      type: object
+      properties:
+        message:
+          type: string
+          maxLength: 256
+          minLength: 0
     OrgDetailsResponse:
       type: object
       properties:
@@ -103,13 +110,6 @@ components:
           description: Company website URL
       required:
       - id
-    SuccessMessageDto:
-      type: object
-      properties:
-        message:
-          type: string
-          maxLength: 256
-          minLength: 0
   securitySchemes:
     bearerAuth:
       bearerFormat: JWT

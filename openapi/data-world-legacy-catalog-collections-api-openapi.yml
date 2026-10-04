@@ -187,84 +187,42 @@ paths:
       - legacy catalog - collections
 components:
   schemas:
-    SvgIcon:
-      allOf:
-      - $ref: '#/components/schemas/Icon'
-      - type: object
-        properties:
-          image:
-            $ref: '#/components/schemas/Image'
-            oneOf:
-            - $ref: '#/components/schemas/HostedImage'
-            - $ref: '#/components/schemas/ProvidedImage'
-          largeImage:
-            $ref: '#/components/schemas/Image'
-            oneOf:
-            - $ref: '#/components/schemas/HostedImage'
-            - $ref: '#/components/schemas/ProvidedImage'
-          selectedImage:
-            $ref: '#/components/schemas/Image'
-            oneOf:
-            - $ref: '#/components/schemas/HostedImage'
-            - $ref: '#/components/schemas/ProvidedImage'
-          type:
-            type: string
-            const: svg-image
-    CreateResponse:
+    AutomationTaskDetailsDto:
       type: object
       properties:
-        message:
+        automationId:
           type: string
-          maxLength: 256
-          minLength: 0
-        uri:
+          format: uuid
+        submitterAgentId:
           type: string
-          format: uri
       required:
-      - uri
-    AnalysisImage:
+      - automationId
+    StringOrArray:
+      oneOf:
+      - type: string
+      - type: array
+        items:
+          type: string
+    AgentHydrationDto:
       type: object
       properties:
-        externalUrl:
+        avatarUrl:
           type: string
-    ImageIcon:
-      allOf:
-      - $ref: '#/components/schemas/Icon'
-      - type: object
-        properties:
-          image:
-            $ref: '#/components/schemas/Image'
-            oneOf:
-            - $ref: '#/components/schemas/HostedImage'
-            - $ref: '#/components/schemas/ProvidedImage'
-          largeImage:
-            $ref: '#/components/schemas/Image'
-            oneOf:
-            - $ref: '#/components/schemas/HostedImage'
-            - $ref: '#/components/schemas/ProvidedImage'
-          selectedImage:
-            $ref: '#/components/schemas/Image'
-            oneOf:
-            - $ref: '#/components/schemas/HostedImage'
-            - $ref: '#/components/schemas/ProvidedImage'
-          type:
-            type: string
-            const: image
-    CatalogBusinessTermHydrationDto:
+        deactivated:
+          type: boolean
+        displayName:
+          type: string
+        id:
+          type: string
+    CatalogColumnHydrationDto:
       type: object
       properties:
-        abstract_:
-          type: string
         agentid:
           type: string
         assetStatus:
           $ref: '#/components/schemas/AssetStatus'
-        businessTermid:
+        columnid:
           type: string
-        catalogs:
-          type: array
-          items:
-            $ref: '#/components/schemas/CatalogId'
         createdBy:
           $ref: '#/components/schemas/AgentHydrationDto'
         description:
@@ -284,61 +242,6 @@ components:
         updated:
           type: string
           format: date-time
-    SuccessMessage:
-      type: object
-      properties:
-        message:
-          type: string
-          maxLength: 256
-          minLength: 0
-    StringOrArray:
-      oneOf:
-      - type: string
-      - type: array
-        items:
-          type: string
-    ProvidedImage:
-      allOf:
-      - $ref: '#/components/schemas/Image'
-      - type: object
-        properties:
-          slug:
-            type: string
-          type:
-            type: string
-            const: provided
-    Icon:
-      type: object
-      discriminator:
-        mapping:
-          emoji: '#/components/schemas/EmojiIcon'
-          image: '#/components/schemas/ImageIcon'
-          svg-image: '#/components/schemas/SvgIcon'
-        propertyName: type
-      properties:
-        type:
-          type: string
-          enum:
-          - emoji
-          - image
-          - svg-image
-    ResourceRelationshipDto:
-      type: object
-      properties:
-        contributor:
-          type: boolean
-        liked:
-          type: boolean
-    HostedImage:
-      allOf:
-      - $ref: '#/components/schemas/Image'
-      - type: object
-        properties:
-          type:
-            type: string
-            const: hosted
-          url:
-            type: string
     SearchHydrations:
       type: object
       properties:
@@ -406,208 +309,6 @@ components:
           type: object
           additionalProperties:
             $ref: '#/components/schemas/UnknownCatalogEntryHydrationDto'
-    AgentHydrationDto:
-      type: object
-      properties:
-        avatarUrl:
-          type: string
-        deactivated:
-          type: boolean
-        displayName:
-          type: string
-        id:
-          type: string
-    Image:
-      type: object
-      discriminator:
-        mapping:
-          hosted: '#/components/schemas/HostedImage'
-          provided: '#/components/schemas/ProvidedImage'
-        propertyName: type
-      properties:
-        type:
-          type: string
-          enum:
-          - hosted
-          - provided
-    EmojiIcon:
-      allOf:
-      - $ref: '#/components/schemas/Icon'
-      - type: object
-        properties:
-          type:
-            type: string
-            const: emoji
-          value:
-            type: string
-    SourceId:
-      type: object
-      properties:
-        agentid:
-          type: string
-        sourceid:
-          type: string
-    EntryType:
-      type: object
-      properties:
-        icon:
-          $ref: '#/components/schemas/Icon'
-          oneOf:
-          - $ref: '#/components/schemas/EmojiIcon'
-          - $ref: '#/components/schemas/ImageIcon'
-          - $ref: '#/components/schemas/SvgIcon'
-        instantiable:
-          type: boolean
-        label:
-          type: string
-        pluralLabel:
-          type: string
-        requestable:
-          type: boolean
-        type:
-          type: string
-          description: Entry type IRI
-    TableId:
-      type: object
-      properties:
-        owner:
-          type: string
-        sourceId:
-          type: string
-        tableId:
-          type: string
-      required:
-      - owner
-      - tableId
-    AutomationTaskDetailsDto:
-      type: object
-      properties:
-        automationId:
-          type: string
-          format: uuid
-        submitterAgentId:
-          type: string
-      required:
-      - automationId
-    PaginatedSearchResultsDtoMetadataResourceDto:
-      type: object
-      properties:
-        consistent:
-          type: boolean
-        count:
-          type: integer
-          format: int32
-          minimum: 0
-        facets:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              $ref: '#/components/schemas/SearchFacetResult'
-        hydrations:
-          $ref: '#/components/schemas/SearchHydrations'
-        next:
-          type: string
-        records:
-          type: array
-          items:
-            $ref: '#/components/schemas/MetadataResourceDto'
-    DatasetHydrationDto:
-      type: object
-      properties:
-        _abstract:
-          type: string
-          writeOnly: true
-        abstract:
-          type: string
-        agentid:
-          type: string
-        createdBy:
-          $ref: '#/components/schemas/AgentHydrationDto'
-        datasetid:
-          type: string
-        headline:
-          type: string
-        name:
-          type: string
-        project:
-          type: boolean
-        referent:
-          type: string
-        relationship:
-          $ref: '#/components/schemas/ResourceRelationshipDto'
-        type:
-          type: string
-        updated:
-          type: string
-          format: date-time
-        userUpdated:
-          type: string
-          format: date-time
-    CatalogColumnHydrationDto:
-      type: object
-      properties:
-        agentid:
-          type: string
-        assetStatus:
-          $ref: '#/components/schemas/AssetStatus'
-        columnid:
-          type: string
-        createdBy:
-          $ref: '#/components/schemas/AgentHydrationDto'
-        description:
-          type: string
-        entryTypeHierarchy:
-          type: array
-          items:
-            $ref: '#/components/schemas/EntryType'
-        entryTypeLabel:
-          type: string
-        referent:
-          type: string
-        title:
-          type: string
-        type:
-          type: string
-        updated:
-          type: string
-          format: date-time
-    CatalogTableHydrationDto:
-      type: object
-      properties:
-        agentid:
-          type: string
-        catalogs:
-          type: array
-          items:
-            $ref: '#/components/schemas/CatalogId'
-        createdBy:
-          $ref: '#/components/schemas/AgentHydrationDto'
-        description:
-          type: string
-        entryTypeHierarchy:
-          type: array
-          items:
-            $ref: '#/components/schemas/EntryType'
-        entryTypeLabel:
-          type: string
-        id:
-          type: string
-        referent:
-          type: string
-        source:
-          $ref: '#/components/schemas/SourceId'
-        sourceId:
-          $ref: '#/components/schemas/SourceId'
-        tableid:
-          type: string
-        title:
-          type: string
-        type:
-          type: string
-        updated:
-          type: string
-          format: date-time
     MetadataResourceDto:
       type: object
       properties:
@@ -685,23 +386,16 @@ components:
       - id
       - owner
       - visibility
-    CatalogRequest:
-      type: object
-      properties:
-        assetStatusIri:
-          type: string
-        description:
-          type: string
-          maxLength: 5000
-          minLength: 0
-        tags:
-          type: array
-          items:
+    HostedImage:
+      allOf:
+      - $ref: '#/components/schemas/Image'
+      - type: object
+        properties:
+          type:
             type: string
-        title:
-          type: string
-          maxLength: 120
-          minLength: 1
+            const: hosted
+          url:
+            type: string
     CatalogAnalysisHydrationDto:
       type: object
       properties:
@@ -736,36 +430,130 @@ components:
         updated:
           type: string
           format: date-time
-    CatalogHydrationDto:
+    GroupHydrationDto:
       type: object
       properties:
         agentid:
           type: string
-        ancestors:
-          type: array
-          items:
-            $ref: '#/components/schemas/CatalogId'
-        catalogid:
-          type: string
-        createdBy:
-          $ref: '#/components/schemas/AgentHydrationDto'
         description:
           type: string
-        entryTypeHierarchy:
-          type: array
-          items:
-            $ref: '#/components/schemas/EntryType'
-        entryTypeLabel:
+        displayName:
           type: string
-        referent:
+        groupid:
           type: string
-        title:
+    EntryType:
+      type: object
+      properties:
+        icon:
+          $ref: '#/components/schemas/Icon'
+          oneOf:
+          - $ref: '#/components/schemas/EmojiIcon'
+          - $ref: '#/components/schemas/ImageIcon'
+          - $ref: '#/components/schemas/SvgIcon'
+        instantiable:
+          type: boolean
+        label:
           type: string
+        pluralLabel:
+          type: string
+        requestable:
+          type: boolean
         type:
           type: string
-        updated:
+          description: Entry type IRI
+    Image:
+      type: object
+      discriminator:
+        mapping:
+          hosted: '#/components/schemas/HostedImage'
+          provided: '#/components/schemas/ProvidedImage'
+        propertyName: type
+      properties:
+        type:
           type: string
-          format: date-time
+          enum:
+          - hosted
+          - provided
+    Icon:
+      type: object
+      discriminator:
+        mapping:
+          emoji: '#/components/schemas/EmojiIcon'
+          image: '#/components/schemas/ImageIcon'
+          svg-image: '#/components/schemas/SvgIcon'
+        propertyName: type
+      properties:
+        type:
+          type: string
+          enum:
+          - emoji
+          - image
+          - svg-image
+    EmojiIcon:
+      allOf:
+      - $ref: '#/components/schemas/Icon'
+      - type: object
+        properties:
+          type:
+            type: string
+            const: emoji
+          value:
+            type: string
+    AnalysisImage:
+      type: object
+      properties:
+        externalUrl:
+          type: string
+    PaginatedSearchResultsDtoMetadataResourceDto:
+      type: object
+      properties:
+        consistent:
+          type: boolean
+        count:
+          type: integer
+          format: int32
+          minimum: 0
+        facets:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/SearchFacetResult'
+        hydrations:
+          $ref: '#/components/schemas/SearchHydrations'
+        next:
+          type: string
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/MetadataResourceDto'
+    ProvidedImage:
+      allOf:
+      - $ref: '#/components/schemas/Image'
+      - type: object
+        properties:
+          slug:
+            type: string
+          type:
+            type: string
+            const: provided
+    CatalogRequest:
+      type: object
+      properties:
+        assetStatusIri:
+          type: string
+        description:
+          type: string
+          maxLength: 5000
+          minLength: 0
+        tags:
+          type: array
+          items:
+            type: string
+        title:
+          type: string
+          maxLength: 120
+          minLength: 1
     TaskFetchDto:
       type: object
       properties:
@@ -895,58 +683,65 @@ components:
         typeLabel:
           type: string
           description: Resource type label.
-    InsightHydrationDto:
+    TableId:
       type: object
       properties:
-        body:
+        owner:
           type: string
-        createdBy:
-          $ref: '#/components/schemas/AgentHydrationDto'
-        dataSources:
-          type: array
-          items:
+        sourceId:
+          type: string
+        tableId:
+          type: string
+      required:
+      - owner
+      - tableId
+    SvgIcon:
+      allOf:
+      - $ref: '#/components/schemas/Icon'
+      - type: object
+        properties:
+          image:
+            $ref: '#/components/schemas/Image'
+            oneOf:
+            - $ref: '#/components/schemas/HostedImage'
+            - $ref: '#/components/schemas/ProvidedImage'
+          largeImage:
+            $ref: '#/components/schemas/Image'
+            oneOf:
+            - $ref: '#/components/schemas/HostedImage'
+            - $ref: '#/components/schemas/ProvidedImage'
+          selectedImage:
+            $ref: '#/components/schemas/Image'
+            oneOf:
+            - $ref: '#/components/schemas/HostedImage'
+            - $ref: '#/components/schemas/ProvidedImage'
+          type:
             type: string
-            format: uri
-        dataset:
-          $ref: '#/components/schemas/DatasetHydrationDto'
-        datasetid:
-          type: string
-        description:
-          type: string
-        insightid:
-          type: string
-        thumbnail:
-          type: string
-          format: uri
-        title:
-          type: string
-        type:
-          type: string
-        updated:
-          type: string
-          format: date-time
-    CatalogConceptHydrationDto:
+            const: svg-image
+    CatalogId:
       type: object
       properties:
-        altLabel:
-          type: string
-        iri:
+        collectionId:
           type: string
         owner:
           type: string
-        prefLabel:
+        referent:
           type: string
-    UnknownCatalogEntryHydrationDto:
+      required:
+      - collectionId
+      - owner
+      - referent
+    CatalogHydrationDto:
       type: object
       properties:
         agentid:
           type: string
-        assetStatus:
-          $ref: '#/components/schemas/AssetStatus'
-        catalogs:
+        ancestors:
           type: array
           items:
             $ref: '#/components/schemas/CatalogId'
+        catalogid:
+          type: string
         createdBy:
           $ref: '#/components/schemas/AgentHydrationDto'
         description:
@@ -956,8 +751,6 @@ components:
           items:
             $ref: '#/components/schemas/EntryType'
         entryTypeLabel:
-          type: string
-        identifier:
           type: string
         referent:
           type: string
@@ -1000,6 +793,54 @@ components:
         updated:
           type: string
           format: date-time
+    CatalogBusinessTermHydrationDto:
+      type: object
+      properties:
+        abstract_:
+          type: string
+        agentid:
+          type: string
+        assetStatus:
+          $ref: '#/components/schemas/AssetStatus'
+        businessTermid:
+          type: string
+        catalogs:
+          type: array
+          items:
+            $ref: '#/components/schemas/CatalogId'
+        createdBy:
+          $ref: '#/components/schemas/AgentHydrationDto'
+        description:
+          type: string
+        entryTypeHierarchy:
+          type: array
+          items:
+            $ref: '#/components/schemas/EntryType'
+        entryTypeLabel:
+          type: string
+        referent:
+          type: string
+        title:
+          type: string
+        type:
+          type: string
+        updated:
+          type: string
+          format: date-time
+    ResourceRelationshipDto:
+      type: object
+      properties:
+        contributor:
+          type: boolean
+        liked:
+          type: boolean
+    SuccessMessage:
+      type: object
+      properties:
+        message:
+          type: string
+          maxLength: 256
+          minLength: 0
     SearchFacetResult:
       type: object
       properties:
@@ -1008,6 +849,29 @@ components:
           format: int64
         term:
           type: string
+    ImageIcon:
+      allOf:
+      - $ref: '#/components/schemas/Icon'
+      - type: object
+        properties:
+          image:
+            $ref: '#/components/schemas/Image'
+            oneOf:
+            - $ref: '#/components/schemas/HostedImage'
+            - $ref: '#/components/schemas/ProvidedImage'
+          largeImage:
+            $ref: '#/components/schemas/Image'
+            oneOf:
+            - $ref: '#/components/schemas/HostedImage'
+            - $ref: '#/components/schemas/ProvidedImage'
+          selectedImage:
+            $ref: '#/components/schemas/Image'
+            oneOf:
+            - $ref: '#/components/schemas/HostedImage'
+            - $ref: '#/components/schemas/ProvidedImage'
+          type:
+            type: string
+            const: image
     AssetStatus:
       type: object
       properties:
@@ -1015,30 +879,166 @@ components:
           type: string
         dispositionLabel:
           type: string
-    CatalogId:
+    DatasetHydrationDto:
       type: object
       properties:
-        collectionId:
+        _abstract:
           type: string
-        owner:
+          writeOnly: true
+        abstract:
           type: string
+        agentid:
+          type: string
+        createdBy:
+          $ref: '#/components/schemas/AgentHydrationDto'
+        datasetid:
+          type: string
+        headline:
+          type: string
+        name:
+          type: string
+        project:
+          type: boolean
         referent:
           type: string
-      required:
-      - collectionId
-      - owner
-      - referent
-    GroupHydrationDto:
+        relationship:
+          $ref: '#/components/schemas/ResourceRelationshipDto'
+        type:
+          type: string
+        updated:
+          type: string
+          format: date-time
+        userUpdated:
+          type: string
+          format: date-time
+    CatalogTableHydrationDto:
       type: object
       properties:
         agentid:
           type: string
+        catalogs:
+          type: array
+          items:
+            $ref: '#/components/schemas/CatalogId'
+        createdBy:
+          $ref: '#/components/schemas/AgentHydrationDto'
         description:
           type: string
-        displayName:
+        entryTypeHierarchy:
+          type: array
+          items:
+            $ref: '#/components/schemas/EntryType'
+        entryTypeLabel:
           type: string
-        groupid:
+        id:
           type: string
+        referent:
+          type: string
+        source:
+          $ref: '#/components/schemas/SourceId'
+        sourceId:
+          $ref: '#/components/schemas/SourceId'
+        tableid:
+          type: string
+        title:
+          type: string
+        type:
+          type: string
+        updated:
+          type: string
+          format: date-time
+    InsightHydrationDto:
+      type: object
+      properties:
+        body:
+          type: string
+        createdBy:
+          $ref: '#/components/schemas/AgentHydrationDto'
+        dataSources:
+          type: array
+          items:
+            type: string
+            format: uri
+        dataset:
+          $ref: '#/components/schemas/DatasetHydrationDto'
+        datasetid:
+          type: string
+        description:
+          type: string
+        insightid:
+          type: string
+        thumbnail:
+          type: string
+          format: uri
+        title:
+          type: string
+        type:
+          type: string
+        updated:
+          type: string
+          format: date-time
+    SourceId:
+      type: object
+      properties:
+        agentid:
+          type: string
+        sourceid:
+          type: string
+    UnknownCatalogEntryHydrationDto:
+      type: object
+      properties:
+        agentid:
+          type: string
+        assetStatus:
+          $ref: '#/components/schemas/AssetStatus'
+        catalogs:
+          type: array
+          items:
+            $ref: '#/components/schemas/CatalogId'
+        createdBy:
+          $ref: '#/components/schemas/AgentHydrationDto'
+        description:
+          type: string
+        entryTypeHierarchy:
+          type: array
+          items:
+            $ref: '#/components/schemas/EntryType'
+        entryTypeLabel:
+          type: string
+        identifier:
+          type: string
+        referent:
+          type: string
+        title:
+          type: string
+        type:
+          type: string
+        updated:
+          type: string
+          format: date-time
+    CatalogConceptHydrationDto:
+      type: object
+      properties:
+        altLabel:
+          type: string
+        iri:
+          type: string
+        owner:
+          type: string
+        prefLabel:
+          type: string
+    CreateResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          maxLength: 256
+          minLength: 0
+        uri:
+          type: string
+          format: uri
+      required:
+      - uri
   securitySchemes:
     bearerAuth:
       bearerFormat: JWT

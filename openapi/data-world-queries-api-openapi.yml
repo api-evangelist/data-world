@@ -1007,49 +1007,6 @@ paths:
       - Queries
 components:
   schemas:
-    QueryPutRequest:
-      type: object
-      properties:
-        content:
-          type: string
-        description:
-          type: string
-          maxLength: 1000
-          minLength: 0
-        name:
-          type: string
-          maxLength: 128
-          minLength: 0
-        published:
-          type: boolean
-      required:
-      - content
-      - name
-    RdfTerm:
-      type: object
-      properties:
-        datatype:
-          type: string
-        type:
-          type: string
-          enum:
-          - literal
-          - uri
-          - bnode
-        value:
-          type: string
-        xml:lang:
-          type: string
-      required:
-      - type
-      - value
-    QueryParameter:
-      type: object
-      properties:
-        datatype:
-          type: string
-        type:
-          type: string
     CreateQueryRequest:
       type: object
       properties:
@@ -1081,80 +1038,31 @@ components:
           type: string
           maxLength: 256
           minLength: 0
-    SavedQueryExecutionRequest:
+    QueryPutRequest:
       type: object
       properties:
-        datasetVersions:
+        content:
           type: string
-        defaultGraphUris:
-          type: array
-          items:
-            type: string
-        includeTableSchema:
+        description:
+          type: string
+          maxLength: 1000
+          minLength: 0
+        name:
+          type: string
+          maxLength: 128
+          minLength: 0
+        published:
           type: boolean
-        maxRows:
-          type: integer
-          format: int64
-        namedGraphUris:
-          type: array
-          items:
-            type: string
-        parameters:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/RdfTerm'
-        queryRunToken:
-          type: string
-    SparqlQueryRequest:
+      required:
+      - content
+      - name
+    QueryParameter:
       type: object
       properties:
-        datasetVersions:
+        datatype:
           type: string
-        defaultGraphUris:
-          type: array
-          items:
-            type: string
-        diagnose:
-          type: boolean
-        namedGraphUris:
-          type: array
-          items:
-            type: string
-        query:
+        type:
           type: string
-        queryRunToken:
-          type: string
-      required:
-      - query
-    SqlQueryRequest:
-      type: object
-      properties:
-        datasetVersions:
-          type: string
-        includeTableSchema:
-          type: boolean
-        query:
-          type: string
-        queryRunToken:
-          type: string
-      required:
-      - query
-    PaginatedQueryResults:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-          minimum: 0
-        nextPageToken:
-          type: string
-        records:
-          type: array
-          items:
-            $ref: '#/components/schemas/QuerySummaryResponse'
-      required:
-      - count
-      - records
     QuerySummaryResponse:
       type: object
       properties:
@@ -1186,6 +1094,98 @@ components:
           format: date-time
         version:
           type: string
+    SavedQueryExecutionRequest:
+      type: object
+      properties:
+        datasetVersions:
+          type: string
+        defaultGraphUris:
+          type: array
+          items:
+            type: string
+        includeTableSchema:
+          type: boolean
+        maxRows:
+          type: integer
+          format: int64
+        namedGraphUris:
+          type: array
+          items:
+            type: string
+        parameters:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/RdfTerm'
+        queryRunToken:
+          type: string
+    RdfTerm:
+      type: object
+      properties:
+        datatype:
+          type: string
+        type:
+          type: string
+          enum:
+          - literal
+          - uri
+          - bnode
+        value:
+          type: string
+        xml:lang:
+          type: string
+      required:
+      - type
+      - value
+    SqlQueryRequest:
+      type: object
+      properties:
+        datasetVersions:
+          type: string
+        includeTableSchema:
+          type: boolean
+        query:
+          type: string
+        queryRunToken:
+          type: string
+      required:
+      - query
+    SparqlQueryRequest:
+      type: object
+      properties:
+        datasetVersions:
+          type: string
+        defaultGraphUris:
+          type: array
+          items:
+            type: string
+        diagnose:
+          type: boolean
+        namedGraphUris:
+          type: array
+          items:
+            type: string
+        query:
+          type: string
+        queryRunToken:
+          type: string
+      required:
+      - query
+    PaginatedQueryResults:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+          minimum: 0
+        nextPageToken:
+          type: string
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/QuerySummaryResponse'
+      required:
+      - count
+      - records
   securitySchemes:
     bearerAuth:
       bearerFormat: JWT

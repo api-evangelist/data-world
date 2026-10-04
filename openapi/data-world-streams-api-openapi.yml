@@ -205,13 +205,6 @@ components:
           minItems: 1
         sequenceField:
           type: string
-    SuccessMessage:
-      type: object
-      properties:
-        message:
-          type: string
-          maxLength: 256
-          minLength: 0
     StreamSchemaPatchRequest:
       type: object
       properties:
@@ -227,6 +220,13 @@ components:
           - TRUNCATE
       required:
       - updateMethod
+    SuccessMessage:
+      type: object
+      properties:
+        message:
+          type: string
+          maxLength: 256
+          minLength: 0
   securitySchemes:
     bearerAuth:
       bearerFormat: JWT
