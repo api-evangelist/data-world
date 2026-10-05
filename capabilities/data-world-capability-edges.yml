@@ -1,0 +1,89 @@
+slug: data-world
+provider: data.world
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 7
+edges:
+- tag: Data Quality
+  spec_file: data-world-data-quality-api-openapi.yml
+  capability_id: BC-610.30
+  capability_id_l1: BC-610
+  capability_name: Data Quality Management
+  confidence: 0.95
+  evidence: 'openapi description: "Manage data quality of metadata resources"; GET /dataquality/audits/{orgAgentId}
+    getAudits Show data quality audits; POST /dataquality/checkruns/{orgAgentId} addCheckRuns'
+  reason: Operations create and run data quality checks, record check runs and audits, and attach quality
+    badges — a direct realisation of Data Quality Management.
+- tag: Webhooks
+  spec_file: data-world-webhooks-api-openapi.yml
+  capability_id: BC-4270.80
+  capability_id_l1: BC-4270
+  capability_name: Webhook & Event Subscription Management
+  confidence: 0.78
+  evidence: GET /user/webhooks getWebhooks List subscriptions; PUT /user/webhooks/datasets/{owner}/{id}
+    subscribeToDataset Subscribe to dataset
+  reason: The tag manages the lifecycle of outbound webhook/event subscriptions for datasets, projects
+    and accounts, which matches Webhook & Event Subscription Management in the developer-platform capability.
+- tag: legacy catalog - data
+  spec_file: data-world-legacy-catalog-data-api-openapi.yml
+  capability_id: BC-610
+  capability_id_l1: BC-610
+  capability_name: Information & Data Management
+  confidence: 0.75
+  evidence: GET /metadata/data/sources/{owner}/{sourceid}/tables getTables Get tables for a data source;
+    POST .../tables/{tableid}/columns createCatalogColumn Create a Column
+  reason: Catalogues technical metadata for data sources, tables and columns. Clearly Information & Data
+    Management, but it straddles Data Architecture Management and Data Governance Management, so only
+    the L1 is asserted.
+- tag: Catalog Resources
+  spec_file: data-world-catalog-resources-api-openapi.yml
+  capability_id: BC-610
+  capability_id_l1: BC-610
+  capability_name: Information & Data Management
+  confidence: 0.7
+  evidence: 'PATCH /metadata/resources/bulk/{owner} bulkUpdate Bulk: update multiple resources at once;
+    schemas CatalogResourceCreateRequest, CatalogResourceResponse'
+  reason: CRUD and search over catalogued metadata resources in a data catalog platform — squarely Information
+    & Data Management. The operations are generic metadata-resource maintenance, so no single L2 (governance
+    vs. architecture vs. master data) is clearly named; L1 only.
+- tag: Datasets
+  spec_file: data-world-datasets-api-openapi.yml
+  capability_id: BC-610
+  capability_id_l1: BC-610
+  capability_name: Information & Data Management
+  confidence: 0.7
+  evidence: POST /datasets/{owner} createDataset Create a dataset; GET /datasets/{owner}/{id}/sync/{filename}
+    Fetch latest file from source and update dataset
+  reason: Lifecycle management of datasets (create, version, sync from source, download) on a data catalog
+    platform is Information & Data Management. The surface spans storage, versioning and distribution
+    without naming a specific sub-capability, so L1 only.
+- tag: Experimental
+  spec_file: data-world-experimental-api-openapi.yml
+  capability_id: BC-610.30
+  capability_id_l1: BC-610
+  capability_name: Data Quality Management
+  confidence: 0.7
+  evidence: GET /dataquality/audits/{orgAgentId} getAudits Show data quality audits; POST /dataquality/badges/{orgAgentId}
+    addBadges
+  reason: The tag name is a stability marker, but the operations it actually contains are entirely data-quality
+    audits, checks and check runs, so the operations decide the mapping. Confidence reduced because the
+    tag is a catch-all whose contents may change.
+- tag: legacy catalog - glossary
+  spec_file: data-world-legacy-catalog-glossary-api-openapi.yml
+  capability_id: BC-610.10
+  capability_id_l1: BC-610
+  capability_name: Data Governance Management
+  confidence: 0.7
+  evidence: 'POST /metadata/glossary/{owner} createCatalogGlossary Create a new glossary metadata; vendor
+    description: "business glossary capabilities"'
+  reason: Business glossary lifecycle (create, update, suggest edits, delete glossary metadata) is a core
+    Data Governance Management artefact — shared definitions, standards and stewardship of business terms.
