@@ -1,3 +1,7 @@
+# Provenance stamped 2026-10-07 (roadmap#943): written by an API Evangelist sweep (undated — the file carries no date and git cannot supply one), not
+# harvested from the provider. `method: generated` so the economics campaign may replace it with a
+# dated, verbatim transcription; every figure below is unverified until it does.
+method: generated
 name: data.world Plans
 description: data.world offers enterprise data catalog and governance plans priced per annual contract. Public pricing is not listed; all plans require contacting sales. The Open Data Community (free tier) was retired on July 11, 2026.
 url: https://data.world/company/get-pricing/

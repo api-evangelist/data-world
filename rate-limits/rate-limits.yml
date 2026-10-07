@@ -1,3 +1,7 @@
+# Provenance stamped 2026-10-07 (roadmap#943): written by an API Evangelist sweep (undated — the file carries no date and git cannot supply one), not
+# harvested from the provider. `method: generated` so the economics campaign may replace it with a
+# dated, verbatim transcription; every figure below is unverified until it does.
+method: generated
 name: data.world API Rate Limits
 description: data.world does not publicly document specific rate limit numbers for its REST API. Rate limits are enforced server-side and vary by plan tier and account type. Standard HTTP 429 responses are returned when limits are exceeded. Developers are advised to implement exponential back-off and contact support for limit increases.
 url: https://developer.data.world/docs/api-overview
