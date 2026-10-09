@@ -1,23 +1,229 @@
-generated: '2026-07-15'
+generated: '2026-09-23'
 method: generated
-source: openapi/openapi.json
+source: openapi/data-world-catalog-relationships-api-openapi.yml, openapi/data-world-catalog-resources-api-openapi.yml,
+  openapi/data-world-connections-api-openapi.yml, openapi/data-world-data-quality-api-openapi.yml,
+  openapi/data-world-datasets-api-openapi.yml, openapi/data-world-dois-api-openapi.yml, openapi/data-world-experimental-api-openapi.yml,
+  openapi/data-world-files-api-openapi.yml, openapi/data-world-insights-api-openapi.yml, openapi/data-world-instance-admin-api-openapi.yml,
+  openapi/data-world-legacy-catalog-analysis-api-openapi.yml, openapi/data-world-legacy-catalog-collections-api-openapi.yml,
+  openapi/data-world-legacy-catalog-data-api-openapi.yml, openapi/data-world-legacy-catalog-glossary-api-openapi.yml,
+  openapi/data-world-legacy-catalog-properties-api-openapi.yml, openapi/data-world-legacy-catalog-relationships-api-openapi.yml,
+  openapi/data-world-organizations-api-openapi.yml, openapi/data-world-projects-api-openapi.yml,
+  openapi/data-world-queries-api-openapi.yml, openapi/data-world-requests-authorization-api-openapi.yml,
+  openapi/data-world-requests-resource-api-openapi.yml, openapi/data-world-search-api-openapi.yml,
+  openapi/data-world-service-account-api-openapi.yml, openapi/data-world-streams-api-openapi.yml,
+  openapi/data-world-tables-api-openapi.yml, openapi/data-world-telemetry-api-openapi.yml, openapi/data-world-topics-and-comments-resource-api-openapi.yml,
+  openapi/data-world-user-api-openapi.yml, openapi/data-world-users-api-openapi.yml, openapi/data-world-webhooks-api-openapi.yml
 description: Recommended x-agentic-access execution contracts, classified heuristically from
   the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
   audience per deployment. See research/curity/agentic-governance/.
 summary:
-  operations: 187
+  operations: 191
   by_action_class:
-    acting: 120
-    connected: 67
+    connected: 75
+    acting: 116
   by_consequence:
-    write: 113
-    read: 67
-    physical: 7
+    read: 75
+    physical: 4
+    write: 112
   human_in_the_loop_required: 0
 operations:
-- path: /cancel
+- path: /metadata/relationships/{owner}/iri
   method: post
-  operationId: cancel
+  operationId: getRelationshipsByIri
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /metadata/relationships/{owner}/iri/create
+  method: post
+  operationId: createRelationshipByIri
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /metadata/relationships/{owner}/iri/delete
+  method: post
+  operationId: deleteRelationshipByIri
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /metadata/resources/bulk/property/{owner}
+  method: patch
+  operationId: bulkDeleteProperty
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /metadata/resources/bulk/{owner}
+  method: patch
+  operationId: bulkUpdate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /metadata/resources/bulk/{owner}
+  method: post
+  operationId: bulkCreate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /metadata/resources/property/{owner}
+  method: delete
+  operationId: deleteProperty
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /metadata/resources/search
+  method: post
+  operationId: searchResources
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /metadata/resources/{owner}
+  method: delete
+  operationId: delete
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /metadata/resources/{owner}
+  method: get
+  operationId: getResourceByIRI
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /metadata/resources/{owner}
+  method: patch
+  operationId: update
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /metadata/resources/{owner}
+  method: post
+  operationId: create
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /metadata/{owner}/resources/clear
+  method: post
+  operationId: clearMetadataResource
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /metadata/{owner}/resources/properties/clear
+  method: put
+  operationId: clearMetadataResourceProperties
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -241,6 +447,52 @@ operations:
       - abnormal
       - high-value
     audit: required
+- path: /datasets/{owner}/{id}/sync/{filename}
+  method: get
+  operationId: syncFileViaGet
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /datasets/{owner}/{id}/sync/{filename}
+  method: post
+  operationId: syncFile
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /datasets/{owner}/{id}/v/{versionId}
+  method: get
+  operationId: getDatasetByVersion
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /download/{owner}/{id}
+  method: get
+  operationId: downloadDataset
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
 - path: /datasets/{owner}/{id}/dois/{doi}
   method: delete
   operationId: deleteDoi
@@ -260,6 +512,96 @@ operations:
 - path: /datasets/{owner}/{id}/dois/{doi}
   method: put
   operationId: addDoi
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /datasets/{owner}/{id}/v/{versionId}/dois/{doi}
+  method: delete
+  operationId: deleteVersionDoi
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /datasets/{owner}/{id}/v/{versionId}/dois/{doi}
+  method: put
+  operationId: addVersionDoi
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /dataquality/audits/{orgAgentId}
+  method: get
+  operationId: getAudits
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /dataquality/badges/{orgAgentId}
+  method: post
+  operationId: addBadges
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /dataquality/checkruns/{orgAgentId}
+  method: post
+  operationId: addCheckRuns
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /dataquality/checks/delete/{orgAgentId}
+  method: post
+  operationId: deleteChecks
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -363,64 +705,6 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /datasets/{owner}/{id}/queries
-  method: get
-  operationId: getPublishedDatasetQueries
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /datasets/{owner}/{id}/queries
-  method: post
-  operationId: createSavedQuery
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /datasets/{owner}/{id}/queries/{queryId}
-  method: delete
-  operationId: deleteSavedQuery
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /datasets/{owner}/{id}/queries/{queryId}
-  method: put
-  operationId: updateSavedQuery
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
 - path: /datasets/{owner}/{id}/sync
   method: get
   operationId: syncViaGet
@@ -447,110 +731,6 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /datasets/{owner}/{id}/sync/{filename}
-  method: get
-  operationId: syncFileViaGet
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /datasets/{owner}/{id}/sync/{filename}
-  method: post
-  operationId: syncFile
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /datasets/{owner}/{id}/tables
-  method: post
-  operationId: addTables
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /datasets/{owner}/{id}/userQueries
-  method: get
-  operationId: getUserSavedDatasetQueries
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /datasets/{owner}/{id}/v/{versionId}
-  method: get
-  operationId: getDatasetByVersion
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /datasets/{owner}/{id}/v/{versionId}/dois/{doi}
-  method: delete
-  operationId: deleteVersionDoi
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /datasets/{owner}/{id}/v/{versionId}/dois/{doi}
-  method: put
-  operationId: addVersionDoi
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /download/{owner}/{id}
-  method: get
-  operationId: downloadDataset
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
 - path: /file_download/{owner}/{id}/{file}
   method: get
   operationId: downloadFile
@@ -561,6 +741,38 @@ operations:
     token:
       max-ttl: 3600
     audit: none
+- path: /uploads/{owner}/{id}/files
+  method: post
+  operationId: uploadFiles
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /uploads/{owner}/{id}/files/{file}
+  method: put
+  operationId: uploadFile
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
 - path: /insights/{projectOwner}/{projectId}
   method: get
   operationId: getInsightsForProject
@@ -1207,6 +1419,16 @@ operations:
       - abnormal
       - high-value
     audit: required
+- path: /properties/{owner}
+  method: get
+  operationId: getPropertiesByOwner
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
 - path: /metadata/relationships/{owner}
   method: post
   operationId: createRelationship
@@ -1243,195 +1465,9 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /metadata/relationships/{owner}/iri
-  method: post
-  operationId: getRelationshipsByIri
-  x-agentic-access:
-    action-class: acting
-    consequence: physical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /metadata/relationships/{owner}/iri/create
-  method: post
-  operationId: createRelationshipByIri
-  x-agentic-access:
-    action-class: acting
-    consequence: physical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /metadata/relationships/{owner}/iri/delete
-  method: post
-  operationId: deleteRelationshipByIri
-  x-agentic-access:
-    action-class: acting
-    consequence: physical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
 - path: /metadata/relationships/{owner}/resource/{resourceId}
   method: post
   operationId: getRelationships
-  x-agentic-access:
-    action-class: acting
-    consequence: physical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /metadata/relationships/{owner}/table/{sourceId}/{tableId}
-  method: post
-  operationId: getTableRelationships
-  x-agentic-access:
-    action-class: acting
-    consequence: physical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /metadata/resources/bulk/property/{owner}
-  method: patch
-  operationId: bulkDeleteProperty
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /metadata/resources/bulk/{owner}
-  method: patch
-  operationId: bulkUpdate
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /metadata/resources/bulk/{owner}
-  method: post
-  operationId: bulkCreate
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /metadata/resources/property/{owner}
-  method: delete
-  operationId: deleteProperty
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /metadata/resources/search
-  method: post
-  operationId: searchResources
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /metadata/resources/{owner}
-  method: delete
-  operationId: delete
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /metadata/resources/{owner}
-  method: get
-  operationId: getResourceByIRI
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1439,70 +1475,16 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /metadata/resources/{owner}
-  method: patch
-  operationId: update
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /metadata/resources/{owner}
+- path: /metadata/relationships/{owner}/table/{sourceId}/{tableId}
   method: post
-  operationId: create
+  operationId: getTableRelationships
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /metadata/{owner}/resources/clear
-  method: post
-  operationId: clearMetadataResource
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /metadata/{owner}/resources/properties/clear
-  method: put
-  operationId: clearMetadataResourceProperties
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /organizations/{agentid}/authorizations/{teamid}
   method: post
   operationId: authorizeOrgAccess
@@ -1645,6 +1627,100 @@ operations:
       - abnormal
       - high-value
     audit: required
+- path: /projects/{owner}/{id}/v/{versionId}
+  method: get
+  operationId: getProjectByVersion
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /cancel
+  method: post
+  operationId: cancel
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /datasets/{owner}/{id}/queries
+  method: get
+  operationId: getPublishedDatasetQueries
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /datasets/{owner}/{id}/queries
+  method: post
+  operationId: createSavedQuery
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /datasets/{owner}/{id}/queries/{queryId}
+  method: delete
+  operationId: deleteSavedQuery
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /datasets/{owner}/{id}/queries/{queryId}
+  method: put
+  operationId: updateSavedQuery
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /datasets/{owner}/{id}/userQueries
+  method: get
+  operationId: getUserSavedDatasetQueries
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
 - path: /projects/{owner}/{id}/queries
   method: get
   operationId: getProjectQueries
@@ -1713,26 +1789,6 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /projects/{owner}/{id}/v/{versionId}
-  method: get
-  operationId: getProjectByVersion
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /properties/{owner}
-  method: get
-  operationId: getPropertiesByOwner
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
 - path: /queries/{id}
   method: get
   operationId: getQuery
@@ -1779,9 +1835,75 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /requests/accept
+- path: /sparql/{owner}
+  method: get
+  operationId: queryViaGetWithDefaultGraph
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /sparql/{owner}
   method: post
-  operationId: acceptRequest_1
+  operationId: queryWithJsonRequestWithDefaultGraph
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /sparql/{owner}/{id}
+  method: get
+  operationId: queryViaGet
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /sparql/{owner}/{id}
+  method: post
+  operationId: queryWithJsonRequest
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /sql/{owner}/{id}
+  method: get
+  operationId: sqlGet
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /sql/{owner}/{id}
+  method: post
+  operationId: sqlPostWithJsonRequest
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /sql/{owner}/{id}/describe
+  method: post
+  operationId: sqlDescribe
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1869,6 +1991,22 @@ operations:
       - abnormal
       - high-value
     audit: required
+- path: /requests/accept
+  method: post
+  operationId: acceptRequest_1
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
 - path: /requests/owner/{agentid}
   method: get
   operationId: getRequests
@@ -1941,18 +2079,12 @@ operations:
   method: post
   operationId: searchResources_1
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /search/resources
   method: post
   operationId: simpleSearchResources
@@ -2043,100 +2175,6 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /sparql/{owner}
-  method: get
-  operationId: queryViaGetWithDefaultGraph
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /sparql/{owner}
-  method: post
-  operationId: queryWithJsonRequestWithDefaultGraph
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /sparql/{owner}/{id}
-  method: get
-  operationId: queryViaGet
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /sparql/{owner}/{id}
-  method: post
-  operationId: queryWithJsonRequest
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /sql/{owner}/{id}
-  method: get
-  operationId: sqlGet
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /sql/{owner}/{id}
-  method: post
-  operationId: sqlPostWithJsonRequest
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /sql/{owner}/{id}/describe
-  method: post
-  operationId: sqlDescribe
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
 - path: /streams/{owner}/{id}/{streamId}
   method: post
   operationId: appendRecords
@@ -2182,6 +2220,22 @@ operations:
 - path: /streams/{owner}/{id}/{streamId}/schema
   method: patch
   operationId: patchStreamSchema
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /datasets/{owner}/{id}/tables
+  method: post
+  operationId: addTables
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -2361,38 +2415,6 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /uploads/{owner}/{id}/files
-  method: post
-  operationId: uploadFiles
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /uploads/{owner}/{id}/files/{file}
-  method: put
-  operationId: uploadFile
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
 - path: /user
   method: get
   operationId: getUserData
@@ -2466,6 +2488,16 @@ operations:
 - path: /user/projects/own
   method: get
   operationId: fetchProjects
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /users/{account}
+  method: get
+  operationId: getAccount
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -2609,13 +2641,3 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /users/{account}
-  method: get
-  operationId: getAccount
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
