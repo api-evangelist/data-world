@@ -1,36 +1,4 @@
 edges:
-- partner_name: LF AI & Data (Landscape)
-  partner: lf-ai-data
-  partner_match: register
-  type: register
-  direction: partner-built
-  category: AI & data landscape
-  evidence: https://github.com/lfai/landscape/blob/95d361b8abfdd04a8c76bf38a012778d13621b5e/landscape.yml
-  channel: standard-directory
-  relationship: standard-participant
-  contract_reference:
-    register: LF AI & Data Landscape (github.com/lfai/landscape landscape.yml @95d361b8ab)
-    spec_file: null
-    standard: LF AI & Data
-    role: lfai-project-host
-    registered_name: data.world (hosting)
-    registered_names:
-    - data.world (hosting)
-    website: https://data.world/
-    matched_domain: data.world
-    matched_by: domain
-    member_tier: null
-    hosting_company: true
-    lfai_projects: []
-    landscape_categories:
-    - Hosting Companies / Hosting Companies
-    landscape_entries: 1
-    signal_note: 'participation only: a landscape listing is standard-participant evidence, not depth. Entries,
-      categories, tier and projects are CONTEXT, never read (breadth is not credit)'
-    detected_by: sweep-mlops.py
-    detected: '2026-10-15'
-  detected_by: sweep-mlops.py
-  first_seen: '2026-10-15'
 - partner_name: Meltano
   partner: meltano
   partner_match: aggregator
@@ -60,6 +28,38 @@ edges:
     builder: 'community (Meltano Hub variant maintainers: datadotworld)'
   detected_by: sweep-data-integration.py
   first_seen: '2026-10-18'
+- partner_name: LF AI & Data (Landscape)
+  partner: lf-ai-data
+  partner_match: register
+  type: register
+  direction: partner-built
+  category: AI & data landscape
+  evidence: https://github.com/lfai/landscape/blob/3893e0631e1d12921a9b0ac25ffc78a2ac26239d/landscape.yml
+  channel: standard-directory
+  relationship: standard-participant
+  contract_reference:
+    register: LF AI & Data Landscape (github.com/lfai/landscape landscape.yml @3893e0631e)
+    spec_file: null
+    standard: LF AI & Data
+    role: lfai-project-host
+    registered_name: data.world (hosting)
+    registered_names:
+    - data.world (hosting)
+    website: https://data.world/
+    matched_domain: data.world
+    matched_by: domain
+    member_tier: null
+    hosting_company: true
+    lfai_projects: []
+    landscape_categories:
+    - Hosting Companies / Hosting Companies
+    landscape_entries: 1
+    signal_note: 'participation only: a landscape listing is standard-participant evidence, not depth. Entries,
+      categories, tier and projects are CONTEXT, never read (breadth is not credit)'
+    detected_by: sweep-mlops.py
+    detected: '2026-10-19'
+  detected_by: sweep-mlops.py
+  first_seen: '2026-10-15'
 generated: '2026-10-15'
 method: searched
 source:
