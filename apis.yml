@@ -1270,6 +1270,8 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/data-world/refs/heads/main/finops/finops.yml
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/dataworld/overview
   - type: Website
     url: https://www.data.world/
   - type: CapabilityMap
