@@ -1,70 +1,43 @@
 {
+  "info": {
+    "_postman_id": "2352516f-e404-4d45-aa03-1783749d4ad9",
+    "name": "data.world Public Telemetry API",
+    "description": "Contact Support:\n Name: Contact Us",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:59:28.000Z",
+    "updatedAt": "2026-10-21T20:59:28.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2352516f-e404-4d45-aa03-1783749d4ad9"
+  },
   "item": [
     {
-      "id": "6cdc1341-69d2-4a34-ba9f-a100ece0281d",
       "name": "telemetry",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
       "item": [
         {
-          "id": "f040fa49-58b3-403e-afef-523ab6220029",
-          "name": "Get governance billing query result",
-          "request": {
-            "name": "Get governance billing query result",
-            "description": {
-              "content": "This endpoint executes query against ddw-catalogs to get data from governance billing.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "telemetry",
-                "governanceBilling"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "agentId",
-                  "value": "datadotworldsupport"
-                },
-                {
-                  "disabled": false,
-                  "key": "sampleData",
-                  "value": "false"
-                },
-                {
-                  "disabled": false,
-                  "key": "catalog",
-                  "value": "main"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "governanceBilling",
+          "item": [
             {
-              "id": "73fe4353-f684-4b0b-88b8-644341c40d81",
-              "name": "default response",
-              "originalRequest": {
+              "name": "Get governance billing query result",
+              "id": "71f6c1a7-9fcd-4ce6-8d8e-9bcadaa045fa",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
                 "url": {
+                  "raw": "{{baseUrl}}/telemetry/governanceBilling?agentId=datadotworldsupport&sampleData=false&catalog=main",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "telemetry",
                     "governanceBilling"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
                   ],
                   "query": [
                     {
@@ -79,54 +52,84 @@
                       "key": "catalog",
                       "value": "main"
                     }
-                  ],
-                  "variable": []
+                  ]
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                "description": "This endpoint executes query against ddw-catalogs to get data from governance billing."
               },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "6da509ff-461f-48e0-8246-4215967bb97a",
+                  "name": "default response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/telemetry/governanceBilling?agentId=datadotworldsupport&sampleData=false&catalog=main",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "telemetry",
+                        "governanceBilling"
+                      ],
+                      "query": [
+                        {
+                          "key": "agentId",
+                          "value": "datadotworldsupport"
+                        },
+                        {
+                          "key": "sampleData",
+                          "value": "false"
+                        },
+                        {
+                          "key": "catalog",
+                          "value": "main"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "",
+                  "createdAt": "2026-10-21T20:59:28.000Z",
+                  "updatedAt": "2026-10-21T20:59:28.000Z",
+                  "uid": "35240-6da509ff-461f-48e0-8246-4215967bb97a"
                 }
               ],
-              "body": "\"\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-21T20:59:28.000Z",
+              "updatedAt": "2026-10-21T20:59:28.000Z",
+              "uid": "35240-71f6c1a7-9fcd-4ce6-8d8e-9bcadaa045fa"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "88e784e0-0b8f-4ceb-8b76-bf285055d6ed",
+          "createdAt": "2026-10-21T20:59:28.000Z",
+          "updatedAt": "2026-10-21T20:59:28.000Z",
+          "uid": "35240-88e784e0-0b8f-4ceb-8b76-bf285055d6ed"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "/v0",
-      "key": "baseUrl"
+      "id": "f7bcee62-3a57-409d-8260-ebfcb95a47c9",
+      "createdAt": "2026-10-21T20:59:28.000Z",
+      "updatedAt": "2026-10-21T20:59:28.000Z",
+      "uid": "35240-f7bcee62-3a57-409d-8260-ebfcb95a47c9"
     }
   ],
   "auth": {
@@ -134,17 +137,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "0a51ae84-8d20-44a9-a689-c456cfee83d1",
-    "name": "data.world Public catalog relationships telemetry API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Manage relationships between catalog resources\n\nContact Support:\n Name: Contact Us",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/v0"
     }
-  }
+  ]
 }

@@ -1,931 +1,924 @@
 {
+  "info": {
+    "_postman_id": "f8ad3cc2-69b7-452a-99a1-1639aca40497",
+    "name": "data.world Public legacy catalog - analysis API",
+    "description": "Contact Support:\n Name: Contact Us",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:57:54.000Z",
+    "updatedAt": "2026-10-21T20:57:54.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f8ad3cc2-69b7-452a-99a1-1639aca40497"
+  },
   "item": [
     {
-      "id": "77231ef6-bc61-4cbe-bb5b-c71bf7a10407",
-      "name": "legacy catalog - analysis",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "metadata",
       "item": [
         {
-          "id": "e735a4cf-4096-4e1e-845d-f28c91c501b0",
-          "name": "suggest for an existing analysis",
-          "request": {
-            "name": "suggest for an existing analysis",
-            "description": {
-              "content": "Please refer to the updated IRI-based resource endpoints.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "metadata",
-                "analysis",
-                "suggest",
-                ":owner",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "owner",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PATCH",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"collectionsToAdd\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"collectionsToRemove\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"message\": \"<string>\",\n  \"properties\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"summary\": \"<string>\",\n  \"tagsToAdd\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tagsToRemove\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"typeLabel\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
+          "name": "analysis",
+          "item": [
             {
-              "id": "61a12469-72e6-4c5e-84e0-6bd1fc258a1f",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "metadata",
-                    "analysis",
-                    "suggest",
-                    ":owner",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "owner",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"collectionsToAdd\": [\n    \"Aid Option\"\n  ],\n  \"collectionsToRemove\": [\n    \"Aid Option\"\n  ],\n  \"description\": \"Aid given to charity is an option that can be exercised by individuals and corporations\",\n  \"message\": \"I strongly suggest\",\n  \"properties\": {\n    \"key_0\": \"string\"\n  },\n  \"summary\": \"<string>\",\n  \"tagsToAdd\": [\n    \"HumanitarianAid\"\n  ],\n  \"tagsToRemove\": [\n    \"HumanitarianAid\"\n  ],\n  \"title\": \"crypto.snowflake\",\n  \"typeLabel\": \"Tableau dashboard\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "suggest",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "{owner}",
+                  "item": [
+                    {
+                      "name": "{id}",
+                      "item": [
+                        {
+                          "name": "suggest for an existing analysis",
+                          "id": "c29fbf03-1d0b-4f65-b176-698ef988ce41",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"collectionsToAdd\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"collectionsToRemove\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"message\": \"<string>\",\n  \"properties\": {\n    \"ullamco2d0\": \"<string>\",\n    \"ea_8c\": \"<string>\"\n  },\n  \"summary\": \"<string>\",\n  \"tagsToAdd\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tagsToRemove\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"typeLabel\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/metadata/analysis/suggest/:owner/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "metadata",
+                                "analysis",
+                                "suggest",
+                                ":owner",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "60b35d88-7039-4d78-98af-b604bc589457",
+                                  "key": "owner",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "bf658eb5-3ff6-4a2c-bea6-71feaf5d47d6",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Please refer to the updated IRI-based resource endpoints."
+                          },
+                          "response": [
+                            {
+                              "id": "9ea79bca-9db4-4ece-afe0-375815807e16",
+                              "name": "default response",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"collectionsToAdd\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"collectionsToRemove\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"message\": \"<string>\",\n  \"properties\": {\n    \"ullamco2d0\": \"<string>\",\n    \"ea_8c\": \"<string>\"\n  },\n  \"summary\": \"<string>\",\n  \"tagsToAdd\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tagsToRemove\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"typeLabel\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/metadata/analysis/suggest/:owner/:id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "metadata",
+                                    "analysis",
+                                    "suggest",
+                                    ":owner",
+                                    ":id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "owner"
+                                    },
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-10-21T20:57:54.000Z",
+                              "updatedAt": "2026-10-21T20:57:54.000Z",
+                              "uid": "35240-9ea79bca-9db4-4ece-afe0-375815807e16"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:57:54.000Z",
+                          "updatedAt": "2026-10-21T20:57:54.000Z",
+                          "uid": "35240-c29fbf03-1d0b-4f65-b176-698ef988ce41"
+                        }
+                      ],
+                      "id": "270fde61-764c-4553-9760-09703f243122",
+                      "createdAt": "2026-10-21T20:57:54.000Z",
+                      "updatedAt": "2026-10-21T20:57:54.000Z",
+                      "uid": "35240-270fde61-764c-4553-9760-09703f243122"
+                    }
+                  ],
+                  "id": "7710f7ad-3c8e-400e-a7c4-03af5bf1215c",
+                  "createdAt": "2026-10-21T20:57:54.000Z",
+                  "updatedAt": "2026-10-21T20:57:54.000Z",
+                  "uid": "35240-7710f7ad-3c8e-400e-a7c4-03af5bf1215c"
                 }
               ],
-              "body": "{\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "c226790f-465b-4e17-b148-1d7888c78bfd",
+              "createdAt": "2026-10-21T20:57:54.000Z",
+              "updatedAt": "2026-10-21T20:57:54.000Z",
+              "uid": "35240-c226790f-465b-4e17-b148-1d7888c78bfd"
+            },
+            {
+              "name": "{owner}",
+              "item": [
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "Delete an Analysis",
+                      "id": "6ea5f4bb-c046-4614-a073-187fb591cc4d",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/metadata/analysis/:owner/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "metadata",
+                            "analysis",
+                            ":owner",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "c832f898-25b8-4302-81f6-e6d61c837965",
+                              "key": "owner",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "82c84b5c-580c-40d5-b6f4-fa9a4f3fe7f3",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Please refer to the updated IRI-based resource endpoints."
+                      },
+                      "response": [
+                        {
+                          "id": "1d569f72-29f1-4b4c-8cc3-c20e2bfb5c0f",
+                          "name": "default response",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/metadata/analysis/:owner/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "metadata",
+                                "analysis",
+                                ":owner",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "owner"
+                                },
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:57:54.000Z",
+                          "updatedAt": "2026-10-21T20:57:54.000Z",
+                          "uid": "35240-1d569f72-29f1-4b4c-8cc3-c20e2bfb5c0f"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:57:54.000Z",
+                      "updatedAt": "2026-10-21T20:57:54.000Z",
+                      "uid": "35240-6ea5f4bb-c046-4614-a073-187fb591cc4d"
+                    },
+                    {
+                      "name": "Get an individual metadata analysis",
+                      "id": "e72c158c-3a06-4b27-b043-c8aac22bd011",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/metadata/analysis/:owner/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "metadata",
+                            "analysis",
+                            ":owner",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "c723fe41-d84e-40f0-9c87-7683761febb6",
+                              "key": "owner",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "3b48e075-bb95-459d-b457-d4da0e270893",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Please refer to the updated IRI-based resource endpoints."
+                      },
+                      "response": [
+                        {
+                          "id": "ac98724a-7090-4fcf-9bb2-15a867ae470e",
+                          "name": "default response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/metadata/analysis/:owner/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "metadata",
+                                "analysis",
+                                ":owner",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "owner"
+                                },
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"created\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"owner\": \"<string>\",\n  \"visibility\": \"DISCOVERABLE\",\n  \"assetStatus\": {\n    \"assetStatusLabel\": \"<string>\",\n    \"dispositionLabel\": \"<string>\"\n  },\n  \"category\": \"<string>\",\n  \"collections\": [\n    {\n      \"collectionId\": \"<string>\",\n      \"owner\": \"<string>\",\n      \"referent\": \"<string>\"\n    },\n    {\n      \"collectionId\": \"<string>\",\n      \"owner\": \"<string>\",\n      \"referent\": \"<string>\"\n    }\n  ],\n  \"columnIndex\": \"<integer>\",\n  \"dataType\": \"<string>\",\n  \"description\": \"<string>\",\n  \"encodedIri\": \"<string>\",\n  \"externalUrls\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"iri\": \"<string>\",\n  \"properties\": {\n    \"consequatcc7\": \"<string>\",\n    \"cillum_65\": \"<string>\",\n    \"tempor_09\": \"<string>\"\n  },\n  \"relationshipTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"rootParentTypeIri\": \"<string>\",\n  \"rootParentTypeLabel\": \"<string>\",\n  \"summary\": \"<string>\",\n  \"table\": {\n    \"owner\": \"<string>\",\n    \"tableId\": \"<string>\",\n    \"sourceId\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"typeIri\": \"<string>\",\n  \"typeLabel\": \"<string>\",\n  \"updated\": \"<dateTime>\",\n  \"url\": \"<uri>\"\n}",
+                          "createdAt": "2026-10-21T20:57:54.000Z",
+                          "updatedAt": "2026-10-21T20:57:54.000Z",
+                          "uid": "35240-ac98724a-7090-4fcf-9bb2-15a867ae470e"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:57:54.000Z",
+                      "updatedAt": "2026-10-21T20:57:54.000Z",
+                      "uid": "35240-e72c158c-3a06-4b27-b043-c8aac22bd011"
+                    },
+                    {
+                      "name": "Update an existing analysis",
+                      "id": "c97e3c9f-5f1b-476f-a7c2-eec569a69227",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"assetStatusIri\": \"<string>\",\n  \"collections\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"properties\": {\n    \"laborum_953\": \"<string>\"\n  },\n  \"summary\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"typeLabel\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/metadata/analysis/:owner/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "metadata",
+                            "analysis",
+                            ":owner",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "101c64cc-5247-401b-92d8-1a1a88b7697a",
+                              "key": "owner",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "43a5e33e-4686-4cff-b26f-08af6c6b01e9",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Please refer to the updated IRI-based resource endpoints."
+                      },
+                      "response": [
+                        {
+                          "id": "85277c61-f295-4679-ad8d-66f53ace44be",
+                          "name": "default response",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"assetStatusIri\": \"<string>\",\n  \"collections\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"properties\": {\n    \"laborum_953\": \"<string>\"\n  },\n  \"summary\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"typeLabel\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/metadata/analysis/:owner/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "metadata",
+                                "analysis",
+                                ":owner",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "owner"
+                                },
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:57:54.000Z",
+                          "updatedAt": "2026-10-21T20:57:54.000Z",
+                          "uid": "35240-85277c61-f295-4679-ad8d-66f53ace44be"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:57:54.000Z",
+                      "updatedAt": "2026-10-21T20:57:54.000Z",
+                      "uid": "35240-c97e3c9f-5f1b-476f-a7c2-eec569a69227"
+                    },
+                    {
+                      "name": "Replace an existing analysis",
+                      "id": "ab197d8b-67f5-46a9-810f-cb039f27807b",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"assetStatusIri\": \"<string>\",\n  \"collections\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"properties\": {\n    \"laborum_953\": \"<string>\"\n  },\n  \"summary\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"typeLabel\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/metadata/analysis/:owner/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "metadata",
+                            "analysis",
+                            ":owner",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "a1d9e13b-eb0e-4e61-9e5b-8b4bb2f1ae85",
+                              "key": "owner",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "8c62ee74-9db9-41ae-9609-6ec9b74a6721",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Please refer to the updated IRI-based resource endpoints."
+                      },
+                      "response": [
+                        {
+                          "id": "1b897bfc-40f2-4caf-a7de-58b64580627c",
+                          "name": "default response",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"assetStatusIri\": \"<string>\",\n  \"collections\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"properties\": {\n    \"laborum_953\": \"<string>\"\n  },\n  \"summary\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"typeLabel\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/metadata/analysis/:owner/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "metadata",
+                                "analysis",
+                                ":owner",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "owner"
+                                },
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:57:54.000Z",
+                          "updatedAt": "2026-10-21T20:57:54.000Z",
+                          "uid": "35240-1b897bfc-40f2-4caf-a7de-58b64580627c"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:57:54.000Z",
+                      "updatedAt": "2026-10-21T20:57:54.000Z",
+                      "uid": "35240-ab197d8b-67f5-46a9-810f-cb039f27807b"
+                    }
+                  ],
+                  "id": "a8d1ade4-1b3b-4bb3-bf22-c3a964a79e93",
+                  "createdAt": "2026-10-21T20:57:54.000Z",
+                  "updatedAt": "2026-10-21T20:57:54.000Z",
+                  "uid": "35240-a8d1ade4-1b3b-4bb3-bf22-c3a964a79e93"
+                },
+                {
+                  "name": "Gets metadata analysis by owner",
+                  "id": "c0b166e5-b2f2-4c4a-af41-b4b80e6e53e0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/metadata/analysis/:owner?typelabel=<string>&typeiri=<string>&sort=<string>&sort=<string>&size=10&from=0",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "metadata",
+                        "analysis",
+                        ":owner"
+                      ],
+                      "query": [
+                        {
+                          "key": "typelabel",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "typeiri",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "sort",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "sort",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "size",
+                          "value": "10"
+                        },
+                        {
+                          "key": "from",
+                          "value": "0"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "a2b27c8c-b597-4d7d-8aa0-fc1d01d7f54c",
+                          "key": "owner",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Please refer to the updated IRI-based resource endpoints."
+                  },
+                  "response": [
+                    {
+                      "id": "fa71296a-c904-4735-8cfe-e91e52b30892",
+                      "name": "default response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/metadata/analysis/:owner?typelabel=<string>&typeiri=<string>&sort=<string>&size=10&from=0",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "metadata",
+                            "analysis",
+                            ":owner"
+                          ],
+                          "query": [
+                            {
+                              "key": "typelabel",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "typeiri",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "sort",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "size",
+                              "value": "10"
+                            },
+                            {
+                              "key": "from",
+                              "value": "0"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "owner"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"consistent\": \"<boolean>\",\n  \"count\": \"<integer>\",\n  \"hydrations\": {\n    \"agents\": {\n      \"sit_8e\": {\n        \"avatarUrl\": \"<string>\",\n        \"deactivated\": \"<boolean>\",\n        \"displayName\": \"<string>\",\n        \"id\": \"<string>\"\n      },\n      \"pariatur_94_\": {\n        \"avatarUrl\": \"<string>\",\n        \"deactivated\": \"<boolean>\",\n        \"displayName\": \"<string>\",\n        \"id\": \"<string>\"\n      },\n      \"culpaa\": {\n        \"avatarUrl\": \"<string>\",\n        \"deactivated\": \"<boolean>\",\n        \"displayName\": \"<string>\",\n        \"id\": \"<string>\"\n      }\n    },\n    \"catalogConcepts\": {\n      \"quis_f_\": {\n        \"altLabel\": \"<string>\",\n        \"iri\": \"<string>\",\n        \"owner\": \"<string>\",\n        \"prefLabel\": \"<string>\"\n      }\n    },\n    \"collections\": {\n      \"dolor_d4\": {\n        \"description\": \"<string>\",\n        \"id\": \"<string>\",\n        \"iri\": \"<string>\",\n        \"owner\": \"<string>\",\n        \"title\": \"<string>\"\n      },\n      \"velitb89\": {\n        \"description\": \"<string>\",\n        \"id\": \"<string>\",\n        \"iri\": \"<string>\",\n        \"owner\": \"<string>\",\n        \"title\": \"<string>\"\n      }\n    },\n    \"properties\": {\n      \"non_1\": {\n        \"label\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"consectetur_1f\": {\n        \"label\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    \"relationships\": {\n      \"irure_4_\": {\n        \"labels\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    \"resourceHierarchy\": {\n      \"reprehenderit4\": {\n        \"eu08\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": \"<string>\",\n              \"dispositionLabel\": \"<string>\"\n            },\n            \"hierarchy\": [\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              },\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"icon\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            \"iri\": \"<string>\",\n            \"owner\": \"<string>\",\n            \"title\": \"<string>\",\n            \"type\": \"<string>\",\n            \"typeLabel\": \"<string>\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": \"<string>\",\n              \"dispositionLabel\": \"<string>\"\n            },\n            \"hierarchy\": [\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              },\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"icon\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            \"iri\": \"<string>\",\n            \"owner\": \"<string>\",\n            \"title\": \"<string>\",\n            \"type\": \"<string>\",\n            \"typeLabel\": \"<string>\"\n          }\n        ],\n        \"reprehenderit___\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": \"<string>\",\n              \"dispositionLabel\": \"<string>\"\n            },\n            \"hierarchy\": [\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              },\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"icon\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            \"iri\": \"<string>\",\n            \"owner\": \"<string>\",\n            \"title\": \"<string>\",\n            \"type\": \"<string>\",\n            \"typeLabel\": \"<string>\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": \"<string>\",\n              \"dispositionLabel\": \"<string>\"\n            },\n            \"hierarchy\": [\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              },\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"icon\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            \"iri\": \"<string>\",\n            \"owner\": \"<string>\",\n            \"title\": \"<string>\",\n            \"type\": \"<string>\",\n            \"typeLabel\": \"<string>\"\n          }\n        ]\n      },\n      \"laboris30\": {\n        \"irure_d\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": \"<string>\",\n              \"dispositionLabel\": \"<string>\"\n            },\n            \"hierarchy\": [\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              },\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"icon\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            \"iri\": \"<string>\",\n            \"owner\": \"<string>\",\n            \"title\": \"<string>\",\n            \"type\": \"<string>\",\n            \"typeLabel\": \"<string>\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": \"<string>\",\n              \"dispositionLabel\": \"<string>\"\n            },\n            \"hierarchy\": [\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              },\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"icon\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            \"iri\": \"<string>\",\n            \"owner\": \"<string>\",\n            \"title\": \"<string>\",\n            \"type\": \"<string>\",\n            \"typeLabel\": \"<string>\"\n          }\n        ],\n        \"veniam_a3\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": \"<string>\",\n              \"dispositionLabel\": \"<string>\"\n            },\n            \"hierarchy\": [\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              },\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"icon\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            \"iri\": \"<string>\",\n            \"owner\": \"<string>\",\n            \"title\": \"<string>\",\n            \"type\": \"<string>\",\n            \"typeLabel\": \"<string>\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": \"<string>\",\n              \"dispositionLabel\": \"<string>\"\n            },\n            \"hierarchy\": [\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              },\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"icon\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            \"iri\": \"<string>\",\n            \"owner\": \"<string>\",\n            \"title\": \"<string>\",\n            \"type\": \"<string>\",\n            \"typeLabel\": \"<string>\"\n          }\n        ],\n        \"veniamf1\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": \"<string>\",\n              \"dispositionLabel\": \"<string>\"\n            },\n            \"hierarchy\": [\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              },\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"icon\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            \"iri\": \"<string>\",\n            \"owner\": \"<string>\",\n            \"title\": \"<string>\",\n            \"type\": \"<string>\",\n            \"typeLabel\": \"<string>\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": \"<string>\",\n              \"dispositionLabel\": \"<string>\"\n            },\n            \"hierarchy\": [\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              },\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"icon\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            \"iri\": \"<string>\",\n            \"owner\": \"<string>\",\n            \"title\": \"<string>\",\n            \"type\": \"<string>\",\n            \"typeLabel\": \"<string>\"\n          }\n        ],\n        \"ut4d4\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": \"<string>\",\n              \"dispositionLabel\": \"<string>\"\n            },\n            \"hierarchy\": [\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              },\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"icon\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            \"iri\": \"<string>\",\n            \"owner\": \"<string>\",\n            \"title\": \"<string>\",\n            \"type\": \"<string>\",\n            \"typeLabel\": \"<string>\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": \"<string>\",\n              \"dispositionLabel\": \"<string>\"\n            },\n            \"hierarchy\": [\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              },\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"icon\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            \"iri\": \"<string>\",\n            \"owner\": \"<string>\",\n            \"title\": \"<string>\",\n            \"type\": \"<string>\",\n            \"typeLabel\": \"<string>\"\n          }\n        ]\n      }\n    }\n  },\n  \"next\": \"<string>\",\n  \"records\": [\n    {\n      \"created\": \"<dateTime>\",\n      \"id\": \"<string>\",\n      \"owner\": \"<string>\",\n      \"visibility\": \"PRIVATE\",\n      \"assetStatus\": {\n        \"assetStatusLabel\": \"<string>\",\n        \"dispositionLabel\": \"<string>\"\n      },\n      \"category\": \"<string>\",\n      \"collections\": [\n        {\n          \"collectionId\": \"<string>\",\n          \"owner\": \"<string>\",\n          \"referent\": \"<string>\"\n        },\n        {\n          \"collectionId\": \"<string>\",\n          \"owner\": \"<string>\",\n          \"referent\": \"<string>\"\n        }\n      ],\n      \"columnIndex\": \"<integer>\",\n      \"dataType\": \"<string>\",\n      \"description\": \"<string>\",\n      \"encodedIri\": \"<string>\",\n      \"externalUrls\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"iri\": \"<string>\",\n      \"properties\": {\n        \"irure_9\": \"<string>\",\n        \"nostrudc\": \"<string>\"\n      },\n      \"relationshipTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"rootParentTypeIri\": \"<string>\",\n      \"rootParentTypeLabel\": \"<string>\",\n      \"summary\": \"<string>\",\n      \"table\": {\n        \"owner\": \"<string>\",\n        \"tableId\": \"<string>\",\n        \"sourceId\": \"<string>\"\n      },\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"title\": \"<string>\",\n      \"typeIri\": \"<string>\",\n      \"typeLabel\": \"<string>\",\n      \"updated\": \"<dateTime>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"created\": \"<dateTime>\",\n      \"id\": \"<string>\",\n      \"owner\": \"<string>\",\n      \"visibility\": \"PRIVATE\",\n      \"assetStatus\": {\n        \"assetStatusLabel\": \"<string>\",\n        \"dispositionLabel\": \"<string>\"\n      },\n      \"category\": \"<string>\",\n      \"collections\": [\n        {\n          \"collectionId\": \"<string>\",\n          \"owner\": \"<string>\",\n          \"referent\": \"<string>\"\n        },\n        {\n          \"collectionId\": \"<string>\",\n          \"owner\": \"<string>\",\n          \"referent\": \"<string>\"\n        }\n      ],\n      \"columnIndex\": \"<integer>\",\n      \"dataType\": \"<string>\",\n      \"description\": \"<string>\",\n      \"encodedIri\": \"<string>\",\n      \"externalUrls\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"iri\": \"<string>\",\n      \"properties\": {\n        \"officia_5e\": \"<string>\",\n        \"quiaba\": \"<string>\",\n        \"nisi_cfe\": \"<string>\",\n        \"sed2b\": \"<string>\"\n      },\n      \"relationshipTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"rootParentTypeIri\": \"<string>\",\n      \"rootParentTypeLabel\": \"<string>\",\n      \"summary\": \"<string>\",\n      \"table\": {\n        \"owner\": \"<string>\",\n        \"tableId\": \"<string>\",\n        \"sourceId\": \"<string>\"\n      },\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"title\": \"<string>\",\n      \"typeIri\": \"<string>\",\n      \"typeLabel\": \"<string>\",\n      \"updated\": \"<dateTime>\",\n      \"url\": \"<uri>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-21T20:57:54.000Z",
+                      "updatedAt": "2026-10-21T20:57:54.000Z",
+                      "uid": "35240-fa71296a-c904-4735-8cfe-e91e52b30892"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:57:54.000Z",
+                  "updatedAt": "2026-10-21T20:57:54.000Z",
+                  "uid": "35240-c0b166e5-b2f2-4c4a-af41-b4b80e6e53e0"
+                },
+                {
+                  "name": "Create a new analysis metadata",
+                  "id": "d728bd46-057a-443a-bed7-2d7996c3eb13",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"assetStatusIri\": \"<string>\",\n  \"collections\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"properties\": {\n    \"laborum_953\": \"<string>\"\n  },\n  \"summary\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"typeLabel\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/metadata/analysis/:owner",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "metadata",
+                        "analysis",
+                        ":owner"
+                      ],
+                      "variable": [
+                        {
+                          "id": "fe261f49-5f22-49ee-af3a-cb38dc86e1ff",
+                          "key": "owner",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Please refer to the updated IRI-based resource endpoints."
+                  },
+                  "response": [
+                    {
+                      "id": "0e7f93a3-8ffe-4d15-8e03-e5c54f871247",
+                      "name": "Analysis Metadata created successfully.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"assetStatusIri\": \"<string>\",\n  \"collections\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"properties\": {\n    \"laborum_953\": \"<string>\"\n  },\n  \"summary\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"typeLabel\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/metadata/analysis/:owner",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "metadata",
+                            "analysis",
+                            ":owner"
+                          ],
+                          "variable": [
+                            {
+                              "key": "owner"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"uri\": \"<uri>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:57:54.000Z",
+                      "updatedAt": "2026-10-21T20:57:54.000Z",
+                      "uid": "35240-0e7f93a3-8ffe-4d15-8e03-e5c54f871247"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:57:54.000Z",
+                  "updatedAt": "2026-10-21T20:57:54.000Z",
+                  "uid": "35240-d728bd46-057a-443a-bed7-2d7996c3eb13"
+                }
+              ],
+              "id": "0f49c73b-f935-4e5a-a794-0410a2006fdd",
+              "createdAt": "2026-10-21T20:57:54.000Z",
+              "updatedAt": "2026-10-21T20:57:54.000Z",
+              "uid": "35240-0f49c73b-f935-4e5a-a794-0410a2006fdd"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "3977f61e-cbf9-467b-9478-fae6c1413717",
-          "name": "Gets metadata analysis by owner.",
-          "request": {
-            "name": "Gets metadata analysis by owner.",
-            "description": {
-              "content": "Please refer to the updated IRI-based resource endpoints.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "metadata",
-                "analysis",
-                ":owner"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "typelabel",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "typeiri",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "sort",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "sort",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "size",
-                  "value": "10"
-                },
-                {
-                  "disabled": false,
-                  "key": "from",
-                  "value": "0"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "owner",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "669d97b8-2c2e-453f-932b-df70af323f86",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "metadata",
-                    "analysis",
-                    ":owner"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "typelabel",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "typeiri",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "sort",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "sort",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "size",
-                      "value": "10"
-                    },
-                    {
-                      "key": "from",
-                      "value": "0"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "owner",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"consistent\": true,\n  \"count\": 7384,\n  \"hydrations\": {\n    \"agents\": {\n      \"key_0\": {\n        \"avatarUrl\": \"string\",\n        \"deactivated\": true,\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      },\n      \"key_1\": {\n        \"avatarUrl\": \"string\",\n        \"deactivated\": false,\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      }\n    },\n    \"catalogConcepts\": {\n      \"key_0\": {\n        \"altLabel\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"prefLabel\": \"string\"\n      },\n      \"key_1\": {\n        \"altLabel\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"prefLabel\": \"string\"\n      },\n      \"key_2\": {\n        \"altLabel\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"prefLabel\": \"string\"\n      }\n    },\n    \"collections\": {\n      \"key_0\": {\n        \"description\": \"string\",\n        \"id\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"title\": \"string\"\n      },\n      \"key_1\": {\n        \"description\": \"string\",\n        \"id\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"title\": \"string\"\n      }\n    },\n    \"properties\": {\n      \"key_0\": {\n        \"label\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    },\n    \"relationships\": {\n      \"key_0\": {\n        \"labels\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"key_1\": {\n        \"labels\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    },\n    \"resourceHierarchy\": {\n      \"key_0\": {\n        \"key_0\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          }\n        ]\n      },\n      \"key_1\": {\n        \"key_0\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          }\n        ],\n        \"key_1\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          }\n        ],\n        \"key_2\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          }\n        ]\n      }\n    }\n  },\n  \"next\": \"string\",\n  \"records\": [\n    {\n      \"created\": \"1985-02-15T00:34:27.636Z\",\n      \"id\": \"string\",\n      \"owner\": \"string\",\n      \"visibility\": \"OPEN\",\n      \"assetStatus\": {\n        \"assetStatusLabel\": \"string\",\n        \"dispositionLabel\": \"string\"\n      },\n      \"category\": \"string\",\n      \"collections\": [\n        {\n          \"collectionId\": \"string\",\n          \"owner\": \"string\",\n          \"referent\": \"string\"\n        },\n        {\n          \"collectionId\": \"string\",\n          \"owner\": \"string\",\n          \"referent\": \"string\"\n        }\n      ],\n      \"columnIndex\": 202,\n      \"dataType\": \"string\",\n      \"description\": \"string\",\n      \"encodedIri\": \"string\",\n      \"externalUrls\": [\n        \"string\",\n        \"string\"\n      ],\n      \"iri\": \"string\",\n      \"properties\": {\n        \"key_0\": \"string\"\n      },\n      \"relationshipTypes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"rootParentTypeIri\": \"string\",\n      \"rootParentTypeLabel\": \"string\",\n      \"summary\": \"string\",\n      \"table\": {\n        \"owner\": \"string\",\n        \"tableId\": \"string\",\n        \"sourceId\": \"string\"\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"title\": \"string\",\n      \"typeIri\": \"string\",\n      \"typeLabel\": \"string\",\n      \"updated\": \"2009-11-26T12:12:37.648Z\",\n      \"url\": \"https://MiyPwtsEFa.qkbinMTHur\"\n    },\n    {\n      \"created\": \"1989-04-28T14:59:36.267Z\",\n      \"id\": \"string\",\n      \"owner\": \"string\",\n      \"visibility\": \"OPEN\",\n      \"assetStatus\": {\n        \"assetStatusLabel\": \"string\",\n        \"dispositionLabel\": \"string\"\n      },\n      \"category\": \"string\",\n      \"collections\": [\n        {\n          \"collectionId\": \"string\",\n          \"owner\": \"string\",\n          \"referent\": \"string\"\n        },\n        {\n          \"collectionId\": \"string\",\n          \"owner\": \"string\",\n          \"referent\": \"string\"\n        }\n      ],\n      \"columnIndex\": 8118,\n      \"dataType\": \"string\",\n      \"description\": \"string\",\n      \"encodedIri\": \"string\",\n      \"externalUrls\": [\n        \"string\",\n        \"string\"\n      ],\n      \"iri\": \"string\",\n      \"properties\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"relationshipTypes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"rootParentTypeIri\": \"string\",\n      \"rootParentTypeLabel\": \"string\",\n      \"summary\": \"string\",\n      \"table\": {\n        \"owner\": \"string\",\n        \"tableId\": \"string\",\n        \"sourceId\": \"string\"\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"title\": \"string\",\n      \"typeIri\": \"string\",\n      \"typeLabel\": \"string\",\n      \"updated\": \"1954-11-15T22:07:02.261Z\",\n      \"url\": \"https://poxYRKrVbt.ntuWzSDQ\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "ab5781d2-7c8c-4c24-958e-0f3be2df66e6",
-          "name": "Create a new analysis metadata.",
-          "request": {
-            "name": "Create a new analysis metadata.",
-            "description": {
-              "content": "Please refer to the updated IRI-based resource endpoints.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "metadata",
-                "analysis",
-                ":owner"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "owner",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"assetStatusIri\": \"<string>\",\n  \"collections\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"properties\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"summary\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"typeLabel\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "84b6d486-81a7-414c-8e25-5539be5074a7",
-              "name": "Analysis Metadata created successfully.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "metadata",
-                    "analysis",
-                    ":owner"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "owner",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"assetStatusIri\": \"<string>\",\n  \"collections\": [\n    \"Aid Option\"\n  ],\n  \"description\": \"Aid given to charity is an option that can be exercised by individuals and corporations\",\n  \"properties\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"summary\": \"<string>\",\n  \"tags\": [\n    \"HumanitarianAid\"\n  ],\n  \"title\": \"crypto.snowflake\",\n  \"typeLabel\": \"Tableau dashboard\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"uri\": \"https://RhCjgXTSoPgCyliDjAPhnlZlRDslv.ugfH4HRW94bul1X\",\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "5b4c4152-f709-43c4-9c96-32bb8974cd18",
-          "name": "Delete an Analysis.",
-          "request": {
-            "name": "Delete an Analysis.",
-            "description": {
-              "content": "Please refer to the updated IRI-based resource endpoints.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "metadata",
-                "analysis",
-                ":owner",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "owner",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "714ec719-7bef-411f-af67-87f2fa5dead2",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "metadata",
-                    "analysis",
-                    ":owner",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "owner",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "c7e238db-c363-4f9f-844f-33c60d0f9b46",
-          "name": "Get an individual metadata analysis",
-          "request": {
-            "name": "Get an individual metadata analysis",
-            "description": {
-              "content": "Please refer to the updated IRI-based resource endpoints.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "metadata",
-                "analysis",
-                ":owner",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "owner",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "cc0efdf0-68c3-487a-a521-cd1c54eccca0",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "metadata",
-                    "analysis",
-                    ":owner",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "owner",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"created\": \"1955-04-09T11:57:16.593Z\",\n  \"id\": \"string\",\n  \"owner\": \"string\",\n  \"visibility\": \"PRIVATE\",\n  \"assetStatus\": {\n    \"assetStatusLabel\": \"string\",\n    \"dispositionLabel\": \"string\"\n  },\n  \"category\": \"string\",\n  \"collections\": [\n    {\n      \"collectionId\": \"string\",\n      \"owner\": \"string\",\n      \"referent\": \"string\"\n    },\n    {\n      \"collectionId\": \"string\",\n      \"owner\": \"string\",\n      \"referent\": \"string\"\n    }\n  ],\n  \"columnIndex\": 7188,\n  \"dataType\": \"string\",\n  \"description\": \"string\",\n  \"encodedIri\": \"string\",\n  \"externalUrls\": [\n    \"string\",\n    \"string\"\n  ],\n  \"iri\": \"string\",\n  \"properties\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"relationshipTypes\": [\n    \"string\",\n    \"string\"\n  ],\n  \"rootParentTypeIri\": \"string\",\n  \"rootParentTypeLabel\": \"string\",\n  \"summary\": \"string\",\n  \"table\": {\n    \"owner\": \"string\",\n    \"tableId\": \"string\",\n    \"sourceId\": \"string\"\n  },\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ],\n  \"title\": \"string\",\n  \"typeIri\": \"string\",\n  \"typeLabel\": \"string\",\n  \"updated\": \"1976-01-16T02:55:37.843Z\",\n  \"url\": \"https://dzHrrAf.vhGQJfSVGFYoa11-4swZ+NCHmsInOxq0HZBWSvzCJME2PUe2kxcNlwxTAnUfMHFsD3\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "dd3f7eb8-4c5c-4b1d-a489-12c150f2fac0",
-          "name": "Update an existing analysis.",
-          "request": {
-            "name": "Update an existing analysis.",
-            "description": {
-              "content": "Please refer to the updated IRI-based resource endpoints.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "metadata",
-                "analysis",
-                ":owner",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "owner",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PATCH",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"assetStatusIri\": \"<string>\",\n  \"collections\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"properties\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"summary\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"typeLabel\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "cedfe4e9-4280-4a5d-80ef-5675e655e3c3",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "metadata",
-                    "analysis",
-                    ":owner",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "owner",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"assetStatusIri\": \"<string>\",\n  \"collections\": [\n    \"Aid Option\"\n  ],\n  \"description\": \"Aid given to charity is an option that can be exercised by individuals and corporations\",\n  \"properties\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"summary\": \"<string>\",\n  \"tags\": [\n    \"HumanitarianAid\"\n  ],\n  \"title\": \"crypto.snowflake\",\n  \"typeLabel\": \"Tableau dashboard\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "459f3771-2acb-4874-b01e-c174e47bbd5c",
-          "name": "Replace an existing analysis",
-          "request": {
-            "name": "Replace an existing analysis",
-            "description": {
-              "content": "Please refer to the updated IRI-based resource endpoints.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "metadata",
-                "analysis",
-                ":owner",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "owner",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"assetStatusIri\": \"<string>\",\n  \"collections\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"properties\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"summary\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"typeLabel\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "530a41c8-fa1c-4802-8ae4-bed726439092",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "metadata",
-                    "analysis",
-                    ":owner",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "owner",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"assetStatusIri\": \"<string>\",\n  \"collections\": [\n    \"Aid Option\"\n  ],\n  \"description\": \"Aid given to charity is an option that can be exercised by individuals and corporations\",\n  \"properties\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"summary\": \"<string>\",\n  \"tags\": [\n    \"HumanitarianAid\"\n  ],\n  \"title\": \"crypto.snowflake\",\n  \"typeLabel\": \"Tableau dashboard\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "cd13daa0-d62d-411b-b0e6-2127832ab677",
+          "createdAt": "2026-10-21T20:57:54.000Z",
+          "updatedAt": "2026-10-21T20:57:54.000Z",
+          "uid": "35240-cd13daa0-d62d-411b-b0e6-2127832ab677"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "/v0",
-      "key": "baseUrl"
+      "id": "8ef6b1af-494f-4316-9d56-8133b9567354",
+      "createdAt": "2026-10-21T20:57:54.000Z",
+      "updatedAt": "2026-10-21T20:57:54.000Z",
+      "uid": "35240-8ef6b1af-494f-4316-9d56-8133b9567354"
     }
   ],
   "auth": {
@@ -933,17 +926,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "77d807f3-0d71-4e19-b298-64607c69bd5f",
-    "name": "data.world Public catalog relationships legacy catalog - analysis API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Manage relationships between catalog resources\n\nContact Support:\n Name: Contact Us",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/v0"
     }
-  }
+  ]
 }

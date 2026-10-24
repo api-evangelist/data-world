@@ -1,1184 +1,1181 @@
 {
+  "info": {
+    "_postman_id": "81ba19a6-7d85-4d66-9cba-ef12400bb300",
+    "name": "data.world Public Webhooks API",
+    "description": "Contact Support:\n Name: Contact Us",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:59:55.000Z",
+    "updatedAt": "2026-10-21T20:59:55.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-81ba19a6-7d85-4d66-9cba-ef12400bb300"
+  },
   "item": [
     {
-      "id": "71f189ee-6d56-4def-af6c-e45c34ea4e7c",
-      "name": "webhooks",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "user",
       "item": [
         {
-          "id": "367bbe72-eb35-4287-9550-03cf0ff6dd84",
-          "name": "List subscriptions",
-          "request": {
-            "name": "List subscriptions",
-            "description": {
-              "content": "List webhook subscriptions associated with the currently authenticated user.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "user",
-                "webhooks"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
+          "name": "webhooks",
+          "item": [
+            {
+              "name": "datasets",
+              "item": [
                 {
-                  "disabled": false,
-                  "key": "limit",
-                  "value": "10",
-                  "description": "Number of results to return"
-                },
-                {
-                  "disabled": false,
-                  "key": "next",
-                  "value": "<string>",
-                  "description": "A token supplied by the previous response to retrieve the next page of results"
+                  "name": "{owner}",
+                  "item": [
+                    {
+                      "name": "{id}",
+                      "item": [
+                        {
+                          "name": "Unsubscribe from dataset",
+                          "id": "0945824f-1903-49d2-8162-b2a6bbbcf8df",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/webhooks/datasets/:owner/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "webhooks",
+                                "datasets",
+                                ":owner",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "d460812b-2321-4ad4-a641-76c78a6fef46",
+                                  "key": "owner",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "5bfb7174-69b3-4f73-b1f6-b9f76032de6d",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Delete webhook subscription associated with the currently authenticated user and to a given dataset."
+                          },
+                          "response": [
+                            {
+                              "id": "866098e4-5dd9-44fc-a1d5-f24e1fcdedab",
+                              "name": "default response",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/user/webhooks/datasets/:owner/:id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "user",
+                                    "webhooks",
+                                    "datasets",
+                                    ":owner",
+                                    ":id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "owner"
+                                    },
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-10-21T20:59:56.000Z",
+                              "updatedAt": "2026-10-21T20:59:56.000Z",
+                              "uid": "35240-866098e4-5dd9-44fc-a1d5-f24e1fcdedab"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:59:56.000Z",
+                          "updatedAt": "2026-10-21T20:59:56.000Z",
+                          "uid": "35240-0945824f-1903-49d2-8162-b2a6bbbcf8df"
+                        },
+                        {
+                          "name": "Retrieve dataset subscription",
+                          "id": "abafa694-7263-4f05-bc05-989867335de8",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/webhooks/datasets/:owner/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "webhooks",
+                                "datasets",
+                                ":owner",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "f99c883f-28fa-42d0-aa04-99477cecb386",
+                                  "key": "owner",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "b1c7c1de-43e8-42ca-ba1c-3120a874efd6",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Retrieve webhook subscription associated with the currently authenticated user and to a given dataset."
+                          },
+                          "response": [
+                            {
+                              "id": "f0951ca3-01e8-40cf-bd00-1172847f07da",
+                              "name": "default response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/user/webhooks/datasets/:owner/:id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "user",
+                                    "webhooks",
+                                    "datasets",
+                                    ":owner",
+                                    ":id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "owner"
+                                    },
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"events\": [\n    \"ALL\",\n    \"ALL\"\n  ],\n  \"dataset\": {\n    \"id\": \"<string>\",\n    \"owner\": \"<string>\"\n  },\n  \"project\": {\n    \"id\": \"<string>\",\n    \"owner\": \"<string>\"\n  },\n  \"user\": {\n    \"id\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-10-21T20:59:56.000Z",
+                              "updatedAt": "2026-10-21T20:59:56.000Z",
+                              "uid": "35240-f0951ca3-01e8-40cf-bd00-1172847f07da"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:59:56.000Z",
+                          "updatedAt": "2026-10-21T20:59:56.000Z",
+                          "uid": "35240-abafa694-7263-4f05-bc05-989867335de8"
+                        },
+                        {
+                          "name": "Subscribe to dataset",
+                          "id": "d9e55f86-16e1-4e4d-89eb-09935033549b",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"events\": [\n    \"ALL\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/user/webhooks/datasets/:owner/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "webhooks",
+                                "datasets",
+                                ":owner",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "dbb130f7-161f-4124-b5b6-3868c0255c9b",
+                                  "key": "owner",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "f0bbf1d1-1663-44b4-b270-524933e44b64",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Create webhook subscription associated with the currently authenticated user and to a given dataset."
+                          },
+                          "response": [
+                            {
+                              "id": "59055ed7-6d99-42eb-91fc-983368567de5",
+                              "name": "default response",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"events\": [\n    \"ALL\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/user/webhooks/datasets/:owner/:id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "user",
+                                    "webhooks",
+                                    "datasets",
+                                    ":owner",
+                                    ":id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "owner"
+                                    },
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-10-21T20:59:56.000Z",
+                              "updatedAt": "2026-10-21T20:59:56.000Z",
+                              "uid": "35240-59055ed7-6d99-42eb-91fc-983368567de5"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:59:56.000Z",
+                          "updatedAt": "2026-10-21T20:59:56.000Z",
+                          "uid": "35240-d9e55f86-16e1-4e4d-89eb-09935033549b"
+                        }
+                      ],
+                      "id": "d2e61768-fb61-4536-ab56-cf92c1ecab34",
+                      "createdAt": "2026-10-21T20:59:56.000Z",
+                      "updatedAt": "2026-10-21T20:59:56.000Z",
+                      "uid": "35240-d2e61768-fb61-4536-ab56-cf92c1ecab34"
+                    }
+                  ],
+                  "id": "2b2cd7b0-dc4b-4ca9-8271-1f5c974023af",
+                  "createdAt": "2026-10-21T20:59:56.000Z",
+                  "updatedAt": "2026-10-21T20:59:56.000Z",
+                  "uid": "35240-2b2cd7b0-dc4b-4ca9-8271-1f5c974023af"
                 }
               ],
-              "variable": []
+              "id": "ddd3ffc9-7ec1-4b3d-a901-c2328f445b90",
+              "createdAt": "2026-10-21T20:59:56.000Z",
+              "updatedAt": "2026-10-21T20:59:56.000Z",
+              "uid": "35240-ddd3ffc9-7ec1-4b3d-a901-c2328f445b90"
             },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
             {
-              "id": "4040190f-dbcb-456e-bdee-ed8b5e34a028",
-              "name": "default response",
-              "originalRequest": {
+              "name": "projects",
+              "item": [
+                {
+                  "name": "{owner}",
+                  "item": [
+                    {
+                      "name": "{id}",
+                      "item": [
+                        {
+                          "name": "Unsubscribe from data project",
+                          "id": "43becdfa-79ad-4be1-b836-cf00609b984f",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/webhooks/projects/:owner/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "webhooks",
+                                "projects",
+                                ":owner",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "f4f6c791-4ad5-4abc-9438-785ac8c14e35",
+                                  "key": "owner",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "3b0d8d71-f142-464f-9af1-50fccc2b4efe",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Delete webhook subscription associated with the currently authenticated user and to a given project."
+                          },
+                          "response": [
+                            {
+                              "id": "ac809e64-7458-4fd4-88a8-5ead4ed2169b",
+                              "name": "default response",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/user/webhooks/projects/:owner/:id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "user",
+                                    "webhooks",
+                                    "projects",
+                                    ":owner",
+                                    ":id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "owner"
+                                    },
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-10-21T20:59:56.000Z",
+                              "updatedAt": "2026-10-21T20:59:56.000Z",
+                              "uid": "35240-ac809e64-7458-4fd4-88a8-5ead4ed2169b"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:59:56.000Z",
+                          "updatedAt": "2026-10-21T20:59:56.000Z",
+                          "uid": "35240-43becdfa-79ad-4be1-b836-cf00609b984f"
+                        },
+                        {
+                          "name": "Retrieve data project subscription",
+                          "id": "119a0a66-7ab1-4ccb-82f0-320c8db8ef46",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/webhooks/projects/:owner/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "webhooks",
+                                "projects",
+                                ":owner",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "f1ad1d8f-364c-488b-8771-f464ba4fec8c",
+                                  "key": "owner",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "889a5eac-69b7-45ab-b924-624f54503645",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Retrieve webhook subscription associated with the currently authenticated user and to a given project."
+                          },
+                          "response": [
+                            {
+                              "id": "8f993ce0-bae8-44a2-91f7-623d3d14c922",
+                              "name": "default response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/user/webhooks/projects/:owner/:id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "user",
+                                    "webhooks",
+                                    "projects",
+                                    ":owner",
+                                    ":id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "owner"
+                                    },
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"events\": [\n    \"ALL\",\n    \"ALL\"\n  ],\n  \"dataset\": {\n    \"id\": \"<string>\",\n    \"owner\": \"<string>\"\n  },\n  \"project\": {\n    \"id\": \"<string>\",\n    \"owner\": \"<string>\"\n  },\n  \"user\": {\n    \"id\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-10-21T20:59:56.000Z",
+                              "updatedAt": "2026-10-21T20:59:56.000Z",
+                              "uid": "35240-8f993ce0-bae8-44a2-91f7-623d3d14c922"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:59:56.000Z",
+                          "updatedAt": "2026-10-21T20:59:56.000Z",
+                          "uid": "35240-119a0a66-7ab1-4ccb-82f0-320c8db8ef46"
+                        },
+                        {
+                          "name": "Subscribe to data project",
+                          "id": "434a871a-f48d-4632-ad30-68c574cf0fc0",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"events\": [\n    \"ALL\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/user/webhooks/projects/:owner/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "webhooks",
+                                "projects",
+                                ":owner",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "82b28ed5-11c1-446f-aaff-b16a54e2f991",
+                                  "key": "owner",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "677f94f2-2d51-4d47-92ec-efc61a8f94e0",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Create webhook subscription associated with the currently authenticated user and to a given project."
+                          },
+                          "response": [
+                            {
+                              "id": "e5f1d4d1-8a09-4c04-aa5d-7b62bd61f717",
+                              "name": "default response",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"events\": [\n    \"ALL\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/user/webhooks/projects/:owner/:id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "user",
+                                    "webhooks",
+                                    "projects",
+                                    ":owner",
+                                    ":id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "owner"
+                                    },
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-10-21T20:59:56.000Z",
+                              "updatedAt": "2026-10-21T20:59:56.000Z",
+                              "uid": "35240-e5f1d4d1-8a09-4c04-aa5d-7b62bd61f717"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:59:56.000Z",
+                          "updatedAt": "2026-10-21T20:59:56.000Z",
+                          "uid": "35240-434a871a-f48d-4632-ad30-68c574cf0fc0"
+                        }
+                      ],
+                      "id": "79c8a73f-5629-4459-a2b8-9a4925a1462d",
+                      "createdAt": "2026-10-21T20:59:56.000Z",
+                      "updatedAt": "2026-10-21T20:59:56.000Z",
+                      "uid": "35240-79c8a73f-5629-4459-a2b8-9a4925a1462d"
+                    }
+                  ],
+                  "id": "d61866c3-d401-4aad-9212-90731b1b0f5d",
+                  "createdAt": "2026-10-21T20:59:56.000Z",
+                  "updatedAt": "2026-10-21T20:59:56.000Z",
+                  "uid": "35240-d61866c3-d401-4aad-9212-90731b1b0f5d"
+                }
+              ],
+              "id": "b788259b-6a69-4871-a6c3-fe3901460e53",
+              "createdAt": "2026-10-21T20:59:56.000Z",
+              "updatedAt": "2026-10-21T20:59:56.000Z",
+              "uid": "35240-b788259b-6a69-4871-a6c3-fe3901460e53"
+            },
+            {
+              "name": "users",
+              "item": [
+                {
+                  "name": "{account}",
+                  "item": [
+                    {
+                      "name": "Unsubscribe from account",
+                      "id": "0936d9c5-7cd3-4afb-9e42-27b9e0cde680",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/user/webhooks/users/:account",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "webhooks",
+                            "users",
+                            ":account"
+                          ],
+                          "variable": [
+                            {
+                              "id": "ea25c1a3-c62c-4d13-8c8e-958b539c8752",
+                              "key": "account",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Delete webhook subscription associated with the currently authenticated user and to a given user account."
+                      },
+                      "response": [
+                        {
+                          "id": "ea130328-e275-48ed-902a-8cac0029f0a2",
+                          "name": "default response",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/webhooks/users/:account",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "webhooks",
+                                "users",
+                                ":account"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "account"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:59:56.000Z",
+                          "updatedAt": "2026-10-21T20:59:56.000Z",
+                          "uid": "35240-ea130328-e275-48ed-902a-8cac0029f0a2"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:59:56.000Z",
+                      "updatedAt": "2026-10-21T20:59:56.000Z",
+                      "uid": "35240-0936d9c5-7cd3-4afb-9e42-27b9e0cde680"
+                    },
+                    {
+                      "name": "Retrieve account subscription",
+                      "id": "0eb2f8f1-7295-4efd-b784-4d394062fa7e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/user/webhooks/users/:account",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "webhooks",
+                            "users",
+                            ":account"
+                          ],
+                          "variable": [
+                            {
+                              "id": "650b973d-8d56-4314-9960-8e7a129dc6ca",
+                              "key": "account",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Retrieve webhook subscription associated with the currently authenticated user and to a given user account."
+                      },
+                      "response": [
+                        {
+                          "id": "4e1dc960-267c-49fb-87ec-1de491924e59",
+                          "name": "default response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/webhooks/users/:account",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "webhooks",
+                                "users",
+                                ":account"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "account"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"events\": [\n    \"ALL\",\n    \"ALL\"\n  ],\n  \"dataset\": {\n    \"id\": \"<string>\",\n    \"owner\": \"<string>\"\n  },\n  \"project\": {\n    \"id\": \"<string>\",\n    \"owner\": \"<string>\"\n  },\n  \"user\": {\n    \"id\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-10-21T20:59:56.000Z",
+                          "updatedAt": "2026-10-21T20:59:56.000Z",
+                          "uid": "35240-4e1dc960-267c-49fb-87ec-1de491924e59"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:59:56.000Z",
+                      "updatedAt": "2026-10-21T20:59:56.000Z",
+                      "uid": "35240-0eb2f8f1-7295-4efd-b784-4d394062fa7e"
+                    },
+                    {
+                      "name": "Subscribe to account",
+                      "id": "79682e41-8700-4933-b3b3-aad5d394bf62",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"events\": [\n    \"ALL\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/user/webhooks/users/:account",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "webhooks",
+                            "users",
+                            ":account"
+                          ],
+                          "variable": [
+                            {
+                              "id": "46b3bac5-d167-4880-abd2-d6b90e693516",
+                              "key": "account",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Create webhook subscription associated with the currently authenticated user and to a given user account."
+                      },
+                      "response": [
+                        {
+                          "id": "d0d1e43c-71c4-4049-8b05-9a8f98decdd7",
+                          "name": "default response",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"events\": [\n    \"ALL\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/user/webhooks/users/:account",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "webhooks",
+                                "users",
+                                ":account"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "account"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:59:56.000Z",
+                          "updatedAt": "2026-10-21T20:59:56.000Z",
+                          "uid": "35240-d0d1e43c-71c4-4049-8b05-9a8f98decdd7"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:59:56.000Z",
+                      "updatedAt": "2026-10-21T20:59:56.000Z",
+                      "uid": "35240-79682e41-8700-4933-b3b3-aad5d394bf62"
+                    }
+                  ],
+                  "id": "55b5b60d-22f3-40de-87ce-ad58504623f2",
+                  "createdAt": "2026-10-21T20:59:56.000Z",
+                  "updatedAt": "2026-10-21T20:59:56.000Z",
+                  "uid": "35240-55b5b60d-22f3-40de-87ce-ad58504623f2"
+                }
+              ],
+              "id": "977fb99a-5f8a-4789-ac40-56741b956738",
+              "createdAt": "2026-10-21T20:59:56.000Z",
+              "updatedAt": "2026-10-21T20:59:56.000Z",
+              "uid": "35240-977fb99a-5f8a-4789-ac40-56741b956738"
+            },
+            {
+              "name": "List subscriptions",
+              "id": "9a47c27b-99df-441f-9e9b-782a9e7c9e0b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
                 "url": {
+                  "raw": "{{baseUrl}}/user/webhooks?limit=10&next=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "user",
                     "webhooks"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
                   "query": [
                     {
+                      "description": "Number of results to return",
                       "key": "limit",
                       "value": "10"
                     },
                     {
+                      "description": "A token supplied by the previous response to retrieve the next page of results",
                       "key": "next",
                       "value": "<string>"
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"count\": 2466,\n  \"records\": [\n    {\n      \"events\": [\n        \"ALL\",\n        \"ALL\"\n      ],\n      \"dataset\": {\n        \"id\": \"string\",\n        \"owner\": \"string\",\n        \"type\": \"DATABASE\"\n      },\n      \"links\": {\n        \"api\": {\n          \"self\": \"https://ARjRoOHFwEsqjeFfenpBEFJilkeLz.asqTJBglCHlvYAPjkEZE3Fulc\"\n        }\n      },\n      \"project\": {\n        \"id\": \"string\",\n        \"owner\": \"string\",\n        \"type\": \"DATABASE\"\n      },\n      \"user\": {\n        \"id\": \"string\"\n      }\n    },\n    {\n      \"events\": [\n        \"ALL\",\n        \"ALL\"\n      ],\n      \"dataset\": {\n        \"id\": \"string\",\n        \"owner\": \"string\",\n        \"type\": \"COLUMN\"\n      },\n      \"links\": {\n        \"api\": {\n          \"self\": \"http://ZxoctSNgOv.xnVsDp2ADv7HhZ1iGXIryGMHuNHLwSPGK\"\n        }\n      },\n      \"project\": {\n        \"id\": \"string\",\n        \"owner\": \"string\",\n        \"type\": \"COLUMN\"\n      },\n      \"user\": {\n        \"id\": \"string\"\n      }\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "b0d65408-daa9-4bca-aa36-033a7811f3af",
-          "name": "Unsubscribe from dataset",
-          "request": {
-            "name": "Unsubscribe from dataset",
-            "description": {
-              "content": "Delete webhook subscription associated with the currently authenticated user and to a given dataset.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "user",
-                "webhooks",
-                "datasets",
-                ":owner",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "owner",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "8af48d20-3f58-433f-aec3-db13b4df3666",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "user",
-                    "webhooks",
-                    "datasets",
-                    ":owner",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "owner",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
                   ]
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
+                "description": "List webhook subscriptions associated with the currently authenticated user."
               },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "f5527325-dd4c-4464-a0d2-5aa3b865b483",
+                  "name": "default response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/user/webhooks?limit=10&next=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        "webhooks"
+                      ],
+                      "query": [
+                        {
+                          "description": "Number of results to return",
+                          "key": "limit",
+                          "value": "10"
+                        },
+                        {
+                          "description": "A token supplied by the previous response to retrieve the next page of results",
+                          "key": "next",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"count\": \"<integer>\",\n  \"records\": [\n    {\n      \"events\": [\n        \"ALL\",\n        \"ALL\"\n      ],\n      \"dataset\": {\n        \"id\": \"<string>\",\n        \"owner\": \"<string>\",\n        \"type\": \"METADATA_RESOURCE\"\n      },\n      \"links\": {\n        \"api\": {\n          \"self\": \"<uri>\"\n        }\n      },\n      \"project\": {\n        \"id\": \"<string>\",\n        \"owner\": \"<string>\",\n        \"type\": \"DATASET\"\n      },\n      \"user\": {\n        \"id\": \"<string>\"\n      }\n    },\n    {\n      \"events\": [\n        \"ALL\",\n        \"ALL\"\n      ],\n      \"dataset\": {\n        \"id\": \"<string>\",\n        \"owner\": \"<string>\",\n        \"type\": \"METADATA_RESOURCE\"\n      },\n      \"links\": {\n        \"api\": {\n          \"self\": \"<uri>\"\n        }\n      },\n      \"project\": {\n        \"id\": \"<string>\",\n        \"owner\": \"<string>\",\n        \"type\": \"DATABASE\"\n      },\n      \"user\": {\n        \"id\": \"<string>\"\n      }\n    }\n  ],\n  \"nextPageToken\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:59:56.000Z",
+                  "updatedAt": "2026-10-21T20:59:56.000Z",
+                  "uid": "35240-f5527325-dd4c-4464-a0d2-5aa3b865b483"
                 }
               ],
-              "body": "{\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-21T20:59:56.000Z",
+              "updatedAt": "2026-10-21T20:59:56.000Z",
+              "uid": "35240-9a47c27b-99df-441f-9e9b-782a9e7c9e0b"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "3f465b90-6fcc-4731-9c42-410e8351ec59",
-          "name": "Retrieve dataset subscription",
-          "request": {
-            "name": "Retrieve dataset subscription",
-            "description": {
-              "content": "Retrieve webhook subscription associated with the currently authenticated user and to a given dataset.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "user",
-                "webhooks",
-                "datasets",
-                ":owner",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "owner",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "322cfb5d-f668-4380-b0a6-d6db32f0e6e8",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "user",
-                    "webhooks",
-                    "datasets",
-                    ":owner",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "owner",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"events\": [\n    \"ALL\",\n    \"ALL\"\n  ],\n  \"dataset\": {\n    \"id\": \"string\",\n    \"owner\": \"string\"\n  },\n  \"project\": {\n    \"id\": \"string\",\n    \"owner\": \"string\"\n  },\n  \"user\": {\n    \"id\": \"string\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "33177ee5-75b0-44b4-9046-deb5d1830328",
-          "name": "Subscribe to dataset",
-          "request": {
-            "name": "Subscribe to dataset",
-            "description": {
-              "content": "Create webhook subscription associated with the currently authenticated user and to a given dataset.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "user",
-                "webhooks",
-                "datasets",
-                ":owner",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "owner",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"events\": [\n    \"<string>\"\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "b5f01ed2-2893-4638-bc27-fa02c8dd80e3",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "user",
-                    "webhooks",
-                    "datasets",
-                    ":owner",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "owner",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"events\": [\n    \"<string>\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "bfe94b8a-3edc-49d2-861d-5533e177a5ff",
-          "name": "Unsubscribe from data project",
-          "request": {
-            "name": "Unsubscribe from data project",
-            "description": {
-              "content": "Delete webhook subscription associated with the currently authenticated user and to a given project.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "user",
-                "webhooks",
-                "projects",
-                ":owner",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "owner",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "fa642222-44b0-4fa4-923d-7d10f0f0c005",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "user",
-                    "webhooks",
-                    "projects",
-                    ":owner",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "owner",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "9b15f913-3e32-459a-913e-c926e3e92a3f",
-          "name": "Retrieve data project subscription",
-          "request": {
-            "name": "Retrieve data project subscription",
-            "description": {
-              "content": "Retrieve webhook subscription associated with the currently authenticated user and to a given project.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "user",
-                "webhooks",
-                "projects",
-                ":owner",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "owner",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "20017030-228f-481c-ba1f-16755d5048a6",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "user",
-                    "webhooks",
-                    "projects",
-                    ":owner",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "owner",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"events\": [\n    \"ALL\",\n    \"ALL\"\n  ],\n  \"dataset\": {\n    \"id\": \"string\",\n    \"owner\": \"string\"\n  },\n  \"project\": {\n    \"id\": \"string\",\n    \"owner\": \"string\"\n  },\n  \"user\": {\n    \"id\": \"string\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "f207dfa0-faed-4825-a62d-325f6a639f02",
-          "name": "Subscribe to data project",
-          "request": {
-            "name": "Subscribe to data project",
-            "description": {
-              "content": "Create webhook subscription associated with the currently authenticated user and to a given project.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "user",
-                "webhooks",
-                "projects",
-                ":owner",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "owner",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"events\": [\n    \"<string>\"\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "a20f7d16-bbb9-464b-8b25-cea15c837ade",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "user",
-                    "webhooks",
-                    "projects",
-                    ":owner",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "owner",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"events\": [\n    \"<string>\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "4d47a100-a1a9-4eac-929c-0502a98545bc",
-          "name": "Unsubscribe from account",
-          "request": {
-            "name": "Unsubscribe from account",
-            "description": {
-              "content": "Delete webhook subscription associated with the currently authenticated user and to a given user account.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "user",
-                "webhooks",
-                "users",
-                ":account"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "account",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "9f99b192-7b4c-4448-b447-5d0db451fa15",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "user",
-                    "webhooks",
-                    "users",
-                    ":account"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "account",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "0e5a4115-a1b6-4b52-bc3d-affc3a928678",
-          "name": "Retrieve account subscription",
-          "request": {
-            "name": "Retrieve account subscription",
-            "description": {
-              "content": "Retrieve webhook subscription associated with the currently authenticated user and to a given user account.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "user",
-                "webhooks",
-                "users",
-                ":account"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "account",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "1dd05e7c-a501-4a21-b540-8061f049f2b3",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "user",
-                    "webhooks",
-                    "users",
-                    ":account"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "account",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"events\": [\n    \"ALL\",\n    \"ALL\"\n  ],\n  \"dataset\": {\n    \"id\": \"string\",\n    \"owner\": \"string\"\n  },\n  \"project\": {\n    \"id\": \"string\",\n    \"owner\": \"string\"\n  },\n  \"user\": {\n    \"id\": \"string\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "defbb8fd-6644-4ef0-817c-6423c1d0d57e",
-          "name": "Subscribe to account",
-          "request": {
-            "name": "Subscribe to account",
-            "description": {
-              "content": "Create webhook subscription associated with the currently authenticated user and to a given user account.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "user",
-                "webhooks",
-                "users",
-                ":account"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "account",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"events\": [\n    \"<string>\"\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "9f1ce87a-f7b6-4212-a1ac-8aa1bd90a9e0",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "user",
-                    "webhooks",
-                    "users",
-                    ":account"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "account",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"events\": [\n    \"<string>\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "99d24ca3-fd0f-4a29-8cd8-8e8364561bd0",
+          "createdAt": "2026-10-21T20:59:56.000Z",
+          "updatedAt": "2026-10-21T20:59:56.000Z",
+          "uid": "35240-99d24ca3-fd0f-4a29-8cd8-8e8364561bd0"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "/v0",
-      "key": "baseUrl"
+      "id": "7c52fd9d-9088-4514-909a-b3b5d999cf0b",
+      "createdAt": "2026-10-21T20:59:56.000Z",
+      "updatedAt": "2026-10-21T20:59:56.000Z",
+      "uid": "35240-7c52fd9d-9088-4514-909a-b3b5d999cf0b"
     }
   ],
   "auth": {
@@ -1186,17 +1183,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "6ecb70d1-f03a-4596-8f23-1a3a846e01a3",
-    "name": "data.world Public catalog relationships webhooks API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Manage relationships between catalog resources\n\nContact Support:\n Name: Contact Us",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/v0"
     }
-  }
+  ]
 }

@@ -1,579 +1,569 @@
 {
+  "info": {
+    "_postman_id": "6f0948ca-48dc-4686-9e7c-b18c941a5cd3",
+    "name": "data.world Public DOIs API",
+    "description": "Contact Support:\n Name: Contact Us",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T21:00:00.000Z",
+    "updatedAt": "2026-10-21T21:00:01.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6f0948ca-48dc-4686-9e7c-b18c941a5cd3"
+  },
   "item": [
     {
-      "id": "f17a6a2a-c8e6-4bb1-9915-e81c90967f68",
-      "name": "DOIs",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "datasets",
       "item": [
         {
-          "id": "6cc674d1-7b31-4d84-a7af-7b37775503f8",
-          "name": "Delete dataset DOI",
-          "request": {
-            "name": "Delete dataset DOI",
-            "description": {
-              "content": "Delete a DOI ([Digital Object Identifier](https://www.doi.org/)) associated with a dataset.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "datasets",
-                ":owner",
-                ":id",
-                "dois",
-                ":doi"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "owner",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "doi",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
+          "name": "{owner}",
+          "item": [
             {
-              "id": "17a3d0ad-8e4d-43e2-aeec-4f60430043a9",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "datasets",
-                    ":owner",
-                    ":id",
-                    "dois",
-                    ":doi"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "owner",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "doi",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "{id}",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "dois",
+                  "item": [
+                    {
+                      "name": "{doi}",
+                      "item": [
+                        {
+                          "name": "Delete dataset DOI",
+                          "id": "e3160d58-358f-4b80-8f82-3ead1cda0851",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/datasets/:owner/:id/dois/:doi",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "datasets",
+                                ":owner",
+                                ":id",
+                                "dois",
+                                ":doi"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "79d24ad8-f996-41bf-9696-fbc2e5e0a44b",
+                                  "key": "owner",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "d53a4f67-5ff0-42f9-adc7-c0ea7e6c4c2a",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "2f2dd198-e78e-4205-9671-f57192c67f59",
+                                  "key": "doi",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Delete a DOI (Digital Object Identifier) associated with a dataset."
+                          },
+                          "response": [
+                            {
+                              "id": "4c8c2609-f98e-4194-ae4e-31035ca0070e",
+                              "name": "default response",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/datasets/:owner/:id/dois/:doi",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "datasets",
+                                    ":owner",
+                                    ":id",
+                                    "dois",
+                                    ":doi"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "owner"
+                                    },
+                                    {
+                                      "key": "id"
+                                    },
+                                    {
+                                      "key": "doi"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-10-21T21:00:01.000Z",
+                              "updatedAt": "2026-10-21T21:00:01.000Z",
+                              "uid": "35240-4c8c2609-f98e-4194-ae4e-31035ca0070e"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T21:00:01.000Z",
+                          "updatedAt": "2026-10-21T21:00:01.000Z",
+                          "uid": "35240-e3160d58-358f-4b80-8f82-3ead1cda0851"
+                        },
+                        {
+                          "name": "Create dataset DOI",
+                          "id": "a33c762a-632d-4857-bbbf-db1773b6ce12",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/datasets/:owner/:id/dois/:doi",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "datasets",
+                                ":owner",
+                                ":id",
+                                "dois",
+                                ":doi"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "b4bf7de1-5f96-4f7c-80e2-272c51601374",
+                                  "key": "owner",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "31189ae6-4fdd-43bd-b6af-00f84f8eef72",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "66cbe6aa-e539-4213-b698-cfc615f980ad",
+                                  "key": "doi",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Associate a DOI (Digital Object Identifier) with a dataset."
+                          },
+                          "response": [
+                            {
+                              "id": "6081500a-6684-42d3-b1c0-fbfee781c40b",
+                              "name": "default response",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/datasets/:owner/:id/dois/:doi",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "datasets",
+                                    ":owner",
+                                    ":id",
+                                    "dois",
+                                    ":doi"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "owner"
+                                    },
+                                    {
+                                      "key": "id"
+                                    },
+                                    {
+                                      "key": "doi"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-10-21T21:00:01.000Z",
+                              "updatedAt": "2026-10-21T21:00:01.000Z",
+                              "uid": "35240-6081500a-6684-42d3-b1c0-fbfee781c40b"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T21:00:01.000Z",
+                          "updatedAt": "2026-10-21T21:00:01.000Z",
+                          "uid": "35240-a33c762a-632d-4857-bbbf-db1773b6ce12"
+                        }
+                      ],
+                      "id": "3efd9314-693d-435a-9d7e-358fa0fcc0c6",
+                      "createdAt": "2026-10-21T21:00:01.000Z",
+                      "updatedAt": "2026-10-21T21:00:01.000Z",
+                      "uid": "35240-3efd9314-693d-435a-9d7e-358fa0fcc0c6"
+                    }
+                  ],
+                  "id": "b69f290f-f9ed-4bd1-8ab9-523dd4ed4721",
+                  "createdAt": "2026-10-21T21:00:01.000Z",
+                  "updatedAt": "2026-10-21T21:00:01.000Z",
+                  "uid": "35240-b69f290f-f9ed-4bd1-8ab9-523dd4ed4721"
+                },
+                {
+                  "name": "v",
+                  "item": [
+                    {
+                      "name": "{versionId}",
+                      "item": [
+                        {
+                          "name": "dois",
+                          "item": [
+                            {
+                              "name": "{doi}",
+                              "item": [
+                                {
+                                  "name": "Delete dataset version DOI",
+                                  "id": "a9812637-938a-4008-899f-f146d33f0291",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/datasets/:owner/:id/v/:versionId/dois/:doi",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "datasets",
+                                        ":owner",
+                                        ":id",
+                                        "v",
+                                        ":versionId",
+                                        "dois",
+                                        ":doi"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "0d136e2a-f6ab-49ac-86ec-c4b62125836f",
+                                          "key": "owner",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "d2a49bb3-2c4b-4e37-ba18-92244d88f037",
+                                          "key": "id",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "8b648150-8f7d-4afe-82de-647563b80055",
+                                          "key": "versionId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "f78d6279-b2a3-4903-b815-7e3becb61f0f",
+                                          "key": "doi",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Delete a DOI (Digital Object Identifier) associated with a version of a dataset."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "4be40e9a-ec82-487b-9ecf-b18f1ab65a47",
+                                      "name": "default response",
+                                      "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: bearer",
+                                            "key": "Authorization",
+                                            "value": "Bearer <token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/datasets/:owner/:id/v/:versionId/dois/:doi",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "datasets",
+                                            ":owner",
+                                            ":id",
+                                            "v",
+                                            ":versionId",
+                                            "dois",
+                                            ":doi"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "owner"
+                                            },
+                                            {
+                                              "key": "id"
+                                            },
+                                            {
+                                              "key": "versionId"
+                                            },
+                                            {
+                                              "key": "doi"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"message\": \"<string>\"\n}",
+                                      "createdAt": "2026-10-21T21:00:01.000Z",
+                                      "updatedAt": "2026-10-21T21:00:01.000Z",
+                                      "uid": "35240-4be40e9a-ec82-487b-9ecf-b18f1ab65a47"
+                                    }
+                                  ],
+                                  "createdAt": "2026-10-21T21:00:01.000Z",
+                                  "updatedAt": "2026-10-21T21:00:01.000Z",
+                                  "uid": "35240-a9812637-938a-4008-899f-f146d33f0291"
+                                },
+                                {
+                                  "name": "Create dataset version DOI",
+                                  "id": "6744676f-a29b-4a0f-a433-ac81d48d076a",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/datasets/:owner/:id/v/:versionId/dois/:doi",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "datasets",
+                                        ":owner",
+                                        ":id",
+                                        "v",
+                                        ":versionId",
+                                        "dois",
+                                        ":doi"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "9a60c5e6-9f35-4ba1-8d80-e20d53f3a6c9",
+                                          "key": "owner",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "9ea3a27e-06fe-44bd-8728-ed71db8e8380",
+                                          "key": "id",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "1b3480bb-4efe-446c-86d0-03284cedf98f",
+                                          "key": "versionId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "afea05b4-57ca-4b2c-91d5-7477fdfa70ae",
+                                          "key": "doi",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Associate a DOI (Digital Object Identifier) with a version of a dataset."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "c1dca184-79ba-4f42-be73-fe77051b3a2a",
+                                      "name": "default response",
+                                      "originalRequest": {
+                                        "method": "PUT",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: bearer",
+                                            "key": "Authorization",
+                                            "value": "Bearer <token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/datasets/:owner/:id/v/:versionId/dois/:doi",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "datasets",
+                                            ":owner",
+                                            ":id",
+                                            "v",
+                                            ":versionId",
+                                            "dois",
+                                            ":doi"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "owner"
+                                            },
+                                            {
+                                              "key": "id"
+                                            },
+                                            {
+                                              "key": "versionId"
+                                            },
+                                            {
+                                              "key": "doi"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"message\": \"<string>\"\n}",
+                                      "createdAt": "2026-10-21T21:00:01.000Z",
+                                      "updatedAt": "2026-10-21T21:00:01.000Z",
+                                      "uid": "35240-c1dca184-79ba-4f42-be73-fe77051b3a2a"
+                                    }
+                                  ],
+                                  "createdAt": "2026-10-21T21:00:01.000Z",
+                                  "updatedAt": "2026-10-21T21:00:01.000Z",
+                                  "uid": "35240-6744676f-a29b-4a0f-a433-ac81d48d076a"
+                                }
+                              ],
+                              "id": "9da808da-f5c0-4b9d-ada5-cd4425110c43",
+                              "createdAt": "2026-10-21T21:00:01.000Z",
+                              "updatedAt": "2026-10-21T21:00:01.000Z",
+                              "uid": "35240-9da808da-f5c0-4b9d-ada5-cd4425110c43"
+                            }
+                          ],
+                          "id": "1af8eff9-acce-4bc1-acab-cbcc6ed386db",
+                          "createdAt": "2026-10-21T21:00:01.000Z",
+                          "updatedAt": "2026-10-21T21:00:01.000Z",
+                          "uid": "35240-1af8eff9-acce-4bc1-acab-cbcc6ed386db"
+                        }
+                      ],
+                      "id": "adc9cf78-f183-4b1d-be23-24dcbe7ae144",
+                      "createdAt": "2026-10-21T21:00:01.000Z",
+                      "updatedAt": "2026-10-21T21:00:01.000Z",
+                      "uid": "35240-adc9cf78-f183-4b1d-be23-24dcbe7ae144"
+                    }
+                  ],
+                  "id": "5022a3c6-ef8e-4ca5-a7c8-c1d762f1b8f3",
+                  "createdAt": "2026-10-21T21:00:01.000Z",
+                  "updatedAt": "2026-10-21T21:00:01.000Z",
+                  "uid": "35240-5022a3c6-ef8e-4ca5-a7c8-c1d762f1b8f3"
                 }
               ],
-              "body": "{\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "a086cdf3-3f24-48f3-ae20-0c56157ca53f",
+              "createdAt": "2026-10-21T21:00:01.000Z",
+              "updatedAt": "2026-10-21T21:00:01.000Z",
+              "uid": "35240-a086cdf3-3f24-48f3-ae20-0c56157ca53f"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "e5070a58-784d-45a1-90ea-3329bc21fd70",
-          "name": "Create dataset DOI",
-          "request": {
-            "name": "Create dataset DOI",
-            "description": {
-              "content": "Associate a DOI ([Digital Object Identifier](https://www.doi.org/)) with a dataset.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "datasets",
-                ":owner",
-                ":id",
-                "dois",
-                ":doi"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "owner",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "doi",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "ca4c16a1-520e-44d7-9ebc-d8fce9be50dc",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "datasets",
-                    ":owner",
-                    ":id",
-                    "dois",
-                    ":doi"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "owner",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "doi",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "2556680a-55fb-416e-80c0-6017dbdb2a57",
-          "name": "Delete dataset version DOI",
-          "request": {
-            "name": "Delete dataset version DOI",
-            "description": {
-              "content": "Delete a DOI ([Digital Object Identifier](https://www.doi.org/)) associated with a version of a dataset.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "datasets",
-                ":owner",
-                ":id",
-                "v",
-                ":versionId",
-                "dois",
-                ":doi"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "owner",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "versionId",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "doi",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "7187c067-0f6b-4b22-86a1-3347390bdb94",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "datasets",
-                    ":owner",
-                    ":id",
-                    "v",
-                    ":versionId",
-                    "dois",
-                    ":doi"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "owner",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "versionId",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "doi",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "0c5a9289-31d2-4ea8-bfaf-c873265537b8",
-          "name": "Create dataset version DOI",
-          "request": {
-            "name": "Create dataset version DOI",
-            "description": {
-              "content": "Associate a DOI ([Digital Object Identifier](https://www.doi.org/)) with a version of a dataset.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "datasets",
-                ":owner",
-                ":id",
-                "v",
-                ":versionId",
-                "dois",
-                ":doi"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "owner",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "versionId",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "doi",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "ff61f9f5-4fb8-4b5c-ad81-9e933474e138",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "datasets",
-                    ":owner",
-                    ":id",
-                    "v",
-                    ":versionId",
-                    "dois",
-                    ":doi"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "owner",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "versionId",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "doi",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "d53502da-a5b1-4e24-aabd-4edc36c75e94",
+          "createdAt": "2026-10-21T21:00:01.000Z",
+          "updatedAt": "2026-10-21T21:00:01.000Z",
+          "uid": "35240-d53502da-a5b1-4e24-aabd-4edc36c75e94"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "/v0",
-      "key": "baseUrl"
+      "id": "44dd6cfd-8841-4506-85c5-245189fbf5e0",
+      "createdAt": "2026-10-21T21:00:01.000Z",
+      "updatedAt": "2026-10-21T21:00:01.000Z",
+      "uid": "35240-44dd6cfd-8841-4506-85c5-245189fbf5e0"
     }
   ],
   "auth": {
@@ -581,17 +571,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "f47e691c-6e98-4ab4-940a-69fc27e54eb9",
-    "name": "data.world Public catalog relationships DOIs API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Manage relationships between catalog resources\n\nContact Support:\n Name: Contact Us",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/v0"
     }
-  }
+  ]
 }

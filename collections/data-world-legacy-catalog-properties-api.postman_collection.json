@@ -1,73 +1,43 @@
 {
+  "info": {
+    "_postman_id": "d08eb7ef-8b7e-4e77-977b-a08a6a7b6a7c",
+    "name": "data.world Public legacy catalog - properties API",
+    "description": "Contact Support:\n Name: Contact Us",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:58:20.000Z",
+    "updatedAt": "2026-10-21T20:58:20.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d08eb7ef-8b7e-4e77-977b-a08a6a7b6a7c"
+  },
   "item": [
     {
-      "id": "08352811-7fa9-4ee0-9b99-26a88f32ec1a",
-      "name": "legacy catalog - properties",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "properties",
       "item": [
         {
-          "id": "c7a360d2-4a66-4592-a5c1-7abebe2ab9b3",
-          "name": "Get supported metadata properties by owner",
-          "request": {
-            "name": "Get supported metadata properties by owner",
-            "description": {
-              "content": "Get supported metadata properties by owner.\n\nThis endpoint can be used to obtain a reference list of supported custom metadata properties for your\norganization's catalog. Custom properties for resources in your catalog require an ApiBinding to be\nconfigured for use in the public API. For more information about how to correctly configure ApiBindings,\nplease reach out to your data.world support representative or message help@data.world.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "properties",
-                ":owner"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "categorylabel",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "typelabel",
-                  "value": "<string>"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "owner",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "{owner}",
+          "item": [
             {
-              "id": "e38b051e-15c9-4b2d-b4d1-5ab761adda27",
-              "name": "default response",
-              "originalRequest": {
+              "name": "Get supported metadata properties by owner",
+              "id": "535431ad-40b6-4df9-b4f3-e752656bfbff",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
                 "url": {
+                  "raw": "{{baseUrl}}/properties/:owner?categorylabel=<string>&typelabel=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "properties",
                     ":owner"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
                   ],
                   "query": [
                     {
@@ -81,59 +51,90 @@
                   ],
                   "variable": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
+                      "id": "28f4b1fa-18ba-4df1-a712-25d032b0598a",
                       "key": "owner",
+                      "value": "<string>",
                       "description": "(Required) "
                     }
                   ]
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                "description": "Get supported metadata properties by owner.\n\nThis endpoint can be used to obtain a reference list of supported custom metadata properties for your\norganization's catalog. Custom properties for resources in your catalog require an ApiBinding to be\nconfigured for use in the public API. For more information about how to correctly configure ApiBindings,\nplease reach out to your data.world support representative or message help@data.world."
               },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "a3bcc9e6-b273-411e-9657-8d2deaf5be91",
+                  "name": "default response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/properties/:owner?categorylabel=<string>&typelabel=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "properties",
+                        ":owner"
+                      ],
+                      "query": [
+                        {
+                          "key": "categorylabel",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "typelabel",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "owner"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"allowedValues\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"categoryLabel\": \"<string>\",\n    \"label\": \"<string>\",\n    \"multivalued\": \"<boolean>\",\n    \"typeLabel\": \"<string>\"\n  },\n  {\n    \"allowedValues\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"categoryLabel\": \"<string>\",\n    \"label\": \"<string>\",\n    \"multivalued\": \"<boolean>\",\n    \"typeLabel\": \"<string>\"\n  }\n]",
+                  "createdAt": "2026-10-21T20:58:20.000Z",
+                  "updatedAt": "2026-10-21T20:58:20.000Z",
+                  "uid": "35240-a3bcc9e6-b273-411e-9657-8d2deaf5be91"
                 }
               ],
-              "body": "[\n  {\n    \"allowedValues\": [\n      \"string\",\n      \"string\"\n    ],\n    \"categoryLabel\": \"string\",\n    \"label\": \"string\",\n    \"multivalued\": false,\n    \"typeLabel\": \"string\"\n  },\n  {\n    \"allowedValues\": [\n      \"string\",\n      \"string\"\n    ],\n    \"categoryLabel\": \"string\",\n    \"label\": \"string\",\n    \"multivalued\": false,\n    \"typeLabel\": \"string\"\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-21T20:58:20.000Z",
+              "updatedAt": "2026-10-21T20:58:20.000Z",
+              "uid": "35240-535431ad-40b6-4df9-b4f3-e752656bfbff"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "bd891017-33a7-4478-ad83-6954f01d4bca",
+          "createdAt": "2026-10-21T20:58:20.000Z",
+          "updatedAt": "2026-10-21T20:58:20.000Z",
+          "uid": "35240-bd891017-33a7-4478-ad83-6954f01d4bca"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "/v0",
-      "key": "baseUrl"
+      "id": "d9749b19-7701-47e7-99b5-c2c11a1aa850",
+      "createdAt": "2026-10-21T20:58:20.000Z",
+      "updatedAt": "2026-10-21T20:58:20.000Z",
+      "uid": "35240-d9749b19-7701-47e7-99b5-c2c11a1aa850"
     }
   ],
   "auth": {
@@ -141,17 +142,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "17f02d46-19f7-4e2f-b918-66099977c027",
-    "name": "data.world Public catalog relationships legacy catalog - properties API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Manage relationships between catalog resources\n\nContact Support:\n Name: Contact Us",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/v0"
     }
-  }
+  ]
 }

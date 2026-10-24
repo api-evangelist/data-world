@@ -1,1427 +1,1525 @@
 {
+  "info": {
+    "_postman_id": "beee108c-25a3-4b70-9957-9fcf98e3dd9a",
+    "name": "data.world Public catalog resources API",
+    "description": "Contact Support:\n Name: Contact Us",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:57:02.000Z",
+    "updatedAt": "2026-10-21T20:57:03.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-beee108c-25a3-4b70-9957-9fcf98e3dd9a"
+  },
   "item": [
     {
-      "id": "d3d0a94c-87c5-4b71-90c0-424b2800600b",
-      "name": "catalog resources",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "metadata",
       "item": [
         {
-          "id": "05e509af-7c1a-4f66-b573-09ffb69d0e9f",
-          "name": "Bulk: delete properties from resources",
-          "request": {
-            "name": "Bulk: delete properties from resources",
-            "description": {
-              "content": "Delete properties from a maximum of 25 resources of any type in the organization at once. To delete properties from a single resource, use \"Delete properties from a resource\".",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "metadata",
-                "resources",
-                "bulk",
-                "property",
-                ":owner"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "owner",
-                  "description": "(Required) User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PATCH",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"resources\": {\n    \"key_0\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
+          "name": "resources",
+          "item": [
             {
-              "id": "1073aef2-00e1-4653-a443-aabaaaaa485e",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "metadata",
-                    "resources",
-                    "bulk",
-                    "property",
-                    ":owner"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "owner",
-                      "description": "(Required) User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"resources\": {\n    \"key_0\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "bulk",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "property",
+                  "item": [
+                    {
+                      "name": "{owner}",
+                      "item": [
+                        {
+                          "name": "Bulk: delete properties from resources",
+                          "id": "32072c74-63cd-4860-b910-02b96db91312",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"resources\": {\n    \"mollit904\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/metadata/resources/bulk/property/:owner",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "metadata",
+                                "resources",
+                                "bulk",
+                                "property",
+                                ":owner"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "c911d1a6-0a3a-4c0c-871f-a65c59dca95f",
+                                  "key": "owner",
+                                  "value": "<string>",
+                                  "description": "(Required) User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
+                                }
+                              ]
+                            },
+                            "description": "Delete properties from a maximum of 25 resources of any type in the organization at once. To delete properties from a single resource, use \"Delete properties from a resource\"."
+                          },
+                          "response": [
+                            {
+                              "id": "d6ee5f04-3b4f-4743-8719-25999358925f",
+                              "name": "default response",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"resources\": {\n    \"mollit904\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/metadata/resources/bulk/property/:owner",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "metadata",
+                                    "resources",
+                                    "bulk",
+                                    "property",
+                                    ":owner"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "owner"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"resources\": [\n    {\n      \"iri\": \"<uri>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"iri\": \"<uri>\",\n      \"url\": \"<uri>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-10-21T20:57:03.000Z",
+                              "updatedAt": "2026-10-21T20:57:03.000Z",
+                              "uid": "35240-d6ee5f04-3b4f-4743-8719-25999358925f"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:57:03.000Z",
+                          "updatedAt": "2026-10-21T20:57:03.000Z",
+                          "uid": "35240-32072c74-63cd-4860-b910-02b96db91312"
+                        }
+                      ],
+                      "id": "4af3da26-9a1b-4b92-8de4-f3b36d997ca1",
+                      "createdAt": "2026-10-21T20:57:03.000Z",
+                      "updatedAt": "2026-10-21T20:57:03.000Z",
+                      "uid": "35240-4af3da26-9a1b-4b92-8de4-f3b36d997ca1"
+                    }
+                  ],
+                  "id": "24de6bb3-8b51-4a10-a5b5-26a670a164a6",
+                  "createdAt": "2026-10-21T20:57:03.000Z",
+                  "updatedAt": "2026-10-21T20:57:03.000Z",
+                  "uid": "35240-24de6bb3-8b51-4a10-a5b5-26a670a164a6"
+                },
+                {
+                  "name": "{owner}",
+                  "item": [
+                    {
+                      "name": "Bulk: update multiple resources at once",
+                      "id": "9525ebb8-65f9-4777-81a3-62cc8c5a9b12",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"resources\": {\n    \"occaecatd\": {\n      \"collections\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"properties\": {\n        \"eiusmod_e\": \"<string>\"\n      },\n      \"title\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/metadata/resources/bulk/:owner?updateListBy=ADD",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "metadata",
+                            "resources",
+                            "bulk",
+                            ":owner"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Set this option when updating properties that supports having a list of values. Given a list of values in the request body, should this request add to the existing list, remove the specified values, or replace the existing list with the specified values?",
+                              "key": "updateListBy",
+                              "value": "ADD"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "ed222a98-8408-481c-bc25-a97a82514ab1",
+                              "key": "owner",
+                              "value": "<string>",
+                              "description": "(Required) User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
+                            }
+                          ]
+                        },
+                        "description": "Update a maximum of 25 resources of any type in the organization at once. To create one resource at a time, use \"Create a new resource\". Also, see the aforementioned endpoint for further update behaviors."
+                      },
+                      "response": [
+                        {
+                          "id": "544e9c4f-b206-4b4b-a77c-90da24157ed4",
+                          "name": "default response",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"resources\": {\n    \"occaecatd\": {\n      \"collections\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"properties\": {\n        \"eiusmod_e\": \"<string>\"\n      },\n      \"title\": \"<string>\"\n    }\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/metadata/resources/bulk/:owner?updateListBy=ADD",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "metadata",
+                                "resources",
+                                "bulk",
+                                ":owner"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Set this option when updating properties that supports having a list of values. Given a list of values in the request body, should this request add to the existing list, remove the specified values, or replace the existing list with the specified values?",
+                                  "key": "updateListBy",
+                                  "value": "ADD"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "owner"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"resources\": [\n    {\n      \"iri\": \"<uri>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"iri\": \"<uri>\",\n      \"url\": \"<uri>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-10-21T20:57:03.000Z",
+                          "updatedAt": "2026-10-21T20:57:03.000Z",
+                          "uid": "35240-544e9c4f-b206-4b4b-a77c-90da24157ed4"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:57:03.000Z",
+                      "updatedAt": "2026-10-21T20:57:03.000Z",
+                      "uid": "35240-9525ebb8-65f9-4777-81a3-62cc8c5a9b12"
+                    },
+                    {
+                      "name": "Bulk: create multiple resources at once",
+                      "id": "d3c1899c-e7ee-4175-8489-92b2c33eabd4",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"resources\": [\n    {\n      \"type\": \"<string>\",\n      \"collections\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"iri\": \"<string>\",\n      \"properties\": {\n        \"eu_6\": \"<string>\"\n      },\n      \"title\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/metadata/resources/bulk/:owner",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "metadata",
+                            "resources",
+                            "bulk",
+                            ":owner"
+                          ],
+                          "variable": [
+                            {
+                              "id": "4edcbb8c-851f-448d-8a2d-e8aed23fc04c",
+                              "key": "owner",
+                              "value": "<string>",
+                              "description": "(Required) User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
+                            }
+                          ]
+                        },
+                        "description": "Create a maximum of 25 resources of any type in the organization at once. The resources are created with the provided properties. To create one resource at a time, use \"Create a new resource\"."
+                      },
+                      "response": [
+                        {
+                          "id": "d686b2a1-d5c2-45d8-8afe-7102c2c94180",
+                          "name": "default response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"resources\": [\n    {\n      \"type\": \"<string>\",\n      \"collections\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"iri\": \"<string>\",\n      \"properties\": {\n        \"eu_6\": \"<string>\"\n      },\n      \"title\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/metadata/resources/bulk/:owner",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "metadata",
+                                "resources",
+                                "bulk",
+                                ":owner"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "owner"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"resources\": [\n    {\n      \"iri\": \"<uri>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"iri\": \"<uri>\",\n      \"url\": \"<uri>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-10-21T20:57:03.000Z",
+                          "updatedAt": "2026-10-21T20:57:03.000Z",
+                          "uid": "35240-d686b2a1-d5c2-45d8-8afe-7102c2c94180"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:57:03.000Z",
+                      "updatedAt": "2026-10-21T20:57:03.000Z",
+                      "uid": "35240-d3c1899c-e7ee-4175-8489-92b2c33eabd4"
+                    }
+                  ],
+                  "id": "94a16175-4169-457b-a224-998fb16ffd8b",
+                  "createdAt": "2026-10-21T20:57:03.000Z",
+                  "updatedAt": "2026-10-21T20:57:03.000Z",
+                  "uid": "35240-94a16175-4169-457b-a224-998fb16ffd8b"
                 }
               ],
-              "body": "{\n  \"resources\": [\n    {\n      \"iri\": \"http://fbyrxDjIyUrKtyRqUdwQVFMmxVHmR.lhvf8Tp9xI6zLT4dcacq,n68wv5v5zjGt.jI4\",\n      \"url\": \"http://pByOYviBWAIFbvHsUGhK.liLc7C4ihUrb.\"\n    },\n    {\n      \"iri\": \"http://NApJaaFrkwmpnDglQRGhjoRLI.tljev99nUbRGI,Uo7tDBxh1BbddjkOuccCFy9mpoWRbODiKf\",\n      \"url\": \"http://cHgUMoOmPfWTS.ivOgCjh+CPW7bLutvuYJ6ZCaP,O2IIjKuVntHylqIh9VkB5I64z5SUG,v\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "0c2edee9-7c04-4cae-806a-02e8f50b5508",
+              "createdAt": "2026-10-21T20:57:03.000Z",
+              "updatedAt": "2026-10-21T20:57:03.000Z",
+              "uid": "35240-0c2edee9-7c04-4cae-806a-02e8f50b5508"
+            },
+            {
+              "name": "property",
+              "item": [
+                {
+                  "name": "{owner}",
+                  "item": [
+                    {
+                      "name": "Delete properties from a resource",
+                      "id": "8165af20-40a5-45de-9cd4-f54610f182d1",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/metadata/resources/property/:owner?iri=<string>&property=<string>&property=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "metadata",
+                            "resources",
+                            "property",
+                            ":owner"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Internationalized Resource Identifier (IRI) of the resource. You can find the IRI in the Technical Reference section under the Settings tab on the resource\u2019s catalog page.",
+                              "key": "iri",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Property is identified by its IRI",
+                              "key": "property",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Property is identified by its IRI",
+                              "key": "property",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "88fbbc8c-fbb8-4579-911d-6922b768da06",
+                              "key": "owner",
+                              "value": "<string>",
+                              "description": "(Required) User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
+                            }
+                          ]
+                        },
+                        "description": "Delete properties from a resource of any type in the organization. To update properties, use \"Update a resource\". To delete properties from multiple resources at once, use \"Bulk: delete properties from resources\"."
+                      },
+                      "response": [
+                        {
+                          "id": "50aa934b-b5df-406d-82a9-4658ce0e54c7",
+                          "name": "default response",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/metadata/resources/property/:owner?iri=<string>&property=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "metadata",
+                                "resources",
+                                "property",
+                                ":owner"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Internationalized Resource Identifier (IRI) of the resource. You can find the IRI in the Technical Reference section under the Settings tab on the resource\u2019s catalog page.",
+                                  "key": "iri",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Property is identified by its IRI",
+                                  "key": "property",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "owner"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"collections\": [\n    \"<uri>\",\n    \"<uri>\"\n  ],\n  \"iri\": \"<uri>\",\n  \"properties\": {\n    \"nostrud1\": \"<string>\"\n  },\n  \"sourceId\": \"<string>\",\n  \"tableId\": \"<string>\",\n  \"tableIri\": \"<string>\",\n  \"title\": \"<string>\",\n  \"types\": [\n    \"<uri>\",\n    \"<uri>\"\n  ],\n  \"url\": \"<uri>\"\n}",
+                          "createdAt": "2026-10-21T20:57:03.000Z",
+                          "updatedAt": "2026-10-21T20:57:03.000Z",
+                          "uid": "35240-50aa934b-b5df-406d-82a9-4658ce0e54c7"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:57:03.000Z",
+                      "updatedAt": "2026-10-21T20:57:03.000Z",
+                      "uid": "35240-8165af20-40a5-45de-9cd4-f54610f182d1"
+                    }
+                  ],
+                  "id": "1bdcbe30-b911-48a2-b1b4-de952b583217",
+                  "createdAt": "2026-10-21T20:57:03.000Z",
+                  "updatedAt": "2026-10-21T20:57:03.000Z",
+                  "uid": "35240-1bdcbe30-b911-48a2-b1b4-de952b583217"
+                }
+              ],
+              "id": "8e8e89aa-fa1f-4b64-9256-228420a683a1",
+              "createdAt": "2026-10-21T20:57:03.000Z",
+              "updatedAt": "2026-10-21T20:57:03.000Z",
+              "uid": "35240-8e8e89aa-fa1f-4b64-9256-228420a683a1"
+            },
+            {
+              "name": "search",
+              "item": [
+                {
+                  "name": "Search for resources",
+                  "id": "aa5be90a-b030-490f-8321-8334f13b5cff",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"owner\": \"<string>\",\n  \"assetStatus\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"collection\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"createdRange\": {\n    \"endDate\": \"<string>\",\n    \"startDate\": \"<string>\"\n  },\n  \"minAccessLevel\": \"DISCOVER\",\n  \"property\": {\n    \"exercitation_5\": {},\n    \"eabe4\": {}\n  },\n  \"query\": \"<string>\",\n  \"tag\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"type\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"updatedRange\": {\n    \"endDate\": \"<string>\",\n    \"startDate\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/metadata/resources/search?size=10&from=0&sort=<string>&sort=<string>&hydration=agent&hydration=properties",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "metadata",
+                        "resources",
+                        "search"
+                      ],
+                      "query": [
+                        {
+                          "description": "Size of page to fetch",
+                          "key": "size",
+                          "value": "10"
+                        },
+                        {
+                          "description": "Result number to start fetch from (not the page number to start from)",
+                          "key": "from",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Sort results by fields",
+                          "key": "sort",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Sort results by fields",
+                          "key": "sort",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Return additional information about the resource. For example, if the resource is in a collection, the collection IRI will be returned by default. If hydration is enabled, the collection's title and description will also be returned.",
+                          "key": "hydration",
+                          "value": "agent"
+                        },
+                        {
+                          "description": "Return additional information about the resource. For example, if the resource is in a collection, the collection IRI will be returned by default. If hydration is enabled, the collection's title and description will also be returned.",
+                          "key": "hydration",
+                          "value": "properties"
+                        }
+                      ]
+                    },
+                    "description": "Search for resources in the organization. See request body for filtering options. To paginate through results, use \"from\" and \"size\" query parameters. To return more details about the resources, see \"hydration\" query parameter."
+                  },
+                  "response": [
+                    {
+                      "id": "789fb543-601a-4cf8-8d25-82107155d91e",
+                      "name": "default response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"owner\": \"<string>\",\n  \"assetStatus\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"collection\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"createdRange\": {\n    \"endDate\": \"<string>\",\n    \"startDate\": \"<string>\"\n  },\n  \"minAccessLevel\": \"DISCOVER\",\n  \"property\": {\n    \"exercitation_5\": {},\n    \"eabe4\": {}\n  },\n  \"query\": \"<string>\",\n  \"tag\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"type\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"updatedRange\": {\n    \"endDate\": \"<string>\",\n    \"startDate\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/metadata/resources/search?size=10&from=0&sort=<string>&hydration=properties",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "metadata",
+                            "resources",
+                            "search"
+                          ],
+                          "query": [
+                            {
+                              "description": "Size of page to fetch",
+                              "key": "size",
+                              "value": "10"
+                            },
+                            {
+                              "description": "Result number to start fetch from (not the page number to start from)",
+                              "key": "from",
+                              "value": "0"
+                            },
+                            {
+                              "description": "Sort results by fields",
+                              "key": "sort",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Return additional information about the resource. For example, if the resource is in a collection, the collection IRI will be returned by default. If hydration is enabled, the collection's title and description will also be returned.",
+                              "key": "hydration",
+                              "value": "properties"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"consistent\": \"<boolean>\",\n  \"count\": \"<integer>\",\n  \"hydrations\": {\n    \"agents\": {\n      \"sed_5d5\": {\n        \"avatarUrl\": \"<string>\",\n        \"deactivated\": \"<boolean>\",\n        \"displayName\": \"<string>\",\n        \"id\": \"<string>\"\n      },\n      \"esse83\": {\n        \"avatarUrl\": \"<string>\",\n        \"deactivated\": \"<boolean>\",\n        \"displayName\": \"<string>\",\n        \"id\": \"<string>\"\n      }\n    },\n    \"catalogConcepts\": {\n      \"ut_d\": {\n        \"altLabel\": \"<string>\",\n        \"iri\": \"<string>\",\n        \"owner\": \"<string>\",\n        \"prefLabel\": \"<string>\"\n      }\n    },\n    \"collections\": {\n      \"minim_f13\": {\n        \"description\": \"<string>\",\n        \"id\": \"<string>\",\n        \"iri\": \"<string>\",\n        \"owner\": \"<string>\",\n        \"title\": \"<string>\"\n      }\n    },\n    \"properties\": {\n      \"sit_16b\": {\n        \"label\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"commodo_4\": {\n        \"label\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"ea_3\": {\n        \"label\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    \"relationships\": {\n      \"tempor_2\": {\n        \"labels\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"Excepteuree\": {\n        \"labels\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    \"resourceHierarchy\": {\n      \"sint_\": {\n        \"animf7f\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": \"<string>\",\n              \"dispositionLabel\": \"<string>\"\n            },\n            \"hierarchy\": [\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              },\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"icon\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            \"iri\": \"<string>\",\n            \"owner\": \"<string>\",\n            \"title\": \"<string>\",\n            \"type\": \"<string>\",\n            \"typeLabel\": \"<string>\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": \"<string>\",\n              \"dispositionLabel\": \"<string>\"\n            },\n            \"hierarchy\": [\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              },\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"icon\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            \"iri\": \"<string>\",\n            \"owner\": \"<string>\",\n            \"title\": \"<string>\",\n            \"type\": \"<string>\",\n            \"typeLabel\": \"<string>\"\n          }\n        ],\n        \"velit29d\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": \"<string>\",\n              \"dispositionLabel\": \"<string>\"\n            },\n            \"hierarchy\": [\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              },\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"icon\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            \"iri\": \"<string>\",\n            \"owner\": \"<string>\",\n            \"title\": \"<string>\",\n            \"type\": \"<string>\",\n            \"typeLabel\": \"<string>\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": \"<string>\",\n              \"dispositionLabel\": \"<string>\"\n            },\n            \"hierarchy\": [\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              },\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"icon\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            \"iri\": \"<string>\",\n            \"owner\": \"<string>\",\n            \"title\": \"<string>\",\n            \"type\": \"<string>\",\n            \"typeLabel\": \"<string>\"\n          }\n        ],\n        \"ina53\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": \"<string>\",\n              \"dispositionLabel\": \"<string>\"\n            },\n            \"hierarchy\": [\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              },\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"icon\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            \"iri\": \"<string>\",\n            \"owner\": \"<string>\",\n            \"title\": \"<string>\",\n            \"type\": \"<string>\",\n            \"typeLabel\": \"<string>\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": \"<string>\",\n              \"dispositionLabel\": \"<string>\"\n            },\n            \"hierarchy\": [\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              },\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"icon\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            \"iri\": \"<string>\",\n            \"owner\": \"<string>\",\n            \"title\": \"<string>\",\n            \"type\": \"<string>\",\n            \"typeLabel\": \"<string>\"\n          }\n        ],\n        \"irure___a\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": \"<string>\",\n              \"dispositionLabel\": \"<string>\"\n            },\n            \"hierarchy\": [\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              },\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"icon\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            \"iri\": \"<string>\",\n            \"owner\": \"<string>\",\n            \"title\": \"<string>\",\n            \"type\": \"<string>\",\n            \"typeLabel\": \"<string>\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": \"<string>\",\n              \"dispositionLabel\": \"<string>\"\n            },\n            \"hierarchy\": [\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              },\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"icon\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            \"iri\": \"<string>\",\n            \"owner\": \"<string>\",\n            \"title\": \"<string>\",\n            \"type\": \"<string>\",\n            \"typeLabel\": \"<string>\"\n          }\n        ]\n      },\n      \"labore_3\": {\n        \"dolor__4c\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": \"<string>\",\n              \"dispositionLabel\": \"<string>\"\n            },\n            \"hierarchy\": [\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              },\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"icon\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            \"iri\": \"<string>\",\n            \"owner\": \"<string>\",\n            \"title\": \"<string>\",\n            \"type\": \"<string>\",\n            \"typeLabel\": \"<string>\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": \"<string>\",\n              \"dispositionLabel\": \"<string>\"\n            },\n            \"hierarchy\": [\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              },\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"icon\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            \"iri\": \"<string>\",\n            \"owner\": \"<string>\",\n            \"title\": \"<string>\",\n            \"type\": \"<string>\",\n            \"typeLabel\": \"<string>\"\n          }\n        ],\n        \"in_cb\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": \"<string>\",\n              \"dispositionLabel\": \"<string>\"\n            },\n            \"hierarchy\": [\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              },\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"icon\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            \"iri\": \"<string>\",\n            \"owner\": \"<string>\",\n            \"title\": \"<string>\",\n            \"type\": \"<string>\",\n            \"typeLabel\": \"<string>\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": \"<string>\",\n              \"dispositionLabel\": \"<string>\"\n            },\n            \"hierarchy\": [\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              },\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"icon\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            \"iri\": \"<string>\",\n            \"owner\": \"<string>\",\n            \"title\": \"<string>\",\n            \"type\": \"<string>\",\n            \"typeLabel\": \"<string>\"\n          }\n        ]\n      },\n      \"ut0\": {\n        \"cillum_a\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": \"<string>\",\n              \"dispositionLabel\": \"<string>\"\n            },\n            \"hierarchy\": [\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              },\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"icon\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            \"iri\": \"<string>\",\n            \"owner\": \"<string>\",\n            \"title\": \"<string>\",\n            \"type\": \"<string>\",\n            \"typeLabel\": \"<string>\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": \"<string>\",\n              \"dispositionLabel\": \"<string>\"\n            },\n            \"hierarchy\": [\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              },\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"icon\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            \"iri\": \"<string>\",\n            \"owner\": \"<string>\",\n            \"title\": \"<string>\",\n            \"type\": \"<string>\",\n            \"typeLabel\": \"<string>\"\n          }\n        ]\n      }\n    }\n  },\n  \"next\": \"<string>\",\n  \"records\": [\n    {\n      \"category\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner\": \"<string>\",\n      \"created\": \"<dateTime>\",\n      \"creator\": \"<string>\",\n      \"iri\": \"<string>\",\n      \"numLikes\": \"<integer>\",\n      \"properties\": {\n        \"ullamcoa_6\": {},\n        \"ut_0c8\": {}\n      },\n      \"resourceDetails\": {\n        \"typeDetails\": {\n          \"id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"subtypeOf\": \"<string>\"\n        }\n      },\n      \"resourceLink\": \"<uri>\",\n      \"sourceId\": \"<string>\",\n      \"sourceOfRecord\": \"<string>\",\n      \"tableId\": \"<string>\",\n      \"tableIri\": \"<string>\",\n      \"title\": \"<string>\",\n      \"updated\": \"<dateTime>\",\n      \"updatedBy\": \"<string>\"\n    },\n    {\n      \"category\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner\": \"<string>\",\n      \"created\": \"<dateTime>\",\n      \"creator\": \"<string>\",\n      \"iri\": \"<string>\",\n      \"numLikes\": \"<integer>\",\n      \"properties\": {\n        \"in_47\": {},\n        \"exf\": {}\n      },\n      \"resourceDetails\": {\n        \"typeDetails\": {\n          \"id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"subtypeOf\": \"<string>\"\n        }\n      },\n      \"resourceLink\": \"<uri>\",\n      \"sourceId\": \"<string>\",\n      \"sourceOfRecord\": \"<string>\",\n      \"tableId\": \"<string>\",\n      \"tableIri\": \"<string>\",\n      \"title\": \"<string>\",\n      \"updated\": \"<dateTime>\",\n      \"updatedBy\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-21T20:57:03.000Z",
+                      "updatedAt": "2026-10-21T20:57:03.000Z",
+                      "uid": "35240-789fb543-601a-4cf8-8d25-82107155d91e"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:57:03.000Z",
+                  "updatedAt": "2026-10-21T20:57:03.000Z",
+                  "uid": "35240-aa5be90a-b030-490f-8321-8334f13b5cff"
+                }
+              ],
+              "id": "f22e061f-d1fe-4ad6-aa68-28a2c5f4c2d5",
+              "createdAt": "2026-10-21T20:57:03.000Z",
+              "updatedAt": "2026-10-21T20:57:03.000Z",
+              "uid": "35240-f22e061f-d1fe-4ad6-aa68-28a2c5f4c2d5"
+            },
+            {
+              "name": "{owner}",
+              "item": [
+                {
+                  "name": "Delete a resource",
+                  "id": "13ca4196-ef7c-49a4-9682-68e4bca24159",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/metadata/resources/:owner?iri=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "metadata",
+                        "resources",
+                        ":owner"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Internationalized Resource Identifier (IRI) of the resource. You can find the IRI in the Technical Reference section under the Settings tab on the resource\u2019s catalog page.",
+                          "key": "iri",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "e260e909-30bb-429d-af71-6f9b40aa8909",
+                          "key": "owner",
+                          "value": "<string>",
+                          "description": "(Required) User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
+                        }
+                      ]
+                    },
+                    "description": "Delete a resource of any type in the organization."
+                  },
+                  "response": [
+                    {
+                      "id": "209b93f8-282c-4147-800b-ed98c54eb666",
+                      "name": "default response",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/metadata/resources/:owner?iri=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "metadata",
+                            "resources",
+                            ":owner"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Internationalized Resource Identifier (IRI) of the resource. You can find the IRI in the Technical Reference section under the Settings tab on the resource\u2019s catalog page.",
+                              "key": "iri",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "owner"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:57:03.000Z",
+                      "updatedAt": "2026-10-21T20:57:03.000Z",
+                      "uid": "35240-209b93f8-282c-4147-800b-ed98c54eb666"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:57:03.000Z",
+                  "updatedAt": "2026-10-21T20:57:03.000Z",
+                  "uid": "35240-13ca4196-ef7c-49a4-9682-68e4bca24159"
+                },
+                {
+                  "name": "Get a resource",
+                  "id": "e7b9cc45-d68f-4957-914f-43b57f4683a2",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/metadata/resources/:owner?iri=<string>&hydrations=false",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "metadata",
+                        "resources",
+                        ":owner"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Internationalized Resource Identifier (IRI) of the resource. You can find the IRI in the Technical Reference section under the Settings tab on the resource\u2019s catalog page.",
+                          "key": "iri",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Return additional information about the resource. For example, if the resource is in a collection, the collection IRI will be returned by default. If hydration is enabled, the collection's title and description will also be returned.",
+                          "key": "hydrations",
+                          "value": "false"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "26067007-35b3-4ec4-8f47-bc5f81eee8f7",
+                          "key": "owner",
+                          "value": "<string>",
+                          "description": "(Required) User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
+                        }
+                      ]
+                    },
+                    "description": "Return details about a resource of any type in the organization. See \"hydrations\" query parameter for options to return even more details."
+                  },
+                  "response": [
+                    {
+                      "id": "a2abf148-7398-4236-86cf-7ca92b96c326",
+                      "name": "default response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/metadata/resources/:owner?iri=<string>&hydrations=false",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "metadata",
+                            "resources",
+                            ":owner"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Internationalized Resource Identifier (IRI) of the resource. You can find the IRI in the Technical Reference section under the Settings tab on the resource\u2019s catalog page.",
+                              "key": "iri",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Return additional information about the resource. For example, if the resource is in a collection, the collection IRI will be returned by default. If hydration is enabled, the collection's title and description will also be returned.",
+                              "key": "hydrations",
+                              "value": "false"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "owner"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"hydrations\": {\n    \"agents\": {\n      \"ipsum6\": {\n        \"avatarUrl\": \"<string>\",\n        \"deactivated\": \"<boolean>\",\n        \"displayName\": \"<string>\",\n        \"id\": \"<string>\"\n      }\n    },\n    \"catalogConcepts\": {\n      \"cillum554\": {\n        \"altLabel\": \"<string>\",\n        \"iri\": \"<string>\",\n        \"owner\": \"<string>\",\n        \"prefLabel\": \"<string>\"\n      },\n      \"exercitation_ddf\": {\n        \"altLabel\": \"<string>\",\n        \"iri\": \"<string>\",\n        \"owner\": \"<string>\",\n        \"prefLabel\": \"<string>\"\n      }\n    },\n    \"collections\": {\n      \"adipisicing_097\": {\n        \"description\": \"<string>\",\n        \"id\": \"<string>\",\n        \"iri\": \"<string>\",\n        \"owner\": \"<string>\",\n        \"title\": \"<string>\"\n      }\n    },\n    \"properties\": {\n      \"consequat0\": {\n        \"label\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    \"relationships\": {\n      \"aliquip__\": {\n        \"labels\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    \"resourceHierarchy\": {\n      \"eu1c8\": {\n        \"sed95\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": \"<string>\",\n              \"dispositionLabel\": \"<string>\"\n            },\n            \"hierarchy\": [\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              },\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"icon\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            \"iri\": \"<string>\",\n            \"owner\": \"<string>\",\n            \"title\": \"<string>\",\n            \"type\": \"<string>\",\n            \"typeLabel\": \"<string>\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": \"<string>\",\n              \"dispositionLabel\": \"<string>\"\n            },\n            \"hierarchy\": [\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              },\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"icon\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            \"iri\": \"<string>\",\n            \"owner\": \"<string>\",\n            \"title\": \"<string>\",\n            \"type\": \"<string>\",\n            \"typeLabel\": \"<string>\"\n          }\n        ],\n        \"magnac\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": \"<string>\",\n              \"dispositionLabel\": \"<string>\"\n            },\n            \"hierarchy\": [\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              },\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"icon\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            \"iri\": \"<string>\",\n            \"owner\": \"<string>\",\n            \"title\": \"<string>\",\n            \"type\": \"<string>\",\n            \"typeLabel\": \"<string>\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": \"<string>\",\n              \"dispositionLabel\": \"<string>\"\n            },\n            \"hierarchy\": [\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              },\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"icon\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            \"iri\": \"<string>\",\n            \"owner\": \"<string>\",\n            \"title\": \"<string>\",\n            \"type\": \"<string>\",\n            \"typeLabel\": \"<string>\"\n          }\n        ],\n        \"pariatur7\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": \"<string>\",\n              \"dispositionLabel\": \"<string>\"\n            },\n            \"hierarchy\": [\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              },\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"icon\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            \"iri\": \"<string>\",\n            \"owner\": \"<string>\",\n            \"title\": \"<string>\",\n            \"type\": \"<string>\",\n            \"typeLabel\": \"<string>\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": \"<string>\",\n              \"dispositionLabel\": \"<string>\"\n            },\n            \"hierarchy\": [\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              },\n              {\n                \"icon\": {\n                  \"type\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                \"instantiable\": \"<boolean>\",\n                \"label\": \"<string>\",\n                \"pluralLabel\": \"<string>\",\n                \"requestable\": \"<boolean>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"icon\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            \"iri\": \"<string>\",\n            \"owner\": \"<string>\",\n            \"title\": \"<string>\",\n            \"type\": \"<string>\",\n            \"typeLabel\": \"<string>\"\n          }\n        ]\n      }\n    }\n  },\n  \"resource\": {\n    \"collections\": [\n      \"<uri>\",\n      \"<uri>\"\n    ],\n    \"iri\": \"<uri>\",\n    \"properties\": {\n      \"proidentedd\": \"<string>\"\n    },\n    \"sourceId\": \"<string>\",\n    \"tableId\": \"<string>\",\n    \"tableIri\": \"<string>\",\n    \"title\": \"<string>\",\n    \"types\": [\n      \"<uri>\",\n      \"<uri>\"\n    ],\n    \"url\": \"<uri>\"\n  }\n}",
+                      "createdAt": "2026-10-21T20:57:03.000Z",
+                      "updatedAt": "2026-10-21T20:57:03.000Z",
+                      "uid": "35240-a2abf148-7398-4236-86cf-7ca92b96c326"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:57:03.000Z",
+                  "updatedAt": "2026-10-21T20:57:03.000Z",
+                  "uid": "35240-e7b9cc45-d68f-4957-914f-43b57f4683a2"
+                },
+                {
+                  "name": "Update a resource",
+                  "id": "66cdee2e-40fc-4517-ad03-3b3fa04152ce",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"collections\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"properties\": {\n    \"incididuntb\": \"<string>\"\n  },\n  \"title\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/metadata/resources/:owner?iri=<string>&updateListBy=ADD",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "metadata",
+                        "resources",
+                        ":owner"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Internationalized Resource Identifier (IRI) of the resource. You can find the IRI in the Technical Reference section under the Settings tab on the resource\u2019s catalog page.",
+                          "key": "iri",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Set this option when updating properties that supports having a list of values. Given a list of values in the request body, should this request add to the existing list, remove the specified values, or replace the existing list with the specified values?",
+                          "key": "updateListBy",
+                          "value": "ADD"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "ee0a49d1-b519-4c1c-ab31-933154183e7b",
+                          "key": "owner",
+                          "value": "<string>",
+                          "description": "(Required) User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
+                        }
+                      ]
+                    },
+                    "description": "Update a resource of any type in the organization. Properties that are not defined in the request are not updated. When updating properties that have a single value, the old value is replaced by the new value in the request. When updating properties that have a list of values, see \"updateListBy\" query parameter for more granular controls. To delete properties, use \"Delete properties from a resource\". To update multiple resources at once, use \"Bulk: update multiple resources at once\"."
+                  },
+                  "response": [
+                    {
+                      "id": "18f9fbaa-3f4f-4cd6-9c6a-2dc4d7229604",
+                      "name": "default response",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"collections\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"properties\": {\n    \"incididuntb\": \"<string>\"\n  },\n  \"title\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/metadata/resources/:owner?iri=<string>&updateListBy=ADD",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "metadata",
+                            "resources",
+                            ":owner"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Internationalized Resource Identifier (IRI) of the resource. You can find the IRI in the Technical Reference section under the Settings tab on the resource\u2019s catalog page.",
+                              "key": "iri",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Set this option when updating properties that supports having a list of values. Given a list of values in the request body, should this request add to the existing list, remove the specified values, or replace the existing list with the specified values?",
+                              "key": "updateListBy",
+                              "value": "ADD"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "owner"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"collections\": [\n    \"<uri>\",\n    \"<uri>\"\n  ],\n  \"iri\": \"<uri>\",\n  \"properties\": {\n    \"nostrud1\": \"<string>\"\n  },\n  \"sourceId\": \"<string>\",\n  \"tableId\": \"<string>\",\n  \"tableIri\": \"<string>\",\n  \"title\": \"<string>\",\n  \"types\": [\n    \"<uri>\",\n    \"<uri>\"\n  ],\n  \"url\": \"<uri>\"\n}",
+                      "createdAt": "2026-10-21T20:57:03.000Z",
+                      "updatedAt": "2026-10-21T20:57:03.000Z",
+                      "uid": "35240-18f9fbaa-3f4f-4cd6-9c6a-2dc4d7229604"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:57:03.000Z",
+                  "updatedAt": "2026-10-21T20:57:03.000Z",
+                  "uid": "35240-66cdee2e-40fc-4517-ad03-3b3fa04152ce"
+                },
+                {
+                  "name": "Create a new resource",
+                  "id": "84002c81-9367-43b7-9c6c-7b3b1be72db9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"type\": \"<string>\",\n  \"collections\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"iri\": \"<string>\",\n  \"properties\": {\n    \"animb\": \"<string>\",\n    \"Excepteurf17\": \"<string>\",\n    \"est_1\": \"<string>\"\n  },\n  \"title\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/metadata/resources/:owner",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "metadata",
+                        "resources",
+                        ":owner"
+                      ],
+                      "variable": [
+                        {
+                          "id": "ec775f20-f503-433f-ac5e-89a6c71ef0d5",
+                          "key": "owner",
+                          "value": "<string>",
+                          "description": "(Required) User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
+                        }
+                      ]
+                    },
+                    "description": "Create a new resource of any type in the organization. The resource is created with the provided properties. To create multiple resources at once, use \"Bulk: create multiple resources at once\"."
+                  },
+                  "response": [
+                    {
+                      "id": "e22322fe-7652-4eb5-82a1-1826c9df8719",
+                      "name": "default response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"type\": \"<string>\",\n  \"collections\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"iri\": \"<string>\",\n  \"properties\": {\n    \"animb\": \"<string>\",\n    \"Excepteurf17\": \"<string>\",\n    \"est_1\": \"<string>\"\n  },\n  \"title\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/metadata/resources/:owner",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "metadata",
+                            "resources",
+                            ":owner"
+                          ],
+                          "variable": [
+                            {
+                              "key": "owner"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"collections\": [\n    \"<uri>\",\n    \"<uri>\"\n  ],\n  \"iri\": \"<uri>\",\n  \"properties\": {\n    \"nostrud1\": \"<string>\"\n  },\n  \"sourceId\": \"<string>\",\n  \"tableId\": \"<string>\",\n  \"tableIri\": \"<string>\",\n  \"title\": \"<string>\",\n  \"types\": [\n    \"<uri>\",\n    \"<uri>\"\n  ],\n  \"url\": \"<uri>\"\n}",
+                      "createdAt": "2026-10-21T20:57:03.000Z",
+                      "updatedAt": "2026-10-21T20:57:03.000Z",
+                      "uid": "35240-e22322fe-7652-4eb5-82a1-1826c9df8719"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:57:03.000Z",
+                  "updatedAt": "2026-10-21T20:57:03.000Z",
+                  "uid": "35240-84002c81-9367-43b7-9c6c-7b3b1be72db9"
+                }
+              ],
+              "id": "03111d7d-7e94-4f51-bed5-9c1b5f18e306",
+              "createdAt": "2026-10-21T20:57:03.000Z",
+              "updatedAt": "2026-10-21T20:57:03.000Z",
+              "uid": "35240-03111d7d-7e94-4f51-bed5-9c1b5f18e306"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "19aa2614-3761-4100-8bd9-bca21eacc0bc",
+          "createdAt": "2026-10-21T20:57:03.000Z",
+          "updatedAt": "2026-10-21T20:57:03.000Z",
+          "uid": "35240-19aa2614-3761-4100-8bd9-bca21eacc0bc"
         },
         {
-          "id": "5bc67e85-cd64-4db8-9b07-b512fd975a93",
-          "name": "Bulk: update multiple resources at once",
-          "request": {
-            "name": "Bulk: update multiple resources at once",
-            "description": {
-              "content": "Update a maximum of 25 resources of any type in the organization at once. To create one resource at a time, use \"Create a new resource\". Also, see the aforementioned endpoint for further update behaviors.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "metadata",
-                "resources",
-                "bulk",
-                ":owner"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "updateListBy",
-                  "value": "ADD",
-                  "description": "(Required) Set this option when updating properties that supports having a list of values. Given a list of values in the request body, should this request add to the existing list, remove the specified values, or replace the existing list with the specified values?"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "owner",
-                  "description": "(Required) User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PATCH",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"resources\": {\n    \"key_0\": {\n      \"collections\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"properties\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\",\n        \"key_3\": \"<string>\"\n      },\n      \"title\": \"<string>\"\n    }\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
+          "name": "{owner}",
+          "item": [
             {
-              "id": "6b0687f2-aadd-477e-a713-9504ecf94b76",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "metadata",
-                    "resources",
-                    "bulk",
-                    ":owner"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "updateListBy",
-                      "value": "ADD"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "owner",
-                      "description": "(Required) User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"resources\": {\n    \"key_0\": {\n      \"collections\": [\n        \"string\",\n        \"string\"\n      ],\n      \"properties\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"title\": \"string\"\n    },\n    \"key_1\": {\n      \"collections\": [\n        \"string\",\n        \"string\"\n      ],\n      \"properties\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"title\": \"string\"\n    }\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "resources",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "clear",
+                  "item": [
+                    {
+                      "name": "Clear all user edits from a resource",
+                      "id": "95efaf74-ea23-44da-91ba-78b124d38ab8",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"resourceType\": \"<string>\",\n  \"resources\": [\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/metadata/:owner/resources/clear",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "metadata",
+                            ":owner",
+                            "resources",
+                            "clear"
+                          ],
+                          "variable": [
+                            {
+                              "id": "608100f7-bbf9-47c9-b18c-8d830f6cb62d",
+                              "key": "owner",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "This is an advanced operation and should be used with caution. The data.world catalog graph relies on a layered model that keeps the content from collected source systems separate from edits made by end users on the platform. This allows the collected source system data to update regularly withoutoverwriting enrichment and curation efforts that are authored on data.world. Sometimes, however, it is desirable to overwrite the end user edits or let the source system metadata replace user edits. This endpoint can be used to clear all end user edits for a given metadata resource or list of resources, restoring the source system values."
+                      },
+                      "response": [
+                        {
+                          "id": "3e94ab0c-f45a-410f-904d-df095e9a0d8e",
+                          "name": "default response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"resourceType\": \"<string>\",\n  \"resources\": [\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/metadata/:owner/resources/clear",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "metadata",
+                                ":owner",
+                                "resources",
+                                "clear"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "owner"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:57:03.000Z",
+                          "updatedAt": "2026-10-21T20:57:03.000Z",
+                          "uid": "35240-3e94ab0c-f45a-410f-904d-df095e9a0d8e"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:57:03.000Z",
+                      "updatedAt": "2026-10-21T20:57:03.000Z",
+                      "uid": "35240-95efaf74-ea23-44da-91ba-78b124d38ab8"
+                    }
+                  ],
+                  "id": "4f0cc982-886a-4d26-8956-005b2df0e433",
+                  "createdAt": "2026-10-21T20:57:03.000Z",
+                  "updatedAt": "2026-10-21T20:57:03.000Z",
+                  "uid": "35240-4f0cc982-886a-4d26-8956-005b2df0e433"
+                },
+                {
+                  "name": "properties",
+                  "item": [
+                    {
+                      "name": "clear",
+                      "item": [
+                        {
+                          "name": "Clear all user edits on specified properties from a resource",
+                          "id": "78f9f6da-a4aa-412d-af38-966641f505ea",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"properties\": [\n    \"<string>\"\n  ],\n  \"resource\": \"<string>\",\n  \"resourceType\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/metadata/:owner/resources/properties/clear",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "metadata",
+                                ":owner",
+                                "resources",
+                                "properties",
+                                "clear"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "c830e62c-1db9-44ac-be78-b8bc41e67f32",
+                                  "key": "owner",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "This is an advanced operation and should be used with caution. The data.world catalog graph relies on a layered model that keeps the content from collected source systems separate from edits made by end users on the platform. This allows the collected source system data to update regularly without overwriting enrichment and curation efforts that are authored on data.world. Sometimes, however, it is desirable to overwrite the end user edits or let the source system metadata replace user edits. This endpoint can be used to clear a specific user-edited metadata field, restoring the source system values."
+                          },
+                          "response": [
+                            {
+                              "id": "eaf4aace-9212-4dc6-87a6-463d7c757b0a",
+                              "name": "default response",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"properties\": [\n    \"<string>\"\n  ],\n  \"resource\": \"<string>\",\n  \"resourceType\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/metadata/:owner/resources/properties/clear",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "metadata",
+                                    ":owner",
+                                    "resources",
+                                    "properties",
+                                    "clear"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "owner"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-10-21T20:57:03.000Z",
+                              "updatedAt": "2026-10-21T20:57:03.000Z",
+                              "uid": "35240-eaf4aace-9212-4dc6-87a6-463d7c757b0a"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:57:03.000Z",
+                          "updatedAt": "2026-10-21T20:57:03.000Z",
+                          "uid": "35240-78f9f6da-a4aa-412d-af38-966641f505ea"
+                        }
+                      ],
+                      "id": "b0970af9-0e1b-446b-a7c4-c568426639a8",
+                      "createdAt": "2026-10-21T20:57:03.000Z",
+                      "updatedAt": "2026-10-21T20:57:03.000Z",
+                      "uid": "35240-b0970af9-0e1b-446b-a7c4-c568426639a8"
+                    }
+                  ],
+                  "id": "3513129a-8b18-4c5d-a6fb-b8f2633d9db0",
+                  "createdAt": "2026-10-21T20:57:03.000Z",
+                  "updatedAt": "2026-10-21T20:57:03.000Z",
+                  "uid": "35240-3513129a-8b18-4c5d-a6fb-b8f2633d9db0"
                 }
               ],
-              "body": "{\n  \"resources\": [\n    {\n      \"iri\": \"http://fbyrxDjIyUrKtyRqUdwQVFMmxVHmR.lhvf8Tp9xI6zLT4dcacq,n68wv5v5zjGt.jI4\",\n      \"url\": \"http://pByOYviBWAIFbvHsUGhK.liLc7C4ihUrb.\"\n    },\n    {\n      \"iri\": \"http://NApJaaFrkwmpnDglQRGhjoRLI.tljev99nUbRGI,Uo7tDBxh1BbddjkOuccCFy9mpoWRbODiKf\",\n      \"url\": \"http://cHgUMoOmPfWTS.ivOgCjh+CPW7bLutvuYJ6ZCaP,O2IIjKuVntHylqIh9VkB5I64z5SUG,v\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "d084b039-8388-4891-bfa3-2423c8498662",
+              "createdAt": "2026-10-21T20:57:03.000Z",
+              "updatedAt": "2026-10-21T20:57:03.000Z",
+              "uid": "35240-d084b039-8388-4891-bfa3-2423c8498662"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "503da22c-2d58-44d3-9506-8aaa25113cf6",
-          "name": "Bulk: create multiple resources at once",
-          "request": {
-            "name": "Bulk: create multiple resources at once",
-            "description": {
-              "content": "Create a maximum of 25 resources of any type in the organization at once. The resources are created with the provided properties. To create one resource at a time, use \"Create a new resource\".",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "metadata",
-                "resources",
-                "bulk",
-                ":owner"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "owner",
-                  "description": "(Required) User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"resources\": [\n    {\n      \"type\": \"<string>\",\n      \"collections\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"iri\": \"<string>\",\n      \"properties\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\",\n        \"key_3\": \"<string>\"\n      },\n      \"title\": \"<string>\"\n    }\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "c7cc7045-4bdd-408d-8251-efa2759b73cd",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "metadata",
-                    "resources",
-                    "bulk",
-                    ":owner"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "owner",
-                      "description": "(Required) User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"resources\": [\n    {\n      \"type\": \"string\",\n      \"collections\": [\n        \"string\",\n        \"string\"\n      ],\n      \"iri\": \"string\",\n      \"properties\": {\n        \"key_0\": \"string\"\n      },\n      \"title\": \"string\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"resources\": [\n    {\n      \"iri\": \"http://fbyrxDjIyUrKtyRqUdwQVFMmxVHmR.lhvf8Tp9xI6zLT4dcacq,n68wv5v5zjGt.jI4\",\n      \"url\": \"http://pByOYviBWAIFbvHsUGhK.liLc7C4ihUrb.\"\n    },\n    {\n      \"iri\": \"http://NApJaaFrkwmpnDglQRGhjoRLI.tljev99nUbRGI,Uo7tDBxh1BbddjkOuccCFy9mpoWRbODiKf\",\n      \"url\": \"http://cHgUMoOmPfWTS.ivOgCjh+CPW7bLutvuYJ6ZCaP,O2IIjKuVntHylqIh9VkB5I64z5SUG,v\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "18e98cfc-e9e9-44de-9e88-ecfd981211c8",
-          "name": "Delete properties from a resource",
-          "request": {
-            "name": "Delete properties from a resource",
-            "description": {
-              "content": "Delete properties from a resource of any type in the organization. To update properties, use \"Update a resource\". To delete properties from multiple resources at once, use \"Bulk: delete properties from resources\".",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "metadata",
-                "resources",
-                "property",
-                ":owner"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "iri",
-                  "value": "<string>",
-                  "description": "(Required) Internationalized Resource Identifier (IRI) of the resource. You can find the IRI in the Technical Reference section under the Settings tab on the resource’s catalog page."
-                },
-                {
-                  "disabled": false,
-                  "key": "property",
-                  "value": "<string>",
-                  "description": "(Required) Property is identified by its IRI"
-                },
-                {
-                  "disabled": false,
-                  "key": "property",
-                  "value": "<string>",
-                  "description": "(Required) Property is identified by its IRI"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "owner",
-                  "description": "(Required) User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "138e445f-7763-406b-b96e-9be741b65fc6",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "metadata",
-                    "resources",
-                    "property",
-                    ":owner"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "iri",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "property",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "property",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "owner",
-                      "description": "(Required) User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"collections\": [\n    \"https://eJFHnMccrBGslpVoteU.gzuDX5lgpYOEX.8YtQ38nbQYFxSU+,0rtqhUsL77AUIOnu4ujSmAWUnmkzVszpDNr\",\n    \"https://sGtQxqmpbkkeJXgjoCaVmH.wvAzmXl-prq5AzGf.dFD4V\"\n  ],\n  \"iri\": \"https://bFZwSPyjseFfDNRNDPLpFHHRiOSoLJ.jyywng6n4EUihdJDZ2uXcVzZ1C01NVxudm\",\n  \"properties\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"sourceId\": \"string\",\n  \"tableId\": \"string\",\n  \"tableIri\": \"string\",\n  \"title\": \"string\",\n  \"types\": [\n    \"https://xpZKnQnRKjfMWxobORnT.wfoxYnPWbjz+E-TLAp+LungFJWWbtb451Bmnl8rrHr9\",\n    \"https://rHaQaOvkrCpEUEmPwMZPByZJPBG.jwwqczUWBAyA8Etesb,CZypJUvX2QV5y4uDqTDv1zBguA,bByvCv,NgoyiQ\"\n  ],\n  \"url\": \"http://w.drwuthVdBiJXfDcI-HGMr+5-QiP9z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "3d184c8e-3177-4a7c-8404-600b3e0e1335",
-          "name": "Search for resources",
-          "request": {
-            "name": "Search for resources",
-            "description": {
-              "content": "Search for resources in the organization. See request body for filtering options. To paginate through results, use \"from\" and \"size\" query parameters. To return more details about the resources, see \"hydration\" query parameter.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "metadata",
-                "resources",
-                "search"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "size",
-                  "value": "10",
-                  "description": "Size of page to fetch"
-                },
-                {
-                  "disabled": false,
-                  "key": "from",
-                  "value": "0",
-                  "description": "Result number to start fetch from (not the page number to start from)"
-                },
-                {
-                  "disabled": false,
-                  "key": "sort",
-                  "value": "<string>",
-                  "description": "Sort results by fields"
-                },
-                {
-                  "disabled": false,
-                  "key": "sort",
-                  "value": "<string>",
-                  "description": "Sort results by fields"
-                },
-                {
-                  "disabled": false,
-                  "key": "hydration",
-                  "value": "<string>",
-                  "description": "Return additional information about the resource. For example, if the resource is in a collection, the collection IRI will be returned by default. If hydration is enabled, the collection's title and description will also be returned."
-                },
-                {
-                  "disabled": false,
-                  "key": "hydration",
-                  "value": "<string>",
-                  "description": "Return additional information about the resource. For example, if the resource is in a collection, the collection IRI will be returned by default. If hydration is enabled, the collection's title and description will also be returned."
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"owner\": \"<string>\",\n  \"assetStatus\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"collection\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"createdRange\": {\n    \"endDate\": \"<string>\",\n    \"startDate\": \"<string>\"\n  },\n  \"minAccessLevel\": \"<string>\",\n  \"property\": {\n    \"key_0\": {}\n  },\n  \"query\": \"<string>\",\n  \"tag\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"type\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"updatedRange\": {\n    \"endDate\": \"<string>\",\n    \"startDate\": \"<string>\"\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "5218eee9-029e-4692-a6c1-f8e6dab5ab45",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "metadata",
-                    "resources",
-                    "search"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "size",
-                      "value": "10"
-                    },
-                    {
-                      "key": "from",
-                      "value": "0"
-                    },
-                    {
-                      "key": "sort",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "sort",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "hydration",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"owner\": \"<string>\",\n  \"assetStatus\": [\n    \"<string>\"\n  ],\n  \"collection\": [\n    \"<string>\"\n  ],\n  \"createdRange\": {\n    \"endDate\": \"string\",\n    \"startDate\": \"string\"\n  },\n  \"minAccessLevel\": \"<string>\",\n  \"property\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"query\": \"<string>\",\n  \"tag\": [\n    \"<string>\"\n  ],\n  \"type\": [\n    \"<string>\"\n  ],\n  \"updatedRange\": {\n    \"endDate\": \"string\",\n    \"startDate\": \"string\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"consistent\": true,\n  \"count\": 7490,\n  \"hydrations\": {\n    \"agents\": {\n      \"key_0\": {\n        \"avatarUrl\": \"string\",\n        \"deactivated\": false,\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      },\n      \"key_1\": {\n        \"avatarUrl\": \"string\",\n        \"deactivated\": true,\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      }\n    },\n    \"catalogConcepts\": {\n      \"key_0\": {\n        \"altLabel\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"prefLabel\": \"string\"\n      }\n    },\n    \"collections\": {\n      \"key_0\": {\n        \"description\": \"string\",\n        \"id\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"title\": \"string\"\n      },\n      \"key_1\": {\n        \"description\": \"string\",\n        \"id\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"title\": \"string\"\n      },\n      \"key_2\": {\n        \"description\": \"string\",\n        \"id\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"title\": \"string\"\n      },\n      \"key_3\": {\n        \"description\": \"string\",\n        \"id\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"title\": \"string\"\n      },\n      \"key_4\": {\n        \"description\": \"string\",\n        \"id\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"title\": \"string\"\n      }\n    },\n    \"properties\": {\n      \"key_0\": {\n        \"label\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"key_1\": {\n        \"label\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    },\n    \"relationships\": {\n      \"key_0\": {\n        \"labels\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"key_1\": {\n        \"labels\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    },\n    \"resourceHierarchy\": {\n      \"key_0\": {\n        \"key_0\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          }\n        ],\n        \"key_1\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          }\n        ],\n        \"key_2\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          }\n        ]\n      },\n      \"key_1\": {\n        \"key_0\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          }\n        ],\n        \"key_1\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          }\n        ]\n      }\n    }\n  },\n  \"next\": \"string\",\n  \"records\": [\n    {\n      \"category\": \"string\",\n      \"id\": \"string\",\n      \"owner\": \"string\",\n      \"created\": \"1951-05-25T16:12:45.847Z\",\n      \"creator\": \"string\",\n      \"iri\": \"string\",\n      \"numLikes\": 2648,\n      \"properties\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      },\n      \"resourceDetails\": {\n        \"typeDetails\": {\n          \"id\": \"string\",\n          \"label\": \"string\",\n          \"subtypeOf\": \"string\"\n        }\n      },\n      \"resourceLink\": \"https://vqLMRyRSXgXoQ.kgcNyO6FJQQa16eBfRzDc\",\n      \"sourceId\": \"string\",\n      \"sourceOfRecord\": \"string\",\n      \"tableId\": \"string\",\n      \"tableIri\": \"string\",\n      \"title\": \"string\",\n      \"updated\": \"1988-08-18T12:26:45.787Z\",\n      \"updatedBy\": \"string\"\n    },\n    {\n      \"category\": \"string\",\n      \"id\": \"string\",\n      \"owner\": \"string\",\n      \"created\": \"1996-02-17T03:17:50.991Z\",\n      \"creator\": \"string\",\n      \"iri\": \"string\",\n      \"numLikes\": 2162,\n      \"properties\": {\n        \"key_0\": {}\n      },\n      \"resourceDetails\": {\n        \"typeDetails\": {\n          \"id\": \"string\",\n          \"label\": \"string\",\n          \"subtypeOf\": \"string\"\n        }\n      },\n      \"resourceLink\": \"http://qYwgSbKdPVPSQnItddQ.lgHx0anLgtNR0bOJDZE2KwinbMUzN5cZL4CmBA4HcjY.fhB\",\n      \"sourceId\": \"string\",\n      \"sourceOfRecord\": \"string\",\n      \"tableId\": \"string\",\n      \"tableIri\": \"string\",\n      \"title\": \"string\",\n      \"updated\": \"1987-11-09T09:00:55.732Z\",\n      \"updatedBy\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "ae89a533-d6b9-486d-991f-78e09a700663",
-          "name": "Delete a resource",
-          "request": {
-            "name": "Delete a resource",
-            "description": {
-              "content": "Delete a resource of any type in the organization.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "metadata",
-                "resources",
-                ":owner"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "iri",
-                  "value": "<string>",
-                  "description": "(Required) Internationalized Resource Identifier (IRI) of the resource. You can find the IRI in the Technical Reference section under the Settings tab on the resource’s catalog page."
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "owner",
-                  "description": "(Required) User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "39242f90-c3f5-4853-981c-78b908789594",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "metadata",
-                    "resources",
-                    ":owner"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "iri",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "owner",
-                      "description": "(Required) User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "ffdbb272-12df-4161-bada-7c307de51776",
-          "name": "Get a resource",
-          "request": {
-            "name": "Get a resource",
-            "description": {
-              "content": "Return details about a resource of any type in the organization. See \"hydrations\" query parameter for options to return even more details.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "metadata",
-                "resources",
-                ":owner"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "iri",
-                  "value": "<string>",
-                  "description": "(Required) Internationalized Resource Identifier (IRI) of the resource. You can find the IRI in the Technical Reference section under the Settings tab on the resource’s catalog page."
-                },
-                {
-                  "disabled": false,
-                  "key": "hydrations",
-                  "value": "false",
-                  "description": "Return additional information about the resource. For example, if the resource is in a collection, the collection IRI will be returned by default. If hydration is enabled, the collection's title and description will also be returned."
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "owner",
-                  "description": "(Required) User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "6fb2c199-b95b-41a8-8e1f-987ddebc33dd",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "metadata",
-                    "resources",
-                    ":owner"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "iri",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "hydrations",
-                      "value": "false"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "owner",
-                      "description": "(Required) User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"hydrations\": {\n    \"agents\": {\n      \"key_0\": {\n        \"avatarUrl\": \"string\",\n        \"deactivated\": false,\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      },\n      \"key_1\": {\n        \"avatarUrl\": \"string\",\n        \"deactivated\": false,\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      },\n      \"key_2\": {\n        \"avatarUrl\": \"string\",\n        \"deactivated\": true,\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      }\n    },\n    \"catalogConcepts\": {\n      \"key_0\": {\n        \"altLabel\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"prefLabel\": \"string\"\n      }\n    },\n    \"collections\": {\n      \"key_0\": {\n        \"description\": \"string\",\n        \"id\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"title\": \"string\"\n      },\n      \"key_1\": {\n        \"description\": \"string\",\n        \"id\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"title\": \"string\"\n      },\n      \"key_2\": {\n        \"description\": \"string\",\n        \"id\": \"string\",\n        \"iri\": \"string\",\n        \"owner\": \"string\",\n        \"title\": \"string\"\n      }\n    },\n    \"properties\": {\n      \"key_0\": {\n        \"label\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    },\n    \"relationships\": {\n      \"key_0\": {\n        \"labels\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    },\n    \"resourceHierarchy\": {\n      \"key_0\": {\n        \"key_0\": [\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          },\n          {\n            \"assetStatus\": {\n              \"assetStatusLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dispositionLabel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"hierarchy\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"icon\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iri\": \"string\",\n            \"owner\": \"string\",\n            \"title\": \"string\",\n            \"type\": \"string\",\n            \"typeLabel\": \"string\"\n          }\n        ]\n      }\n    }\n  },\n  \"resource\": {\n    \"collections\": [\n      \"https://JGzrlOfHLUgjKDTmCo.aksvDRv,gE8Igw\",\n      \"http://hzyLXhoxBPtM.xrq8yyR3XSeb9F3HqeSWEnjmLzBb.GD2jH6.4i4fcudqx0ynJyJZC5xm.x,J1gZQ20t,ULlLTCWSwzO9Gs3x\"\n    ],\n    \"iri\": \"http://XGH.xutsQEEtOs.2zrHGf3HM-q685NpdeJcpTAiD-dNULdHe9T.Vi6\",\n    \"properties\": {\n      \"key_0\": \"string\"\n    },\n    \"sourceId\": \"string\",\n    \"tableId\": \"string\",\n    \"tableIri\": \"string\",\n    \"title\": \"string\",\n    \"types\": [\n      \"https://He.chQv1o5nwo5JIe-zauLe5fbcNB,isU72aKtw,dcZc-TbYOUb0nxqwDMURoE7aS..YWtO\",\n      \"http://EVnGUGztnIMIsbZAMcgdGIsFftu.pcvfgAiqOJ\"\n    ],\n    \"url\": \"https://ibMRvZWPnyS.inmxWe3V1\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "f38aa6bd-a3d8-4791-a247-d45a3d4aef0c",
-          "name": "Update a resource",
-          "request": {
-            "name": "Update a resource",
-            "description": {
-              "content": "Update a resource of any type in the organization. Properties that are not defined in the request are not updated. When updating properties that have a single value, the old value is replaced by the new value in the request. When updating properties that have a list of values, see \"updateListBy\" query parameter for more granular controls. To delete properties, use \"Delete properties from a resource\". To update multiple resources at once, use \"Bulk: update multiple resources at once\".",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "metadata",
-                "resources",
-                ":owner"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "iri",
-                  "value": "<string>",
-                  "description": "(Required) Internationalized Resource Identifier (IRI) of the resource. You can find the IRI in the Technical Reference section under the Settings tab on the resource’s catalog page."
-                },
-                {
-                  "disabled": false,
-                  "key": "updateListBy",
-                  "value": "ADD",
-                  "description": "(Required) Set this option when updating properties that supports having a list of values. Given a list of values in the request body, should this request add to the existing list, remove the specified values, or replace the existing list with the specified values?"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "owner",
-                  "description": "(Required) User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PATCH",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"collections\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"properties\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\",\n    \"key_3\": \"<string>\",\n    \"key_4\": \"<string>\"\n  },\n  \"title\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "93ab0843-9d9e-4106-924f-833795cf26e8",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "metadata",
-                    "resources",
-                    ":owner"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "iri",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "updateListBy",
-                      "value": "ADD"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "owner",
-                      "description": "(Required) User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"collections\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"properties\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"title\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"collections\": [\n    \"https://eJFHnMccrBGslpVoteU.gzuDX5lgpYOEX.8YtQ38nbQYFxSU+,0rtqhUsL77AUIOnu4ujSmAWUnmkzVszpDNr\",\n    \"https://sGtQxqmpbkkeJXgjoCaVmH.wvAzmXl-prq5AzGf.dFD4V\"\n  ],\n  \"iri\": \"https://bFZwSPyjseFfDNRNDPLpFHHRiOSoLJ.jyywng6n4EUihdJDZ2uXcVzZ1C01NVxudm\",\n  \"properties\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"sourceId\": \"string\",\n  \"tableId\": \"string\",\n  \"tableIri\": \"string\",\n  \"title\": \"string\",\n  \"types\": [\n    \"https://xpZKnQnRKjfMWxobORnT.wfoxYnPWbjz+E-TLAp+LungFJWWbtb451Bmnl8rrHr9\",\n    \"https://rHaQaOvkrCpEUEmPwMZPByZJPBG.jwwqczUWBAyA8Etesb,CZypJUvX2QV5y4uDqTDv1zBguA,bByvCv,NgoyiQ\"\n  ],\n  \"url\": \"http://w.drwuthVdBiJXfDcI-HGMr+5-QiP9z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "a8841b57-3f95-4098-81dd-f293ac5da55d",
-          "name": "Create a new resource",
-          "request": {
-            "name": "Create a new resource",
-            "description": {
-              "content": "Create a new resource of any type in the organization. The resource is created with the provided properties. To create multiple resources at once, use \"Bulk: create multiple resources at once\".",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "metadata",
-                "resources",
-                ":owner"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "owner",
-                  "description": "(Required) User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"type\": \"<string>\",\n  \"collections\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"iri\": \"<string>\",\n  \"properties\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  },\n  \"title\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "6f318a4e-9dbd-404d-a01f-622ce9e867d0",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "metadata",
-                    "resources",
-                    ":owner"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "owner",
-                      "description": "(Required) User name and unique identifier of the user or organization a resource belongs to.\nFor example, in the URL: https://acme.data.world/jonloyens/an-intro-to-dataworld-dataset, jonloyens is the unique identifier of the owner.\n"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"type\": \"<string>\",\n  \"collections\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"iri\": \"<string>\",\n  \"properties\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"title\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"collections\": [\n    \"https://eJFHnMccrBGslpVoteU.gzuDX5lgpYOEX.8YtQ38nbQYFxSU+,0rtqhUsL77AUIOnu4ujSmAWUnmkzVszpDNr\",\n    \"https://sGtQxqmpbkkeJXgjoCaVmH.wvAzmXl-prq5AzGf.dFD4V\"\n  ],\n  \"iri\": \"https://bFZwSPyjseFfDNRNDPLpFHHRiOSoLJ.jyywng6n4EUihdJDZ2uXcVzZ1C01NVxudm\",\n  \"properties\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"sourceId\": \"string\",\n  \"tableId\": \"string\",\n  \"tableIri\": \"string\",\n  \"title\": \"string\",\n  \"types\": [\n    \"https://xpZKnQnRKjfMWxobORnT.wfoxYnPWbjz+E-TLAp+LungFJWWbtb451Bmnl8rrHr9\",\n    \"https://rHaQaOvkrCpEUEmPwMZPByZJPBG.jwwqczUWBAyA8Etesb,CZypJUvX2QV5y4uDqTDv1zBguA,bByvCv,NgoyiQ\"\n  ],\n  \"url\": \"http://w.drwuthVdBiJXfDcI-HGMr+5-QiP9z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "c3d46e9b-3cd8-47a7-945b-3bb191d8e4a0",
-          "name": "Clear all user edits from a resource",
-          "request": {
-            "name": "Clear all user edits from a resource",
-            "description": {
-              "content": "This is an advanced operation and should be used with caution. The data.world catalog graph relies on a layered model that keeps the content from collected source systems separate from edits made by end users on the platform. This allows the collected source system data to update regularly withoutoverwriting enrichment and curation efforts that are authored on data.world. Sometimes, however, it is desirable to overwrite the end user edits or let the source system metadata replace user edits. This endpoint can be used to clear all end user edits for a given metadata resource or list of resources, restoring the source system values.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "metadata",
-                ":owner",
-                "resources",
-                "clear"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "owner",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"resourceType\": \"<string>\",\n  \"resources\": [\n    \"<string>\"\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "9c7faf8a-d4ef-4e54-a95b-3b62889b690e",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "metadata",
-                    ":owner",
-                    "resources",
-                    "clear"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "owner",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"resourceType\": \"<string>\",\n  \"resources\": [\n    \"<string>\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "92033fa8-32b1-4aae-9e1a-f664b11dfc6b",
-          "name": "Clear all user edits on specified properties from a resource",
-          "request": {
-            "name": "Clear all user edits on specified properties from a resource",
-            "description": {
-              "content": "This is an advanced operation and should be used with caution. The data.world catalog graph relies on a layered model that keeps the content from collected source systems separate from edits made by end users on the platform. This allows the collected source system data to update regularly without overwriting enrichment and curation efforts that are authored on data.world. Sometimes, however, it is desirable to overwrite the end user edits or let the source system metadata replace user edits. This endpoint can be used to clear a specific user-edited metadata field, restoring the source system values.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "metadata",
-                ":owner",
-                "resources",
-                "properties",
-                "clear"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "owner",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"properties\": [\n    \"<string>\"\n  ],\n  \"resource\": \"<string>\",\n  \"resourceType\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "bd15fe97-37a5-4eec-aeab-06e34290d234",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "metadata",
-                    ":owner",
-                    "resources",
-                    "properties",
-                    "clear"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "owner",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"properties\": [\n    \"<string>\"\n  ],\n  \"resource\": \"<string>\",\n  \"resourceType\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "acbb1d7a-f5a4-4873-869b-2a1437a0464d",
+          "createdAt": "2026-10-21T20:57:03.000Z",
+          "updatedAt": "2026-10-21T20:57:03.000Z",
+          "uid": "35240-acbb1d7a-f5a4-4873-869b-2a1437a0464d"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "/v0",
-      "key": "baseUrl"
+      "id": "81fd765f-4305-48d1-a1ce-603e01fab970",
+      "createdAt": "2026-10-21T20:57:03.000Z",
+      "updatedAt": "2026-10-21T20:57:03.000Z",
+      "uid": "35240-81fd765f-4305-48d1-a1ce-603e01fab970"
     }
   ],
   "auth": {
@@ -1429,17 +1527,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "76094efc-06a7-415c-9472-b5986e35194d",
-    "name": "data.world Public catalog relationships catalog resources API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Manage relationships between catalog resources\n\nContact Support:\n Name: Contact Us",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/v0"
     }
-  }
+  ]
 }

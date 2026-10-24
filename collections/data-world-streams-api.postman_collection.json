@@ -1,583 +1,570 @@
 {
+  "info": {
+    "_postman_id": "47557b82-2579-4d57-800f-101dd19998f2",
+    "name": "data.world Public Streams API",
+    "description": "Contact Support:\n Name: Contact Us",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:59:11.000Z",
+    "updatedAt": "2026-10-21T20:59:11.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-47557b82-2579-4d57-800f-101dd19998f2"
+  },
   "item": [
     {
-      "id": "1213e9c5-3531-44d0-916c-2690be78eeca",
       "name": "streams",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
       "item": [
         {
-          "id": "a4c7f464-ab3e-4ee9-af1d-595282eea389",
-          "name": "Append record(s)",
-          "request": {
-            "name": "Append record(s)",
-            "description": {
-              "content": "Append JSON data to a stream associated with a dataset.\n\ndata.world streams are append-only by default. Alternatively, if a primary key is specified (see:\n`POST:/streams/{owner}/{id}/{streamId}/schema`), data.world will replace records with the same primary\nkey value.\n\n**Streams don't need to be created before you can append data to them**. They will be created on-demand,\n when the first record is appended or by defining its schema.\n\nMultiple records can be appended at once by using JSON-L (`application/json-l`) as the request content type.\n\n**IMPORTANT**\n\nData uploaded to a dataset via a stream is not immediatelly processed. Instead, it is processed\nautomatically in accordance with the dataset settings (default: daily) or as a result of calling\n`POST:/datasets/{owner}/{id}/sync`.\n\nOnce processed, the contents of a stream will appear as part of the respective dataset as a `.jsonl`\nfile (e.g. `my-stream` will produce a file named `my-stream.jsonl`).\n",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "streams",
-                ":owner",
-                ":id",
-                ":streamId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "owner",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "streamId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
+          "name": "{owner}",
+          "item": [
             {
-              "id": "e03595e7-906b-4be0-a6d5-87accf71d71c",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "streams",
-                    ":owner",
-                    ":id",
-                    ":streamId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "owner",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "streamId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "{id}",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "{streamId}",
+                  "item": [
+                    {
+                      "name": "records",
+                      "item": [
+                        {
+                          "name": "Delete all records",
+                          "id": "ac8dc1d4-30d0-4863-af8f-be2a78ce7e34",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/streams/:owner/:id/:streamId/records",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "streams",
+                                ":owner",
+                                ":id",
+                                ":streamId",
+                                "records"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "03825b29-b0be-40cb-931b-ddf6973b374c",
+                                  "key": "owner",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "2eadf590-5096-4322-9cd5-7bdcadc0077a",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "ae64dfe9-f666-4926-95c5-eb8130aff258",
+                                  "key": "streamId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Delete all records previously appended to stream."
+                          },
+                          "response": [
+                            {
+                              "id": "a994768e-61bc-40e9-87d5-d5d649ab94b2",
+                              "name": "default response",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/streams/:owner/:id/:streamId/records",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "streams",
+                                    ":owner",
+                                    ":id",
+                                    ":streamId",
+                                    "records"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "owner"
+                                    },
+                                    {
+                                      "key": "id"
+                                    },
+                                    {
+                                      "key": "streamId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-10-21T20:59:12.000Z",
+                              "updatedAt": "2026-10-21T20:59:12.000Z",
+                              "uid": "35240-a994768e-61bc-40e9-87d5-d5d649ab94b2"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:59:12.000Z",
+                          "updatedAt": "2026-10-21T20:59:12.000Z",
+                          "uid": "35240-ac8dc1d4-30d0-4863-af8f-be2a78ce7e34"
+                        }
+                      ],
+                      "id": "d665685e-fc81-44e4-85d5-06926dfeccc6",
+                      "createdAt": "2026-10-21T20:59:12.000Z",
+                      "updatedAt": "2026-10-21T20:59:12.000Z",
+                      "uid": "35240-d665685e-fc81-44e4-85d5-06926dfeccc6"
+                    },
+                    {
+                      "name": "schema",
+                      "item": [
+                        {
+                          "name": "Retrieve stream schema",
+                          "id": "f269be6a-eb03-48a1-97ca-47da8c34a97b",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/streams/:owner/:id/:streamId/schema",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "streams",
+                                ":owner",
+                                ":id",
+                                ":streamId",
+                                "schema"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "05f84025-3853-40ac-994e-f3de7e7121f2",
+                                  "key": "owner",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "3a4a0807-25e7-4711-b94a-fa2a64c02ad2",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "22531f8a-54b6-4f57-afea-c4c911182690",
+                                  "key": "streamId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Retrieve stream schema."
+                          },
+                          "response": [
+                            {
+                              "id": "7dc06456-abd7-401f-8ae5-02d3213dcd75",
+                              "name": "default response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/streams/:owner/:id/:streamId/schema",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "streams",
+                                    ":owner",
+                                    ":id",
+                                    ":streamId",
+                                    "schema"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "owner"
+                                    },
+                                    {
+                                      "key": "id"
+                                    },
+                                    {
+                                      "key": "streamId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"primaryKeyFields\": [\n    \"<string>\"\n  ],\n  \"sequenceField\": \"<string>\"\n}",
+                              "createdAt": "2026-10-21T20:59:12.000Z",
+                              "updatedAt": "2026-10-21T20:59:12.000Z",
+                              "uid": "35240-7dc06456-abd7-401f-8ae5-02d3213dcd75"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:59:12.000Z",
+                          "updatedAt": "2026-10-21T20:59:12.000Z",
+                          "uid": "35240-f269be6a-eb03-48a1-97ca-47da8c34a97b"
+                        },
+                        {
+                          "name": "Set / Update stream schema",
+                          "id": "db7dc147-13b3-47e9-9ad6-cff5925dbe12",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"updateMethod\": \"TRUNCATE\",\n  \"primaryKeyFields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"sequenceField\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/streams/:owner/:id/:streamId/schema",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "streams",
+                                ":owner",
+                                ":id",
+                                ":streamId",
+                                "schema"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "c2dd8d4a-8dbb-492f-b30c-ac85ac2fec15",
+                                  "key": "owner",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "3d9dae45-d02c-4879-afb9-503f4dd3b1fc",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "83a54d6d-3d80-4a6c-ba82-103c4f80c3d0",
+                                  "key": "streamId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "\"Set or update a stream's schema.\n\nThe schema of a stream defines its primary key(s) and sort/sequence field.\n\ndata.world streams are append-only by default. Alternatively, if a primary key is specified, data.world\nwill replace records with the same primary key value. data.world will sort records by sequence field\nvalue and will discard all but the last record appended for each given primary key value.\n\nThe `updateMethod` parameter specifies how data.world should handle existing records when schema is\nupdated. Currently, the only `updateMethod` supported is `TRUNCATED`. data.world will discard all\nrecords when the schema is updated.\""
+                          },
+                          "response": [
+                            {
+                              "id": "9b3918ab-0a63-4eab-a6be-241f953624f4",
+                              "name": "default response",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"updateMethod\": \"TRUNCATE\",\n  \"primaryKeyFields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"sequenceField\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/streams/:owner/:id/:streamId/schema",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "streams",
+                                    ":owner",
+                                    ":id",
+                                    ":streamId",
+                                    "schema"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "owner"
+                                    },
+                                    {
+                                      "key": "id"
+                                    },
+                                    {
+                                      "key": "streamId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-10-21T20:59:12.000Z",
+                              "updatedAt": "2026-10-21T20:59:12.000Z",
+                              "uid": "35240-9b3918ab-0a63-4eab-a6be-241f953624f4"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:59:12.000Z",
+                          "updatedAt": "2026-10-21T20:59:12.000Z",
+                          "uid": "35240-db7dc147-13b3-47e9-9ad6-cff5925dbe12"
+                        }
+                      ],
+                      "id": "883906f4-53fb-4b40-ae85-0d07a8e05892",
+                      "createdAt": "2026-10-21T20:59:12.000Z",
+                      "updatedAt": "2026-10-21T20:59:12.000Z",
+                      "uid": "35240-883906f4-53fb-4b40-ae85-0d07a8e05892"
+                    },
+                    {
+                      "name": "Append record(s)",
+                      "id": "6a47c199-07ce-4218-904d-90a51511fc84",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/streams/:owner/:id/:streamId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "streams",
+                            ":owner",
+                            ":id",
+                            ":streamId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "0d30552e-1024-4d3e-984f-c582ed589831",
+                              "key": "owner",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "644b38ec-e450-444a-91a3-eac93c3ff817",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "1b92b797-255e-4da3-8090-6414826aeea0",
+                              "key": "streamId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Append JSON data to a stream associated with a dataset.\n\ndata.world streams are append-only by default. Alternatively, if a primary key is specified (see:\n`POST:/streams/{owner}/{id}/{streamId}/schema`), data.world will replace records with the same primary\nkey value.\n\n**Streams don't need to be created before you can append data to them**. They will be created on-demand,\nwhen the first record is appended or by defining its schema.\n\nMultiple records can be appended at once by using JSON-L (`application/json-l`) as the request content type.\n\n**IMPORTANT**\n\nData uploaded to a dataset via a stream is not immediatelly processed. Instead, it is processed\nautomatically in accordance with the dataset settings (default: daily) or as a result of calling\n`POST:/datasets/{owner}/{id}/sync`.\n\nOnce processed, the contents of a stream will appear as part of the respective dataset as a `.jsonl`\nfile (e.g. `my-stream` will produce a file named `my-stream.jsonl`)."
+                      },
+                      "response": [
+                        {
+                          "id": "2289b7a2-6424-4165-9d04-ab5295542837",
+                          "name": "default response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/streams/:owner/:id/:streamId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "streams",
+                                ":owner",
+                                ":id",
+                                ":streamId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "owner"
+                                },
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "streamId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "",
+                          "createdAt": "2026-10-21T20:59:12.000Z",
+                          "updatedAt": "2026-10-21T20:59:12.000Z",
+                          "uid": "35240-2289b7a2-6424-4165-9d04-ab5295542837"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:59:12.000Z",
+                      "updatedAt": "2026-10-21T20:59:12.000Z",
+                      "uid": "35240-6a47c199-07ce-4218-904d-90a51511fc84"
+                    }
+                  ],
+                  "id": "becc6df4-3eed-4b65-b8c6-2707a38f4cb6",
+                  "createdAt": "2026-10-21T20:59:12.000Z",
+                  "updatedAt": "2026-10-21T20:59:12.000Z",
+                  "uid": "35240-becc6df4-3eed-4b65-b8c6-2707a38f4cb6"
                 }
               ],
-              "body": "\"\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "6d84613b-49d6-41a2-9304-a1937d0e5934",
+              "createdAt": "2026-10-21T20:59:12.000Z",
+              "updatedAt": "2026-10-21T20:59:12.000Z",
+              "uid": "35240-6d84613b-49d6-41a2-9304-a1937d0e5934"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "b043024c-8286-46f9-a051-c9d21a4d2fd7",
-          "name": "Delete all records",
-          "request": {
-            "name": "Delete all records",
-            "description": {
-              "content": " Delete all records previously appended to stream.\n",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "streams",
-                ":owner",
-                ":id",
-                ":streamId",
-                "records"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "owner",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "streamId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "8243104c-039e-464c-96bc-53a6add0dad9",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "streams",
-                    ":owner",
-                    ":id",
-                    ":streamId",
-                    "records"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "owner",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "streamId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "f8e34a74-4923-438b-96ac-a5c0fb12d261",
-          "name": "Retrieve stream schema",
-          "request": {
-            "name": "Retrieve stream schema",
-            "description": {
-              "content": "Retrieve stream schema.\n",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "streams",
-                ":owner",
-                ":id",
-                ":streamId",
-                "schema"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "owner",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "streamId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "bdd42725-6462-4384-86b3-fdbf221e062a",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "streams",
-                    ":owner",
-                    ":id",
-                    ":streamId",
-                    "schema"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "owner",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "streamId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"primaryKeyFields\": [\n    \"string\"\n  ],\n  \"sequenceField\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "823c4ff9-9d20-4021-8d16-cc107c3f2da7",
-          "name": "Set / Update stream schema",
-          "request": {
-            "name": "Set / Update stream schema",
-            "description": {
-              "content": "\"Set or update a stream's schema.\n\nThe schema of a stream defines its primary key(s) and sort/sequence field.\n\ndata.world streams are append-only by default. Alternatively, if a primary key is specified, data.world\nwill replace records with the same primary key value. data.world will sort records by sequence field\nvalue and will discard all but the last record appended for each given primary key value.\n\nThe `updateMethod` parameter specifies how data.world should handle existing records when schema is\nupdated. Currently, the only `updateMethod` supported is `TRUNCATED`. data.world will discard all\nrecords when the schema is updated.\"\n",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "streams",
-                ":owner",
-                ":id",
-                ":streamId",
-                "schema"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "owner",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "streamId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PATCH",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"updateMethod\": \"<string>\",\n  \"primaryKeyFields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"sequenceField\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "6870ac48-b9be-45e6-8281-9918592525d4",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "streams",
-                    ":owner",
-                    ":id",
-                    ":streamId",
-                    "schema"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "owner",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "streamId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"updateMethod\": \"<string>\",\n  \"primaryKeyFields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"sequenceField\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "1ca3fed5-0455-4d56-b831-ae0d3eaafe68",
+          "createdAt": "2026-10-21T20:59:12.000Z",
+          "updatedAt": "2026-10-21T20:59:12.000Z",
+          "uid": "35240-1ca3fed5-0455-4d56-b831-ae0d3eaafe68"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "/v0",
-      "key": "baseUrl"
+      "id": "16e08d24-8c65-41c3-8333-4662af8439e5",
+      "createdAt": "2026-10-21T20:59:12.000Z",
+      "updatedAt": "2026-10-21T20:59:12.000Z",
+      "uid": "35240-16e08d24-8c65-41c3-8333-4662af8439e5"
     }
   ],
   "auth": {
@@ -585,17 +572,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "0b85af17-a1c6-4b71-ad94-ad8a9ac88c1e",
-    "name": "data.world Public catalog relationships streams API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Manage relationships between catalog resources\n\nContact Support:\n Name: Contact Us",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/v0"
     }
-  }
+  ]
 }

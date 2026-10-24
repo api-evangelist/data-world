@@ -1,119 +1,120 @@
 {
+  "info": {
+    "_postman_id": "e0658d17-34c0-44ee-989a-3a982eeda7e3",
+    "name": "data.world Public Users API",
+    "description": "Contact Support:\n Name: Contact Us",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:59:49.000Z",
+    "updatedAt": "2026-10-21T20:59:49.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e0658d17-34c0-44ee-989a-3a982eeda7e3"
+  },
   "item": [
     {
-      "id": "e0cf2e4e-123c-4f7f-b042-bf9503723dc3",
       "name": "users",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
       "item": [
         {
-          "id": "e226007a-bd43-4e81-942f-b58ada817a35",
-          "name": "Retrieve a user's profile",
-          "request": {
-            "name": "Retrieve a user's profile",
-            "description": {
-              "content": "Retrieve user profile information for the specified account.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "users",
-                ":account"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "account",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "{account}",
+          "item": [
             {
-              "id": "683ec3a9-c698-4b52-9fe5-722e5233ecad",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "users",
-                    ":account"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "account",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
+              "name": "Retrieve a user's profile",
+              "id": "74eb03fa-bcd0-40f7-814f-fb8f7ce8d846",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/users/:account",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    ":account"
+                  ],
+                  "variable": [
+                    {
+                      "id": "2d5933d9-6cf6-4959-8471-02a31538f26f",
+                      "key": "account",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Retrieve user profile information for the specified account."
               },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "508a73ed-8663-495b-8f7b-489a2cdd6e68",
+                  "name": "default response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:account",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":account"
+                      ],
+                      "variable": [
+                        {
+                          "key": "account"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"created\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"updated\": \"<dateTime>\",\n  \"avatarUrl\": \"<string>\",\n  \"baseUrl\": \"<string>\",\n  \"displayName\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:59:49.000Z",
+                  "updatedAt": "2026-10-21T20:59:49.000Z",
+                  "uid": "35240-508a73ed-8663-495b-8f7b-489a2cdd6e68"
                 }
               ],
-              "body": "{\n  \"created\": \"1998-04-10T21:29:30.328Z\",\n  \"id\": \"string\",\n  \"updated\": \"2010-01-09T14:04:31.033Z\",\n  \"avatarUrl\": \"string\",\n  \"baseUrl\": \"string\",\n  \"displayName\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-21T20:59:49.000Z",
+              "updatedAt": "2026-10-21T20:59:49.000Z",
+              "uid": "35240-74eb03fa-bcd0-40f7-814f-fb8f7ce8d846"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "99f51226-762c-4db3-919e-6b23d1fd1a67",
+          "createdAt": "2026-10-21T20:59:49.000Z",
+          "updatedAt": "2026-10-21T20:59:49.000Z",
+          "uid": "35240-99f51226-762c-4db3-919e-6b23d1fd1a67"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "/v0",
-      "key": "baseUrl"
+      "id": "9666818b-488a-4067-a80b-e29c1e97247a",
+      "createdAt": "2026-10-21T20:59:49.000Z",
+      "updatedAt": "2026-10-21T20:59:49.000Z",
+      "uid": "35240-9666818b-488a-4067-a80b-e29c1e97247a"
     }
   ],
   "auth": {
@@ -121,17 +122,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "00e09909-8e3f-4f8f-ba8d-d9540edfb5af",
-    "name": "data.world Public catalog relationships users API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Manage relationships between catalog resources\n\nContact Support:\n Name: Contact Us",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/v0"
     }
-  }
+  ]
 }

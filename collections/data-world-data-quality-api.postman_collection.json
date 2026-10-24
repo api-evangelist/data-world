@@ -1,1644 +1,1747 @@
 {
+  "info": {
+    "_postman_id": "e9e04e30-f061-407a-b823-0aa99ac73220",
+    "name": "data.world Public data quality API",
+    "description": "Manage data quality of metadata resources\n\nContact Support:\n Name: Contact Us",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:57:16.000Z",
+    "updatedAt": "2026-10-21T20:57:16.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e9e04e30-f061-407a-b823-0aa99ac73220"
+  },
   "item": [
     {
-      "id": "c6500dde-c7d2-4a73-95e8-93082a889d4a",
-      "name": "data quality",
-      "description": {
-        "content": "Manage data quality of metadata resources",
-        "type": "text/plain"
-      },
+      "name": "dataquality",
       "item": [
         {
-          "id": "029602cc-ef10-4cdb-9ae7-63440917873f",
-          "name": "Show data quality audits",
-          "request": {
-            "name": "Show data quality audits",
-            "description": {
-              "content": "Shows audits that happened during processing of data quality inputs.\nOne of \"requestId\" or \"resourceIri\" needs to be provided.\nOnly errors are tracked. Audits expire 1 day after creation. Returns a maximum of 100 audits.\nIf there are no audits, it is likely the request was executed successfully.\n\nAccess requirement: Requires an admin token. It also requires admin access to the organization.\n\nThis endpoint is in active development. Its definition and behavior may change frequently and without notice.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "dataquality",
-                "audits",
-                ":orgAgentId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "requestId",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "resourceIri",
-                  "value": "<string>",
-                  "description": "Internationalized Resource Identifier (IRI) of the resource. You can find the IRI in the Technical Reference section under the Settings tab on the resource’s catalog page."
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "orgAgentId",
-                  "description": "(Required) organization agent ID"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "audits",
+          "item": [
             {
-              "id": "5cfd5094-6a88-4ce3-9927-12a755e3a4ce",
-              "name": "Successful operation",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "dataquality",
-                    "audits",
-                    ":orgAgentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "requestId",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "resourceIri",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "orgAgentId",
-                      "description": "(Required) organization agent ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "{orgAgentId}",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "Show data quality audits",
+                  "id": "4da12ffd-6745-4997-a44c-2bd9efc6e03f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dataquality/audits/:orgAgentId?requestId=<string>&resourceIri=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dataquality",
+                        "audits",
+                        ":orgAgentId"
+                      ],
+                      "query": [
+                        {
+                          "key": "requestId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Internationalized Resource Identifier (IRI) of the resource. You can find the IRI in the Technical Reference section under the Settings tab on the resource\u2019s catalog page.",
+                          "key": "resourceIri",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "b1ea0b99-f38e-43d3-85b2-190f2ed7eb5d",
+                          "key": "orgAgentId",
+                          "value": "<string>",
+                          "description": "(Required) organization agent ID"
+                        }
+                      ]
+                    },
+                    "description": "Shows audits that happened during processing of data quality inputs.\nOne of \"requestId\" or \"resourceIri\" needs to be provided.\nOnly errors are tracked. Audits expire 1 day after creation. Returns a maximum of 100 audits.\nIf there are no audits, it is likely the request was executed successfully.\n\nAccess requirement: Requires an admin token. It also requires admin access to the organization.\n\nThis endpoint is in active development. Its definition and behavior may change frequently and without notice."
+                  },
+                  "response": [
+                    {
+                      "id": "18f690f9-9a4c-4784-ac82-5d28c1389ef9",
+                      "name": "Successful operation",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dataquality/audits/:orgAgentId?requestId=<string>&resourceIri=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataquality",
+                            "audits",
+                            ":orgAgentId"
+                          ],
+                          "query": [
+                            {
+                              "key": "requestId",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Internationalized Resource Identifier (IRI) of the resource. You can find the IRI in the Technical Reference section under the Settings tab on the resource\u2019s catalog page.",
+                              "key": "resourceIri",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "orgAgentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"audits\": [\n    {\n      \"auditType\": \"<string>\",\n      \"executedAt\": \"<dateTime>\",\n      \"message\": \"<string>\",\n      \"requestId\": \"<string>\",\n      \"resourceIri\": \"<string>\"\n    },\n    {\n      \"auditType\": \"<string>\",\n      \"executedAt\": \"<dateTime>\",\n      \"message\": \"<string>\",\n      \"requestId\": \"<string>\",\n      \"resourceIri\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-21T20:57:16.000Z",
+                      "updatedAt": "2026-10-21T20:57:16.000Z",
+                      "uid": "35240-18f690f9-9a4c-4784-ac82-5d28c1389ef9"
+                    },
+                    {
+                      "id": "00b44e82-e7eb-4961-8474-9d71e278dd52",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dataquality/audits/:orgAgentId?requestId=<string>&resourceIri=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataquality",
+                            "audits",
+                            ":orgAgentId"
+                          ],
+                          "query": [
+                            {
+                              "key": "requestId",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Internationalized Resource Identifier (IRI) of the resource. You can find the IRI in the Technical Reference section under the Settings tab on the resource\u2019s catalog page.",
+                              "key": "resourceIri",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "orgAgentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"details\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:57:16.000Z",
+                      "updatedAt": "2026-10-21T20:57:16.000Z",
+                      "uid": "35240-00b44e82-e7eb-4961-8474-9d71e278dd52"
+                    },
+                    {
+                      "id": "6f56b26b-68d5-4687-bbf0-f8bb4efa88f8",
+                      "name": "User is unauthorized to perform action",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dataquality/audits/:orgAgentId?requestId=<string>&resourceIri=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataquality",
+                            "audits",
+                            ":orgAgentId"
+                          ],
+                          "query": [
+                            {
+                              "key": "requestId",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Internationalized Resource Identifier (IRI) of the resource. You can find the IRI in the Technical Reference section under the Settings tab on the resource\u2019s catalog page.",
+                              "key": "resourceIri",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "orgAgentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"details\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:57:16.000Z",
+                      "updatedAt": "2026-10-21T20:57:16.000Z",
+                      "uid": "35240-6f56b26b-68d5-4687-bbf0-f8bb4efa88f8"
+                    },
+                    {
+                      "id": "3ce6977c-ae14-4f85-b247-49a6f4dc3c2d",
+                      "name": "Access forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dataquality/audits/:orgAgentId?requestId=<string>&resourceIri=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataquality",
+                            "audits",
+                            ":orgAgentId"
+                          ],
+                          "query": [
+                            {
+                              "key": "requestId",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Internationalized Resource Identifier (IRI) of the resource. You can find the IRI in the Technical Reference section under the Settings tab on the resource\u2019s catalog page.",
+                              "key": "resourceIri",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "orgAgentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"details\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:57:16.000Z",
+                      "updatedAt": "2026-10-21T20:57:16.000Z",
+                      "uid": "35240-3ce6977c-ae14-4f85-b247-49a6f4dc3c2d"
+                    },
+                    {
+                      "id": "7703b569-060c-49a5-8eb9-63e6c91f0c89",
+                      "name": "Server error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dataquality/audits/:orgAgentId?requestId=<string>&resourceIri=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataquality",
+                            "audits",
+                            ":orgAgentId"
+                          ],
+                          "query": [
+                            {
+                              "key": "requestId",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Internationalized Resource Identifier (IRI) of the resource. You can find the IRI in the Technical Reference section under the Settings tab on the resource\u2019s catalog page.",
+                              "key": "resourceIri",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "orgAgentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"details\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:57:16.000Z",
+                      "updatedAt": "2026-10-21T20:57:16.000Z",
+                      "uid": "35240-7703b569-060c-49a5-8eb9-63e6c91f0c89"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:57:16.000Z",
+                  "updatedAt": "2026-10-21T20:57:16.000Z",
+                  "uid": "35240-4da12ffd-6745-4997-a44c-2bd9efc6e03f"
                 }
               ],
-              "body": "{\n  \"audits\": [\n    {\n      \"auditType\": \"string\",\n      \"executedAt\": \"2002-03-05T21:17:27.636Z\",\n      \"message\": \"string\",\n      \"requestId\": \"string\",\n      \"resourceIri\": \"string\"\n    },\n    {\n      \"auditType\": \"string\",\n      \"executedAt\": \"1954-09-23T17:10:46.074Z\",\n      \"message\": \"string\",\n      \"requestId\": \"string\",\n      \"resourceIri\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "d89cf3e3-8084-4ee7-bcca-a9d9f9b7166e",
-              "name": "Bad Request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "dataquality",
-                    "audits",
-                    ":orgAgentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "requestId",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "resourceIri",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "orgAgentId",
-                      "description": "(Required) organization agent ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 1961,\n  \"details\": \"string\",\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "cf1bb1ce-0a46-4a8a-8c2a-c3dde1516c43",
-              "name": "User is unauthorized to perform action",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "dataquality",
-                    "audits",
-                    ":orgAgentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "requestId",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "resourceIri",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "orgAgentId",
-                      "description": "(Required) organization agent ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 1961,\n  \"details\": \"string\",\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "a3b4e3f2-1e18-40ff-b674-51c2ac4c61bd",
-              "name": "Access forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "dataquality",
-                    "audits",
-                    ":orgAgentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "requestId",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "resourceIri",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "orgAgentId",
-                      "description": "(Required) organization agent ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 1961,\n  \"details\": \"string\",\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "bbbd706e-bf32-41a1-808d-1dfb72917a9b",
-              "name": "Server error",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "dataquality",
-                    "audits",
-                    ":orgAgentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "requestId",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "resourceIri",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "orgAgentId",
-                      "description": "(Required) organization agent ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 1961,\n  \"details\": \"string\",\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "2b69e030-9dd8-4f63-9eab-4d7bff9c5001",
+              "createdAt": "2026-10-21T20:57:16.000Z",
+              "updatedAt": "2026-10-21T20:57:16.000Z",
+              "uid": "35240-2b69e030-9dd8-4f63-9eab-4d7bff9c5001"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "e70f92b0-1abb-43cb-8883-9caaf322953a",
+          "createdAt": "2026-10-21T20:57:16.000Z",
+          "updatedAt": "2026-10-21T20:57:16.000Z",
+          "uid": "35240-e70f92b0-1abb-43cb-8883-9caaf322953a"
         },
         {
-          "id": "4219e752-430c-4635-9146-f90ff67733cc",
-          "name": "Add Badges",
-          "request": {
-            "name": "Add Badges",
-            "description": {
-              "content": "Associate a metadata resource with a Badge that describes its overall data quality status.\n\nAccess requirement: Requires an admin token. It also requires admin access to the organization.\n\nThis endpoint is in active development. Its definition and behavior may change frequently and without notice.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "dataquality",
-                "badges",
-                ":orgAgentId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "orgAgentId",
-                  "description": "(Required) organization agent ID"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"badges\": [\n    {\n      \"badgeIri\": \"<uri>\",\n      \"resource\": {\n        \"iri\": \"<uri>\",\n        \"type\": \"<string>\"\n      }\n    }\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
+          "name": "badges",
+          "item": [
             {
-              "id": "cd70a3fd-feb0-4371-bd2f-799b109885ce",
-              "name": "Accepted",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "dataquality",
-                    "badges",
-                    ":orgAgentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "orgAgentId",
-                      "description": "(Required) organization agent ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"badges\": [\n    {\n      \"badgeIri\": \"http://NGcvOiIXTNrYRyd.hflzSMvAUZlphP0cM8vK8WW,ZY,va,+,bodaW4Z4WwERQg9e\",\n      \"resource\": {\n        \"iri\": \"https://KxhUOGKJ.siJtFMZ8mA+NN0DnWrUv7zqB0W6II,Nyk\",\n        \"type\": \"COLUMN\"\n      }\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Accepted",
-              "code": 202,
-              "header": [
+              "name": "{orgAgentId}",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "Add Badges",
+                  "id": "dd9fcfca-19dc-4ed4-b988-c3f032dbb729",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"badges\": [\n    {\n      \"badgeIri\": \"<uri>\",\n      \"resource\": {\n        \"iri\": \"<uri>\",\n        \"type\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/dataquality/badges/:orgAgentId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dataquality",
+                        "badges",
+                        ":orgAgentId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "99feae5a-4d8b-4994-a947-8357dc5003db",
+                          "key": "orgAgentId",
+                          "value": "<string>",
+                          "description": "(Required) organization agent ID"
+                        }
+                      ]
+                    },
+                    "description": "Associate a metadata resource with a Badge that describes its overall data quality status.\n\nAccess requirement: Requires an admin token. It also requires admin access to the organization.\n\nThis endpoint is in active development. Its definition and behavior may change frequently and without notice."
+                  },
+                  "response": [
+                    {
+                      "id": "b3d6e8a1-6909-465c-b189-7313c3802879",
+                      "name": "Accepted",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"badges\": [\n    {\n      \"badgeIri\": \"<uri>\",\n      \"resource\": {\n        \"iri\": \"<uri>\",\n        \"type\": \"<string>\"\n      }\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/dataquality/badges/:orgAgentId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataquality",
+                            "badges",
+                            ":orgAgentId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "orgAgentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Accepted",
+                      "code": 202,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:57:16.000Z",
+                      "updatedAt": "2026-10-21T20:57:16.000Z",
+                      "uid": "35240-b3d6e8a1-6909-465c-b189-7313c3802879"
+                    },
+                    {
+                      "id": "e586c838-e16c-48c9-b93a-ac37130e0676",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"badges\": [\n    {\n      \"badgeIri\": \"<uri>\",\n      \"resource\": {\n        \"iri\": \"<uri>\",\n        \"type\": \"<string>\"\n      }\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/dataquality/badges/:orgAgentId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataquality",
+                            "badges",
+                            ":orgAgentId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "orgAgentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"details\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:57:16.000Z",
+                      "updatedAt": "2026-10-21T20:57:16.000Z",
+                      "uid": "35240-e586c838-e16c-48c9-b93a-ac37130e0676"
+                    },
+                    {
+                      "id": "48e71e46-7fa5-42f5-b6b5-535a981a9d9c",
+                      "name": "User is unauthorized to perform action",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"badges\": [\n    {\n      \"badgeIri\": \"<uri>\",\n      \"resource\": {\n        \"iri\": \"<uri>\",\n        \"type\": \"<string>\"\n      }\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/dataquality/badges/:orgAgentId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataquality",
+                            "badges",
+                            ":orgAgentId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "orgAgentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"details\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:57:16.000Z",
+                      "updatedAt": "2026-10-21T20:57:16.000Z",
+                      "uid": "35240-48e71e46-7fa5-42f5-b6b5-535a981a9d9c"
+                    },
+                    {
+                      "id": "86f2e029-d3d7-4491-ba8a-f6c14dc319b8",
+                      "name": "Access forbidden",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"badges\": [\n    {\n      \"badgeIri\": \"<uri>\",\n      \"resource\": {\n        \"iri\": \"<uri>\",\n        \"type\": \"<string>\"\n      }\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/dataquality/badges/:orgAgentId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataquality",
+                            "badges",
+                            ":orgAgentId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "orgAgentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"details\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:57:16.000Z",
+                      "updatedAt": "2026-10-21T20:57:16.000Z",
+                      "uid": "35240-86f2e029-d3d7-4491-ba8a-f6c14dc319b8"
+                    },
+                    {
+                      "id": "67e88e2a-e94d-4056-87f2-06494e1f324d",
+                      "name": "Not found",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"badges\": [\n    {\n      \"badgeIri\": \"<uri>\",\n      \"resource\": {\n        \"iri\": \"<uri>\",\n        \"type\": \"<string>\"\n      }\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/dataquality/badges/:orgAgentId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataquality",
+                            "badges",
+                            ":orgAgentId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "orgAgentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"details\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:57:16.000Z",
+                      "updatedAt": "2026-10-21T20:57:16.000Z",
+                      "uid": "35240-67e88e2a-e94d-4056-87f2-06494e1f324d"
+                    },
+                    {
+                      "id": "0529adae-e241-45e3-8591-c14acaf3076d",
+                      "name": "Server error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"badges\": [\n    {\n      \"badgeIri\": \"<uri>\",\n      \"resource\": {\n        \"iri\": \"<uri>\",\n        \"type\": \"<string>\"\n      }\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/dataquality/badges/:orgAgentId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataquality",
+                            "badges",
+                            ":orgAgentId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "orgAgentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"details\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:57:16.000Z",
+                      "updatedAt": "2026-10-21T20:57:16.000Z",
+                      "uid": "35240-0529adae-e241-45e3-8591-c14acaf3076d"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:57:16.000Z",
+                  "updatedAt": "2026-10-21T20:57:16.000Z",
+                  "uid": "35240-dd9fcfca-19dc-4ed4-b988-c3f032dbb729"
                 }
               ],
-              "body": "{\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "3bec3b63-bc68-47c7-a4ee-dfbcfc3b8ba9",
-              "name": "Bad Request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "dataquality",
-                    "badges",
-                    ":orgAgentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "orgAgentId",
-                      "description": "(Required) organization agent ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"badges\": [\n    {\n      \"badgeIri\": \"http://NGcvOiIXTNrYRyd.hflzSMvAUZlphP0cM8vK8WW,ZY,va,+,bodaW4Z4WwERQg9e\",\n      \"resource\": {\n        \"iri\": \"https://KxhUOGKJ.siJtFMZ8mA+NN0DnWrUv7zqB0W6II,Nyk\",\n        \"type\": \"COLUMN\"\n      }\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 1961,\n  \"details\": \"string\",\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "1d893155-e536-454d-8269-d9303e5ee249",
-              "name": "User is unauthorized to perform action",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "dataquality",
-                    "badges",
-                    ":orgAgentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "orgAgentId",
-                      "description": "(Required) organization agent ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"badges\": [\n    {\n      \"badgeIri\": \"http://NGcvOiIXTNrYRyd.hflzSMvAUZlphP0cM8vK8WW,ZY,va,+,bodaW4Z4WwERQg9e\",\n      \"resource\": {\n        \"iri\": \"https://KxhUOGKJ.siJtFMZ8mA+NN0DnWrUv7zqB0W6II,Nyk\",\n        \"type\": \"COLUMN\"\n      }\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 1961,\n  \"details\": \"string\",\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "f94afd97-d641-4c53-8efb-e97e2c520ae7",
-              "name": "Access forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "dataquality",
-                    "badges",
-                    ":orgAgentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "orgAgentId",
-                      "description": "(Required) organization agent ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"badges\": [\n    {\n      \"badgeIri\": \"http://NGcvOiIXTNrYRyd.hflzSMvAUZlphP0cM8vK8WW,ZY,va,+,bodaW4Z4WwERQg9e\",\n      \"resource\": {\n        \"iri\": \"https://KxhUOGKJ.siJtFMZ8mA+NN0DnWrUv7zqB0W6II,Nyk\",\n        \"type\": \"COLUMN\"\n      }\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 1961,\n  \"details\": \"string\",\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "a3065822-b1f1-4fbb-8db7-2aaee989fa71",
-              "name": "Not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "dataquality",
-                    "badges",
-                    ":orgAgentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "orgAgentId",
-                      "description": "(Required) organization agent ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"badges\": [\n    {\n      \"badgeIri\": \"http://NGcvOiIXTNrYRyd.hflzSMvAUZlphP0cM8vK8WW,ZY,va,+,bodaW4Z4WwERQg9e\",\n      \"resource\": {\n        \"iri\": \"https://KxhUOGKJ.siJtFMZ8mA+NN0DnWrUv7zqB0W6II,Nyk\",\n        \"type\": \"COLUMN\"\n      }\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 1961,\n  \"details\": \"string\",\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "74d474bc-eea0-4ce3-a6a2-d973496fdaca",
-              "name": "Server error",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "dataquality",
-                    "badges",
-                    ":orgAgentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "orgAgentId",
-                      "description": "(Required) organization agent ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"badges\": [\n    {\n      \"badgeIri\": \"http://NGcvOiIXTNrYRyd.hflzSMvAUZlphP0cM8vK8WW,ZY,va,+,bodaW4Z4WwERQg9e\",\n      \"resource\": {\n        \"iri\": \"https://KxhUOGKJ.siJtFMZ8mA+NN0DnWrUv7zqB0W6II,Nyk\",\n        \"type\": \"COLUMN\"\n      }\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 1961,\n  \"details\": \"string\",\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "6bd7ff5f-85f3-4eab-ae7d-56929f3ddf29",
+              "createdAt": "2026-10-21T20:57:16.000Z",
+              "updatedAt": "2026-10-21T20:57:16.000Z",
+              "uid": "35240-6bd7ff5f-85f3-4eab-ae7d-56929f3ddf29"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "5d067c9f-4c4c-4d8c-942e-916fa56be376",
+          "createdAt": "2026-10-21T20:57:16.000Z",
+          "updatedAt": "2026-10-21T20:57:16.000Z",
+          "uid": "35240-5d067c9f-4c4c-4d8c-942e-916fa56be376"
         },
         {
-          "id": "e9ad6f0b-2328-4ab6-8d21-f94d53d674c1",
-          "name": "Add Check Runs",
-          "request": {
-            "name": "Add Check Runs",
-            "description": {
-              "content": "Add executions of a check against a metadata resource.\n\nAccess requirement: Requires an admin token. It also requires admin access to the organization.\n\nThis endpoint is in active development. Its definition and behavior may change frequently and without notice.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "dataquality",
-                "checkruns",
-                ":orgAgentId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "collectionIri",
-                  "value": "<string>",
-                  "description": "(Required) The collection to insert resources in. Identified by IRI. You can find the IRI in the Technical Reference section under the Settings tab on the resource’s catalog page."
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "orgAgentId",
-                  "description": "(Required) organization agent ID"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"checkRuns\": [\n    {\n      \"config\": {\n        \"id\": \"<string>\",\n        \"lastUpdated\": \"<dateTime>\",\n        \"query\": \"<string>\",\n        \"resource\": {\n          \"iri\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"source\": \"<string>\",\n        \"title\": \"<string>\",\n        \"description\": \"<string>\",\n        \"dimension\": \"<string>\",\n        \"priorityLevel\": \"<string>\",\n        \"url\": \"<uri>\",\n        \"weight\": 1\n      },\n      \"end\": \"<dateTime>\",\n      \"result\": \"<string>\",\n      \"runSuccessful\": \"<boolean>\",\n      \"start\": \"<dateTime>\",\n      \"evaluatedMessage\": \"<string>\",\n      \"historyMessage\": \"<string>\",\n      \"score\": \"<double>\",\n      \"url\": \"<uri>\"\n    }\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
+          "name": "checkruns",
+          "item": [
             {
-              "id": "911d134b-64b6-413c-a0fe-df04877acd79",
-              "name": "Accepted",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "dataquality",
-                    "checkruns",
-                    ":orgAgentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "collectionIri",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "orgAgentId",
-                      "description": "(Required) organization agent ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"checkRuns\": [\n    {\n      \"config\": {\n        \"id\": \"string\",\n        \"lastUpdated\": \"1975-07-04T10:59:55.755Z\",\n        \"query\": \"string\",\n        \"resource\": {\n          \"iri\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"source\": \"string\",\n        \"title\": \"string\",\n        \"description\": \"string\",\n        \"dimension\": \"string\",\n        \"priorityLevel\": \"string\",\n        \"url\": \"https://xHzAxxDaJBLldAvjUFnKVtqM.qzqGFxNEmB5TT.PAHy8jrYLvPMfiY39GkEDfQqiNgAbHx36LaSO9pBrh-GYU+6e2lx\",\n        \"weight\": 1\n      },\n      \"end\": \"2015-04-04T09:57:57.978Z\",\n      \"result\": \"FAIL\",\n      \"runSuccessful\": true,\n      \"start\": \"2012-06-22T17:24:20.658Z\",\n      \"evaluatedMessage\": \"string\",\n      \"historyMessage\": \"string\",\n      \"score\": 4397.88303646807,\n      \"url\": \"https://UEvDbNkGjRlTZHzjxByGeyXW.iowoHI8MnSh+JDxgtGPuYoUrAxQP\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Accepted",
-              "code": 202,
-              "header": [
+              "name": "{orgAgentId}",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "Add Check Runs",
+                  "id": "222a73ae-f916-49e6-aede-9205e9ea306e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"checkRuns\": [\n    {\n      \"config\": {\n        \"id\": \"<string>\",\n        \"lastUpdated\": \"<dateTime>\",\n        \"query\": \"<string>\",\n        \"resource\": {\n          \"iri\": \"<uri>\",\n          \"type\": \"<string>\"\n        },\n        \"source\": \"<string>\",\n        \"title\": \"<string>\",\n        \"description\": \"<string>\",\n        \"dimension\": \"<string>\",\n        \"priorityLevel\": \"<string>\",\n        \"url\": \"<uri>\",\n        \"weight\": 1\n      },\n      \"end\": \"<dateTime>\",\n      \"result\": \"FAIL\",\n      \"runSuccessful\": \"<boolean>\",\n      \"start\": \"<dateTime>\",\n      \"evaluatedMessage\": \"<string>\",\n      \"historyMessage\": \"<string>\",\n      \"score\": \"<double>\",\n      \"url\": \"<uri>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/dataquality/checkruns/:orgAgentId?collectionIri=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dataquality",
+                        "checkruns",
+                        ":orgAgentId"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The collection to insert resources in. Identified by IRI. You can find the IRI in the Technical Reference section under the Settings tab on the resource\u2019s catalog page.",
+                          "key": "collectionIri",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "4f56747d-c974-4615-b136-42d05528fecd",
+                          "key": "orgAgentId",
+                          "value": "<string>",
+                          "description": "(Required) organization agent ID"
+                        }
+                      ]
+                    },
+                    "description": "Add executions of a check against a metadata resource.\n\nAccess requirement: Requires an admin token. It also requires admin access to the organization.\n\nThis endpoint is in active development. Its definition and behavior may change frequently and without notice."
+                  },
+                  "response": [
+                    {
+                      "id": "909570c0-2339-4e39-923c-f2579de51416",
+                      "name": "Accepted",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"checkRuns\": [\n    {\n      \"config\": {\n        \"id\": \"<string>\",\n        \"lastUpdated\": \"<dateTime>\",\n        \"query\": \"<string>\",\n        \"resource\": {\n          \"iri\": \"<uri>\",\n          \"type\": \"<string>\"\n        },\n        \"source\": \"<string>\",\n        \"title\": \"<string>\",\n        \"description\": \"<string>\",\n        \"dimension\": \"<string>\",\n        \"priorityLevel\": \"<string>\",\n        \"url\": \"<uri>\",\n        \"weight\": 1\n      },\n      \"end\": \"<dateTime>\",\n      \"result\": \"FAIL\",\n      \"runSuccessful\": \"<boolean>\",\n      \"start\": \"<dateTime>\",\n      \"evaluatedMessage\": \"<string>\",\n      \"historyMessage\": \"<string>\",\n      \"score\": \"<double>\",\n      \"url\": \"<uri>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/dataquality/checkruns/:orgAgentId?collectionIri=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataquality",
+                            "checkruns",
+                            ":orgAgentId"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The collection to insert resources in. Identified by IRI. You can find the IRI in the Technical Reference section under the Settings tab on the resource\u2019s catalog page.",
+                              "key": "collectionIri",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "orgAgentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Accepted",
+                      "code": 202,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:57:16.000Z",
+                      "updatedAt": "2026-10-21T20:57:16.000Z",
+                      "uid": "35240-909570c0-2339-4e39-923c-f2579de51416"
+                    },
+                    {
+                      "id": "3558dc65-a56c-496c-9c92-ef89414c03ca",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"checkRuns\": [\n    {\n      \"config\": {\n        \"id\": \"<string>\",\n        \"lastUpdated\": \"<dateTime>\",\n        \"query\": \"<string>\",\n        \"resource\": {\n          \"iri\": \"<uri>\",\n          \"type\": \"<string>\"\n        },\n        \"source\": \"<string>\",\n        \"title\": \"<string>\",\n        \"description\": \"<string>\",\n        \"dimension\": \"<string>\",\n        \"priorityLevel\": \"<string>\",\n        \"url\": \"<uri>\",\n        \"weight\": 1\n      },\n      \"end\": \"<dateTime>\",\n      \"result\": \"FAIL\",\n      \"runSuccessful\": \"<boolean>\",\n      \"start\": \"<dateTime>\",\n      \"evaluatedMessage\": \"<string>\",\n      \"historyMessage\": \"<string>\",\n      \"score\": \"<double>\",\n      \"url\": \"<uri>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/dataquality/checkruns/:orgAgentId?collectionIri=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataquality",
+                            "checkruns",
+                            ":orgAgentId"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The collection to insert resources in. Identified by IRI. You can find the IRI in the Technical Reference section under the Settings tab on the resource\u2019s catalog page.",
+                              "key": "collectionIri",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "orgAgentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"details\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:57:16.000Z",
+                      "updatedAt": "2026-10-21T20:57:16.000Z",
+                      "uid": "35240-3558dc65-a56c-496c-9c92-ef89414c03ca"
+                    },
+                    {
+                      "id": "90895dd4-d5ea-4f9d-b293-82ecdd033abb",
+                      "name": "User is unauthorized to perform action",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"checkRuns\": [\n    {\n      \"config\": {\n        \"id\": \"<string>\",\n        \"lastUpdated\": \"<dateTime>\",\n        \"query\": \"<string>\",\n        \"resource\": {\n          \"iri\": \"<uri>\",\n          \"type\": \"<string>\"\n        },\n        \"source\": \"<string>\",\n        \"title\": \"<string>\",\n        \"description\": \"<string>\",\n        \"dimension\": \"<string>\",\n        \"priorityLevel\": \"<string>\",\n        \"url\": \"<uri>\",\n        \"weight\": 1\n      },\n      \"end\": \"<dateTime>\",\n      \"result\": \"FAIL\",\n      \"runSuccessful\": \"<boolean>\",\n      \"start\": \"<dateTime>\",\n      \"evaluatedMessage\": \"<string>\",\n      \"historyMessage\": \"<string>\",\n      \"score\": \"<double>\",\n      \"url\": \"<uri>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/dataquality/checkruns/:orgAgentId?collectionIri=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataquality",
+                            "checkruns",
+                            ":orgAgentId"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The collection to insert resources in. Identified by IRI. You can find the IRI in the Technical Reference section under the Settings tab on the resource\u2019s catalog page.",
+                              "key": "collectionIri",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "orgAgentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"details\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:57:16.000Z",
+                      "updatedAt": "2026-10-21T20:57:16.000Z",
+                      "uid": "35240-90895dd4-d5ea-4f9d-b293-82ecdd033abb"
+                    },
+                    {
+                      "id": "ef9ba0a1-1737-4e77-abc6-63c8c0c94837",
+                      "name": "Access forbidden",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"checkRuns\": [\n    {\n      \"config\": {\n        \"id\": \"<string>\",\n        \"lastUpdated\": \"<dateTime>\",\n        \"query\": \"<string>\",\n        \"resource\": {\n          \"iri\": \"<uri>\",\n          \"type\": \"<string>\"\n        },\n        \"source\": \"<string>\",\n        \"title\": \"<string>\",\n        \"description\": \"<string>\",\n        \"dimension\": \"<string>\",\n        \"priorityLevel\": \"<string>\",\n        \"url\": \"<uri>\",\n        \"weight\": 1\n      },\n      \"end\": \"<dateTime>\",\n      \"result\": \"FAIL\",\n      \"runSuccessful\": \"<boolean>\",\n      \"start\": \"<dateTime>\",\n      \"evaluatedMessage\": \"<string>\",\n      \"historyMessage\": \"<string>\",\n      \"score\": \"<double>\",\n      \"url\": \"<uri>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/dataquality/checkruns/:orgAgentId?collectionIri=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataquality",
+                            "checkruns",
+                            ":orgAgentId"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The collection to insert resources in. Identified by IRI. You can find the IRI in the Technical Reference section under the Settings tab on the resource\u2019s catalog page.",
+                              "key": "collectionIri",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "orgAgentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"details\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:57:16.000Z",
+                      "updatedAt": "2026-10-21T20:57:16.000Z",
+                      "uid": "35240-ef9ba0a1-1737-4e77-abc6-63c8c0c94837"
+                    },
+                    {
+                      "id": "15e72002-bb4f-41d3-aeab-87b8a1db7f4f",
+                      "name": "Not found",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"checkRuns\": [\n    {\n      \"config\": {\n        \"id\": \"<string>\",\n        \"lastUpdated\": \"<dateTime>\",\n        \"query\": \"<string>\",\n        \"resource\": {\n          \"iri\": \"<uri>\",\n          \"type\": \"<string>\"\n        },\n        \"source\": \"<string>\",\n        \"title\": \"<string>\",\n        \"description\": \"<string>\",\n        \"dimension\": \"<string>\",\n        \"priorityLevel\": \"<string>\",\n        \"url\": \"<uri>\",\n        \"weight\": 1\n      },\n      \"end\": \"<dateTime>\",\n      \"result\": \"FAIL\",\n      \"runSuccessful\": \"<boolean>\",\n      \"start\": \"<dateTime>\",\n      \"evaluatedMessage\": \"<string>\",\n      \"historyMessage\": \"<string>\",\n      \"score\": \"<double>\",\n      \"url\": \"<uri>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/dataquality/checkruns/:orgAgentId?collectionIri=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataquality",
+                            "checkruns",
+                            ":orgAgentId"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The collection to insert resources in. Identified by IRI. You can find the IRI in the Technical Reference section under the Settings tab on the resource\u2019s catalog page.",
+                              "key": "collectionIri",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "orgAgentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"details\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:57:16.000Z",
+                      "updatedAt": "2026-10-21T20:57:16.000Z",
+                      "uid": "35240-15e72002-bb4f-41d3-aeab-87b8a1db7f4f"
+                    },
+                    {
+                      "id": "eaed5516-58bf-47e2-9721-2e5c35fd8fa3",
+                      "name": "Server error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"checkRuns\": [\n    {\n      \"config\": {\n        \"id\": \"<string>\",\n        \"lastUpdated\": \"<dateTime>\",\n        \"query\": \"<string>\",\n        \"resource\": {\n          \"iri\": \"<uri>\",\n          \"type\": \"<string>\"\n        },\n        \"source\": \"<string>\",\n        \"title\": \"<string>\",\n        \"description\": \"<string>\",\n        \"dimension\": \"<string>\",\n        \"priorityLevel\": \"<string>\",\n        \"url\": \"<uri>\",\n        \"weight\": 1\n      },\n      \"end\": \"<dateTime>\",\n      \"result\": \"FAIL\",\n      \"runSuccessful\": \"<boolean>\",\n      \"start\": \"<dateTime>\",\n      \"evaluatedMessage\": \"<string>\",\n      \"historyMessage\": \"<string>\",\n      \"score\": \"<double>\",\n      \"url\": \"<uri>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/dataquality/checkruns/:orgAgentId?collectionIri=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataquality",
+                            "checkruns",
+                            ":orgAgentId"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The collection to insert resources in. Identified by IRI. You can find the IRI in the Technical Reference section under the Settings tab on the resource\u2019s catalog page.",
+                              "key": "collectionIri",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "orgAgentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"details\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:57:16.000Z",
+                      "updatedAt": "2026-10-21T20:57:16.000Z",
+                      "uid": "35240-eaed5516-58bf-47e2-9721-2e5c35fd8fa3"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:57:16.000Z",
+                  "updatedAt": "2026-10-21T20:57:16.000Z",
+                  "uid": "35240-222a73ae-f916-49e6-aede-9205e9ea306e"
                 }
               ],
-              "body": "{\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "9066bf73-be48-442b-9e68-b04b76c69852",
-              "name": "Bad Request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "dataquality",
-                    "checkruns",
-                    ":orgAgentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "collectionIri",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "orgAgentId",
-                      "description": "(Required) organization agent ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"checkRuns\": [\n    {\n      \"config\": {\n        \"id\": \"string\",\n        \"lastUpdated\": \"1975-07-04T10:59:55.755Z\",\n        \"query\": \"string\",\n        \"resource\": {\n          \"iri\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"source\": \"string\",\n        \"title\": \"string\",\n        \"description\": \"string\",\n        \"dimension\": \"string\",\n        \"priorityLevel\": \"string\",\n        \"url\": \"https://xHzAxxDaJBLldAvjUFnKVtqM.qzqGFxNEmB5TT.PAHy8jrYLvPMfiY39GkEDfQqiNgAbHx36LaSO9pBrh-GYU+6e2lx\",\n        \"weight\": 1\n      },\n      \"end\": \"2015-04-04T09:57:57.978Z\",\n      \"result\": \"FAIL\",\n      \"runSuccessful\": true,\n      \"start\": \"2012-06-22T17:24:20.658Z\",\n      \"evaluatedMessage\": \"string\",\n      \"historyMessage\": \"string\",\n      \"score\": 4397.88303646807,\n      \"url\": \"https://UEvDbNkGjRlTZHzjxByGeyXW.iowoHI8MnSh+JDxgtGPuYoUrAxQP\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 1961,\n  \"details\": \"string\",\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "6f781562-236d-46ac-9cea-4c1d26dd2787",
-              "name": "User is unauthorized to perform action",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "dataquality",
-                    "checkruns",
-                    ":orgAgentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "collectionIri",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "orgAgentId",
-                      "description": "(Required) organization agent ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"checkRuns\": [\n    {\n      \"config\": {\n        \"id\": \"string\",\n        \"lastUpdated\": \"1975-07-04T10:59:55.755Z\",\n        \"query\": \"string\",\n        \"resource\": {\n          \"iri\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"source\": \"string\",\n        \"title\": \"string\",\n        \"description\": \"string\",\n        \"dimension\": \"string\",\n        \"priorityLevel\": \"string\",\n        \"url\": \"https://xHzAxxDaJBLldAvjUFnKVtqM.qzqGFxNEmB5TT.PAHy8jrYLvPMfiY39GkEDfQqiNgAbHx36LaSO9pBrh-GYU+6e2lx\",\n        \"weight\": 1\n      },\n      \"end\": \"2015-04-04T09:57:57.978Z\",\n      \"result\": \"FAIL\",\n      \"runSuccessful\": true,\n      \"start\": \"2012-06-22T17:24:20.658Z\",\n      \"evaluatedMessage\": \"string\",\n      \"historyMessage\": \"string\",\n      \"score\": 4397.88303646807,\n      \"url\": \"https://UEvDbNkGjRlTZHzjxByGeyXW.iowoHI8MnSh+JDxgtGPuYoUrAxQP\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 1961,\n  \"details\": \"string\",\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "f6fa55eb-5e0c-445c-a2bf-6ce608a700e8",
-              "name": "Access forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "dataquality",
-                    "checkruns",
-                    ":orgAgentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "collectionIri",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "orgAgentId",
-                      "description": "(Required) organization agent ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"checkRuns\": [\n    {\n      \"config\": {\n        \"id\": \"string\",\n        \"lastUpdated\": \"1975-07-04T10:59:55.755Z\",\n        \"query\": \"string\",\n        \"resource\": {\n          \"iri\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"source\": \"string\",\n        \"title\": \"string\",\n        \"description\": \"string\",\n        \"dimension\": \"string\",\n        \"priorityLevel\": \"string\",\n        \"url\": \"https://xHzAxxDaJBLldAvjUFnKVtqM.qzqGFxNEmB5TT.PAHy8jrYLvPMfiY39GkEDfQqiNgAbHx36LaSO9pBrh-GYU+6e2lx\",\n        \"weight\": 1\n      },\n      \"end\": \"2015-04-04T09:57:57.978Z\",\n      \"result\": \"FAIL\",\n      \"runSuccessful\": true,\n      \"start\": \"2012-06-22T17:24:20.658Z\",\n      \"evaluatedMessage\": \"string\",\n      \"historyMessage\": \"string\",\n      \"score\": 4397.88303646807,\n      \"url\": \"https://UEvDbNkGjRlTZHzjxByGeyXW.iowoHI8MnSh+JDxgtGPuYoUrAxQP\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 1961,\n  \"details\": \"string\",\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "9571d286-ef32-4ee2-b179-fdc3f7ad6e29",
-              "name": "Not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "dataquality",
-                    "checkruns",
-                    ":orgAgentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "collectionIri",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "orgAgentId",
-                      "description": "(Required) organization agent ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"checkRuns\": [\n    {\n      \"config\": {\n        \"id\": \"string\",\n        \"lastUpdated\": \"1975-07-04T10:59:55.755Z\",\n        \"query\": \"string\",\n        \"resource\": {\n          \"iri\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"source\": \"string\",\n        \"title\": \"string\",\n        \"description\": \"string\",\n        \"dimension\": \"string\",\n        \"priorityLevel\": \"string\",\n        \"url\": \"https://xHzAxxDaJBLldAvjUFnKVtqM.qzqGFxNEmB5TT.PAHy8jrYLvPMfiY39GkEDfQqiNgAbHx36LaSO9pBrh-GYU+6e2lx\",\n        \"weight\": 1\n      },\n      \"end\": \"2015-04-04T09:57:57.978Z\",\n      \"result\": \"FAIL\",\n      \"runSuccessful\": true,\n      \"start\": \"2012-06-22T17:24:20.658Z\",\n      \"evaluatedMessage\": \"string\",\n      \"historyMessage\": \"string\",\n      \"score\": 4397.88303646807,\n      \"url\": \"https://UEvDbNkGjRlTZHzjxByGeyXW.iowoHI8MnSh+JDxgtGPuYoUrAxQP\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 1961,\n  \"details\": \"string\",\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "3fa07a0a-e4a2-4bac-8ed5-d9e9299c195e",
-              "name": "Server error",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "dataquality",
-                    "checkruns",
-                    ":orgAgentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "collectionIri",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "orgAgentId",
-                      "description": "(Required) organization agent ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"checkRuns\": [\n    {\n      \"config\": {\n        \"id\": \"string\",\n        \"lastUpdated\": \"1975-07-04T10:59:55.755Z\",\n        \"query\": \"string\",\n        \"resource\": {\n          \"iri\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"source\": \"string\",\n        \"title\": \"string\",\n        \"description\": \"string\",\n        \"dimension\": \"string\",\n        \"priorityLevel\": \"string\",\n        \"url\": \"https://xHzAxxDaJBLldAvjUFnKVtqM.qzqGFxNEmB5TT.PAHy8jrYLvPMfiY39GkEDfQqiNgAbHx36LaSO9pBrh-GYU+6e2lx\",\n        \"weight\": 1\n      },\n      \"end\": \"2015-04-04T09:57:57.978Z\",\n      \"result\": \"FAIL\",\n      \"runSuccessful\": true,\n      \"start\": \"2012-06-22T17:24:20.658Z\",\n      \"evaluatedMessage\": \"string\",\n      \"historyMessage\": \"string\",\n      \"score\": 4397.88303646807,\n      \"url\": \"https://UEvDbNkGjRlTZHzjxByGeyXW.iowoHI8MnSh+JDxgtGPuYoUrAxQP\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 1961,\n  \"details\": \"string\",\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "017b6806-036a-4f43-b1ea-1013978b4f34",
+              "createdAt": "2026-10-21T20:57:16.000Z",
+              "updatedAt": "2026-10-21T20:57:16.000Z",
+              "uid": "35240-017b6806-036a-4f43-b1ea-1013978b4f34"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "c50504e8-d1c3-4aed-be5d-3b7469c86177",
+          "createdAt": "2026-10-21T20:57:16.000Z",
+          "updatedAt": "2026-10-21T20:57:16.000Z",
+          "uid": "35240-c50504e8-d1c3-4aed-be5d-3b7469c86177"
         },
         {
-          "id": "91d49190-bf68-480e-9968-d9b9367f3892",
-          "name": "Delete data quality checks",
-          "request": {
-            "name": "Delete data quality checks",
-            "description": {
-              "content": "Asynchronously delete data quality Checks and all associated Check Versions and Check Runs.\n\nThis operation enqueues delete requests for background processing. The response indicates\nhow many requests were successfully enqueued, not how many deletions have completed.\n\nResponse fields:\n- success: Number of delete requests successfully enqueued\n- failed: Number of delete requests that failed to enqueue\n- requestId: Correlation ID for tracking\n\nAccess requirement: Requires an admin token. It also requires admin access to the organization.\n\nThis endpoint is in active development. Its definition and behavior may change frequently and without notice.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "dataquality",
-                "checks",
-                "delete",
-                ":orgAgentId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "orgAgentId",
-                  "description": "(Required) organization agent ID"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"checks\": [\n    {\n      \"checkId\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
+          "name": "checks",
+          "item": [
             {
-              "id": "a91dbe2f-0e07-4385-9336-85a94bf74952",
-              "name": "Accepted",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "dataquality",
-                    "checks",
-                    "delete",
-                    ":orgAgentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "orgAgentId",
-                      "description": "(Required) organization agent ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"checks\": [\n    {\n      \"checkId\": \"freshness-check-001\",\n      \"source\": \"anamalo\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Accepted",
-              "code": 202,
-              "header": [
+              "name": "delete",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "{orgAgentId}",
+                  "item": [
+                    {
+                      "name": "Delete data quality checks",
+                      "id": "e3f139c7-b3ec-4ea0-878b-33213372f2d5",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"checks\": [\n    {\n      \"checkId\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/dataquality/checks/delete/:orgAgentId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataquality",
+                            "checks",
+                            "delete",
+                            ":orgAgentId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "5ef5fda4-28c7-4b0e-bd4f-2127ef66a1d9",
+                              "key": "orgAgentId",
+                              "value": "<string>",
+                              "description": "(Required) organization agent ID"
+                            }
+                          ]
+                        },
+                        "description": "Asynchronously delete data quality Checks and all associated Check Versions and Check Runs.\n\nThis operation enqueues delete requests for background processing. The response indicates\nhow many requests were successfully enqueued, not how many deletions have completed.\n\nResponse fields:\n- success: Number of delete requests successfully enqueued\n- failed: Number of delete requests that failed to enqueue\n- requestId: Correlation ID for tracking\n\nAccess requirement: Requires an admin token. It also requires admin access to the organization.\n\nThis endpoint is in active development. Its definition and behavior may change frequently and without notice."
+                      },
+                      "response": [
+                        {
+                          "id": "8a1bbb9a-cf6c-411c-8b69-dfd698197654",
+                          "name": "Accepted",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"checks\": [\n    {\n      \"checkId\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/dataquality/checks/delete/:orgAgentId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "dataquality",
+                                "checks",
+                                "delete",
+                                ":orgAgentId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "orgAgentId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Accepted",
+                          "code": 202,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:57:16.000Z",
+                          "updatedAt": "2026-10-21T20:57:16.000Z",
+                          "uid": "35240-8a1bbb9a-cf6c-411c-8b69-dfd698197654"
+                        },
+                        {
+                          "id": "09f1b4ff-6a26-45bc-9048-61feff7c8e06",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"checks\": [\n    {\n      \"checkId\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/dataquality/checks/delete/:orgAgentId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "dataquality",
+                                "checks",
+                                "delete",
+                                ":orgAgentId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "orgAgentId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"details\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:57:16.000Z",
+                          "updatedAt": "2026-10-21T20:57:16.000Z",
+                          "uid": "35240-09f1b4ff-6a26-45bc-9048-61feff7c8e06"
+                        },
+                        {
+                          "id": "8d2e7a26-8aca-4ef6-bff3-22e0572c05d1",
+                          "name": "User is unauthorized to perform action",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"checks\": [\n    {\n      \"checkId\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/dataquality/checks/delete/:orgAgentId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "dataquality",
+                                "checks",
+                                "delete",
+                                ":orgAgentId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "orgAgentId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"details\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:57:16.000Z",
+                          "updatedAt": "2026-10-21T20:57:16.000Z",
+                          "uid": "35240-8d2e7a26-8aca-4ef6-bff3-22e0572c05d1"
+                        },
+                        {
+                          "id": "4ed3bab6-113a-495a-b689-fa2890ca9b60",
+                          "name": "Access forbidden",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"checks\": [\n    {\n      \"checkId\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/dataquality/checks/delete/:orgAgentId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "dataquality",
+                                "checks",
+                                "delete",
+                                ":orgAgentId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "orgAgentId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"details\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:57:16.000Z",
+                          "updatedAt": "2026-10-21T20:57:16.000Z",
+                          "uid": "35240-4ed3bab6-113a-495a-b689-fa2890ca9b60"
+                        },
+                        {
+                          "id": "adc32652-4faa-45c7-8311-bc5b01024ed6",
+                          "name": "Server error",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"checks\": [\n    {\n      \"checkId\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/dataquality/checks/delete/:orgAgentId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "dataquality",
+                                "checks",
+                                "delete",
+                                ":orgAgentId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "orgAgentId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"details\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:57:16.000Z",
+                          "updatedAt": "2026-10-21T20:57:16.000Z",
+                          "uid": "35240-adc32652-4faa-45c7-8311-bc5b01024ed6"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:57:16.000Z",
+                      "updatedAt": "2026-10-21T20:57:16.000Z",
+                      "uid": "35240-e3f139c7-b3ec-4ea0-878b-33213372f2d5"
+                    }
+                  ],
+                  "id": "de086ff6-477d-4250-8af1-40ba09cd136c",
+                  "createdAt": "2026-10-21T20:57:16.000Z",
+                  "updatedAt": "2026-10-21T20:57:16.000Z",
+                  "uid": "35240-de086ff6-477d-4250-8af1-40ba09cd136c"
                 }
               ],
-              "body": "{\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "1afbff7f-080c-41d5-b760-d79905dbe2ec",
-              "name": "Bad Request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "dataquality",
-                    "checks",
-                    "delete",
-                    ":orgAgentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "orgAgentId",
-                      "description": "(Required) organization agent ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"checks\": [\n    {\n      \"checkId\": \"freshness-check-001\",\n      \"source\": \"anamalo\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 1961,\n  \"details\": \"string\",\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "4d9a18ab-9be6-46df-a0b3-c1eeac57ef4e",
-              "name": "User is unauthorized to perform action",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "dataquality",
-                    "checks",
-                    "delete",
-                    ":orgAgentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "orgAgentId",
-                      "description": "(Required) organization agent ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"checks\": [\n    {\n      \"checkId\": \"freshness-check-001\",\n      \"source\": \"anamalo\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 1961,\n  \"details\": \"string\",\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "ca46d076-c375-4be4-a1e5-4cbba4e1d9e5",
-              "name": "Access forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "dataquality",
-                    "checks",
-                    "delete",
-                    ":orgAgentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "orgAgentId",
-                      "description": "(Required) organization agent ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"checks\": [\n    {\n      \"checkId\": \"freshness-check-001\",\n      \"source\": \"anamalo\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 1961,\n  \"details\": \"string\",\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "cf21b50d-fdb9-4253-98eb-d19318c8eabe",
-              "name": "Server error",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "dataquality",
-                    "checks",
-                    "delete",
-                    ":orgAgentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "orgAgentId",
-                      "description": "(Required) organization agent ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"checks\": [\n    {\n      \"checkId\": \"freshness-check-001\",\n      \"source\": \"anamalo\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 1961,\n  \"details\": \"string\",\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "602c225c-d207-418f-9fbd-65c472d82851",
+              "createdAt": "2026-10-21T20:57:16.000Z",
+              "updatedAt": "2026-10-21T20:57:16.000Z",
+              "uid": "35240-602c225c-d207-418f-9fbd-65c472d82851"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "2d8897f1-a5fb-4c3a-94eb-333c264b0a58",
+          "createdAt": "2026-10-21T20:57:16.000Z",
+          "updatedAt": "2026-10-21T20:57:16.000Z",
+          "uid": "35240-2d8897f1-a5fb-4c3a-94eb-333c264b0a58"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "/v0",
-      "key": "baseUrl"
+      "id": "7d1d41f5-1f0d-407b-92e9-80efabd75a83",
+      "createdAt": "2026-10-21T20:57:16.000Z",
+      "updatedAt": "2026-10-21T20:57:16.000Z",
+      "uid": "35240-7d1d41f5-1f0d-407b-92e9-80efabd75a83"
     }
   ],
   "auth": {
@@ -1646,17 +1749,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "71777a5d-b047-4ff6-bdfb-97f258341fcb",
-    "name": "data.world Public catalog relationships data quality API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Manage relationships between catalog resources\n\nContact Support:\n Name: Contact Us",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/v0"
     }
-  }
+  ]
 }

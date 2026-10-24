@@ -1,233 +1,246 @@
 {
+  "info": {
+    "_postman_id": "aee8e4fa-a69f-488f-ae29-7209cb867194",
+    "name": "data.world Public Organizations API",
+    "description": "Contact Support:\n Name: Contact Us",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:58:34.000Z",
+    "updatedAt": "2026-10-21T20:58:34.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-aee8e4fa-a69f-488f-ae29-7209cb867194"
+  },
   "item": [
     {
-      "id": "487abc7f-8264-4654-a686-a0ac191efaaf",
       "name": "organizations",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
       "item": [
         {
-          "id": "8b039183-8241-4448-9e5b-efdb46265eea",
-          "name": "Authorize a Team to access an organization",
-          "request": {
-            "name": "Authorize a Team to access an organization",
-            "description": {
-              "content": "Authorize a Team to access an organization",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "organizations",
-                ":agentid",
-                "authorizations",
-                ":teamid"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "agentid",
-                  "description": "(Required) organization agent ID"
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "teamid",
-                  "description": "(Required) team agent ID"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
+          "name": "{agentid}",
+          "item": [
             {
-              "id": "136d3443-7e58-4b31-8359-95718bc145f7",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "organizations",
-                    ":agentid",
-                    "authorizations",
-                    ":teamid"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+              "name": "authorizations",
+              "item": [
+                {
+                  "name": "{teamid}",
+                  "item": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "agentid",
-                      "description": "(Required) organization agent ID"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "teamid",
-                      "description": "(Required) team agent ID"
+                      "name": "Authorize a Team to access an organization",
+                      "id": "401c17df-70c6-4d74-a81f-1903f2e9cfb7",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/organizations/:agentid/authorizations/:teamid",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "organizations",
+                            ":agentid",
+                            "authorizations",
+                            ":teamid"
+                          ],
+                          "variable": [
+                            {
+                              "id": "445446fd-77ef-4c27-8264-8be9cd94b2e4",
+                              "key": "agentid",
+                              "value": "<string>",
+                              "description": "(Required) organization agent ID"
+                            },
+                            {
+                              "id": "c57926ca-1952-4147-b4e8-9ea45573d81e",
+                              "key": "teamid",
+                              "value": "<string>",
+                              "description": "(Required) team agent ID"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "800443fa-4a50-4d7b-8394-d8831da5979f",
+                          "name": "default response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/organizations/:agentid/authorizations/:teamid",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "organizations",
+                                ":agentid",
+                                "authorizations",
+                                ":teamid"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "agentid"
+                                },
+                                {
+                                  "key": "teamid"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:58:34.000Z",
+                          "updatedAt": "2026-10-21T20:58:34.000Z",
+                          "uid": "35240-800443fa-4a50-4d7b-8394-d8831da5979f"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:58:34.000Z",
+                      "updatedAt": "2026-10-21T20:58:34.000Z",
+                      "uid": "35240-401c17df-70c6-4d74-a81f-1903f2e9cfb7"
                     }
-                  ]
-                },
+                  ],
+                  "id": "ac13c237-0fe5-485c-85bf-a562e4e45d29",
+                  "createdAt": "2026-10-21T20:58:34.000Z",
+                  "updatedAt": "2026-10-21T20:58:34.000Z",
+                  "uid": "35240-ac13c237-0fe5-485c-85bf-a562e4e45d29"
+                }
+              ],
+              "id": "0aec207c-b05a-4eb3-bdf3-68bef254f133",
+              "createdAt": "2026-10-21T20:58:34.000Z",
+              "updatedAt": "2026-10-21T20:58:34.000Z",
+              "uid": "35240-0aec207c-b05a-4eb3-bdf3-68bef254f133"
+            }
+          ],
+          "id": "037f4a9e-e30f-4106-b926-6783cef699bf",
+          "createdAt": "2026-10-21T20:58:34.000Z",
+          "updatedAt": "2026-10-21T20:58:34.000Z",
+          "uid": "35240-037f4a9e-e30f-4106-b926-6783cef699bf"
+        },
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Get organization details",
+              "id": "e02ca5fa-4bce-49e1-8f5a-e18944a24a14",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "5d4f586b-863d-40bf-9823-16d5473396f1",
-          "name": "Get organization details",
-          "request": {
-            "name": "Get organization details",
-            "description": {
-              "content": "Get organization details",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "organizations",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) Organization ID."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "6f14f720-d55a-4e6c-9bbd-5fbfc5b77dc8",
-              "name": "default response",
-              "originalRequest": {
                 "url": {
+                  "raw": "{{baseUrl}}/organizations/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "organizations",
                     ":id"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
                   "variable": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
+                      "id": "aff8a0b4-967b-4520-be78-402466f3741c",
                       "key": "id",
+                      "value": "<string>",
                       "description": "(Required) Organization ID."
                     }
                   ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                }
               },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "793d861f-7bee-4655-bc97-f5a9aec3f58b",
+                  "name": "default response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/organizations/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "organizations",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"avatarUrl\": \"<string>\",\n  \"company\": \"<string>\",\n  \"created\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"location\": \"<string>\",\n  \"summary\": \"<string>\",\n  \"updated\": \"<dateTime>\",\n  \"website\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:58:34.000Z",
+                  "updatedAt": "2026-10-21T20:58:34.000Z",
+                  "uid": "35240-793d861f-7bee-4655-bc97-f5a9aec3f58b"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"avatarUrl\": \"string\",\n  \"company\": \"string\",\n  \"created\": \"1947-01-11T14:39:30.343Z\",\n  \"description\": \"string\",\n  \"displayName\": \"string\",\n  \"location\": \"string\",\n  \"summary\": \"string\",\n  \"updated\": \"1989-05-03T02:53:29.838Z\",\n  \"website\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-21T20:58:34.000Z",
+              "updatedAt": "2026-10-21T20:58:34.000Z",
+              "uid": "35240-e02ca5fa-4bce-49e1-8f5a-e18944a24a14"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "b9a1ab2e-610b-41fa-a9ab-3e410dc854d4",
+          "createdAt": "2026-10-21T20:58:34.000Z",
+          "updatedAt": "2026-10-21T20:58:34.000Z",
+          "uid": "35240-b9a1ab2e-610b-41fa-a9ab-3e410dc854d4"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "/v0",
-      "key": "baseUrl"
+      "id": "4748bce2-612b-40c1-8fac-2ad5ccf26009",
+      "createdAt": "2026-10-21T20:58:34.000Z",
+      "updatedAt": "2026-10-21T20:58:34.000Z",
+      "uid": "35240-4748bce2-612b-40c1-8fac-2ad5ccf26009"
     }
   ],
   "auth": {
@@ -235,17 +248,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "50c9a107-efee-4917-bf1c-4476e340aa6f",
-    "name": "data.world Public catalog relationships organizations API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Manage relationships between catalog resources\n\nContact Support:\n Name: Contact Us",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/v0"
     }
-  }
+  ]
 }

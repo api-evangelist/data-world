@@ -1,990 +1,937 @@
 {
+  "info": {
+    "_postman_id": "b0d7f293-cce4-4f59-9e7f-6ea60a84f58a",
+    "name": "data.world Public Insights API",
+    "description": "Contact Support:\n Name: Contact Us",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:57:40.000Z",
+    "updatedAt": "2026-10-21T20:57:41.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b0d7f293-cce4-4f59-9e7f-6ea60a84f58a"
+  },
   "item": [
     {
-      "id": "408b8f5c-c6c4-4f2e-950c-f6e88dcc8319",
       "name": "insights",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
       "item": [
         {
-          "id": "8d6e519b-3848-4e56-b408-af30de9b8229",
-          "name": "List insights",
-          "request": {
-            "name": "List insights",
-            "description": {
-              "content": "List insights associated with a project.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "insights",
-                ":projectOwner",
-                ":projectId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "limit",
-                  "value": "10",
-                  "description": "Number of results to return"
-                },
-                {
-                  "disabled": false,
-                  "key": "next",
-                  "value": "<string>",
-                  "description": "A token supplied by the previous response to retrieve the next page of results"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "projectOwner",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "projectId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "{projectOwner}",
+          "item": [
             {
-              "id": "7fb9e58f-32dd-4e88-9333-f6aec386e0ba",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "insights",
-                    ":projectOwner",
-                    ":projectId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "limit",
-                      "value": "10"
-                    },
-                    {
-                      "key": "next",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "projectOwner",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "projectId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "{projectId}",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "v",
+                      "item": [
+                        {
+                          "name": "{versionId}",
+                          "item": [
+                            {
+                              "name": "Retrieve an insight version",
+                              "id": "2d37dc6d-ea47-418c-97be-43562c81685d",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/insights/:projectOwner/:projectId/:id/v/:versionId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "insights",
+                                    ":projectOwner",
+                                    ":projectId",
+                                    ":id",
+                                    "v",
+                                    ":versionId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "db747832-b3ec-4a06-88f9-8241f0b745e7",
+                                      "key": "projectOwner",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "558cfd57-373c-40d7-a859-9717d8e21d75",
+                                      "key": "projectId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "92fae9e9-1ade-40ae-b36f-63dc78dadbb2",
+                                      "key": "id",
+                                      "value": "<uuid>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "9234a650-9399-4819-a04c-fb2c75dadba7",
+                                      "key": "versionId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Retrieve an insight version."
+                              },
+                              "response": [
+                                {
+                                  "id": "0627f1fe-fc09-4127-93df-c8058008d4a1",
+                                  "name": "default response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/insights/:projectOwner/:projectId/:id/v/:versionId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "insights",
+                                        ":projectOwner",
+                                        ":projectId",
+                                        ":id",
+                                        "v",
+                                        ":versionId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectOwner"
+                                        },
+                                        {
+                                          "key": "projectId"
+                                        },
+                                        {
+                                          "key": "id"
+                                        },
+                                        {
+                                          "key": "versionId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"author\": \"<string>\",\n  \"body\": {\n    \"embedUrl\": \"<uri>\",\n    \"imageUrl\": \"<uri>\",\n    \"markdownBody\": \"<string>\"\n  },\n  \"created\": \"<dateTime>\",\n  \"id\": \"<uuid>\",\n  \"title\": \"<string>\",\n  \"updated\": \"<dateTime>\",\n  \"version\": \"<string>\",\n  \"dataSourceLinks\": [\n    \"<uri>\",\n    \"<uri>\"\n  ],\n  \"description\": \"<string>\",\n  \"sourceLink\": \"<uri>\",\n  \"thumbnail\": \"<uri>\"\n}",
+                                  "createdAt": "2026-10-21T20:57:41.000Z",
+                                  "updatedAt": "2026-10-21T20:57:41.000Z",
+                                  "uid": "35240-0627f1fe-fc09-4127-93df-c8058008d4a1"
+                                }
+                              ],
+                              "createdAt": "2026-10-21T20:57:41.000Z",
+                              "updatedAt": "2026-10-21T20:57:41.000Z",
+                              "uid": "35240-2d37dc6d-ea47-418c-97be-43562c81685d"
+                            }
+                          ],
+                          "id": "ce03e444-73a0-468a-978a-6b569d1cd05e",
+                          "createdAt": "2026-10-21T20:57:41.000Z",
+                          "updatedAt": "2026-10-21T20:57:41.000Z",
+                          "uid": "35240-ce03e444-73a0-468a-978a-6b569d1cd05e"
+                        }
+                      ],
+                      "id": "82bdf71f-6171-4153-9bb5-27b1ac3b3985",
+                      "createdAt": "2026-10-21T20:57:41.000Z",
+                      "updatedAt": "2026-10-21T20:57:41.000Z",
+                      "uid": "35240-82bdf71f-6171-4153-9bb5-27b1ac3b3985"
+                    },
+                    {
+                      "name": "Delete an insight",
+                      "id": "a4e5d841-c65b-44d2-8ce1-42eed3f5a7dd",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/insights/:projectOwner/:projectId/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "insights",
+                            ":projectOwner",
+                            ":projectId",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "ad59566f-8101-4753-9c56-0a35f986bfc1",
+                              "key": "projectOwner",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "55880106-5a3f-42a5-94f0-b1a3524218a8",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "87d6d7ec-7cf4-4c88-b0cb-b8707609f7b1",
+                              "key": "id",
+                              "value": "<uuid>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Delete an insight."
+                      },
+                      "response": [
+                        {
+                          "id": "29ee34d7-8c46-4ba1-8993-b1418530f876",
+                          "name": "default response",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/insights/:projectOwner/:projectId/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "insights",
+                                ":projectOwner",
+                                ":projectId",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectOwner"
+                                },
+                                {
+                                  "key": "projectId"
+                                },
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:57:41.000Z",
+                          "updatedAt": "2026-10-21T20:57:41.000Z",
+                          "uid": "35240-29ee34d7-8c46-4ba1-8993-b1418530f876"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:57:41.000Z",
+                      "updatedAt": "2026-10-21T20:57:41.000Z",
+                      "uid": "35240-a4e5d841-c65b-44d2-8ce1-42eed3f5a7dd"
+                    },
+                    {
+                      "name": "Retrieve an insight",
+                      "id": "d072fde9-8c6c-4abf-9cec-66b50c11f824",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/insights/:projectOwner/:projectId/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "insights",
+                            ":projectOwner",
+                            ":projectId",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "d2a6769f-b7e6-44cf-81c9-742ce129f03c",
+                              "key": "projectOwner",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "10181b0e-78d0-4ce3-89c5-4c6760e0d3e6",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "ae4606ba-d80f-4625-a79a-b6b78224768e",
+                              "key": "id",
+                              "value": "<uuid>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Retrieve an insight."
+                      },
+                      "response": [
+                        {
+                          "id": "565bd994-1766-445b-9784-d398057201fd",
+                          "name": "default response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/insights/:projectOwner/:projectId/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "insights",
+                                ":projectOwner",
+                                ":projectId",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectOwner"
+                                },
+                                {
+                                  "key": "projectId"
+                                },
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"author\": \"<string>\",\n  \"body\": {\n    \"embedUrl\": \"<uri>\",\n    \"imageUrl\": \"<uri>\",\n    \"markdownBody\": \"<string>\"\n  },\n  \"created\": \"<dateTime>\",\n  \"id\": \"<uuid>\",\n  \"title\": \"<string>\",\n  \"updated\": \"<dateTime>\",\n  \"version\": \"<string>\",\n  \"dataSourceLinks\": [\n    \"<uri>\",\n    \"<uri>\"\n  ],\n  \"description\": \"<string>\",\n  \"sourceLink\": \"<uri>\",\n  \"thumbnail\": \"<uri>\"\n}",
+                          "createdAt": "2026-10-21T20:57:41.000Z",
+                          "updatedAt": "2026-10-21T20:57:41.000Z",
+                          "uid": "35240-565bd994-1766-445b-9784-d398057201fd"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:57:41.000Z",
+                      "updatedAt": "2026-10-21T20:57:41.000Z",
+                      "uid": "35240-d072fde9-8c6c-4abf-9cec-66b50c11f824"
+                    },
+                    {
+                      "name": "Update an insight",
+                      "id": "024fdf68-1580-4b5c-9016-df7c107a8e30",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"body\": {\n    \"embedUrl\": \"<uri>\",\n    \"imageUrl\": \"<uri>\",\n    \"markdownBody\": \"<string>\"\n  },\n  \"dataSourceLinks\": [\n    \"<uri>\",\n    \"<uri>\"\n  ],\n  \"description\": \"<string>\",\n  \"sourceLink\": \"<uri>\",\n  \"thumbnail\": \"<uri>\",\n  \"title\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/insights/:projectOwner/:projectId/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "insights",
+                            ":projectOwner",
+                            ":projectId",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "bbdefc6a-2f8b-4454-937a-8bef984ff88f",
+                              "key": "projectOwner",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "c22c556d-165d-4d1c-b698-023c6a3d144d",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "628c885a-50d6-4425-b0d1-5b9308a1ab21",
+                              "key": "id",
+                              "value": "<uuid>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Update an insight. Note that only elements included in the request will be updated. All omitted elements\nwill remain untouched."
+                      },
+                      "response": [
+                        {
+                          "id": "cab8b5f7-6ee9-4ae4-b218-821bec174a26",
+                          "name": "default response",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"body\": {\n    \"embedUrl\": \"<uri>\",\n    \"imageUrl\": \"<uri>\",\n    \"markdownBody\": \"<string>\"\n  },\n  \"dataSourceLinks\": [\n    \"<uri>\",\n    \"<uri>\"\n  ],\n  \"description\": \"<string>\",\n  \"sourceLink\": \"<uri>\",\n  \"thumbnail\": \"<uri>\",\n  \"title\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/insights/:projectOwner/:projectId/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "insights",
+                                ":projectOwner",
+                                ":projectId",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectOwner"
+                                },
+                                {
+                                  "key": "projectId"
+                                },
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:57:41.000Z",
+                          "updatedAt": "2026-10-21T20:57:41.000Z",
+                          "uid": "35240-cab8b5f7-6ee9-4ae4-b218-821bec174a26"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:57:41.000Z",
+                      "updatedAt": "2026-10-21T20:57:41.000Z",
+                      "uid": "35240-024fdf68-1580-4b5c-9016-df7c107a8e30"
+                    },
+                    {
+                      "name": "Replace an insight",
+                      "id": "ea1a8e81-1d6b-445c-8e73-ae34dd0a6618",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"body\": {\n    \"embedUrl\": \"<uri>\",\n    \"imageUrl\": \"<uri>\",\n    \"markdownBody\": \"<string>\"\n  },\n  \"title\": \"<string>\",\n  \"dataSourceLinks\": [\n    \"<uri>\",\n    \"<uri>\"\n  ],\n  \"description\": \"<string>\",\n  \"sourceLink\": \"<uri>\",\n  \"thumbnail\": \"<uri>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/insights/:projectOwner/:projectId/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "insights",
+                            ":projectOwner",
+                            ":projectId",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "a2d74dc0-2805-489e-b367-3b25c16513fc",
+                              "key": "projectOwner",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "6ed566bb-0edf-4c5d-8501-c20d2d509c4d",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "73b3c408-c02d-44ce-81c9-8622f510c97d",
+                              "key": "id",
+                              "value": "<uuid>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Replace an insight."
+                      },
+                      "response": [
+                        {
+                          "id": "aec39d53-264d-4885-b9c4-302f6816dde2",
+                          "name": "default response",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"body\": {\n    \"embedUrl\": \"<uri>\",\n    \"imageUrl\": \"<uri>\",\n    \"markdownBody\": \"<string>\"\n  },\n  \"title\": \"<string>\",\n  \"dataSourceLinks\": [\n    \"<uri>\",\n    \"<uri>\"\n  ],\n  \"description\": \"<string>\",\n  \"sourceLink\": \"<uri>\",\n  \"thumbnail\": \"<uri>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/insights/:projectOwner/:projectId/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "insights",
+                                ":projectOwner",
+                                ":projectId",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectOwner"
+                                },
+                                {
+                                  "key": "projectId"
+                                },
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:57:41.000Z",
+                          "updatedAt": "2026-10-21T20:57:41.000Z",
+                          "uid": "35240-aec39d53-264d-4885-b9c4-302f6816dde2"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:57:41.000Z",
+                      "updatedAt": "2026-10-21T20:57:41.000Z",
+                      "uid": "35240-ea1a8e81-1d6b-445c-8e73-ae34dd0a6618"
+                    }
+                  ],
+                  "id": "e6352a7b-e047-43b9-83d0-f1f05c0b3982",
+                  "createdAt": "2026-10-21T20:57:41.000Z",
+                  "updatedAt": "2026-10-21T20:57:41.000Z",
+                  "uid": "35240-e6352a7b-e047-43b9-83d0-f1f05c0b3982"
+                },
+                {
+                  "name": "List insights",
+                  "id": "52859f0d-ddc1-43dc-a279-817584229d13",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/insights/:projectOwner/:projectId?limit=10&next=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "insights",
+                        ":projectOwner",
+                        ":projectId"
+                      ],
+                      "query": [
+                        {
+                          "description": "Number of results to return",
+                          "key": "limit",
+                          "value": "10"
+                        },
+                        {
+                          "description": "A token supplied by the previous response to retrieve the next page of results",
+                          "key": "next",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "8f6e08ef-1548-4f73-82c2-43ac2b0474a8",
+                          "key": "projectOwner",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        },
+                        {
+                          "id": "5fd46a16-8ed0-4171-8dad-bbf732d2f18d",
+                          "key": "projectId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "List insights associated with a project."
+                  },
+                  "response": [
+                    {
+                      "id": "43c6e736-c059-4d66-9a09-bee7e1fc6a95",
+                      "name": "default response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/insights/:projectOwner/:projectId?limit=10&next=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "insights",
+                            ":projectOwner",
+                            ":projectId"
+                          ],
+                          "query": [
+                            {
+                              "description": "Number of results to return",
+                              "key": "limit",
+                              "value": "10"
+                            },
+                            {
+                              "description": "A token supplied by the previous response to retrieve the next page of results",
+                              "key": "next",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "projectOwner"
+                            },
+                            {
+                              "key": "projectId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"count\": \"<integer>\",\n  \"records\": [\n    {\n      \"author\": \"<string>\",\n      \"body\": {\n        \"embedUrl\": \"<uri>\",\n        \"imageUrl\": \"<uri>\",\n        \"markdownBody\": \"<string>\"\n      },\n      \"created\": \"<dateTime>\",\n      \"id\": \"<uuid>\",\n      \"title\": \"<string>\",\n      \"updated\": \"<dateTime>\",\n      \"version\": \"<string>\",\n      \"dataSourceLinks\": [\n        \"<uri>\",\n        \"<uri>\"\n      ],\n      \"description\": \"<string>\",\n      \"sourceLink\": \"<uri>\",\n      \"thumbnail\": \"<uri>\"\n    },\n    {\n      \"author\": \"<string>\",\n      \"body\": {\n        \"embedUrl\": \"<uri>\",\n        \"imageUrl\": \"<uri>\",\n        \"markdownBody\": \"<string>\"\n      },\n      \"created\": \"<dateTime>\",\n      \"id\": \"<uuid>\",\n      \"title\": \"<string>\",\n      \"updated\": \"<dateTime>\",\n      \"version\": \"<string>\",\n      \"dataSourceLinks\": [\n        \"<uri>\",\n        \"<uri>\"\n      ],\n      \"description\": \"<string>\",\n      \"sourceLink\": \"<uri>\",\n      \"thumbnail\": \"<uri>\"\n    }\n  ],\n  \"nextPageToken\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:57:41.000Z",
+                      "updatedAt": "2026-10-21T20:57:41.000Z",
+                      "uid": "35240-43c6e736-c059-4d66-9a09-bee7e1fc6a95"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:57:41.000Z",
+                  "updatedAt": "2026-10-21T20:57:41.000Z",
+                  "uid": "35240-52859f0d-ddc1-43dc-a279-817584229d13"
+                },
+                {
+                  "name": "Create an insight",
+                  "id": "c24c9d14-9500-4ff4-9b3b-1c6882cb93b8",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"body\": {\n    \"embedUrl\": \"<uri>\",\n    \"imageUrl\": \"<uri>\",\n    \"markdownBody\": \"<string>\"\n  },\n  \"title\": \"<string>\",\n  \"dataSourceLinks\": [\n    \"<uri>\",\n    \"<uri>\"\n  ],\n  \"description\": \"<string>\",\n  \"sourceLink\": \"<uri>\",\n  \"thumbnail\": \"<uri>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/insights/:projectOwner/:projectId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "insights",
+                        ":projectOwner",
+                        ":projectId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "dcfe06ad-f668-4c7f-b323-7b6fee4cf983",
+                          "key": "projectOwner",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        },
+                        {
+                          "id": "b6f3b6b1-58a5-4bcf-9d18-2291da7548ef",
+                          "key": "projectId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Create a new insight."
+                  },
+                  "response": [
+                    {
+                      "id": "ff177ad8-8b3f-4581-a9c0-4be3e4e59230",
+                      "name": "Insight created successfully.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"body\": {\n    \"embedUrl\": \"<uri>\",\n    \"imageUrl\": \"<uri>\",\n    \"markdownBody\": \"<string>\"\n  },\n  \"title\": \"<string>\",\n  \"dataSourceLinks\": [\n    \"<uri>\",\n    \"<uri>\"\n  ],\n  \"description\": \"<string>\",\n  \"sourceLink\": \"<uri>\",\n  \"thumbnail\": \"<uri>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/insights/:projectOwner/:projectId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "insights",
+                            ":projectOwner",
+                            ":projectId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "projectOwner"
+                            },
+                            {
+                              "key": "projectId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"uri\": \"<uri>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:57:41.000Z",
+                      "updatedAt": "2026-10-21T20:57:41.000Z",
+                      "uid": "35240-ff177ad8-8b3f-4581-a9c0-4be3e4e59230"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:57:41.000Z",
+                  "updatedAt": "2026-10-21T20:57:41.000Z",
+                  "uid": "35240-c24c9d14-9500-4ff4-9b3b-1c6882cb93b8"
                 }
               ],
-              "body": "{\n  \"count\": 842,\n  \"records\": [\n    {\n      \"author\": \"string\",\n      \"body\": {\n        \"embedUrl\": \"https://RChKcVJiVRKwIJHFlc.mvqcBLG\",\n        \"imageUrl\": \"http://QgbunXPT.jxdsuu2aVFXj0ktGQrZWEPe2uJI+Y6KZ60Ja0GivuSXf1.dPUULwEZEJc4POcXmZLQGlByZ+rX\",\n        \"markdownBody\": \"string\"\n      },\n      \"created\": \"2019-01-16T01:22:53.637Z\",\n      \"id\": \"1f190389-f39a-50ac-a248-f606f72709dc\",\n      \"title\": \"string\",\n      \"updated\": \"1971-10-31T05:27:54.782Z\",\n      \"version\": \"string\",\n      \"dataSourceLinks\": [\n        \"https://lhyuyprTlBnZUNdDORIYAFAv.ophAZBmMWqd9Qz3gW-R.G9ySz.\",\n        \"http://gvgynGMJsaMdhguKNEOgShaPhAZX.wqoWvI618Ds+Sja,sTbZsX1ShgjVkJaY1T0HWmpNmI4+aoHbXHn\"\n      ],\n      \"description\": \"string\",\n      \"sourceLink\": \"https://rm.iyszfqMwCiMnKnR\",\n      \"thumbnail\": \"https://FHmuBAb.wiO,WwwSj35Ea3-+VVzY5l5pFrAkIzvgUJnVdQBaLFqrYgNf4eAZ4xkQ38VM4SxsR\"\n    },\n    {\n      \"author\": \"string\",\n      \"body\": {\n        \"embedUrl\": \"https://NpSSuJ.rdNfnZSFCbZyFJWmBCxya+O.OSkBHsgOClMLk\",\n        \"imageUrl\": \"https://qyNIrtCqHTxIzyAzGSFYaxgyUXiPQoh.jiobTxntTj8xhr9-4Cy,lesrVOBDRs3b7,7iDRZ\",\n        \"markdownBody\": \"string\"\n      },\n      \"created\": \"1973-04-30T02:19:04.581Z\",\n      \"id\": \"6a58a91b-6a18-1cda-0848-28e4153e74b5\",\n      \"title\": \"string\",\n      \"updated\": \"1966-06-15T03:04:19.341Z\",\n      \"version\": \"string\",\n      \"dataSourceLinks\": [\n        \"http://irpnXKkCNfLqZAXFFn.kmUZ.0QVa29aAQAOHYbbLIRycYBs5H1VUVKyB1CY2nLvf6B52zeG89w7FPhyFXivXOK5t\",\n        \"https://Lv.licVHntIfLLP2g7tnb2yBA.-D4cksCMaxdIcwex3Fh2-+-\"\n      ],\n      \"description\": \"string\",\n      \"sourceLink\": \"http://yVeRtgJkaELvDamUJX.ziFIsLBoFekF,WNS6UXN,s3\",\n      \"thumbnail\": \"http://KTjqQrLwfRTusk.tzbXhFLpScT+PQcWYhmt,5nSbSCEF\"\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "e830edf0-7571-491d-834c-26b7205592a9",
+              "createdAt": "2026-10-21T20:57:41.000Z",
+              "updatedAt": "2026-10-21T20:57:41.000Z",
+              "uid": "35240-e830edf0-7571-491d-834c-26b7205592a9"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "a8d5a0e5-8a9c-4ef7-9d5a-976d8ad93154",
-          "name": "Create an insight",
-          "request": {
-            "name": "Create an insight",
-            "description": {
-              "content": "Create a new insight.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "insights",
-                ":projectOwner",
-                ":projectId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "projectOwner",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "projectId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"body\": {\n    \"embedUrl\": \"<uri>\",\n    \"imageUrl\": \"<uri>\",\n    \"markdownBody\": \"<string>\"\n  },\n  \"title\": \"<string>\",\n  \"dataSourceLinks\": [\n    \"<uri>\",\n    \"<uri>\"\n  ],\n  \"description\": \"<string>\",\n  \"sourceLink\": \"<uri>\",\n  \"thumbnail\": \"<uri>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "fce5d6d7-fefc-4e33-a888-e6709c0f724c",
-              "name": "Insight created successfully.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "insights",
-                    ":projectOwner",
-                    ":projectId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "projectOwner",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "projectId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"body\": {\n    \"embedUrl\": \"https://cTWOQENriNmDcOspcHWL.tpaETCU,UB+1qs0fFdH0hqD-biozOg\",\n    \"imageUrl\": \"http://ueJyIjCWhJkLmXuGz.ynldo\",\n    \"markdownBody\": \"string\"\n  },\n  \"title\": \"<string>\",\n  \"dataSourceLinks\": [\n    \"<uri>\",\n    \"<uri>\"\n  ],\n  \"description\": \"<string>\",\n  \"sourceLink\": \"<uri>\",\n  \"thumbnail\": \"<uri>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"uri\": \"https://KwusjyCKZaRFAOJPJVXLRgZDgmAzYYv.oiyvWKVoY\",\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "44f5fa3b-94f5-4a59-8105-5125be0eb205",
-          "name": "Delete an insight",
-          "request": {
-            "name": "Delete an insight",
-            "description": {
-              "content": "Delete an insight.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "insights",
-                ":projectOwner",
-                ":projectId",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "projectOwner",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "projectId",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<uuid>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "0644d754-3cb5-441e-b154-7164314dabb6",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "insights",
-                    ":projectOwner",
-                    ":projectId",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "projectOwner",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "projectId",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "da25c3d8-b545-4df2-b733-65633a6e6cbe",
-          "name": "Retrieve an insight",
-          "request": {
-            "name": "Retrieve an insight",
-            "description": {
-              "content": "Retrieve an insight.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "insights",
-                ":projectOwner",
-                ":projectId",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "projectOwner",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "projectId",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<uuid>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "0bbae2e5-ae74-4700-b414-c0133e86151d",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "insights",
-                    ":projectOwner",
-                    ":projectId",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "projectOwner",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "projectId",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"author\": \"string\",\n  \"body\": {\n    \"embedUrl\": \"http://QR.xplo-JuXr,1nupJ9aH\",\n    \"imageUrl\": \"https://KyHsUqAIlSzSczEwTa.mfxaSwsDt15ZR0veeY3KkYJJq+ol,hrf9UPlGSckvP52AI8UCYdYsTxSMG\",\n    \"markdownBody\": \"string\"\n  },\n  \"created\": \"1978-06-11T18:01:12.561Z\",\n  \"id\": \"4bf2a3e6-8e9d-0371-9ab0-6a3f2bc4c275\",\n  \"title\": \"string\",\n  \"updated\": \"1979-09-22T00:12:25.574Z\",\n  \"version\": \"string\",\n  \"dataSourceLinks\": [\n    \"https://J.yhxgeQoNgUe\",\n    \"https://vbjcfHBUvKENzjbZ.grmmRnrMFbsaYF6sB5IHwS088fGXzZkwMm+MEfYeDL1-DNkkYHnlUm,ikjdtrayY9E.pWo5MvbKHT0X\"\n  ],\n  \"description\": \"string\",\n  \"sourceLink\": \"https://gBVxYzps.ffejmC2HXObLiGkgl\",\n  \"thumbnail\": \"http://BfUNJkZVClNAGDPttUsWPbcapEi.eknuzt9SvJ43lWmTK7mO0Yy91EEsSsinmPS\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "a145943e-08db-4dd5-ab24-3b0805bfc52c",
-          "name": "Update an insight",
-          "request": {
-            "name": "Update an insight",
-            "description": {
-              "content": "Update an insight. Note that only elements included in the request will be updated. All omitted elements\nwill remain untouched.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "insights",
-                ":projectOwner",
-                ":projectId",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "projectOwner",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "projectId",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<uuid>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PATCH",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"body\": {\n    \"embedUrl\": \"<uri>\",\n    \"imageUrl\": \"<uri>\",\n    \"markdownBody\": \"<string>\"\n  },\n  \"dataSourceLinks\": [\n    \"<uri>\",\n    \"<uri>\"\n  ],\n  \"description\": \"<string>\",\n  \"sourceLink\": \"<uri>\",\n  \"thumbnail\": \"<uri>\",\n  \"title\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "026da6d5-9f35-404b-892a-f59e6b5676a0",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "insights",
-                    ":projectOwner",
-                    ":projectId",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "projectOwner",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "projectId",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"body\": {\n    \"embedUrl\": \"http://sXYaviGtYHDHLFMX.zxA\",\n    \"imageUrl\": \"https://hPNKNVVZYjiPL.zuEJIa8ywGURz5Mxlf7FD7dkdBEsmWcyucaDODKCliCx\",\n    \"markdownBody\": \"string\"\n  },\n  \"dataSourceLinks\": [\n    \"<uri>\",\n    \"<uri>\"\n  ],\n  \"description\": \"<string>\",\n  \"sourceLink\": \"<uri>\",\n  \"thumbnail\": \"<uri>\",\n  \"title\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "6e2f071c-8ecc-485a-a57a-81988e3a19d8",
-          "name": "Replace an insight",
-          "request": {
-            "name": "Replace an insight",
-            "description": {
-              "content": "Replace an insight.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "insights",
-                ":projectOwner",
-                ":projectId",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "projectOwner",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "projectId",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<uuid>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"body\": {\n    \"embedUrl\": \"<uri>\",\n    \"imageUrl\": \"<uri>\",\n    \"markdownBody\": \"<string>\"\n  },\n  \"title\": \"<string>\",\n  \"dataSourceLinks\": [\n    \"<uri>\",\n    \"<uri>\"\n  ],\n  \"description\": \"<string>\",\n  \"sourceLink\": \"<uri>\",\n  \"thumbnail\": \"<uri>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "73e0352b-eaa6-4ac8-8291-8d9382d4ff90",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "insights",
-                    ":projectOwner",
-                    ":projectId",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "projectOwner",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "projectId",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"body\": {\n    \"embedUrl\": \"https://cTWOQENriNmDcOspcHWL.tpaETCU,UB+1qs0fFdH0hqD-biozOg\",\n    \"imageUrl\": \"http://ueJyIjCWhJkLmXuGz.ynldo\",\n    \"markdownBody\": \"string\"\n  },\n  \"title\": \"<string>\",\n  \"dataSourceLinks\": [\n    \"<uri>\",\n    \"<uri>\"\n  ],\n  \"description\": \"<string>\",\n  \"sourceLink\": \"<uri>\",\n  \"thumbnail\": \"<uri>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "e56f5d5a-2687-4ea5-a4b2-0d7b6cb34970",
-          "name": "Retrieve an insight version",
-          "request": {
-            "name": "Retrieve an insight version",
-            "description": {
-              "content": "Retrieve an insight version.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "insights",
-                ":projectOwner",
-                ":projectId",
-                ":id",
-                "v",
-                ":versionId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "projectOwner",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "projectId",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<uuid>",
-                  "key": "id",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "versionId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "8f47e67a-d1e6-46a6-9d83-abd70cd216bf",
-              "name": "default response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "insights",
-                    ":projectOwner",
-                    ":projectId",
-                    ":id",
-                    "v",
-                    ":versionId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "projectOwner",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "projectId",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "id",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "versionId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"author\": \"string\",\n  \"body\": {\n    \"embedUrl\": \"http://QR.xplo-JuXr,1nupJ9aH\",\n    \"imageUrl\": \"https://KyHsUqAIlSzSczEwTa.mfxaSwsDt15ZR0veeY3KkYJJq+ol,hrf9UPlGSckvP52AI8UCYdYsTxSMG\",\n    \"markdownBody\": \"string\"\n  },\n  \"created\": \"1978-06-11T18:01:12.561Z\",\n  \"id\": \"4bf2a3e6-8e9d-0371-9ab0-6a3f2bc4c275\",\n  \"title\": \"string\",\n  \"updated\": \"1979-09-22T00:12:25.574Z\",\n  \"version\": \"string\",\n  \"dataSourceLinks\": [\n    \"https://J.yhxgeQoNgUe\",\n    \"https://vbjcfHBUvKENzjbZ.grmmRnrMFbsaYF6sB5IHwS088fGXzZkwMm+MEfYeDL1-DNkkYHnlUm,ikjdtrayY9E.pWo5MvbKHT0X\"\n  ],\n  \"description\": \"string\",\n  \"sourceLink\": \"https://gBVxYzps.ffejmC2HXObLiGkgl\",\n  \"thumbnail\": \"http://BfUNJkZVClNAGDPttUsWPbcapEi.eknuzt9SvJ43lWmTK7mO0Yy91EEsSsinmPS\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "c84d6896-2f3b-41b2-a9d0-1f6df57c4faa",
+          "createdAt": "2026-10-21T20:57:41.000Z",
+          "updatedAt": "2026-10-21T20:57:41.000Z",
+          "uid": "35240-c84d6896-2f3b-41b2-a9d0-1f6df57c4faa"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "/v0",
-      "key": "baseUrl"
+      "id": "f682a928-30d7-4cf7-90b0-178043d0f71c",
+      "createdAt": "2026-10-21T20:57:41.000Z",
+      "updatedAt": "2026-10-21T20:57:41.000Z",
+      "uid": "35240-f682a928-30d7-4cf7-90b0-178043d0f71c"
     }
   ],
   "auth": {
@@ -992,17 +939,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "84df9acf-c55e-40d1-a06e-aa70175e5161",
-    "name": "data.world Public catalog relationships insights API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Manage relationships between catalog resources\n\nContact Support:\n Name: Contact Us",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/v0"
     }
-  }
+  ]
 }
